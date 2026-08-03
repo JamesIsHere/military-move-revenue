@@ -1,7 +1,12 @@
 # Source Register
 
-This is the human-readable intake queue. A machine-readable manifest will be
-created after the source metadata model is derived.
+This is the human-readable intake queue and companion to the current
+`sources/source-manifest.csv`. The manifest will be expanded or migrated when
+the source metadata model is implemented.
+
+Source precedence and conflict workflow are governed by
+`docs/decisions/0002-source-precedence-and-conflicts.md`. Active interpretation
+cases are preserved in `docs/conflict-register.md`.
 
 ## Status vocabulary
 
@@ -25,18 +30,20 @@ created after the source metadata model is derived.
 
 | ID | Source | Class | Primary schema contribution | Status |
 | --- | --- | --- | --- | --- |
-| SRC-DP3-2026-400NG | [2026 Domestic 400NG](https://www.business.ustranscom.mil/dp3/docs/otherpdfs/0840%2B2026_Business_Rules/2026%20400NG%20%285%20Dec%2025%29%20Final.pdf) | governing | Charges, weights, reweighs, SIT, mileage, fuel, time, calculations, evidence references | archived; extracting |
-| SRC-DP3-2026-RATES | [2026 400NG baseline rates](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | governing | Rate-table keys, measures, geography, effective periods | archived; spreadsheet inspection queued |
+| SRC-DP3-2026-400NG | [2026 Domestic 400NG](https://www.business.ustranscom.mil/dp3/docs/otherpdfs/0840%2B2026_Business_Rules/2026%20400NG%20%285%20Dec%2025%29%20Final.pdf) | governing | Charges, weights, reweighs, SIT, mileage, fuel, time, calculations, evidence references | archived; extracting (weight and SIT sections reviewed) |
+| SRC-DP3-2026-RATES | [2026 400NG baseline rates](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | governing | Rate-table keys, measures, geography, effective periods | archived; structurally reviewed; date-selection conflict open |
 | SRC-DP3-2026-TOS-C1 | [2026 Tender of Service Change 1](https://www.business.ustranscom.mil/dp3/docs/otherpdfs/0840%2B2026_Business_Rules/2026%20Tender%20of%20Service%20Change%201%20%2818%20Feb%202026%29.pdf) | governing | Obligations, dates, events, evidence, actors, service performance | archived; extracting |
 | SRC-DTR-IV-A402 | [DTR Part IV — Chapter A-402](https://www.business.ustranscom.mil/dtr/part-iv/dtr_part_iv_A_402.pdf) | governing | Shipment lifecycle, dates, locations, weights, SIT, approvals | archived; extracting (lifecycle/SIT reviewed) |
 | SRC-DTR-IV-A413 | [DTR Part IV — Chapter A-413](https://www.business.ustranscom.mil/dtr/part-iv/dtr_part_iv_A_413.pdf) | governing | Bill-of-lading structure and responsibilities | archived; extracting |
 | SRC-DTR-IV-AAA | [DTR Appendix A-A — TPPS](https://www.business.ustranscom.mil/dtr/part-iv/dtr_part_iv_app_A-A.pdf) | governing | BL/invoice cardinality, invoice lines, statuses, identifiers, submissions, acknowledgements, payments | archived; extracting |
 | SRC-FORM-DD619-2025 | [DD Form 619, February 2025](https://www.esd.whs.mil/Portals/54/Documents/DD/forms/dd/dd0619.pdf) | official-operational | Shipment parties, accessorial evidence, origin/destination, signatures and dates | identified; official server blocks archival request |
 | SRC-DTEB-REFDATA | [DTEB reference data](https://www.business.ustranscom.mil/cmd/associated/dteb/reference-data.cfm) | official-operational | Controlled codes, definitions, value-set governance | identified |
-| SRC-DP3-ITEM-CODES | [DP3 library — item-code listing](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | official-operational | Billable-service and system item-code vocabulary | archived; spreadsheet inspection queued |
-| SRC-DP3-MILEAGE-SIT | [DP3 library — mileage/transit/SIT tool](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | official-operational | Distance, transit, ZIP/basing, SIT lookup inputs | archived; spreadsheet inspection queued |
-| SRC-DP3-2026-TRANSIT | [2026 transit-time tables](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | official-operational | Origin/destination lookup dimensions and transit-day measures | archived; spreadsheet inspection queued |
+| SRC-DP3-ITEM-CODES | [DP3 library — item-code listing](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | official-operational | Billable-service and system item-code vocabulary | archived; structurally inspected; supersession unresolved |
+| SRC-DP3-MILEAGE-SIT | [DP3 library — mileage/transit/SIT tool](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | official-operational | Distance, transit, ZIP/basing, SIT lookup inputs | archived; structurally inspected; effective date/transit conflict unresolved |
+| SRC-DP3-2026-TRANSIT | [2026 transit-time tables](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | official-operational | Origin/destination lookup dimensions and transit-day measures | archived; domestic sheet reviewed |
 | SRC-DP3-2026-ADVISORIES | [DP3 advisories](https://www.business.ustranscom.mil/dp3/pdfs.cfm) | governing | Mid-cycle overrides and clarifications, including billing and fuel | identified |
+| SRC-PPA-RESOURCE-CENTER | [PPA Industry & Government Resource Center](https://www.ppa.mil/Industry-Government-Resource-Center/) | official-operational | Current publication index, advisories, and operational quick links after the 2026 PPA website transition | identified; online text inspected 2026-08-03; raw HTML capture blocked by CDN |
+| SRC-PPA-ADV-26-0105 | [PPA Advisory 26-0105 — official PPA website](https://media.defense.gov/2026/Jul/06/2003957897/-1/-1/0/DOW%20PPA%20PP%20ADVISORY%2026-0105%20PROMOTE%20THE%20OFFICIAL%20DOW%20PPA%20WEBSITE.PDF) | governing | Establishes the new PPA site as the authoritative current public resource surface | identified; online text inspected; raw PDF download blocked by CDN |
 
 ## P1 — required before external interchange or broad evidence automation
 
@@ -75,6 +82,13 @@ effective and supersession metadata are resolved. A source can inform a
 provisional schema while `identified`, but the resulting fields must remain
 provisional.
 
-The approved spreadsheet workflow is now available. The archived workbooks have
-not yet been inspected; their internal schema remains pending as the next
-source-foundation task.
+The archived workbooks were inspected on 2026-08-03 with an explicitly
+user-authorized openpyxl read-only fallback after the artifact-tool runtime was
+unavailable. Raw artifacts remain unchanged. The reproducible method, structural
+extract, reviewed dimensions, and unresolved source conflicts are documented in
+`docs/workbook-inspection.md` and
+`sources/derived/2026/workbook-structure.json`.
+
+Current-publication research, including the distinction between an archived
+artifact and an unarchived online publication observation, is recorded in
+`docs/source-currency-research.md`.

@@ -1,8 +1,9 @@
 # Provisional Conceptual Schema
 
 > Status: provisional. Derived from reviewed 400NG, Tender of Service, TPPS,
-> DTR Chapter A-413, and DTR Chapter A-402 lifecycle/SIT pages. Rate-workbook
-> and EDI element inspection are still pending.
+> DTR Chapter A-413, DTR Chapter A-402 lifecycle/SIT pages, and 400NG SIT
+> eligibility/rating sections, and the archived P0 rate, item-code, transit, and
+> mileage/SIT workbook structures. EDI element inspection is still pending.
 
 ## Model shape
 
@@ -10,6 +11,11 @@
 erDiagram
     SOURCE_DOCUMENT ||--o{ SOURCE_VERSION : publishes
     SOURCE_VERSION ||--o{ SOURCE_LOCATOR : contains
+    SOURCE_LOCATOR ||--o{ SOURCE_CLAIM : supports
+    CONFLICT_CASE ||--|{ CONFLICT_CLAIM : contains
+    SOURCE_CLAIM ||--o{ CONFLICT_CLAIM : participates_in
+    CONFLICT_CASE ||--o{ INTERPRETATION_DECISION : resolved_by
+    INTERPRETATION_DECISION ||--o{ DECISION_IMPACT : affects
     SOURCE_LOCATOR ||--o{ RULE : supports
     RULE_PACKAGE ||--o{ RULE : groups
     RULE_PACKAGE ||--o{ RATE_TABLE : selects
@@ -97,6 +103,50 @@ intermediate point. Each episode has its own request and approval history,
 facility, control identifier, effective dates, extensions, releases, and possible
 conversion from Government to customer expense. Delivery out and conversion do
 not erase the episode or its prior payer responsibility.
+
+### SIT rating context is separate from physical storage
+
+The accepted BL Block 19 or 18 address selects origin or destination SIT rate
+geography even when the goods are held elsewhere. Preserve that rating anchor,
+the actual facility, the applicable service area and mileage observation, and
+the rule decision that chose each. Split storage and partial delivery also need
+charge-specific weight-basis decisions rather than one shipment weight.
+
+### SIT charge time is an explained interval
+
+Storage normally counts both the placed-in and removed-from dates, but accrual
+may stop earlier under the requested-delivery and Government-business-day rule.
+Store the raw date events, calendar version, authorization period, and calculated
+charge interval separately so the billed day count remains reproducible.
+
+### Rate geography and bands are versioned data
+
+ZIP3-to-BPC-to-service-area assignments, service schedules, SIT schedules,
+distance bands, weight bands, and rate cells belong to immutable source versions.
+Identifiers retain leading zeros, quantities carry units, and each selected cell
+retains its workbook/sheet/cell provenance and effective-date decision.
+
+### Billed codes are not service definitions
+
+The item-code workbook adds date-basis, discount, fuel, unit, location, EDI, and
+approval requirements to a billed code. Keep that code version separate from the
+tariff service definition and performed service so one audit can explain why a
+specific external code and evidence bundle were required.
+
+### Spreadsheet logic is source input, not the execution engine
+
+Formula-bearing tools may document lookup behavior, but deterministic code and
+approved versioned tables must produce system results. Formula text, cached
+values, selected branches, and source conflicts remain provenance; the system
+must not delegate a financial or entitlement decision to an opaque workbook.
+
+### Source claims and interpretations are first-class records
+
+A source locator may support one or more normalized claims. Competing claims and
+version gaps join a conflict case without overwriting one another. A scoped,
+versioned interpretation decision records reviewer, rationale, effective scope,
+and affected rules/tests; unresolved material cases stop only the dependent
+decision and enter human review.
 
 ### Shipment dates are typed observations
 

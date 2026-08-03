@@ -1,0 +1,47 @@
+{
+  "fixture_id": "SYNTH-LS-002",
+  "scenario_type": "split_sit",
+  "data_status": "SYNTHETIC",
+  "description": "A shipment is split into two portions; releasing one SIT portion does not close or truncate the other.",
+  "provenance": [
+    {
+      "id": "PROV-SIT-001",
+      "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+      "document_version": "docs/logical-schema.md draft 2026-08-03",
+      "effective_period": "TEST_ONLY",
+      "locator": "sections 5.2, 9, and 12 rules 8-9",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "synthetic_test",
+      "discovery_refs": ["DISC-0060", "DISC-0068", "DISC-0074", "DISC-0075", "DISC-0076"]
+    }
+  ],
+  "records": {
+    "shipments": [
+      {"id": "SHP-SIT-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-SIT-001"}
+    ],
+    "shipment_portions": [
+      {"id": "PORT-SIT-A", "shipment_id": "SHP-SIT-001", "portion_code": "A", "portion_status": "RELEASED", "declared_weight": "6000", "declared_weight_unit": "lb", "provenance_ref": "PROV-SIT-001"},
+      {"id": "PORT-SIT-B", "shipment_id": "SHP-SIT-001", "portion_code": "B", "portion_status": "RELEASED", "declared_weight": "4000", "declared_weight_unit": "lb", "provenance_ref": "PROV-SIT-001"}
+    ],
+    "weight_determinations": [
+      {"id": "WEIGHT-SIT-WHOLE", "shipment_id": "SHP-SIT-001", "rating_context_code": "WHOLE_SHIPMENT", "method_code": "SYNTHETIC_ACCEPTED_WEIGHT", "determined_weight": "10000", "weight_unit": "lb", "rule_decision_id": "DEC-SIT-WEIGHT", "provenance_ref": "PROV-SIT-001"}
+    ],
+    "sit_episodes": [
+      {"id": "SIT-PARENT-001", "shipment_id": "SHP-SIT-001", "sit_kind": "DESTINATION", "episode_status": "CLOSED", "provenance_ref": "PROV-SIT-001"},
+      {"id": "SIT-A-001", "shipment_id": "SHP-SIT-001", "sit_kind": "DESTINATION", "episode_status": "CLOSED", "shipment_portion_id": "PORT-SIT-A", "parent_episode_id": "SIT-PARENT-001", "provenance_ref": "PROV-SIT-001"},
+      {"id": "SIT-B-001", "shipment_id": "SHP-SIT-001", "sit_kind": "DESTINATION", "episode_status": "CLOSED", "shipment_portion_id": "PORT-SIT-B", "parent_episode_id": "SIT-PARENT-001", "provenance_ref": "PROV-SIT-001"}
+    ],
+    "sit_charge_intervals": [
+      {"id": "INT-SIT-A", "sit_episode_id": "SIT-A-001", "interval_start": "2026-06-01", "interval_end": "2026-06-10", "boundary_semantics": "INCLUSIVE", "charge_kind": "SIT_DAILY", "weight_basis_decision_id": "WB-SIT-A", "cessation_reason": "PORTION_RELEASED", "provenance_ref": "PROV-SIT-001"},
+      {"id": "INT-SIT-B", "sit_episode_id": "SIT-B-001", "interval_start": "2026-06-01", "interval_end": "2026-06-15", "boundary_semantics": "INCLUSIVE", "charge_kind": "SIT_DAILY", "weight_basis_decision_id": "WB-SIT-B", "cessation_reason": "PORTION_RELEASED", "provenance_ref": "PROV-SIT-001"}
+    ],
+    "sit_weight_basis_decisions": [
+      {"id": "WB-SIT-A", "sit_episode_id": "SIT-A-001", "charge_interval_id": "INT-SIT-A", "weight": "6000", "weight_unit": "lb", "rule_decision_id": "DEC-SIT-WB-A", "shipment_portion_id": "PORT-SIT-A", "provenance_ref": "PROV-SIT-001"},
+      {"id": "WB-SIT-B", "sit_episode_id": "SIT-B-001", "charge_interval_id": "INT-SIT-B", "weight": "4000", "weight_unit": "lb", "rule_decision_id": "DEC-SIT-WB-B", "shipment_portion_id": "PORT-SIT-B", "provenance_ref": "PROV-SIT-001"}
+    ],
+    "sit_release_events": [
+      {"id": "REL-SIT-A", "sit_episode_id": "SIT-A-001", "release_date": "2026-06-10", "release_kind": "FULL_PORTION", "released_portion_id": "PORT-SIT-A", "released_weight": "6000", "weight_unit": "lb", "provenance_ref": "PROV-SIT-001"},
+      {"id": "REL-SIT-B", "sit_episode_id": "SIT-B-001", "release_date": "2026-06-15", "release_kind": "FULL_PORTION", "released_portion_id": "PORT-SIT-B", "released_weight": "4000", "weight_unit": "lb", "provenance_ref": "PROV-SIT-001"}
+    ]
+  }
+}
