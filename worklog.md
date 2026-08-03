@@ -107,3 +107,43 @@ alternate library.
 - Preserved all 55 discovery IDs, source locators, candidate mappings, logical
   types, cardinalities, and notes.
 - Aligned the remaining Markdown tables for readable plain-text editing.
+
+## 2026-08-03 — Chapter A-402 lifecycle and SIT extraction
+
+### Objective
+
+Extract the shipment-date, arrival, delivery, and storage-in-transit concepts
+needed to extend the provisional schema without implementing tariff calculations.
+
+### Reviewed
+
+- DTR Part IV Chapter A-402, publication 14 July 2026, sections C.3, C.7, C.9,
+  D.1–5, and F.5–8.
+- Rendered PDF pages 7, 9–11, 15–19, and 28–31 were visually checked against the
+  derived text; cross-page numbering and continuations were confirmed.
+
+### Schema findings
+
+- Added `DISC-0056` through `DISC-0071` for typed shipment dates, pre-move
+  observations, arrival and delivery events, partial deliveries, SIT episodes,
+  authorization, control identifiers, dates, extensions, release calculations,
+  split portions, conversion, operational gates, and status history.
+- Modeled SIT as an episode rather than a shipment flag. Split portions may have
+  separate episodes, control identifiers, and weight-ticket evidence.
+- Preserved counseling, booking, agreed, calculated, offered, scheduled, and
+  actual dates as separate observations.
+- Kept DPS operational prerequisites distinct from legal charge eligibility.
+
+### Verification and limitations
+
+- The 16 new discoveries identify the source ID, publication date, retrieval
+  date, page/section locator, interpretation status, logical type, cardinality,
+  and unresolved tariff questions.
+- Initial SIT duration, charge-effective dates, split-shipment minimum weights,
+  and contact-attempt evidence still require reconciliation with 400NG and other
+  entitlement sources before implementation.
+
+### Next
+
+Inspect the archived rate, item-code, transit-time, and mileage/SIT workbooks,
+then continue 400NG service and rate extraction toward the logical schema.

@@ -21,21 +21,24 @@ M1 — Establish the source foundation.
 - Archived and checksummed nine core public source artifacts.
 - Reviewed selected 400NG, TPPS, and Tender of Service pages visually and through
   text extraction.
-- Added 55 reviewed/provisional source-to-field discoveries and a provisional
+- Added 71 reviewed/provisional source-to-field discoveries and a provisional
   conceptual model.
 - Reformatted schema discoveries into narrow source indexes and mapping lists for
   readable plain-text editing.
+- Reviewed Chapter A-402 shipment-date, arrival, delivery, partial-delivery, SIT,
+  operational-gate, and status-history sections against rendered PDF pages.
+- Modeled SIT as a versioned lifecycle episode, including split portions,
+  approvals, control identifiers, extensions, releases, and conversion.
 
 ## Current task
 
-Resolve the remaining P0 documents and spreadsheet inspection path, then continue
-source-to-field extraction into a logical schema.
+Inspect the archived P0 workbooks, then reconcile their structures with 400NG
+service and rate sections and continue toward the logical schema.
 
 ## Known blockers
 
-None for source discovery or provisional schema work. Final acceptance remains
-dependent on authorized historical cases. Workbook structure inspection is
-currently blocked because the required artifact-tool runtime is unavailable.
+None for source discovery, workbook inspection, or provisional schema work. Final
+acceptance remains dependent on authorized historical cases.
 
 ## Decisions needed
 
@@ -43,13 +46,15 @@ currently blocked because the required artifact-tool runtime is unavailable.
 
 ## Next three actions
 
-1. Extract shipment lifecycle and SIT facts from DTR Chapter A-402.
-2. Inspect rate, item-code, transit, and mileage workbooks when the approved
-   spreadsheet runtime is available.
-3. Continue extraction through 400NG service and rate sections, then draft the
-   logical schema.
+1. Inspect the rate, item-code, transit-time, and mileage/SIT workbooks using the
+   approved spreadsheet workflow.
+2. Reconcile Chapter A-402 SIT and split-shipment findings with 400NG service and
+   rate sections.
+3. Continue source-to-field extraction and draft the logical schema.
 
 ## Verification status
 
-Goal ratified; source manifest and provisional conceptual schema exist. No
-executable system or physical database schema exists yet.
+Goal ratified; source manifest, 71 source-to-field discoveries, and an expanded
+provisional conceptual schema exist. Chapter A-402 lifecycle/SIT findings were
+visually checked against the archived PDF. No executable system or physical
+database schema exists yet.

@@ -1,7 +1,8 @@
 # Provisional Conceptual Schema
 
-> Status: provisional. Derived from the first reviewed 400NG, Tender of Service,
-> and TPPS pages. Rate-workbook and EDI element inspection are still pending.
+> Status: provisional. Derived from reviewed 400NG, Tender of Service, TPPS,
+> DTR Chapter A-413, and DTR Chapter A-402 lifecycle/SIT pages. Rate-workbook
+> and EDI element inspection are still pending.
 
 ## Model shape
 
@@ -18,6 +19,7 @@ erDiagram
     PERSON ||--o{ SHIPMENT_PARTY_ROLE : fulfills
     SHIPMENT ||--o{ SHIPMENT_STOP : visits
     SHIPMENT ||--o{ SHIPMENT_EVENT : records
+    SHIPMENT ||--o{ SHIPMENT_PORTION : divides_into
     SHIPMENT ||--o{ BILL_OF_LADING : documented_by
 
     SHIPMENT ||--o{ WEIGHING_EVENT : weighed_by
@@ -30,6 +32,14 @@ erDiagram
     SERVICE_PERFORMANCE ||--o{ SERVICE_APPROVAL_EVENT : reviewed_by
     SERVICE_PERFORMANCE ||--o{ EVIDENCE_LINK : supported_by
     DOCUMENT ||--o{ EVIDENCE_LINK : proves
+
+    SHIPMENT ||--o{ SIT_EPISODE : stored_as
+    SHIPMENT_PORTION o|--o{ SIT_EPISODE : stored_as
+    SIT_FACILITY ||--o{ SIT_EPISODE : holds
+    SIT_EPISODE ||--o{ SIT_AUTHORIZATION_EVENT : authorized_by
+    SIT_EPISODE ||--o{ SIT_EXTENSION : extended_by
+    SIT_EPISODE ||--o{ SIT_RELEASE_EVENT : released_by
+    SIT_EPISODE ||--o| SIT_CONVERSION_EVENT : converted_by
 
     BILL_OF_LADING ||--o{ INVOICE : billed_through
     INVOICE ||--|{ INVOICE_LINE : contains
@@ -79,6 +89,21 @@ line in place.
 Documents should link to the exact fact, service, invoice line, or approval they
 support. This permits an audit finding to distinguish missing evidence from an
 ineligible or incorrectly calculated charge.
+
+### SIT is a lifecycle episode, not a shipment flag
+
+A shipment or split portion may enter SIT at origin, destination, or an
+intermediate point. Each episode has its own request and approval history,
+facility, control identifier, effective dates, extensions, releases, and possible
+conversion from Government to customer expense. Delivery out and conversion do
+not erase the episode or its prior payer responsibility.
+
+### Shipment dates are typed observations
+
+Counseling dates, booking preferences, pre-move agreements, calculated RDDs,
+delivery offers, schedules, and actual events can differ. Preserve their roles,
+sources, actors, and recorded times; derive the controlling date through an
+explicit rule decision rather than updating a generic pickup or delivery field.
 
 ## Physical types intentionally deferred
 

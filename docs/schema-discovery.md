@@ -250,6 +250,102 @@ Schema mappings:
 - `DISC-0055` → `funding_reference`; sensitive structured reference; one or more.
   Preserve raw and typed components; exclude live values from fixtures.
 
+## Reviewed discoveries — DTR Chapter A-402, shipment lifecycle and SIT
+
+All findings in this section use `SRC-DTR-IV-A402`, publication/version 14 July
+2026, effective period not stated, retrieved 2026-08-03. The cited pages were
+checked against the archived PDF and rendered page images. Interpretation status
+is reviewed unless a note identifies a remaining question.
+
+| ID        | Source             | Concept                                  |
+|-----------|--------------------|------------------------------------------|
+| DISC-0056 | C.3.h, pp. 7–8     | Shipment-date chronology and RDD         |
+| DISC-0057 | C.7, pp. 9–10      | Pre-move survey observations             |
+| DISC-0058 | D.2, p. 15         | Shipment arrival observation             |
+| DISC-0059 | D.3, pp. 15–16    | Delivery request, schedule, and event     |
+| DISC-0060 | D.4, p. 16         | Partial-delivery portion                 |
+| DISC-0061 | C.9; D.5(a), pp. 10–17 | SIT episode and rating locality    |
+| DISC-0062 | C.9; D.5; F.5, pp. 10–19, 28–29 | SIT authorization workflow |
+| DISC-0063 | D.5(a)(2–3), p. 17 | SIT control identifier and register      |
+| DISC-0064 | C.9(b); D.5(a)(3), pp. 10, 17–18 | SIT period dates and expiration |
+| DISC-0065 | D.5(a)(3); F.6, pp. 18, 29 | SIT extension request and decision |
+| DISC-0066 | C.9(c), p. 11      | Origin-SIT release and entitlement balance |
+| DISC-0067 | D.5(b)(2), p. 18  | Destination-SIT effective date           |
+| DISC-0068 | D.5(b)(4); F.5(a)(6), pp. 18, 29 | Split-shipment SIT        |
+| DISC-0069 | D.5(c); F.7, pp. 19, 29–30 | SIT conversion and liability end |
+| DISC-0070 | F.8(c), pp. 30–31 | Weight-entry operational prerequisites  |
+| DISC-0071 | D.1–3; F.8(d), pp. 15–16, 31 | Status and record-change history |
+
+Schema mappings:
+
+- `DISC-0056` → `shipment_date_commitment` plus `rule_decision`; typed local-date
+  observations; repeating by role and source. Preserve counseling desired dates,
+  booking preferred dates, pre-move agreed dates, calculated RDD, and actual
+  pickup/delivery dates instead of overwriting one value. The basic RDD rule is
+  pickup date plus transit time, subject to an agreed earlier DDD and scheduling
+  exceptions.
+- `DISC-0057` → `pre_move_survey` plus extracted observations; event/document;
+  one or more attempts and one completed survey per applicable shipment. Record
+  method, estimated weight, agreed pack/pickup dates, delivery-date information,
+  special handling needs, completion timing, and customer-unavailability reason.
+- `DISC-0058` → `shipment_arrival_event`; event; one or more when a shipment is
+  split. Record arrival date, whole/split indicator, observed shipment weight,
+  requested/actual delivery dates, and attempted-delivery date as separately
+  typed facts.
+- `DISC-0059` → `delivery_request`, `delivery_schedule_event`, and
+  `delivery_event`; repeating events. Preserve requester, communication channel,
+  requested date/address, TSP-confirmed schedule, schedule changes, actual date,
+  and entry timestamp. Addresses and customer contact data require sanitization.
+- `DISC-0060` → `shipment_portion` plus `partial_delivery_event`; zero or more.
+  Link requested inventory item identifiers, delivery address, requested and
+  actual dates, weight removed, weight remaining in SIT, and the residual stored
+  portion without treating the entire shipment as delivered.
+- `DISC-0061` → `sit_episode`; zero or more per shipment or shipment portion.
+  Record origin/destination/intermediate scope, reason, approved facility,
+  storage location, and the destination city/installation used for charges.
+  A servicing-PPSO exception to the BL Block 18 locality must be preserved as an
+  authorization, not as an unexplained replacement value.
+- `DISC-0062` → `sit_authorization_event`; request/decision history; one or more
+  per episode. Store requester, PPSO decision, status, reason, decision time, and
+  notification references. Every placement in SIT requires approval through
+  DPS; approval generates the control identifier.
+- `DISC-0063` → `sit_control_identifier`; namespaced structured identifier; one
+  per approved episode or split portion. Preserve the raw nine-digit string
+  and parsed two-digit year, three-digit Julian day, and four-digit daily
+  sequence. Do not infer a full century without contextual evidence.
+- `DISC-0064` → `sit_date_event`; typed local dates; repeating by role. Roles
+  include placed/ordered in, ordered out, release, expiration, and entitlement
+  end. Store the stated expiration separately from calculated or extended dates.
+- `DISC-0065` → `sit_extension_request` plus `sit_extension_decision`; zero or
+  more. Link the DD Form 1857 evidence, request date, PPSO approval/denial,
+  projected termination date, new expiration date, and notification events.
+- `DISC-0066` → `sit_release_event` plus `sit_entitlement_balance_decision`;
+  conditional. Origin release requires the SF 1200, a new RDD, and inclusive-day
+  math: days used equals release date minus placed-in-storage date plus one; the
+  destination balance equals authorized days minus used days.
+- `DISC-0067` → `sit_authorization_effective_date`; explained rule outcome;
+  conditional. For the cited no-direct-delivery scenario, approved destination
+  SIT begins on the offer-for-delivery date rather than arrival date unless both
+  occur on the same day.
+- `DISC-0068` → `shipment_portion` plus portion-level `sit_episode`; one or more
+  for split shipments. Each stored portion requires its own control identifier
+  and weight-ticket evidence. Minimum-weight and employee partial-delivery rules
+  remain subject to reconciliation with 400NG and entitlement sources.
+- `DISC-0069` → `sit_conversion_event`; zero or one Government-to-customer
+  conversion per episode. Preserve the customer-contact prerequisite, notice,
+  non-retroactive effective time, payer-responsibility change, TSP-liability end,
+  warehouse final-destination role, and remaining Government-paid delivery-out
+  entitlement.
+- `DISC-0070` → `operational_eligibility_decision`; explained system gate;
+  conditional. DPS weight entry gates invoicing, in-transit updates, arrival,
+  destination-SIT requests, and delivery scheduling. Keep this operational gate
+  distinct from legal charge eligibility.
+- `DISC-0071` → `shipment_status_event` plus `record_change_event`; repeating
+  event histories. Store status code, en-route location note, ETA, RDD, delivery
+  date, DTS entry/receipt dates, actor, and recorded time. Weight entry triggers
+  the DPS `IT` status and actual delivery triggers `Delivered Complete`; neither
+  should erase preceding states or observations.
+
 ## Candidate domain areas
 
 The current sources suggest, but do not yet ratify, these entity families:
@@ -278,3 +374,9 @@ The current sources suggest, but do not yet ratify, these entity families:
 - Which location representation controls mileage and rate lookup?
 - What exact EDI element constraints must be preserved at integration boundaries?
 - Which facts are recorded as stated, observed, approved, billed, or paid values?
+- Which entitlement and tariff rules set the initial authorized SIT duration for
+  each in-scope domestic shipment, and which date legally begins each charge?
+- How must delivery offers and unsuccessful customer-contact attempts be
+  evidenced before destination SIT is billable?
+- How do 400NG minimum-weight rules apply to each portion of a split shipment,
+  especially where Chapter A-402 distinguishes employees from other customers?
