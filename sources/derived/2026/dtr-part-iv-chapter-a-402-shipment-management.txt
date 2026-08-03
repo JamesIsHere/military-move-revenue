@@ -1,0 +1,2214 @@
+Defense Transportation Regulation – Part IV                                                   14 July 2026
+Personal Property
+
+
+                                              CHAPTER A-402
+
+                                     SHIPMENT MANAGEMENT
+
+A. INTRODUCTION
+    1. This chapter describes the Department of War DoW shipment management and distribution
+       methodology for the Defense Personal Property Program (DP3). Procedures for traffic
+       distribution, shipment award/acceptance, shipment delivery, and temporary storage are provided.
+    2. This chapter also describes the Defense Personal Property System (DPS) as it relates to the
+       management of domestic household goods (dHHG), international household goods (iHHG),
+       unaccompanied baggage (UB), the movement of One-Time-Only (OTO), Mobile Home One-
+       Time-Only (MOTO), Boat One-Time-Only (BOTO), special solicitations, and Volume Move
+       (VM) shipments within the Continental United States (CONUS) and/or Outside the Continental
+       United States (OCONUS).
+    3. Direct Procurement Method (DPM), shipments going into non-temporary storage (NTS), and
+       shipments moving under intra-theater tenders will be processed using eTOPS IAW current policy
+       standards.
+
+B. SELECTION OF METHOD AND MODE OF SHIPMENT
+    When the Personal Property Shipping Office (PPSO) determines a shipment must move by the DPM,
+    or the DPM is the only method available in accordance with (IAW) the Personal Property
+    Consignment Instruction Guide (PPCIG), the provisions of Chapter 404 of this regulation apply.
+    When the PPSO determines that movement by preferred air (Transportation Priority Two [TP-2]) is
+    necessary to meet the customer’s requirements, the following apply:
+    1. Army-Sponsored Shipments. All requests for TP-2 airlift to/from other than hard-lift areas must
+       be routed to HQ Army G-4, ATTN: DALO-FPT.
+    2. Air Force-Sponsored Shipments. The provisions of Air Force Policy Directive AFPD 24-6,
+       Distribution and Traffic Management, apply. All requests for TP-2 airlift to/from other than
+       hard-lift areas must be routed through the Major Command to JPPSO-SC, 3515 S. Gen
+       McMullen, Ste 160, San Antonio, TX 78241, 210 321-4200; DSN: 954-4200; fax: 210 321-
+       4259. Advance Transportation Control and Movement Document (ATCMD) clearance
+       documents must be submitted to the Shipper Service Control Office (SSCO) or overseas Area
+       Clearance Authority (ACA) for TP-2 shipments, to and from other than hard-lift areas, and must
+       include a TH-9 trailer card identifying the airlift approval authority (i.e., JPPSO-SAT/DIR
+       123456Z Dec 14).
+    3. Navy-Sponsored Shipments. For Navy-sponsored air shipments, the provisions of Naval Supply
+       Systems Command (NAVSUP) Publication (Pub) 490, Transportation of Personal Property,
+       apply. All requests for TP-2 airlift to/from other than hard-lift areas must be routed through the
+       NAVSUP Household Goods (HHG) Division.
+    4. Marine Corps-Sponsored Shipments. For Marine Corps-sponsored air shipments, the Marine
+       Corps policy concerning air shipments of HHG and unaccompanied baggage (UB) is contained in
+       Marine Corps Order (MCO) P4600.39, Marine Corps Personal Property Transportation Manual,
+       Paragraph 3204.
+    5. Coast Guard-Sponsored Shipments. Coast Guard policy concerning air shipments of HHG and
+       UB is contained in Commandant Instruction (COMDTINST) M4050.6, Coast Guard Personal
+       Property Transportation Manual, Paragraph 2001.
+
+
+
+                                                 IV-A-402-1
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+C. OUTBOUND
+    1. Traffic Distribution:
+        a. These instructions are applicable to the transport of DoW personal property in the various
+           markets (i.e., dHHG, iHHG, and UB). There are Traffic Distribution List (TDL)
+           Transportation Service Providers (TSP) for every Code of Service (COS) under every
+           channel combination. Paragraph C.1.b below describes channels. The number of TSPs in
+           any given channel varies based on the number of DoW-approved TSPs with an acceptable
+           Best Value Score (BVS). TSPs are ranked from highest BVS to lowest BVS in each of these
+           TDLs.
+        b. Channel Types. There are four general channel categories, and each contains many specific
+           origin/destination combinations.
+             (1) CONUS to CONUS. The origin state (four states [California, Florida, Texas, and
+                 Alaska] are split into separate rate areas for originating shipments to destination region).
+                 Destination regions are a combination of states. There are 13 destination regions in
+                 CONUS, plus intrastate and Alaska.
+             (2) CONUS to OCONUS. Origin CONUS state to OCONUS destination country.
+             (3) OCONUS to CONUS. OCONUS origin country to CONUS destination state.
+             (4) OCONUS to OCONUS. OCONUS origin country to OCONUS destination country.
+        c. The DoW assigns a rate area to a given state, country, or geographic portion of each.
+           Internationally, rate areas are from the origin country to the destination country or state. For
+           international channels, there will be a separate TDL for each COS.
+             NOTE: Definitions of COS can be found in Table A-402-3.
+    2. Shipment Allocation (Routing and Booking):
+        a. DPS ensures all shipments are ready for booking and available to the correct PPSO based
+           upon their Area of Responsibility (AOR). Shipment allocation involves determining the
+           available COS meeting the desired pickup date while taking into account the customer’s
+           required delivery date (RDD). Code 2 service is available for use at the discretion of the
+           PPSO based on market conditions and when Code D capability reaches capacity without
+           excess costs to the customer.
+        b. A customer may request Code 2 service; however, they are subject to excess cost if Code D
+           service is available.
+        c. PPPO/PPSO communication with the customer is necessary to determine if they are a
+           candidate for a Code 2 shipment.
+             (1) Criteria must be met to be considered for a Code 2 shipment:
+                  (a)   Shipments:
+                        1 without a direct delivery address at the time of booking,
+                        2 where the customer requests the shipment be placed into SIT, or
+                        3 with a direct delivery address, and the member’s planned leave or a TDY in
+                          transit prevents acceptance of a direct delivery at destination.
+
+
+
+
+                                                  IV-A-402-2
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+                  (b) Shipments estimated at 10,000 lbs or less in Peak Season (15 May – 30 Sep) or
+                      3,000 lbs or less in Non-Peak Season (1 Oct – 14 May).
+                  (c)   Shipments moving greater than 800 miles.
+                  (d) Shipments that do not contain extra-large items that will not fit in a standard
+                      liftvan.
+             (2) If a Code 2 shipment is not available due to TSP blackout or non-availability, PPSOs
+                 should consider awarding as a Code 2 short fuse shipment if the member has flexibility,
+                 before offering the shipment as a Code D.
+             (3) Exclusion Criteria:
+                  (a)   Situations where the customer’s requirements will result in potential excess costs
+                        (e.g., overweight, alternate locations, etc.).
+                  (b) Shipments where the customer intends to have a direct delivery and will provide an
+                      address after booking. PPPO/PPSO shall ask this of the customer as some
+                      customers may not have their address at time of booking but will have it before
+                      shipment pickup.
+             (4) Customer Requested Code 2: Shipment requires the PPPO/PPSO to conduct a cost
+                 analysis between Code 2 and Code D unless shipment meets the Code 2 criteria above.
+             (5) Code 2 Transit Times: PPSOs must add five (5) days to the standard domestic transit
+                 time for Code 2 shipments due to additional logistical requirements.
+        d. After the shipment COS is selected, the shipment can be offered. DPS determines the next
+           TSP to offer the shipment for the particular channel and COS, based on the BVS rankings and
+           existing allocations. Shipment offers consider the comparison between TSP blackout dates
+           and desired pickup date. After DPS determines the next TSP to be allocated a shipment, the
+           shipment is offered to the TSP.
+        e. dHHG and iHHG. DPS distributes shipments to qualified TSPs in a round robin rotation
+           based on BVS. TSPs in each Quality Band receive a set number of shipments, with TSPs in
+           the higher Quality Bands receiving more shipments. At the beginning of each annual rate
+           cycle, DoW Personal Property Activity (PPA) develops a Minimum Performance Score
+           (MPS) for each market. TSPs with scores above the MPS are divided into four Quality Bands
+           in highest to lowest BVS order, with more TSPs assigned to the first Quality Band if the
+           number of TSPs in a market is not divisible by four. Shipments are awarded to TSPs as
+           specified in Table A-402-1. For example, in a market with 10 TSPs in each Quality Band, all
+           10 TSPs in the first band are assigned a shipment in round robin fashion until each TSP has
+           been assigned five shipments. The next available shipment is assigned to the first TSP in the
+           second Quality Band. After all TSPs above the MPS have been assigned their allotted
+           number of shipments, the allocation process starts again with the top TSP in the first Quality
+           Band.
+        f.   UB. The same Quality Band and distribution framework discussed for dHHG/iHHG is used
+             for UB shipments. However, the volume of shipments per assignment in that market is
+             higher. The higher volume assignments enable consolidation of shipments in high volume
+             lanes. Shipments are awarded to TSPs as specified in Table A-402-2.
+        g. VM and OTO. DPS solicits VM and OTO rates from TSPs as required for the following
+           types of shipments:
+             (1) VM (Domestic and International)
+
+
+
+                                                 IV-A-402-3
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+             (2) OTO (International)
+             (3) MOTO (Domestic)
+             (4) BOTO (Domestic and International).
+                  NOTE: The PPSOs must submit VM and OTO requests through DPS. DoW PPA
+                  reviews requests and solicits rates from TSPs using DPS. VM requests are solicited
+                  from TSPs in an active status with current rates on file for that channel. TSPs must
+                  submit a VM rate that is lower than their current rate on file for that market and channel.
+             (5) The process/distribution logic for VM is as follows:
+                  (a)   For Domestic VM:
+                        1   All rates submitted by TSPs for the VM must be lower than their discount rate
+                            on file for that Channel-COS combination in that market.
+                        2   TSPs must file a lower rate for both line-haul (LH) and storage-in-transit (SIT)
+                            than their rate on file for that same Channel-COS combination in that market.
+                        3   DPS ensures TSPs provide VM rates lower than their current rate on file for
+                            that Channel–COS combination. Higher rates are rejected.
+                        4   DPS establishes a Rate Score (RS) for all TSPs with acceptable rates for each
+                            VM request.
+                        5   DPS combines the RS with the current Performance Score (PS) for the market
+                            to establish a unique BVS used for the VM.
+                        6   DPS ranks TSPs based on their BVS (from highest to lowest).
+                        7   PPSOs will then award shipments IAW BVS rankings, and the minimum and
+                            maximum daily tonnage requirements. PPSOs may select an alternate TSP to
+                            handle volume above the amount handled by the primary TSP if required.
+                            NOTE: Refer to Section 3, VM of the Domestic 400NG Tariff for additional
+                            details (https://dps.move.mil/cust).
+                  (b) For International VM:
+                        1   For International VM, a Single Factor Rate (SFR) is used IAW Chapter 9 of
+                            the International Tender.
+                        2   TSPs must file a SFR lower than their SFR for that same Channel-COS
+                            combination in that market.
+                        3   DPS establishes a RS for all TSPs with acceptable rates for each VM request.
+                        4   DPS combines this RS with the current PS for the market to establish a unique
+                            BVS which will be used for each VM solicitation.
+                        5   DPS ranks TSPs based on their BVS (from highest to lowest).
+                        6   PPSOs will then award shipments IAW BVS rankings, and minimum and
+                            maximum daily tonnage requirements. The PPSO may select an alternate TSP
+                            to handle volume above the amount handled by the primary TSP if required.
+                            NOTE: Refer to Chapter 9, the VM section of the International Tender, for
+                            additional details (https://dps.move.mil/cust).
+
+
+
+
+                                                 IV-A-402-4
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+             (6) Process/distribution logic for Special Solicitation:
+                  (a)   Special Solicitation rates are solicited for those channels that involve infrequent
+                        movement of personal property to domestic and international destinations or
+                        channels that have special requirements. For example, CONUS To/From
+                        Singapore is a Special Solicitation group. TSPs are required to submit rates for all
+                        channels within this group (i.e., Origin Rate area From/To Destination rate area).
+                        NOTE: TSPs are required to service all channels within this Special Solicitation
+                        group.
+                  (b) TSPs with the highest BVS are considered the “Primary” and are allocated all the
+                      shipments in that Special Solicitation group. The remaining TSP(s) are considered
+                      “Alternates”. In the event the primary TSP cannot accept all tonnage/shipments,
+                      the Alternate TSP with the next highest BVS is offered the tonnage accordingly.
+                        NOTE: For details on special solicitation channels, refer to the Rate Filing
+                        Instructions for TSP on the DoW PPA website (https://dps.move.mil/cust).
+    3. Shipment Route and Award Process. DPS offers shipments to qualified TSPs in a round robin
+       rotation based on BVS. DPS offers shipments to the TSP electronically based on customer-
+       unique shipment indicators such as the type of shipment, desired pickup and delivery dates, and
+       the origin to destination combination (channel) information obtained during counseling.
+        a. Route Process: DPS provides shipment codes (Surface and Air), based on information
+           obtained during counseling and/or other pertinent data resident in DPS. Shipment selection is
+           made based on the approval COS that meets all time parameters.
+             (1) DPS uses the below information to determine authorized COS:
+                  (a) The channel based on origin-destination
+                  (b) International or Domestic
+                  (c) HHG or UB
+                  (d) MOTO/BOTO
+                  (e) Eligible for an established VM
+                  (f) Available modes (e.g., COS for surface and/or air)
+                  (g) Estimated cost for each available COS
+                  (h) Applicable transit time for each available COS
+                  (i)   Desired pickup date and RDD.
+             (2) DPS displays all possible COS and the PPSO then selects the COS (e.g., Code 2, 4, 6, 7,
+                 8, D, I, T, or J) for the shipment.
+        b. Award Process. PPSOs can offer shipments to TSPs manually or automatically via DPS.
+             (1) BVS Award Process. This is the standard method of offering shipments to TSPs. DPS
+                 provides the next available TSP based on BVS. The PPSO can elect to override the
+                 shipment award to the next BVS (e.g., customer preferred TSP or traffic management
+                 decision), the DPS shipment record must contain proper justification for the selection.
+             (2) Other Manual Offer Processes. Approval authority resided with the PPSO Director.
+                 This authority cannot be delegated. The following manual award processes (unless
+                 otherwise stated) are only authorized when the shipment was not accepted by a TSP after
+
+
+                                                  IV-A-402-5
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+                  moving through the BVS TDL award process, either due to Refusal, Blackout, or
+                  shipment exceeding time in queue based on parameters set in DPS. Before using the
+                  following manual award processes, the PPSO Directors should consider the requested
+                  pickup date, and expected ability to book the shipment based on known available
+                  agent/TSP capacity in the pickup area or other variables (e.g. new entrants or new
+                  capacity). If the customer’s requested pickup date is far enough into the future, and/or if
+                  there are no major capacity constraints in the pickup area, PPSO Director should
+                  continue to re-offer the shipment through the BVS routing process until shipment gets to
+                  within 45 days of the pickup window.
+                  (a)   Preferred TSP “Manual Award” Process.
+                        1   During the counseling process the preferred TSP option allows
+                            PPSO/PPO/Customer to select a preferred TSP in DPS.
+                        2   Preferred TSP allows PPSO to accommodate the request, regardless of which
+                            quartile shipments are being offered in, when a Preferred or Non-Preferred
+                            TSP preference is identified.
+                  (b) Manual Award Process.
+                        1   To manually award a shipment directly to a TSP, the PPSO technician will
+                            have to identify a TSP that can handle the shipment, prior communication with
+                            the TSP is necessary to ensure acceptance of the shipment offer.
+                        2   Under the manual award process, PPSOs are able to award to any TSP
+                            regardless of the quartile in which they currently reside.
+        c. Manual “Offer to All” process.
+             (1) An “Offer to All” in DPS is authorized when the shipment is not accepted by any TSP
+                 after moving through the TDL, either due to Refusal, Blackout, or shipment exceeding
+                 time is queue based on parameters set in DPS.
+             (2) Steps in the “Offer to All” Process:
+                  (a) After a shipment moves through the TDL without being accepted (or exceeding
+                      offer parameters), the “Offer to All” is then made available to PPSOs in their award
+                      queue, regardless of shipment pickup lead times.
+                  (b) The PPSO can utilize this function regardless of the shipment pickup lead time.
+                      When this function is used the shipment will appear in the TSP Short Fuse queue
+                      for any TSP with rates on file for that channel.
+                  (c) Shipments accepted in this status will not count against the TSP’s scheduled
+                      shipment allotment under “Round Robin” distribution.
+                  (d) Reporting of usage for “Manual Award” and “Offer to All” capabilities.
+                        1   The PPA J3 will conduct monthly trend and utilization analysis on “Manual
+                            Award” and “Offer to All”.
+                        2   The PPA J3 will review trends and utilization with the PPSO Directors.
+
+
+
+
+                                                 IV-A-402-6
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+        d. Automatic Booking Process:
+             The PPSO must obtain approval from their Service HQ prior to selecting the automatic
+             booking option in DPS. If selected, DPS automatically routes and books all eligible
+             shipments as follows:
+             (1) DPS identifies the channel (origin-destination)
+             (2) Identifies whether the shipment is iHHG or UB or dHHG
+             (3) Determines the best value COS to meet shipment requirements
+             (4) DPS then offers the shipment to the TSP according to the BVS process within the
+                 Quality Band.
+        e. Short-Fuse Shipments: Defined as shipments requiring pickup within five (5) Government
+           Business Days (GBD). DPS offers the shipment electronically to all TSPs in that market.
+           TSPs that have entered “blackout dates” during this period receive shipment notifications as
+           well. The shipment is awarded to the first TSP to accept the shipment. This shipment is a
+           “bonus” and is not counted against the TSP’s scheduled shipment distribution. If no TSP
+           accepts a short-fused shipment within 24 hours, DPS alerts the PPSO of the “Non-Response.”
+           The PPSO must take action to ensure the customer’s shipment is serviced (e.g., contact a TSP
+           willing to accept the shipment and subsequently award that TSP the shipment in DPS, contact
+           the customer to obtain alternate dates, or ship via DPM or Personally Procured Move [PPM]).
+        f.   Blackout Dates: Dates in which a TSP cannot accept a new shipment offer. Use of blackouts
+             provides TSPs with the flexibility required to manage workloads, while maintaining a pool of
+             available TSPs for expected DoW shipments. TSPs may modify blackout dates (by three-
+             digit Zone Improvement Code (ZIP) code) for specific origin PPSO’s Bill of Lading Office
+             Code (BLOC) and destination region combinations by shipment category in DPS. The TSP
+             may enter blackout dates six (6) months in advance (e.g., on 1 January the TSP can blackout
+             dates through 30 June). DPS allows real-time updates of blackout dates to prevent shipment
+             assignment conflicts. If a TSP misses a shipment offer because the date is blacked out, the
+             TSP is assigned an “administrative shipment” and is not offered another shipment until the
+             next scheduled offer within that Quality Band.
+        g. Weekend/Holiday Schedule: DPS tracks holidays at each BLOC worldwide since holidays
+           and weekends impact allowable pickup and delivery dates. PPSOs can enter and/or modify
+           the holiday schedule for their AOR. The PPSOs can override the default scheduling rules to
+           allow a pickup or delivery on a holiday or weekend.
+        h. RDD: DPS establishes the RDD (Pickup Date + Transit Time = RDD). Rule exceptions:
+             (1) The customer enters a Desired Delivery Date (DDD) and/or arrival date earlier than the
+                 calculated transit time for the COS available. If the TSP agrees to the earlier desired
+                 delivery date, the DDD becomes the RDD. If the TSP does not agree, the calculated
+                 RDD by DPS will be the pickup + transit time. If the PPSO is aware the customer
+                 requires a delivery date shorter than the transit time, the PPSO will contact the next-in-
+                 line TSP prior to offering the shipment. The PPSO will only offer the shipment if the
+                 TSP agrees to the earlier transit time.
+             (2) The customer enters dates for desired pickup and/or delivery. In these instances, the
+                 following chronology of events would apply:
+                  (e) During Counseling: Establish the customer desired shipment dates (origin and
+                      destination) to include pickup and RDD.
+                  (f) During Booking: Preferred shipment date.
+
+
+                                                 IV-A-402-7
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+                  (g) During Pre-Move: TSP and the customer agreed dates. This becomes the
+                      established DPS RDD.
+                  (h) Actual Pickup and Delivery Dates: The dates the shipment is actually picked up
+                      and delivered.
+    4. Rejection of Shipment Offers:
+        a. Shipment refusals are not allowed in the DP3 (except for short-fused shipments or shipments
+           with RDDs less than the established days) because of the utilization of TSP blackout dates. If
+           a TSP refuses a shipment, the TSP may be declared ineligible to receive shipments in that
+           PPSOs market for 30 calendar days. Multiple refusals may lead to disqualification. DPS
+           monitors TSP responses to shipment offers to ensure acceptance within 24 hours after the
+           shipment has been assigned (excluding weekends and holidays). DPS considers domestic and
+           international time zones when determining acceptance with 24 hours.
+             NOTE: DoW PPA may modify shipment refusal procedures as industry capacity situations
+             change. DoW PPA will issue a Customer Advisory 10 GBDs prior to any changes taking
+             effect.
+        b. If the TSP fails to accept a shipment offer within the required time:
+             (1) DPS sends a notification to the PPSO Quality Assurance (QA) and Outbound section
+                 and generates a “Notice of Non-Response” to the TSP indicating the TSP’s failure to
+                 accept the shipment in a timely manner. DPS marks the e-mail “URGENT” and sends
+                 the notification to the TSP provided e-mail addresses.
+             (2) DPS charges the TSP with a shipment allocation and makes the shipment available for
+                 offer to the next TSP.
+             (3) DPS does not “automatically” suspend the TSP from the market. This action must be
+                 taken by the PPSO to ensure the “Non-Response” was not due to a system problem.
+             (4) If not system-related, the PPSO initiates a “Letter of Suspension” (DD Form 1814,
+                 Transportation Service Provider (TSP) Notice of
+                 Warning/Suspension/Reinstatement/Cancellation, available at
+                 https://www.esd.whs.mil/DD) to the TSP citing the “Non-Response” constitutes a
+                 “Refusal.”
+    5. Cancellation:
+        a. The following information details shipment cancellation procedures. A cancellation may
+             occur either as a result of a TSP’s actions or inactions, or when the PPSO determines that a
+             shipment must be canceled in the interest of the Government.
+             NOTE: Shipment(s) canceled within five (5) GBDs of the pickup date are considered short
+             notice when being reallocated and are not chargeable against the new TSP on the TDL.
+             (1) When the PPSO determines a shipment must be canceled in the interest of the
+                 Government, the PPSO will immediately notify the TSP (either telephonically or
+                 electronically) and process the shipment cancellation in the DPS (Shipment Management
+                 work queue). DPS will return the TSP to the TDL without shipment charge and the TSP
+                 will be considered for the next available shipment offering over the same channel.
+    6. Shipment Pull-Back/Turn-Back:
+        The following information outlines the PPSO shipment pull-back/turn-back procedures. A
+        shipment pull-back may occur as a result of a TSPs actions or inactions or when the PPSO
+
+
+
+                                                 IV-A-402-8
+Defense Transportation Regulation – Part IV                                                         14 July 2026
+Personal Property
+
+
+        determines that a shipment must be pulled back in the interest of the Government. A shipment
+        turn-back occurs as a result of TSP actions or inactions. These procedures are applicable to both
+        domestic and international shipments. At the PPSO’s discretion, shipments may be pulled back
+        (e.g., cancel the bill of lading [BL]) provided packing services have not been performed.
+        Shipments pulled back within five (5) GBDs of the pickup date are considered short notice when
+        being reallocated and are not chargeable against the new TSP on the TDL.
+        NOTE: If packing services have been performed, the original BL will be retained for payment
+        IAW Appendix A, Third Party Payment System of all services performed.
+        a. Pull-back: The PPSO must notify the TSP of the pull-back and perform pull-back actions in
+           DPS (Shipment Management queue). When the PPSO determines that a shipment must be
+           pulled back from a TSP in the interests of the Government, the shipment will not be charged
+           to the TSP on the TDL. DPS will return the affected TSP to the TDL and the TSP will be
+           considered for the next available shipment offering over the same channel.
+        b. Shipments that are pulled-back/turned-back based on actions or inactions of the TSP are
+           charged against the TSP on the TDL. When a suspension action occurs against a TSP, at the
+           PPSO discretion, all shipments awarded to the affected TSP from the BLOC may be pulled-
+           back and reallocated to other eligible TSPs. PPSO will consider all available information and
+           whether or not the TSP has the ability to service shipments in question before the shipments
+           are pulled-back.
+        c. The PPSO must notify the TSP (either telephonically or electronically) of the shipment pull-
+           back and perform pull-back actions in DPS (Shipment Management queue). If the shipment
+           is turned-back by the TSP, the PPSO must perform pull-back functions in DPS. In both
+           cases, the PPSO must notify the customer of the changes and provide new servicing TSP
+           information.
+             NOTE: When a shipment(s) is reallocated, the new TSP must contact the customer as soon as
+             possible and meet all DP3 requirements.
+        d. In the event a turn-back or any other failure to service a shipment results in the Services
+           reimbursing the customer for an Actual Cost Reimbursement Personally Procured Move, the
+           TSP may be held responsible to reimburse the government for costs above the TSP’s rates to
+           service that shipment.
+    7. Pre-Move Survey:
+        a. The pre-move survey allows the TSP to address the customer’s specific needs and concerns,
+           in addition to guiding the customer in the preparation of his or her move from an
+           administrative and practical perspective.
+        b. The pre-move survey:
+             (1) Establishes the volume of goods to be transported (Weight)
+             (2) Assesses necessary packing material
+             (3) Identifies special packaging requirements (Crates)
+             (4) Ascertains any other difficulties (e.g., if access to the house is difficult [Shuttle, crane
+                 required])
+             (5) Confirms or establishes agreed-upon pack and pickup dates.
+        c. I agree to perform a pre-move survey on all shipments, either in residence, virtually, with
+           customer’s consent, e.g., e-mail or software consent, or telephonically. I will conduct a pre-
+           move survey either electronic or physical and provide the government and customer weight
+
+
+                                                   IV-A-402-9
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+             estimates on all shipments five (5) days from accepting the shipment but NLT nine (9) days
+             prior to the first scheduled pack/pickup date, whichever is later. For shipments ordered less
+             than nine (9) days prior to the first scheduled pack/pickup date, weight estimates must be
+             provided NLT three (3) days prior to the first scheduled pack/pickup date. For shipments
+             ordered less than three (3) days prior to the first scheduled pack/pickup date, weight estimates
+             must be provided NLT one (1) day prior to the first scheduled pack/pickup date. I agree to
+             make initial contact with the customer within three (3) GBDs of the shipment award date to
+             provide the customer with contact and pre-move information, including on shipments
+             originating from NTS. Subject to the customer’s availability, I agree to complete the pre-
+             move survey and update DPS with the pre-move survey data (estimated weight, agreed upon
+             pack/pickup dates, and delivery date information) as soon as possible but NLT three (3)
+             GBDs prior to the pickup date and NLT one (1) GBD prior for short fuse shipments. I agree
+             to contact local quality assurance immediately upon discovering any concerns with the
+             condition of the customer’s residence during the pre-move survey.
+        d. The PPSO may initiate QA action for failure to perform a pre-move survey if the TSP has not
+           entered required pre-move survey data IAW the above guidelines.
+             NOTE: TSPs will notify the PPSO when the customer is unavailable for the pre-move
+             survey. Upon notification from the TSP, the PPSO will make every attempt to contact the
+             customer and provide the TSP updated customer contact information, if applicable. The
+             PPSO must verify the customer s pre-move availability prior to issuing administrative action
+             against the TSP for failure to meet the above timelines.
+    8. Accessorials:
+        The process is outlined in Appendix A, Third Party Payment System, for the management of pre-
+        approval of services submitted by the TSP. DPS tracks pre-approvals requested by a TSP. Pre-
+        approvals can be requested on both origin and destination services. TSPs enter the accessorial
+        services requiring pre-approval in DPS. DPS displays all the accessorials for which pre-approval
+        has been requested, along with the pre-approval status. Pre-approval records are assigned a status
+        of “Pending” when they are created, and “Approved” or “Denied” according to PPSO action.
+        DPS uses the pre-approval data to compare with services submitted for final approval. Pre-
+        approved and pre-denied services are flagged accordingly. The PPSO is required to approve or
+        disapprove accessorials within three (3) GBDs and/or prior to services being performed,
+        whichever is earlier.
+    9. SIT at Origin:
+        a. Temporary storage will be used when it is in the best interest of the customer, as a result of
+           circumstances at the destination area, or when it is in the best interest of the Government.
+           The TSP must request SIT at origin in DPS. All shipments placed in SIT at origin must be
+           approved by the PPSO.
+        b. The origin PPSO can manage SIT as follows:
+             (1) The PPSO outbound receives a TSP request to place shipment in SIT
+             (2) The PPSO outbound approves or denies the TSP request
+             (3) The PPSO outbound enters the SIT data
+             (4) DPS generates the SIT control number
+             (5) DPS determines the SIT expiration date based upon the date the shipment placed in SIT
+             (6) Update and extend the SIT
+
+
+
+                                                 IV-A-402-10
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+             (7) Convert storage cost from Government expense to customer’s expense (see Note 1).
+             NOTE 1: The PPSO must maintain visibility of the shipment until delivery out or other final
+             disposition has been arranged. The PPSO must contact the customer before converting
+             shipments to commercial storage.
+             NOTE 2: Refer to the Domestic 400NG Tariff and/or the International Tender for further
+             details.
+        c. A Standard Form (SF) 1200, Government Bill of Lading Correction Notice, available at
+           https://www.esd.whs.mil/DD must be issued after the customer provides a destination
+           delivery address to terminate SIT and release property for LH movement. Shipments
+           released from SIT origin are moved on the BL that was issued at the time of shipment award.
+           The PPSO at the origin must issue the SF 1200 to establish a new RDD and provide the
+           number of days the SIT was utilized at the origin. When a shipment is released from the
+           origin SIT, the following formula is used to calculate the number of days used and the
+           remaining number of days authorized at destination:
+             (1) Days SIT Used = Shipment Release Date minus (–) Date Placed in Storage + 1 day.
+             (2) Remaining Days SIT Authorized At Destination = Days SIT Authorized minus (–) Days
+                 SIT Used.
+                  NOTE: Shipments removed from SIT at the origin should not be placed into SIT at
+                  destination. When a shipment must be placed into SIT at destination due to reasons
+                  beyond the control of the customer, the TSP must obtain approval for the SIT at
+                  destination from the PPSO. The transaction appears in DPS as a SIT approval that the
+                  destination PPSO must approve or deny. After the PPSO approval, DPS issues a SIT
+                  control number.
+    10. Excess Costs:
+        a. DPS determines excess costs for customer shipments. The PPSOs must inform the customer
+           that excess costs exist and collect if possible. DPS identifies potential excess costs at both
+           origin and/or destination.
+        b. When the system determines that excess costs may occur, the customer will be initially
+           notified after the shipment has been picked up and weighed, or at destination prior to
+           shipment delivery.
+        c. Examples of the excess costs are: Excess weight, excess distance, multiple shipments,
+           mobile home excess costs, and boat/trailer excess costs.
+             NOTE: Refer to the Joint Travel Regulations (JTR) for further details on excess costs.
+        d. DPS calculates the excess cost based on the actual shipment weight and displays the amount
+           of excess cost to be collected from the customer. If/when the PPSO is responsible for
+           collecting excess costs; the PPSO must enter the payment collection information into DPS.
+             (1) If the customer is “In a Pay Status” at destination, DPS calculates and notifies the
+                 Service finance office for collection. The Service finance office has access to all
+                 shipment related data in DPS and can generate excess cost reports.
+             (2) If the customer is not “In a Pay Status” at destination, DPS calculates the excess cost
+                 based on the actual shipment weight and displays the amount of excess cost to be
+                 collected from the customer. The customer must be notified of the excess cost and
+
+
+
+
+                                                IV-A-402-11
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+                  if/when the PPSO is responsible for collecting excess costs, the PPSO must enter the
+                  payment collection information into DPS.
+                  NOTE: When it is determined that possible excess cost may occur, DPS prints the
+                  following text in the fields. In Block 25 of the BL, the words “PAYING OFFICER
+                  REVIEW” are printed in the remarks section. DPS also places an “X” in Block 34 of the
+                  BL and provides the following annotations:
+                  (a)   For “Excess Distance” and/or “Excess Weight,” – Places an “X” in Block 34 of the
+                        BL and displays the following text in Block 25: “PAYING OFFICER REVIEW”.
+                  (b) For Mobile Home Shipments – Places an “X” in Block 34 of the BL for “Other
+                      Costs” and in Block 25 displays the following text “PAYING OFFICER
+                      REVIEW” and “Cost of Mobile Home exceeds costs of moving full JTR weight
+                      allowance”.
+                  (c)   For Boat/Trailer shipments – Places an “X” in Block 34 of the BL for “Other
+                        Costs” and in Block 25 displays the following text “PAYING OFFICER
+                        REVIEW” and “Costs of moving Boat/Trailer exceeds the cost of moving
+                        authorized JTR weight allowance, possible excess costs exist for which the
+                        customer may be liable.”
+                  (d) For Multiple Shipments – Places an “X” in Block 34 of the BL for “Other Costs”
+                      and in Block 25 displays the following text “PAYING OFFICER REVIEW”.
+                  (e)   For Accessorial Services related excess costs – Places an “X” in Block 34 of the
+                        BL for “Other Costs” and displays the following text in Block 25: “PAYING
+                        OFFICER REVIEW”. The PPSO must identify what accessorial charges are the
+                        responsibilities of the customer.
+                        NOTE: If the only shipment the customer has is a PPM, the shipment is not
+                        included in the computation for excess costs. However, if the customer has
+                        multiple shipments to include a PPM move, the weight of the PPM shipment must
+                        be used in the excess costs computations.
+    11. Updating Shipment Information:
+        Shipment changes may include administrative changes (contact, shipment information) i.e.,
+        cancellations, terminations, pull-backs, and diversions.
+        a. DPS allows the customer/alternate to edit orders information, contact information, and/or
+           shipment information. The customer can also modify data submitted on their shipment
+           application(s) if the shipment has not been validated by the PPSO counselor. If the shipment
+           has been validated, the following rules apply:
+             (1) DPS advises the customer: “One or more of the shipments associated with this set of
+                 orders has been moved beyond the counseling process and may have been routed and/or
+                 awarded to a TSP. For this reason, changes to the counseling data cannot be made at
+                 this time. Please contact your responsible outbound PPSO for assistance with any
+                 changes.”
+                  (a)   DPS advises the customer that the data cannot be modified and is “read-only.”
+                        Exception: The customer can update customer contact and dependent data at any
+                        time.
+
+
+
+
+                                                IV-A-402-12
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+             (2) The PPSO is required to make changes to the shipment record.
+                  (a)   If the requested changes are made prior to the TSP conducting the pre-move
+                        survey, the PPSO can make the necessary changes in DPS and the TSP receives
+                        notification of the changes via DPS. The BL cannot be printed until after the pre-
+                        move survey data has been entered by the TSP. After the pre-move survey has
+                        been performed and the shipment record updated, the BL reflects the modification
+                        entered by the PPSO.
+                  (b) If the requested changes are made after the TSP has performed the pre-move
+                      survey and the BL has been printed, the PPSO must generate a SF Form 1200 to
+                      make the necessary changes.
+                  (c)   If the customer requested change to the desired pickup date and the date requested
+                        is “blacked-out,” DPS alerts the PPSO that the date is not available with that TSP
+                        and the PPSO must:
+                        1   Contact the TSP to see if they can still handle the shipment. If the TSP is
+                            available, the PPSO must update DPS with the new date(s).
+                        2   If the TSP is not available on the new date(s), the PPSO must pull-back and
+                            offer the shipment to another TSP who is available during the period requested
+                            by the customer. The original TSP is not charged a “refusal,” and the next
+                            available shipment in that channel must be offered to the original TSP if they
+                            are not blacked out.
+    12. Printing Outbound Shipment Documentation:
+        DPS provides for the accountability, usage, issuance, preparation, and distribution of all
+        documentation generated in DPS. DPS ensures forms are properly prepared prior to printing.
+        The following DPS generated documents support DP3.
+        a. U.S. Government Bill of Lading-Privately-Owned Personal Property (PPGBL), Figure A-
+           402-2, and Bill of Lading (BL). Used for the acquisition of authorized transportation and
+           related services from commercial TSPs for the movement of DoW-sponsored personal
+           property shipments, mobile homes, and POVs eligible for movement on a BL. The BL is
+           generated by DPS and available to the PPSO, TSP, and the customer.
+             NOTE: The TSP must provide an electronic or hard-copy BL to the customer prior to
+             completion of shipment pickup.
+        b. SF Form 1200, Government Bill of Lading Correction Notice, available at
+           https://www.esd.whs.mil/DD. When transportation charges are affected by an alteration or
+           correction, the SF Form 1200 must be prepared in DPS and available to the PPSO and TSP.
+        c. DD Form 1780, Shipment Evaluation and Inspection Record, available at
+           https://www.esd.whs.mil/DD. Evaluation of TSP performance begins when the origin PPSO
+           awards a shipment to the TSP. Acceptance of the offer binds the TSP to perform IAW the
+           general terms established by the DoW and agreed upon by the TSP and the specific terms
+           contained on the BL and the applicable rate solicitation.
+        d. DD Form 619, Statement of Accessorial Services Performed, available at
+           https://www.esd.whs.mil/DD. Used by the TSP to support billings for materials and services.
+        e. DD Form 1814, Transportation Service Provider (TSP) Notice of
+           Warning/Suspension/Reinstatement/Cancellation, available at https://www.esd.whs.mil/DD.
+           Used to notify the TSP of a warning, suspension, reinstatement, cancellation action. The
+           letter of suspension must state the customer’s name, BL number, and the exact violation
+
+
+                                                 IV-A-402-13
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+             and/or rate solicitation paragraph violated on the shipment or shipments resulting in the
+             action.
+        f.   DD Form 1800, Mobile Home Inspection Record, available at https://www.esd.whs.mil/DD.
+             Describes a mobile home’s condition before and after shipment. The origin PPSO must
+             prepare a DD Form 1800 for each mobile home shipment and provide that document to the
+             TSP with the BL. The TSP completes the origin portion of the form at the time of pickup.
+             The TSP at destination completes the destination portion. Sections of the form are reserved
+             for the origin and destination PPSOs when a visual inspection of the mobile home is made by
+             the PPSO.
+        g. DD Form 1384, Transportation Control and Movement Document, available at
+           https://www.esd.whs.mil/DD. TCMDs are multi-purpose forms used to control the
+           movement of cargo (personal property) within the Defense Transportation System (DTS).
+           DPS generates the DD Form 1384 for personal property shipments.
+        h. DD Form 1857, Storage In-Transit (SIT) at Government Expense, available at
+           https://www.esd.whs.mil/DD. Used by the customer to request additional storage at
+           government expense via DPS when personal property in temporary storage at government
+           expense cannot be withdrawn prior to the storage expiration date.
+        i.   DD Form 1131, Cash Collection Voucher, available at https://www.esd.whs.mil/DD.
+             Generated by DPS when the Government is required to collect, or the customer wishes to
+             provide money for excess cost. This is normally, but not exclusively, used for customers in a
+             non-pay status.
+        j.   DD Form 139, Pay Adjustment Authorization, Figure A-402-1. Generated by DPS to collect
+             charges incurred by the customer for services not authorized at Government expense (i.e.,
+             excess packing, crating, hauling, storing, unpacking, uncrating). Collection is normally
+             accomplished through the issuance of a DD Form 139 for a customer in a pay status. This
+             form can also be used for customers in a non-pay status to route collection action through the
+             necessary financial institutions.
+        k. DD Form 1412, Inventory of Articles Shipped in House Trailer, available at
+           https://www.esd.whs.mil/DD. An original and three (3) copies of DD Form 1412 must be
+           prepared. An inventory is required to substantiate any claim for loss or damage to the interior
+           contents of the mobile home.
+        l.   DD Form 1863, Accessorial Services – Mobile Homes, available at
+             https://www.esd.whs.mil/DD. The PPSO, upon the request of the customer, may authorize
+             the TSP to perform additional requirements not included in the MOTO rate, either by a third-
+             party service or negotiated rate. Services performed must be listed on DD Form 1863,
+             certified by the PPSO or customer, and shown on the BL. The customer will not sign for
+             accessorial services on DD Form 1863 at the origin or destination unless the TSP has actually
+             performed those services.
+
+D. INBOUND
+    1. Updating Shipment Information:
+        Shipment changes include administrative changes (i.e., contact, shipment information,
+        terminations, pull-backs, and diversions). Business rules follow:
+
+
+
+
+                                                 IV-A-402-14
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+        a. The customer/or alternate can edit contact and/or shipment information. DPS saves all
+           changes in the database and updates the shipment record. The customer/or alternate can
+           make the following modifications to their shipment record:
+             (1) Contact and sponsor data (e-mail addresses, phone numbers)
+             (2) Shipment information (delivery address if currently blank)
+                  NOTE: All other changes must be coordinated with the destination PPSO.
+        b. The PPSO can edit shipment orders, contact, and/or shipment information. DPS saves all
+           changes in the database. The PPSO can make the following modifications to shipment
+           records:
+             (1) Customer contact and sponsor data
+             (2) Shipment information (e.g., address, phone number)
+             (3) Update customer’s orders information when in receipt of amended/adjusted/revoked
+                 orders.
+                  NOTE: DPS maintains an audit trail of all the changes made to the shipment record
+                  including when changes were made and who made said changes. The TSP can update
+                  shipment addresses and phone numbers of the customer or alternate after the shipment
+                  has been picked up and is in transit to the destination.
+    2. Shipment Arrival:
+        a. When a shipment arrives at the destination location, the TSP coordinates delivery directly
+           with the customer. The TSP records the arrival and delivery of the shipment in DPS. The
+           TSP must make at least one final first attempt to telephonically contact the customer prior to
+           other electronic notifications. For further information regarding delivery coordination, see
+           the Tender of Service.
+        b. The PPSO must monitor the status of all inbound shipments that have arrived in DPS and are
+           awaiting disposition (e.g., delivery to residence or SIT approval). The TSP must enter the
+           following information in DPS:
+             (1) Arrival date
+             (2) Weight of shipment (For international shipments: pieces, weight, and cube)
+             (3) Enter whole or split shipment information
+             (4) Enter “Requested” and/or “Actual” delivery date
+             (5) Attempted delivery date.
+    3. Shipment Delivery:
+        a. The TSP must be in regular contact with the customer throughout the entire process. If the
+           customer has requested a direct delivery (with address), the TSP will affect delivery as
+           requested. If the customer has not previously provided a delivery address for the shipment,
+           the customer should enter the information directly into DPS as soon as is known. This
+           updates the customer contact information and provides the TSP and PPSO information and
+           ensures the shipment is delivered directly to their residence, preventing unnecessary SIT.
+           DPS will update the shipment queue with a status change for the shipment arrival and any
+           subsequent delivery. In all cases, except when a delivery is scheduled and executed on the
+           same day, the TSP will enter the scheduled delivery date (including all changes) into the DPS
+           as soon as possible but NLT the close of business on the day prior to the scheduled delivery
+
+
+
+                                               IV-A-402-15
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+             date. After the shipment has been delivered, the TSP must enter the actual delivery date in
+             DPS within three (3) GBDs.
+        b. If a customer wishes to have a shipment delivered out of SIT, the customer may request a
+           delivery from SIT by accessing DPS and entering their delivery address and date. The
+           customer can also contact the PPSO to request delivery and the PPSO must annotate the
+           customer’s delivery address and date in DPS. DPS will send the delivery request to the TSP
+           work queue and the TSP must confirm the delivery date in DPS within one (1) GBD. DPS
+           will send the scheduled delivery confirmation notification to the customer and the PPSO
+           work queue. If the customer telephonically contacts TSP to request delivery, the TSP will
+           update DPS with the scheduled delivery date and delivery address within two (2) GBDs or by
+           close of business the day prior to the scheduled delivery, whichever occurs first.
+        c. The PPSO must monitor the status of all inbound shipments that have been scheduled for
+           delivery in DPS and ensure the actual delivery dates and delivery addresses are entered in
+           DPS within the required time frames as indicated above. For TSPs not meeting this
+           requirement, the PPSO must take administrative actions IAW DTR IV, Chapter A-405,
+           Quality Assurance.
+    4. Partial Delivery:
+        a. Into SIT:
+             (1) The customer or designated alternate must contact the TSP to request a partial delivery.
+                 A DPS notification is sent to the TSP and PPSO containing the following:
+                  (a)   Inventory item number(s) requested
+                  (b) Requested delivery date
+                  (c)   Delivery address.
+             (2) The TSP must deliver the requested item(s) to the partial delivery address and deliver the
+                 remaining items into SIT. The TSP must confirm the partial delivery request in DPS and
+                 notification will be sent to the customer and the PPSO. In all cases, except when a
+                 delivery is scheduled and executed on the same day, the scheduled delivery date
+                 (including all changes) will be entered into the DPS by the TSP as soon as possible but
+                 NLT the close of business on the day prior to the scheduled delivery date. DPS will
+                 monitor the remaining property in storage.
+        b. From SIT:
+             (1) The customer must contact the TSP to request a partial delivery from SIT. A DPS
+                 notification is sent to the TSP and the PPSO containing the following information:
+                  (a)   Inventory item number(s) requested
+                  (b) Requested delivery date
+                  (c)   Delivery address.
+             (2) The TSP must deliver requested item(s) to the customer and enter the actual delivery
+                 date in DPS. The TSP must enter the weight removed and the weight remaining in SIT
+                 into DPS. DPS monitors the property in storage.
+    5. SIT:
+        a. Requesting SIT: The PPSO may use SIT when it is necessary to meet the customer’s
+           requirements. Although SIT is normally used at destination when a shipment arrives before
+           the customer has established a delivery address, it also may be used at origin or at an
+
+
+                                                IV-A-402-16
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+             intermediate point when determined by the PPSO to be in the best interest of the customer
+             and the Government. Subject to PPSO approval, the TSP may use any DoW-approved SIT
+             facility listed in DPS. All SIT and related charges are based on the destination city or
+             installation shown in Block 18 of the BL unless authorized by the servicing PPSO. Requests
+             for extension of SIT for employees are accomplished IAW the JTR, Paragraph 054307.
+             Requests for extension of SIT for members are accomplished IAW the JTR, Paragraph 0518.
+             When SIT is extended, the PPSO must notify the TSP of the extension and the projected
+             termination date. A DD Form 1857, available at https://www.esd.whs.mil/DD, must be
+             submitted by the customer to the PPSO for an authorized extension. The PPSO can view
+             and/or print the DD Form 1857.
+             NOTE: SIT for DoW employees must be specifically authorized in their orders and may not
+             exceed 60 days (CONUS-to-CONUS shipment) or 90 days (shipment involving an OCONUS
+             origin or destination), unless additional storage is authorized. Not more than one 90-day
+             storage extension may be authorized for a DoW employee without explicit authority from the
+             Per-Diem, Travel and Transportation Allowance Committee.
+             (1) DPS provides the following for the management of SIT:
+                  (a)   Approving/denying request for SIT
+                  (b) Updating and extending SIT
+                  (c)   Providing for partial deliveries out of SIT
+                  (d) Generating reports on shipments placed in SIT
+                  (e)   Generating SIT correspondence (i.e., shipment arrival notice, expiration notice).
+             (2) SIT Control Number. There is one SIT control register in DPS for SIT shipments. Upon
+                 approval of SIT, DPS furnishes a SIT control number to the TSP. The nine-digit SIT
+                 control number is constructed as follows:
+                  (a)   The first two positions are the last two digits of the calendar year in which the
+                        shipment enters SIT (e.g., if the shipment is placed in SIT during calendar year
+                        2014, the first two digits are 14).
+                  (b) The third, fourth, and fifth positions represent the Julian date for the calendar day
+                      in which the shipment enters SIT (e.g., if the shipment is placed in SIT on
+                      November 9 [Julian date is 313], the third, fourth, and fifth digits are 313).
+                  (c)   The last four digits will indicate the numerical sequence of the shipments entering
+                        SIT for that day (e.g., if the shipment is the eleventh shipment placed in SIT on that
+                        day, the last four digits are 0011).
+             (3) DPS maintains a SIT control log for recording all SIT authorizations. The log contains
+                 the following information:
+                  (a)   SIT control number
+                  (b) Customer name
+                  (c)   COS
+                  (d) Storage location
+                  (e)   Dates ordered in and out of SIT
+
+
+
+
+                                                 IV-A-402-17
+Defense Transportation Regulation – Part IV                                                        14 July 2026
+Personal Property
+
+
+                  (f)   SIT expiration date:
+                        SIT extension. DPS provides advance notification to all customers that SIT expires
+                        within 30 days. The SIT period starts from the date entered into SIT and ends on
+                        the date the entitlement ends (unless the entitlement is extended). For example, if a
+                        shipment goes into SIT on 1 June and the authorization ends on 1 September, then
+                        DPS provides notification to the customer not later than 1 August. DPS also sends
+                        a SIT authorization expiration notification to the PPSOs work queue. The PPSO
+                        must take necessary action to deliver, extend, or convert the shipment to
+                        commercial storage in DPS. DPS allows the customer or alternate to request
+                        additional storage, as necessary. A DD Form 1857, available at
+                        https://www.esd.whs.mil/DD, must be completed by the customer in DPS. DPS
+                        then notifies the PPSO of the customer’s request for additional SIT. After the DD
+                        Form 1857 has been approved by the PPSO, DPS sends notification to the TSP that
+                        the storage has been extended and advises the TSP of the new expiration date.
+        b. Rules for Placing Shipments in SIT:
+             (1) Customer Requested a Direct Delivery (during counseling) and a Direct Delivery
+                 Address is Printed on the BL: The TSP is authorized SIT after a percentage (see
+                 solicitation) of the shipment’s transit time (some exceptions may apply [e.g., customer’s
+                 home becomes unavailable or customer is unable to accept delivery]). The TSP must
+                 arrive the shipment in DPS. TSP may request SIT approval once they have determined
+                 that the customer is no longer available for delivery. DPS will send a SIT approval
+                 request to the PPSO. The PPSO must review to determine whether the applicable
+                 percentage of the Government’s transit time has been met and will approve/disapprove
+                 SIT accordingly. If SIT is approved by the PPSO, DPS will issue the SIT number.
+             (2) No Direct Delivery Requested or Delivery Address (Printed on the BL): Upon shipment
+                 arrival at destination, the TSP must arrive the shipment in DPS. The TSP will provide 24
+                 hours’ notice for delivery, and cannot deliver a customer’s personal property to SIT
+                 without customer approval unless two (2) documented unsuccessful attempts to contact
+                 the customer are made six (6) hours apart. The TSP will be required to provide a first
+                 available delivery date with both notifications. Once the TSP has determined the
+                 customer is not available to accept delivery, the TSP must request SIT approval via DPS
+                 and DPS will issue the required SIT number to the TSP.
+                  NOTE: When approved by the PPSO, SIT is authorized effective the date the shipment
+                  is offered for delivery by the TSP and not on the date it arrives at destination, unless the
+                  shipment is offered for delivery on the same day it arrives at destination.
+             (3) Release Out of NTS: If the shipment is a release out of NTS, it should not be placed in
+                 SIT at destination. However, if SIT is required (e.g., customer’s house becomes
+                 unavailable, customer hospitalized) the TSP may request SIT via DPS.
+             (4) SIT for Split Shipments. If a shipment arrives at destination as a split shipment and the
+                 customer is unavailable to receive any portion, SIT may be authorized separately on
+                 each portion. DPS issues a separate SIT control number for each portion of the split
+                 shipment. The TSP must obtain a separate weight ticket and a separate SIT control
+                 number for each portion of the split shipment.
+                  NOTE: Refer to the Domestic 400NG Tariff and/or the International Tender for detailed
+                  business rules on split shipments.
+
+
+
+
+                                                 IV-A-402-18
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+             (5) SIT at Origin: SIT at origin can by initiated by either the PPSO or the TSP through
+                 DPS. DPS sends a notification to the PPSO work queue and e-mail. After the PPSO
+                 approves the request, DPS issues a SIT control number to the TSP.
+                  (a) If a shipment is released from SIT at origin, it should not be placed into SIT at
+                      destination. However, if SIT is required due to reasons beyond the control of the
+                      customer (e.g., customer’s house becomes unavailable, customer hospitalized), SIT
+                      can be authorized.
+             (6) Direct Delivery Change: If a direct delivery request is changed because the customer
+                 cannot accept direct delivery, the TSP must request SIT through DPS. DPS sends
+                 notification to the PPSO work queue and e-mail. After the PPSO approves the request,
+                 DPS issues a SIT control number to the TSP.
+                  The customer may change their direct delivery request by deleting their delivery address
+                  in DPS via the customer work queue. If the delivery address is removed prior to the
+                  arrival of the shipment and the TSP has contacted or attempted to contact the customer
+                  within the required 24 hours, the TSP can request SIT approval in DPS. DPS sends
+                  notification to the PPSO work queue and e-mail. After the PPSO approves the request,
+                  DPS issues a SIT control number to the TSP.
+        c. Converting SIT:
+             (1) Shipments remain in SIT until converted to the customer’s expense by the PPSO and is
+                 not retroactive. The PPSO cannot convert a shipment to commercial storage prior to
+                 contacting the customer or their duly appointed representative. DPS tracks the date the
+                 customer was contacted and informed of SIT conversion to customer expense. After the
+                 shipment converts to the customer expense, DPS processes the shipment delivery out of
+                 SIT; however, DPS maintains visibility of the shipment while in storage at the
+                 customer’s expense. When converted to customer expense, the customer is still entitled
+                 to delivery out of storage paid for by the Government.
+                  NOTE: Members of the DoW community, to include Active duty Coast Guard members
+                  can normally be located at https://dod411.gds.disa.mil.
+             (2) The TSP’s responsibility for a shipment and its liability under the BL for a shipment in
+                 SIT terminates and the warehouse becomes the final destination of the shipment on
+                 midnight of the day specified in the notice the TSP receives through DPS advising the
+                 Government the shipment has terminated. The notice of termination is not retroactive.
+                  NOTE: For detailed business rules on SIT, refer to the Domestic 400NG Tariff and/or
+                  the International Tender.
+    6. Request Accessorials:
+        a. See Appendix A-A, Third Party Payment System, regarding the management and approval of
+           services submitted by the TSP. DPS tracks services for which approval is requested by a
+           TSP. Pre-approval can be requested for both origin and destination services. The TSPs must
+           enter the accessorial services in DPS to obtain approval. DPS displays all accessorials
+           requiring pre-approval and the pre-approval status. Pre-approval records are assigned a status
+           of "Pending" when they are created. After reviewing, the PPSO must change the status to
+           "Approved" or "Denied" according to the required action. After accessorial services are
+           received by DPS for final approval prior to costing and payment, DPS compares the pre-
+           approval data to the services submitted for final approval. Services pre-approved are flagged
+           as pre-approved. Services denied are flagged as pre-denied.
+
+
+
+
+                                                IV-A-402-19
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+        b. DPS notifies the PPSOs electronically when actions need to be taken. This includes the
+           following:
+             (1) E-mails sent to a PPSO up to four times a day or as needed. Times are relative to the
+                 time zone of the PPSO.
+             (2) Notifications provide a summary of the number of each type of outstanding item (e.g.,
+                 pending approval, overdue).
+             (3) Notifications include notice of services submitted for pre-approval that must be acted on
+                 by the PPSO.
+             (4) E-mails include notice of services submitted for approval that are overdue (e.g., more
+                 than three (3) GBDs since submission by TSP) for action by the PPSO.
+                  NOTE: E-mail notifications are only sent if the PPSO has outstanding actions.
+    7. Reweigh:
+        a. If the customer requests a reweigh from either the PPSO or the TSP, the request must be
+           entered in DPS as a pre-approval. The PPSO must approve or deny the accessorial. The PPSO
+           will make every effort to witness ordered reweighs. The following applies:
+             (1) If a customer believes their shipment will exceed or be within 90 percent of their weight
+                 allowance, the customer may request a reweigh.
+             (2) The PPSO may order a reweigh when possible excess costs exist or when the accuracy
+                 of the weight is in question.
+             (3) DPS does not allow reweighs on HHG shipments weighing less than 500 pounds or UB
+                 shipments weighing less than 100 pounds, unless the customer is near or has exceeded
+                 the authorized weight allowance.
+             (4) The PPSO and the customer may observe shipment weighing. Upon request, the TSP
+                 must advise either the PPSO or the customer of the time and specific location for each
+                 weighing and provide reasonable opportunity for interested parties to be present at the
+                 weighing.
+        b. The TSP must enter the reweigh information (e.g., gross; tare; net weights; weight ticket
+           number (if applicable); and reweigh date) into DPS and submit weight tickets to the ordering
+           PPSO within seven (7) working days.
+    8. Printing Shipment Documentation:
+        a. DPS ensures the procedures and provides guidance for the use, issuance, preparation, and
+           distribution of all documentation. The following documentation is generated by DPS in
+           support of DP3.
+             (1) DD Form 1780, Shipment Evaluation and Inspection Record, available at
+                 https://www.esd.whs.mil/DD. Evaluation of the TSP performance begins when the origin
+                 PPSO offers a shipment through DPS to the TSP. Acceptance of the offer binds the TSP
+                 to perform IAW the general terms established by the DoW and agreed upon by the TSP
+                 and the specific terms contained on the BL and the rate solicitation.
+             (2) DD Form 619, Statement of Accessorial Services Performed, available at
+                 https://www.esd.whs.mil/DD. This form supports TSP billings for materials and services
+                 not included in the LH transportation or SFR.
+             (3) DD Form 1814, Transportation Service Provider (TSP) Notice of
+                 Warning/Suspension/Reinstatement/Cancellation, available at
+
+
+                                                IV-A-402-20
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+                  https://www.esd.whs.mil/DD. This is used to notify the TSP of a warning, suspension,
+                  reinstatement, or cancellation action. The letter of suspension must state the customer’s
+                  name, the BL number, and the exact violation and/or rate solicitation paragraph violated
+                  on the shipment or shipments resulting in the suspension action.
+             (4) DD Form 1857, Storage In-Transit (SIT) at Government Expense, available at
+                 https://www.esd.whs.mil/DD. This form is used to request additional storage at the
+                 Government’s expense via DPS, when HHG in temporary storage at the Government’s
+                 expense cannot be withdrawn prior to the SIT expiration date. Additional storage for not
+                 more than an additional 90 days may be authorized by the PPSO or such other officer as
+                 the Service may designate.
+             (5) DD Form 1131, Cash Collection Voucher, available at https://www.esd.whs.mil/DD. DPS
+                 generates this form when the PPSO is required to collect money from the customer for
+                 excess cost.
+             (6) DD Form 139, Pay Adjustment Authorization, Figure A-402-1. This form is generated
+                 by DPS to collect charges incurred by the customer for services not authorized at the
+                 Government’s expense and for the collection of excess costs. Collection is normally
+                 accomplished through the issuance of a Pay Adjustment Authorization (DD Form 139)
+                 for the customer in a pay/non-pay status at destination.
+
+E. DIVERSIONS
+    1. General:
+        The following details diversion procedures. The term “diverted” or “diversion” is a change to a
+        new destination point more than 30 miles from the original destination point in transit but does
+        not include shipments in SIT at destination and OTO shipments. If a shipment is diverted to a
+        warehouse for SIT at a point other than original destination, the warehouse is considered the
+        destination point, and transportation charges to the warehouse are assessed according to the rate
+        solicitation. If instructions are received to change the destination of a shipment that is in SIT at
+        destination, transportation guidelines under the provisions of pickup/delivery transportation
+        applies.
+    2. Proper Execution of Diversions for Domestic Shipments:
+        The following outlines the procedures for those shipments involving domestic diversions:
+        a. Order/Authorization Issuance Activity issues a new order/authorization or amendments to
+           current order/authorization for the customer while their shipment is in transit.
+        b. The customer must immediately contact and provide a copy of the new order/authorization
+           issued to the origin PPSO. If this information is disclosed to any PPSO other than the origin
+           PPSO, the notified PPSO will process the diversion and notify the origin PPSO within 24
+           hours.
+        c. PPSOs must take the following actions:
+             (1) Send an inquiry to the TSP to find where the shipment is physically located and advise
+                 them to hold the shipment at that point.
+                  (a)   The TSP must locate the shipment en route and effect the change desired. The TSP
+                        is not held responsible for failure to effect the change ordered, unless such failure
+                        is due to error or negligence of the TSP or its employees.
+
+
+
+
+                                                 IV-A-402-21
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+                  (b) Determine the location of the shipment en route to determine the Diversion Point.
+                      The Diversion Point is the closest county/city combination of the closest BLOC
+                      AOR.
+             (2) Create a Diversion Certificate and contact the TSP of the diversion.
+                  (a)   The PPSO must submit an order for diversion and provide the Diversion Certificate
+                        to the TSP.
+                  (b) The TSP must affix the Diversion Certificate and other required documents to
+                      support billing charges.
+                  (c)   Rates for the channel from origin PPSO to Diversion Point and from Diversion
+                        Point to new destination PPSO will be IAW solicitation/tender.
+             (3) Contact the original destination PPSO of the customer’s diversion.
+                  Provide documentation that the diversion did indeed occur.
+             (4) Contact the new destination PPSO of the customer’s diversion and forward the
+                 Diversion Certificate.
+    3. Proper Execution of Diversions for International Shipments: The following outlines the
+       procedures for those shipments involving international diversions:
+        a. Order/Authorization Issuance Activity issues a new order/authorization or an amendment to
+           current order/authorization to the customer while customer’s shipment is in transit.
+        b. The customer must immediately contact and provide a copy of the order/authorization to the
+           PPSO of the change in assignment. If this information is disclosed to any PPSO other than
+           the origin PPSO, it is the notified PPSO’s responsibility to process the diversion and to notify
+           the origin PPSO within 24 hours.
+        c. The notified PPSO must do the following:
+             (1) Create the Diversion Certificate. The Certificate must provide the authenticity of the
+                 diversion and the information required to be disclosed to the appropriate parties.
+             (2) Contact the TSP of the diversion.
+                  (a) The PPSO must submit an order for diversion and the Diversion Certificate to the
+                      TSP. The TSP must affix the Diversion Certificate and other documents to support
+                      billing charges.
+                  (b) The TSP must provide diligent effort to locate the shipment and effect the change
+                      desired. The TSP is not responsible for failure to effect the change ordered, unless
+                      such failure is due to error or negligence of the TSP or its employees.
+                  (c) Determine the location of the shipment en route to determine the Diversion Point.
+                      A diversion is made only at a water or aerial port of embarkation (POE), a water or
+                      aerial port of debarkation (POD), or a destination point.
+                  (d) Rate for the channel from the origin PPSO to the Diversion Point and from the
+                      Diversion Point to the new destination PPSO will be IAW solicitation/tender.
+             (3) Contact the original destination PPSO of the customer’s diversion.
+             (4) Contact the new destination PPSO of the customer’s diversion and forward the
+                 Diversion Certificate.
+
+
+
+
+                                                IV-A-402-22
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+    4. Diversion Scenarios: The following section highlights different scenarios that may occur when
+       handling diversion shipments.
+        a. International shipments with CONUS origin.
+             (1) Shipment diverted at CONUS water or aerial POE.
+                  (a)   Diverted to a CONUS destination point.
+                        1   There must be no diversions to a CONUS destination point.
+                        2   Shipment must be terminated at the POE and the international nature of the
+                            movement ceases.
+                        3   Movement to the CONUS destination point must be effected under domestic
+                            procedures (Code 2 or DPM).
+                  (b) Diverted to a different overseas rate area using the same (original) POE where the
+                      diversion is effected. Use of the TSP’s SFR from the origin to the new overseas
+                      rate area.
+                  (c)   Diverted to a different overseas rate area using a different (new) POE.
+                        1   Use the LH rate table from the origin to the original POE where the diversion
+                            is effected.
+                        2   Use the TSP’s SFR from the original POE where the diversion is effected to
+                            the new overseas rate area.
+             (2) Shipment diverted at an overseas water or POD.
+                  (a) Diverted to a CONUS destination point.
+                        1   There must be no diversion to a CONUS destination point.
+                        2   The shipment must be terminated at the POD and reshipped to the CONUS.
+                  (b) Diverted to an overseas destination point in the same overseas rate area as the
+                      original destination point. Use the TSP’s SFR from the origin to the destination
+                      rate area (no change in SFR).
+                  (c)   Diverted to an overseas destination point in another rate area.
+                        1   There must be no diversion.
+                        2   Shipment must be terminated at the POD and the PPSO must contact DoW
+                            PPA for further instructions.
+                  (d) Diverted to an overseas destination point in another overseas rate area which uses a
+                      different POD but no further over water transportation is required.
+             (3) Diverted to an overseas destination point in another rate area.
+                  (a)   There must be no diversion.
+                        1   Shipment must be terminated and the PPSO must contact DoW PPA for further
+                            instructions.
+                  (b) Diverted to an overseas destination point in another overseas rate area which uses a
+                      different (new) POD and where further over water transportation is required.
+                        1   There must be no diversion to a new overseas rate area requiring further over
+                            water transportation.
+
+
+
+                                                 IV-A-402-23
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+                        2   This shipment must be terminated at the POD IAW Termination of Shipment.
+                        3   Use of the intertheater or intratheater rate and procedure from the POD where
+                            termination is effected to the new destination point.
+             (4) Shipments diverted at overseas destination.
+                  (a) Diverted to a CONUS destination point.
+                        1 There must be no diversion to a CONUS destination point.
+                        2 Shipment must be terminated at the overseas destination point and reshipped.
+                  (b) Diverted to an overseas destination point in the same overseas rate area as the
+                      original destination point.
+                        1 Use the TSP’s SFR from the origin to the destination rate area. (No change in
+                          the SFR.)
+                        2 Use applicable LH rate table (see International Tender) for mileage rate
+                          between the original and the new destination.
+                        3 A handling charge equal to the warehouse handling charge applies.
+                  (c)   Diverted to an overseas destination point in another rate area.
+                        1   There must be no diversion.
+                        2   Shipment must be terminated and the PPSO must contact DoW PPA for further
+                            instructions.
+                  (d) Diverted to an overseas destination point in another overseas rate area which
+                      requires further over water transportation.
+                        1   There must be no diversion. The original SFR applies.
+                        2   Shipment must be reshipped IAW rules for reshipments.
+        b. Shipments with Overseas Origins:
+             (1) Shipment diverted at overseas water or aerial POE.
+                  (a)   Diverted at an overseas POE, on an intertheater or intratheater movement, to a
+                        destination point in the CONUS.
+                        1   There must be no diversion.
+                        2   The shipment must be terminated at the overseas POE. Use the intertheater
+                            transportation rate and procedure from the origin to overseas POE where
+                            termination is effected. Termination of Shipment applies.
+                        3   Reshipment to the new CONUS destination is made under the provisions of
+                            Reshipments.
+                  (b) Diverted at the overseas POE from a destination point in one CONUS rate area to a
+                      new destination point in another CONUS rate area.
+                        1   Use the TSP’s SFR from the origin to the new CONUS rate area.
+                        2   If the TSP does not have a SFR from the origin to the new CONUS rate area,
+                            terminate and reship IAW provisions contained herein.
+
+
+
+
+                                                 IV-A-402-24
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+                  (c)   Diverted at an overseas POE to an overseas destination point in the same overseas
+                        rate area as the POE where the diversion is effected.
+                        1   Use the intratheater transportation rate and procedure for movement from
+                            origin to the POE where the diversion is effected.
+                        2   Use the intratheater transportation rate from the POE where diversion is
+                            effected to the new destination point.
+                  (d) Diverted at the overseas POE to another overseas destination point in another
+                      overseas rate area.
+                        1   Use the intertheater or intratheater transportation rate and procedure from
+                            origin to the POE where the diversion is effective.
+                        2   Use the intratheater or intertheater transportation rate from the POE where the
+                            diversion is effected to the new destination point.
+             (2) Shipment diverted at CONUS/overseas water or aerial POD.
+                  (a)   Diverted at a CONUS POD to a new CONUS destination point in the same
+                        CONUS rate area as the original destination point. Use the TSP’s SFR from origin
+                        to destination CONUS rate area (no change in SFR).
+                  (b) Diverted at a CONUS POD to a destination point in another CONUS rate area
+                      which uses the same POD.
+                        1   Use the TSP’s SFR from origin to the new CONUS rate area.
+                        2   If the TSP does not have a SFR on file from the origin to the new CONUS rate
+                            area, use the TSP’s SFR to the original CONUS destination rate area with land
+                            distance adjustment computed as follows:
+                            a   If distance between the CONUS POD used and the original destination
+                                point is less than the distance between the CONUS POD used and the new
+                                destination point, the TSP must be paid for such excess distance IAW LH
+                                rate tables in addition to the SFR.
+                            b   If the distance between the CONUS POD used and original destination
+                                point exceeds the distance between the CONUS POD used and the new
+                                destination point, an adjustment of the distance differential accrues to the
+                                Government at 100 percent of the LH rate table for the difference in
+                                distance. This amount is deducted from the SFR.
+                  (c)   Diverted at a CONUS POD to a destination point in another CONUS rate area
+                        which uses a different POD.
+                        1   Use the SFR from origin to the original CONUS destination rate area with land
+                            distance adjustment for distance differential between the CONUS POD used to
+                            original destination and the CONUS POD used to the new destination.
+                        2   Adjustments for distance differentials are computed as follows:
+                            a   If distance between the CONUS POD used and the original destination
+                                point is less than the distance between the CONUS POD used and the new
+                                destination point, the TSP must be paid for excess distance in addition to
+                                the SFR.
+                            b   If distance between the CONUS POD used and the original destination
+                                point exceeds the distance between the CONUS POD used and the new
+
+
+                                                 IV-A-402-25
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+                                destination point, and adjustment of the distance differential accrues to the
+                                Government at 100 percent of the LH rate table for the difference in
+                                distance, this amount must be deducted from the SFR.
+                  (d) Diverted at a CONUS POD to a destination point in overseas rate area.
+                        1   There must be no diversion.
+                        2   The shipment must be terminated at the POD and reshipped to the new
+                            overseas destination.
+                  (e)   Diverted at an overseas POD, on an intertheater or intratheater movement to a
+                        destination point in the CONUS.
+                        1   There must be no diversion.
+                        2   The shipment must be terminated at the overseas POD. Use the intertheater or
+                            intratheater transportation rate and procedure from the origin to the overseas
+                            POD where the termination is affected.
+                        3   Reshipment to the new CONUS destination must be made under provisions of
+                            Reshipment.
+                  (f)   Diverted at an overseas POD to a new destination point in an overseas rate area.
+                        1   Use the intertheater or intratheater transportation rate and procedure from the
+                            origin to the POD where the diversion occurred.
+                        2   Use the intertheater or intratheater transportation rate from the POD when the
+                            diversion is effected to the new destination point.
+             (3) Shipment diverted at the CONUS destination.
+                  (a)   Diverted to another CONUS destination.
+                        1   Use TSP’s SFR to original destination.
+                        2   Use LH rate table for the distance rate between the original and the new
+                            destination.
+                        3   A holding charge equal to the minimum storage rate and a handling charge
+                            equal to a warehouse handling charge apply.
+                  (b) Diverted to another overseas area. There is no diversion to an overseas area. The
+                      shipment must be reshipped.
+             (4) Inter/Intra Theater Shipments. Shipments diverted at an intermediate water/aerial port.
+                  (a)   There must be no diversion.
+                  (b) The shipment must be terminated at the intermediate port.
+                  (c)   Reshipment to new destination must be made on a new BL.
+
+F. TSP MODULE
+    1. Shipment Award/Offer:
+        a. DPS awards shipments to qualified TSPs in a round robin rotation based on BVS. DPS offers
+           the shipment to the TSP based on the customer-unique shipment indicators, including type of
+           shipment, desired pickup and delivery times, transit time, and the origin to destination
+           combination (channel) information obtained during counseling. TSPs see only those
+
+
+
+                                                 IV-A-402-26
+Defense Transportation Regulation – Part IV                                                        14 July 2026
+Personal Property
+
+
+             shipments with their Standard Carrier Alpha Code (SCAC) assigned. DPS notifies the TSP in
+             the DPS work queue when new or updated booking requests and cancellations are posted.
+             DPS monitors the TSP response to shipment offers to ensure timely acceptance (24 hours).
+        b. If the TSP fails to respond to a shipment offer within 24 hours from the date/time offered,
+             (1) DPS notifies the PPSO QA and PPSO Outbound in DPS and generates an e-mail to the
+                 TSP indicating that the TSP failed to respond in a timely manner to the shipment award
+                 (“Notice of Non-Response”). DPS marks the e-mail “URGENT” and sends it to the
+                 TSP-provided e-mail addresses.
+             (2) DPS allocates the TSP a shipment and offers the shipment to the next available TSP.
+             (3) DPS does not “automatically” remove the TSP (inactivate the TSP) from the system or
+                 market. This is an overt action by the PPSO to ensure that the “Non-Response” was not
+                 due to electronic failure.
+             (4) Following confirmation by the PPSO QA that the “Non-Response” was not due to a
+                 system problem, a DD Form 1814 must be issued and the TSP immediately suspended
+                 for 30 days out of that market BLOC(s).
+                  NOTE: At the time the shipment is awarded, the BL number is assigned but DPS does
+                  not allow the forms to be printed. The BL is not accessible for printing until after the
+                  TSP has entered the pre-move survey data (e.g., agreed upon pack/pick-up dates,
+                  estimated weights). At this time, DPS allows the TSP and PPSO user(s) to print the BL.
+    2. Shipment Refusal:
+        a. Shipment refusals are not permitted in the DP3 except for short-fused shipments (i.e., pickup
+           within five (5) GBDs or less, or shipments with a shortened transit time) since the TSP can
+           perform daily updates of blackout dates. If a TSP refuses a shipment, the TSP may be
+           ineligible to receive shipments in that category for 30 calendar days. DPS determines the
+           next TSP to receive an offer because of refusals.
+        b. TSPs will enter the name and phone number of the origin representative within DPS at the
+           time of shipment acceptance. TSPs must update (when applicable) any changes to the origin
+           representative servicing the shipment prior to performing the pre-move survey.
+             NOTE: DoW PPA may modify shipment refusal procedures as industry capacity situations
+             change. DoW PPA will issue a Customer Advisory 10 business days prior to any changes
+             taking effect.
+    3. Pre-Move Survey:
+        a. The pre-move survey ensures the successful movement of a shipment. The pre-move survey
+           is used to:
+             (1) Establish the volume of goods to be transported (Weight).
+             (2) Make provisions for any special packaging according to the goods (Crates).
+             (3) Ascertain any other difficulties, for example if access to the house is difficult (e.g.,
+                 shuttle, crane required).
+             (4) Confirms or establishs agreed-upon pack and pickup dates.
+        b. The TSP must attempt to make initial contact with the customer within three (3) GBDs of
+           shipment booking to provide the customer with their contact and pre-move information. DPS
+           sends a notification to the customer providing the TSP’s name and telephone number. If
+           necessary, the customer can directly call the TSP regarding the pre-move survey. The TSP is
+
+
+                                                  IV-A-402-27
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+             required to conduct an in residence pre-move survey on all domestic shipments estimated at
+             4,700 pounds or more and international shipments estimated at 3,200 pounds or more within
+             a 50-mile radius of their servicing facility. This requirement applies to all shipments with a
+             five (5) GBD minimum notice in advance of the shipment pickup date. Telephone surveys
+             may be made on short-fuse shipments and shipments of lesser weight and/or those with
+             pickup points exceeding 50 miles from their servicing facility. Subject to customers
+             availability, the TSP must complete the pre-move survey and update DPS with pre-move
+             survey data (estimated weight, pack/pickup dates, and RDD information) as soon as possible
+             but NLT three (3) GBDs prior to the pickup date. For short-fuse shipments: The TSP is
+             required to conduct pre-move survey (physically or telephonically) and enter pre-move data
+             (e.g., estimated weight, pack/pickup dates, including all changes) in DPS as soon as possible
+             but NLT one (1) GBD prior to the first pack/pickup date. The TSP must enter the pre-move
+             weight and the agreed pack and pickup dates before the BL can be printed.
+    4. Requesting Accessorials:
+        a. DPS supports the process outlined in Appendix A-A, Third Party Payment System, for the
+           management of approval of services submitted by the TSP. DPS provides tracking of TSP
+           requested pre-approval services to receive PPSO approval prior to performing the service.
+           Pre-approvals can be requested on both origin and destination services. The TSPs and/or
+           their agents must enter the accessorial services for pre-approval. Pre-approval records are
+           assigned a status of “Pending” when they are created. DPS displays all pre-approval
+           requested accessorials and the status of the pre-approval. The PPSO must change the status
+           to "Approved" or "Denied". DPS uses the pre-approval data to compare against services
+           submitted for final approval. If it is determined a service was pre-approved, it is flagged as
+           being pre-approved. If it is determined that a service was denied, it is flagged as being
+           denied.
+    5. Requesting SIT:
+        NOTE: All shipments placed in SIT must be approved via DPS.
+        a. SIT is used at destination when a shipment arrives before the customer has established a
+           delivery address. However, it may be used at the origin or at an intermediate point when
+           considered by the PPSO to be in the best interest of the customer and the Government.
+           Subject to PPSO approval, the TSP may use any DoW-approved SIT facility. SIT and related
+           charges are based on the destination city or installation shown in Block 18 of the BL unless
+           authorized by the servicing PPSO. DPS will allow the TSP to place a shipment into SIT with
+           approval as follows:
+             (1) Customer Requested a Direct Delivery (during counseling) and Direct Delivery Address
+                 is Printed on the BL. Upon arrival at destination, the TSP must arrive the shipment in
+                 DPS. If the TSP is unable to coordinate delivery with the customer within the required
+                 24 hours, the TSP may submit a request for approval of storage in DPS. DPS will send a
+                 SIT approval request to the PPSO. The PPSO will review request and determine to
+                 approve/disapprove SIT accordingly. If SIT is approved by the PPSO, DPS will issue
+                 the SIT number.
+             (2) No Direct Delivery Requested or Delivery Address (Printed on the BL): Upon shipment
+                 arrival at the destination, the TSP must arrive the shipment in DPS and telephonically
+                 contact the customer within the required 24 hours. Once the TSP has determined the
+                 customer is not available to accept delivery, the TSP may submit a request for SIT
+                 approval in DPS and DPS will issue the required SIT number to the TSP.
+
+
+
+
+                                                IV-A-402-28
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+             (3) If the shipment is a release out of NTS, it should not be placed in SIT at destination.
+                 However, if SIT is required (e.g., customer’s house becomes unavailable, customer
+                 hospitalized) the TSP must request SIT via DPS.
+             (4) A shipment released from SIT at the origin should not be placed into SIT at destination.
+                 However, SIT can be authorized due to reasons beyond the control of the customer (e.g.,
+                 customer’s house becomes unavailable, customer hospitalized). SIT must be approved
+                 via DPS.
+             (5) Direct delivery changed (e.g., customer can no longer accept direct delivery therefore
+                 the shipment must be placed into SIT at destination). After the TSP requests SIT, DPS
+                 notifies the PPSO in their work queue that approval is pending.
+             (6) SIT for Split Shipments. If a shipment arrives at destination as a split shipment and the
+                 customer is unavailable to receive any portion, SIT may be authorized separately on
+                 each portion. DPS issues a separate SIT control number for each portion of the split
+                 shipment. The TSP is required to obtain a separate weight ticket and a separate SIT
+                 control number for each portion of the split shipment. The cost of weighing each portion
+                 is borne by the TSP. The Government does not pay the minimum weight as applicable
+                 to storage for portion of split less than the minimum weight. There is no partial delivery
+                 authorized for employees. After the TSP requests SIT, DPS notifies the PPSO in their
+                 work queue that approval is pending.
+                  NOTE: Refer to the Domestic 400NG Tariff and International Tender for detailed
+                  business rules on split shipments.
+    6. Extending SIT:
+        a. A customer or alternate can request additional SIT, as necessary through DPS. A copy of DD
+           Form 1857, available at https://www.esd.whs.mil/DD, must be completed by the customer in
+           DPS. The DD Form 1857 is forwarded to the PPSO for approval. DPS sends notification to
+           the PPSO of the customer request for additional SIT. When SIT is extended, the PPSO must
+           notify the TSP of the extension and the projected termination date. After the DD Form 1857
+           has been approved by the PPSO, DPS sends notification to the TSP that the storage has been
+           extended and advises the TSP of the new expiration date. When an extension is denied, the
+           PPSO must notify the customer that their request for additional storage has been denied. In
+           addition, the PPSO must advise the customer of the current storage expiration date and their
+           responsibility to arrange for delivery or continued storage at the customer’s expense.
+    7. Converting SIT:
+        a. When a SIT shipment is close to the expiration date, DPS notifies the customer that the
+           storage must be extended or storage will convert to their expense. DPS tracks the date the
+           customer was contacted and informed that SIT will be converted to customer’s expense. The
+           PPSO cannot convert a shipment to commercial storage prior to contacting the customer or
+           their duly appointed representative. After converted to customer’s expense, DPS processes
+           the shipment as a delivery out of SIT. DPS maintains visibility of shipment while in storage
+           at the customer’s expense (see NOTE 1).
+        b. The TSP’s responsibility for a shipment and its liability under the BL for a shipment in SIT
+           terminates, and the warehouse becomes the final destination of the shipment on midnight of
+           the day specified in the DPS notification advising TSP the shipment will terminate. The
+           notice of termination is not retroactive.
+             NOTE 1: When converted to customer’s expense, the customer is still entitled to delivery out
+             of storage paid by the Government.
+
+
+                                                 IV-A-402-29
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+             NOTE 2: For detailed business rules on SIT, refer to the domestic and international tariffs.
+    8. Updating Shipment Information:
+        a. Shipment changes include administrative changes (e.g., contact, shipment information,
+           cancellations, terminations, pull-backs, and diversions). The TSP can modify shipment
+           information (addresses, phone numbers, weights) submitted by the customer or alternate after
+           the pre-move survey has been performed. The following applies:
+        b. DPS allows the TSP to make modifications to data submitted by the customer or alternate:
+             (1) After the pre-move survey has been performed and the TSP has confirmed the “actual
+                 dates” with the customer or alternate, the TSP must update the shipment record in DPS
+                 to reflect the actual pack and pickup dates.
+             (2) After the pre-move survey has been performed, if the TSP determines the estimated
+                 weight provided was incorrect, the TSP must update the shipment record in DPS to
+                 reflect the new estimated shipment weight.
+             (3) After the pre-move survey has been performed, if the TSP receives notice that the
+                 customer or alternate has a delivery address and now requests a direct delivery, the TSP
+                 must update the shipment record in DPS to reflect the new address and planned/agreed
+                 delivery date.
+             (4) If the requested changes are made after the TSP has performed the pre-move survey and
+                 the BL has been printed, the TSP must update the shipment information and DPS
+                 notifies the PPSO of the shipment changes. The PPSO must generate a SF Form 1200,
+                 available at https://www.esd.whs.mil/DD, to make the necessary changes and DPS must
+                 send notification to the TSP.
+        c. Weights:
+             (1) The TSP must weigh each shipment and enter the gross, tare, and net weight of all
+                 shipments in DPS after the shipment has been picked up. The TSP must submit weight
+                 tickets, reflecting gross, tare, and net weights properly certified IAW solicitation/tender
+                 to the ordering officer with documentation according to Service requirements within
+                 seven (7) working days.
+                  (a)   When scales are not available or their use is not practical, and/or weight tickets
+                        have been lost, the application of a constructive weight of seven pounds per cubic
+                        foot may be used when approved by the responsible PPSO. (Refer to Appendix A-
+                        B, Tender of Service).
+             (2) PBP&E (also known as PRO or PRO-Gear) is included as part of the shipment, as
+                 follows:
+                  (a) The TSP is required to enter the weight of the PBP&E into DPS. If the shipment
+                      contains consumables, the total weight of all consumables will be entered into DPS.
+             (3) If the TSP fails to enter the shipment weights, DPS does not allow completion of the
+                 following actions:
+                  (a)   Invoicing for payment
+                  (b) Updating in-transit information
+                  (c)   Entering shipment arrival information
+                  (d) Requesting SIT at destination (if required)
+
+
+
+                                                 IV-A-402-30
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+                  (e)   Scheduling delivery.
+        d. Shipment Status:
+             (1) The TSP must access DPS to enter in-transit information for all personal property
+                 moving from origin to destination. Shipment status includes:
+                  (a)   Updated status codes (e.g., counseled, booked, in transit)
+                  (b) En route status (the TSP enters comments on current location of shipment)
+                  (c)   ETA at destination
+                  (d) Delivery information (i.e., RDD and delivery date)
+                  (e)   For shipments that enter the DTS, the TSP must provide the date the shipment
+                        entered into the DTS and the date the shipment was received from the DTS.
+             (2) After the TSP enters the shipment weight information in DPS, the shipment status code
+                 changes to “IT” (in transit). At this time, the TSP can:
+                  (a)   Invoice for payment
+                  (b) Update in transit information
+                  (c)   Enter shipment arrival information
+                  (d) Request SIT at destination (if required)
+                  (e)   Schedule delivery.
+             (3) After the TSP enters the actual delivery date in the DPS, the shipment status changes to
+                 “Delivered Complete.” At that time:
+                  (a)   TSP can invoice for destination services
+                  (b) Customer can complete Notice of Loss and Damage
+                  (c)   Customer can initiate claim
+                  (d) Customer completes the Customer Satisfaction Survey (CSS).
+                  NOTE: DPS maintains an audit trail of all changes made to the shipment record to
+                  include who made changes and when changes were made. After the shipment has been
+                  picked up and is in transit to the destination, the TSP can only update shipment
+                  addresses and phone numbers of customers. The TSP cannot update the e-mail address
+                  of the customer or alternate since there may be a conflict of interest with the CSS.
+    9. Printing Shipment Documentation: The following documentation is generated in DPS to support
+       DP3.
+        a. PPGBL, available at https://www.esd.whs.mil/DD. Used for the acquisition of authorized
+           transportation and related services from commercial TSPs for the movement of DoW-
+           sponsored personal property shipments, mobile homes, and POVs eligible for movement on a
+           BL. The BL is generated by DPS and is available to the PPSO, TSP, and the customer or
+           alternate.
+             NOTE: The TSP cannot print the BL until the pre-move survey information has been entered
+             in DPS.
+
+
+
+
+                                                 IV-A-402-31
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+    10. Preparation of the BL:
+        a. The following preparation instructions are keyed to the numbered Blocks appearing on the
+           BL. When different entries are required due to different methods of shipment (i.e., through
+           Government bill of lading [TGBL], DPM, mobile home, or privately owned vehicle [POV]),
+           instruction by shipment method is provided. In all other cases, the entry data provided is the
+           same for all methods of shipments.
+             (1) Block 1, Transportation Company and Agent Tendered To. Enter the full business name
+                 of the initial LH TSP to which the shipment is tendered. The business name must
+                 include the words “company,” “incorporated,” or “limited.” These words may be
+                 abbreviated as CO., INC., and LTD. No other company or TSP abbreviation, initial, or
+                 symbol may be used.
+             (2) Block 2, SCAC. Enter the four-position SCAC assigned to the initial LH TSP by the
+                 National Motor Freight Traffic Association.
+             (3) Block 3, Service Code.
+                  (a)   TGBL/International Through Government Bill of Lading (ITGBL) Shipments.
+                        Enter the COS; such as code D, 2, 4, or J.
+                  (b) Mobile Homes. Enter the code “S”.
+             (4) Block 4, Shipment Number. When more than one shipment is made for an individual
+                 customer, the BLs must be numbered in the same sequence as the DD Form 1299,
+                 Application for Shipment and/or Storage of Personal Property, available at
+                 https://www.esd.whs.mil/DD (for example, “1 of 3”, or “2 of 3”). When only one
+                 shipment is made, enter “1 of 1”.
+             (5) Block 5, Date B/L Issued. Enter the calendar date (day, month, and year) (e.g., 4
+                 December 2014) on which the first entry is made in preparing the BL.
+             (6) Block 6, Requested Packing Date. Enter the calendar date (day, month, and year) (e.g.,
+                 5 December 2014) on which the TSP is to begin packing a TGBL shipment.
+             (7) Block 7, Requested Pickup Date.
+                  (a)   TGBL. Enter the requested pickup date or the date on which the TSP has agreed to
+                        pick up the shipment (e.g., 6 December 2014).
+                  (b) DPM.
+                  (c)   Enter the date the shipment is picked up at the customer’s residence
+                  (d) NTS facility, in cases where such pick up is performed by a DPM packing
+                      contractor.
+                  (e)   Enter the scheduled date of pickup by the common TSP in all other cases (e.g.,
+                        pickup at SPOE or APOE or TO installation facility).
+             (8) Block 8, RDD. Enter the RDD (day, month, and year) that the shipment is required at
+                 the destination shown in Block 18 (e.g., 19 December 2014).
+             (9) Block 9, No entry required.
+             (10) Block 10, Property Owner’s Name, SSN, and Rank and Pay Grade. Enter the
+                  customer’s name (last, first, middle initial), SSN (last four only), rank, and pay grade.
+
+
+
+
+                                                 IV-A-402-32
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+                  Also enter the customer’s status (PCS, TDY, SEP, RET) and the unit and activity to
+                  which assigned.
+                  (a)   If the member’s grade is E-4 or below, indicate the maximum authorized weight
+                        allowance per the JTR.
+                  (b) For Navy shipments only, enter the customer’s rank or rate code. This code is the
+                      one-digit alpha character immediately following the abbreviation and subhead in
+                      the accounting data contained in the customer’s orders.
+                  (c)   For customer, enter “WD” (with dependents) or “WOD” (without dependents).
+                  (d) For deceased customer or deceased dependent(s) of a customer, annotate
+                      “BLUEBARK” immediately following the name.
+                  (e)   For early return of dependents, enter dependents name, followed by “dependent of”
+                        and sponsors name, SSN (last four only), rank, and pay grade.
+             (11) Block 11, Authority for Shipment. Enter the authority for shipment as shown on the
+                  customer’s orders (such as order number, paragraph number, and order issuing agency).
+             (12) Block 12, Date of Order. Enter the date the orders were issued.
+             (13) Block 13, Extra Pickup/Delivery. When an extra pickup/delivery is requested, cross out
+                  the service not applicable and enter the complete address.
+             (14) Block 14, Department/Agency. Enter the sponsoring military Service/Agency or other
+                  Agency.
+             (15) Block 15, Transportation Control Number. Enter the Transportation Control Number
+                  (TCN) for shipments that will move in the DTS.
+                  (a)   The TCN will be constructed IAW procedures set forth in this Regulation, Part II.
+                  (b) The 15th position of the TCN requires a code that designates the shipment as a
+                      Code 5, J, T, or DPM shipment. For example, following is the list of current type
+                      shipment codes authorized:
+                            B – Unaccompanied baggage (DPM)
+                            J – Unaccompanied baggage (TGBL) – Code J
+                            H – Household goods (DPM)
+                            K – Household goods (TGBL) – Code 5 (for surface) and Code T (for air)
+                            P – POV.
+             (16) Block 16, No entry required.
+             (17) Block 17, Full Name of Shipper. Enter the full name of the military installation or
+                  activity making the shipment.
+             (18) Block 18, Consignee. Enter name, destination, delivery address, and rate area code (e.g.,
+                  US11, US12, US13). Information must be as specific as possible (i.e., city, installation,
+                  county, state, country). Rate area code is only required on ITGBL shipments.
+                  (a)   TGBL Shipments.
+                        1   Consigned to the customer. Enter the customer’s name (last name, first name,
+                            and middle initial), rank/grade, and activity to which assigned (shipments
+                            destined overseas--spell out the name of the activity and country—do not show
+
+
+
+                                                 IV-A-402-33
+Defense Transportation Regulation – Part IV                                                       14 July 2026
+Personal Property
+
+
+                            APO/FPO number) or delivery address, including the street, city, county, state,
+                            or country, and ZIP code.
+                        2   Consigned to the customer’s agent. Enter the full name of the customer’s
+                            designated agent, followed by the word “agent”, and the delivery address,
+                            including the street, city, county, state, country, and ZIP code.
+                        3   Consigned to a Commercial NTS Facility. Enter the full business name and
+                            address of the commercial storage contractor, including the street, city, county,
+                            state, and ZIP code.
+                        4   Consolidated Shipments. A separate BL will be issued for each customer’s lot
+                            in the consolidated shipment. The individual BL must be cross-referenced by
+                            inserting the following statement in Block 27: “This is a consolidated
+                            shipment comprised of BL numbers:” (list all other BL numbers involved in
+                            the consolidated shipment).
+                  (b) DPM Shipments.
+                        1   DPM shipments are consigned IAW the PPCIG. For DPM shipments entering
+                            the DTS, the CONUS SPOE or APOE will be entered. The final overseas
+                            destination must appear in Block 20.
+                        2   For shipments to the SPOE, the DDD the shipment is required at the SPOE
+                            must be entered.
+                  (c)   Mobile Homes. Enter the customer’s name (last name, first name, and middle
+                        initial) (or the full name of the customer’s agent followed by the word “agent”),
+                        and the delivery address, including the street, city, county, state, and ZIP code.
+                  (d) POVs. Enter the customer’s name (last name, first name, and middle initial) (or the
+                      full name of the customer’s agent followed by the word “agent”), and the delivery
+                      address, including the street, city, county, state, and ZIP code, or, if destined to a
+                      port, the ocean terminal.
+             (19) Block 19, From. Complete address at point of pickup and rate area code (e.g., US11,
+                  US12, US13). Rate area code is only required on ITGBL shipments.
+                  (a)   Shipments from Residence. Enter the exact location of the property to be shipped,
+                        including the street, city, or military installation, county, state, country, and ZIP
+                        code.
+                  (b) Shipments from Storage or Contractor’s Facility. Enter the name of the
+                      commercial or government warehouse facility, including the street, city, county,
+                      state, country, and ZIP code. For shipments from NTS, enter the stored net weight,
+                      lot number, and service order number.
+             (20) Block 20, Responsible Destination Installation/Office.
+                  (a)   BLOC. Enter the destination TO BLOC in the designated block in Block 20.
+                  (b) TGBL and DPM Shipments. Enter the name of the responsible destination TO,
+                      state, ZIP code, or country, APO/FPO number, and the commercial telephone
+                      number.
+                  (c)   DPM Shipments entering the DTS. For DPM shipments entering the DTS, the
+                        final overseas destination TO must be entered, not the CONUS SPOE/APOE,
+                        which appears in Block 18.
+
+
+
+                                                 IV-A-402-34
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+                  (d) Consolidated DPM Shipments entering the DTS. Enter the responsible destination
+                      TO and BLOC receiving the largest shipment by weight.
+             (21) Block 21, Bill Charges To: Enter “Bill To: US Bank Third Party Payment System”
+                  only.
+             (22) Block 22, Via:
+                  (a)   TGBL Shipments. Leave blank.
+                  (b) DPM Shipments.
+                        1   INTL/AIR/COMM/DPM Shipments. Show the complete routing from the
+                            origin to the final destination as provided by the initial TSP.
+                        2   All Other DPM Shipments. Only the name of the originating TSP is necessary
+                            unless it is to the advantage of the government to specify the connecting TSPs.
+                            It is the obligation of the originating TSP to forward shipments over a route
+                            providing the lowest published charges within the mode. When it is necessary
+                            to route shipments, routing must be selected by experienced transportation
+                            personnel who are aware of various tariff restrictions and limitations to ensure
+                            that services are obtained at the lowest possible cost.
+                  (c)   POVs. The same instructions apply as those shown under “All other DPM
+                        Shipments.”
+                  (d) Mobile Homes. For mobile home shipments, enter the method of movement (e.g.,
+                      stowage, lowboy).
+             (23) Block 23. No entry required.
+             (24) Block 24, Appropriations Chargeable:
+                  (a)   Army Shipments. Enter the movement designator code from the customer’s orders.
+                        Also, for ITGBL shipments enter the four-digit Transportation Account Code
+                        (TAC). TACs are available at https://beis.csd.disa.mil/beis-html/frontpage.html.
+                  (b) Air Force Shipments. Enter the accounting data from the customer’s travel order.
+                      For ITGBL shipments, enter the TAC. TACs are available at
+                      https://beis.csd.disa.mil/beis-html/frontpage.html.
+                  (c)   Navy Shipments. Enter the four-digit TAC shown in the customer’s orders. TACs
+                        are available at https://beis.csd.disa.mil/beis-html/frontpage.html.
+                  (d) Marine Corps Shipments. Enter the line of appropriation and Standard Document
+                      Number from the customer’s orders. Marine Corps TAC guidance can be found at
+                      http://www.marines.mil/Portals/59/MCO%204610.37F.pdf.
+                  (e)   Coast Guard Shipments. Enter the accounting data indicated on the customer’s
+                        travel order. It is normally located in Block 9 of the Coast Guard Form 5131,
+                        Standard Travel Orders for Military Personnel, Figure A-402-3, or specified in the
+                        body of a letter-format travel order.
+                  (f)   All Other DoW Shipments. Enter the accounting data from the customer’s orders.
+                        Also, for all ITGBL shipments enter the four-digit TAC shown in the customer’s
+                        orders. Show the word “TAC” followed by the four-digit code. TACs are
+                        available at https://beis.csd.disa.mil/beis-html/frontpage.html, then select
+                        “TAC/LOA Inquiry (2875 Required)”, users are required to obtain a login ID and
+                        password.
+
+
+
+                                                 IV-A-402-35
+Defense Transportation Regulation – Part IV                                                     14 July 2026
+Personal Property
+
+
+             (25) Block 25, Remarks.
+                  (a)   SIT:
+                        1   TGBL Shipments Authorized SIT. If SIT was used at the origin, enter “_____
+                            days SIT were used at origin”.
+                        2   Shipments from NTS. If SIT was used, enter “_____ days temporary storage
+                            were used at origin”.
+                        3   Shipments Not Authorized SIT. Enter “SIT not authorized”.
+                  (b) Export and Import Annotations. For shipments originating in the CONUS and
+                      destined overseas, enter “For Export”. For shipments moving by air, originating
+                      overseas, and destined for the CONUS, enter “Imported by Air”.
+                  (c)   Unpacking at Destination. When the TSP does not perform packing services at
+                        origin and unpacking services are required at destination, enter “Unpacking
+                        Required at Destination.” This applies to shipments moving from NTS and UB
+                        shipments when unpacking of UB is requested by the customer and authorized by
+                        the PPSO. When unpacking is authorized on the BL, the TSP/agent will prepare a
+                        DD Form 619, available at https://www.esd.whs.mil/DD, for labor charges. The
+                        customer must initial the DD Form 619 to verify that unpacking services were
+                        performed. If the BL for a shipment from NTS is not annotated, the destination TO
+                        will authorize unpacking services on the DD Form 619.
+                  (d) TGBL Notification:
+                        1   Direct Delivery Requested. If the customer has made advance arrangements
+                            with the origin TO for direct delivery to the destination residence, enter:
+                            “Direct Delivery Authorized.”
+                        2   Direct Delivery Not Requested. Enter “Before effecting delivery to a residence
+                            or placing in storage, the TSP must notify the TO specified in Block 20”.
+                        3   BLUEBARK Shipments. Enter “Direct Delivery is not authorized”. The TSP
+                            must contact the TO specified in Block 20 for instructions.
+                  (e)   Retrograde Shipments When Intermediate SIT Is Involved. Enter: The TSP must
+                        request disposition instructions from the TO at the CONUS military ocean or air
+                        terminal.
+                  (f)   Mobile Homes:
+                        1   Enter “Necessary repairs and services are authorized, not to exceed $150 total
+                            (tire or tube replacement is excluded) without prior approval of the origin TO
+                            or customer. The total specified may be greater than $150 if authorized by the
+                            customer, in writing, at the time of counseling.”
+                        2   Also enter amounts paid by the origin TO on a local contract for accessorial
+                            services not performed by the customer or the TSP.
+                        3   Army, Air Force, Marine Corps, and other Agencies personnel not remaining
+                            in a pay status—insert the entitlement cost basis (maximum allowable cost) of
+                            the mobile home shipment.
+                        4   For Navy personnel, the cost basis is not shown.
+                  (g) Special Authorization: For shipments made from or consigned to a point not
+                      specified in the customer’s orders, enter “Shipment authorized from (city/military
+
+
+                                                 IV-A-402-36
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+                        installation, county, and state/country) to (city/military installation, county, and
+                        state/country).” For Army shipments, enter “Shipment to authorized destination
+                        would have been under (enter DoW PPA rate solicitation) at a total cost of $ (enter
+                        total charges).”
+                  (h) Use of Government-Owned Containers. When government-owned containers are
+                      used for shipments moving in TGBL service, enter the statement from the rate
+                      solicitation. Also enter the number and type of containers used.
+                  (i)   Administrative Weight Limitation. For shipments to or from OCONUS where
+                        administrative weight limitations are in effect, enter the following notation:
+                        “Maximum administrative weight allowance for household goods/unaccompanied
+                        baggage is (insert weight).”
+                        NOTE: Weight limitations for Navy shippers are listed on the customer’s orders.
+                  (j)   NTS. When a shipment is consigned to a NTS facility, enter “For Non-temporary
+                        Storage.”
+                  (k) Firearms. When the shipment contains firearms, enter “This Shipment Contains
+                      Firearms.”
+                  (l)   Nonperformance of Interior Packing. When no packing of interior boxes (such as
+                        cartons, drums, and dish packs) is performed on international containerized
+                        shipments moving under SFRs, annotate the BL with the solicitation item number
+                        and the statement, “Apply (show $ amount) per net cwt reduction to the SFR.”
+                  (m) DPM and Code 5 Shipments Moving Through CONUS Military Ocean Terminals
+                      (MOTs). Enter the pre-lodge, pre-delivery notification requirements as set forth by
+                      the MOT in the PPCIG, Volume I (CONUS).
+                  (n) POVs. Enter the year, make, serial number, license number, and any other
+                      information necessary to identify the POV.
+                  (o) Reweigh Required. When it is determined by the PPSO that a reweigh is
+                      necessary, or when a reweigh is requested by the customer at origin, the PPSO
+                      must annotate the BL with the words “REWEIGH REQUIRED”.
+                  (p) DDD/ETA at POE. For Code 5 and T shipments, enter “DDD: (insert date) at the
+                      POE.” Compute the date from the ETA (Block 16) shown on the TCMD.
+                  (q) In-Transit Contact Information. During counseling, enter customer in transit
+                      contact information (i.e., cell phone number, e-mail address) to assist in
+                      communications regarding the move.
+                  (r)   Boat Shipments:
+                        1   For all boat/trailer shipments, the following statement should appear
+                            “SHIPMENT CONTAINS BOAT.”
+                        2   Block 25 – If the user indicated during counseling that they are “Willing to Pay
+                            for Accessorial Services,” the system should annotate the following statement
+                            in the remarks section: “Member is responsible for Accessorial Services.”
+             (26) Block 26, Packages:
+                  (a)   TGBL Shipments. Enter 1 LOT.
+                  (b) DPM Shipments. Enter the number and type of containers (e.g., 1 FL – 2 CTNS).
+
+
+
+                                                 IV-A-402-37
+Defense Transportation Regulation – Part IV                                                      14 July 2026
+Personal Property
+
+
+                  (c)   Mobile Home Shipments. Enter “1 EA” for Mobile Homes.
+                  (d) POVs. Enter 1 VO.
+             (27) Block 27, Description of Shipment. Enter the words “Household Goods,”
+                  “Unaccompanied Baggage,” and “Personal Effects”; for “Mobile Home,” enter the
+                  statement “Mobile Home with personal effects as indicated on the inventory” and the
+                  length, width, and height (feet and inches). If the mobile home has an expando, indicate
+                  “expandable” and specify type (such as single, double, or triple room and one side or
+                  both sides). Also, display the “make, model, year, and serial number.”
+             (28) For POVs, show the property classification and National Motor Freight
+                  Classification/Standard Transportation Commodity Code number.
+                  (a)   TGBL Containerized Shipments. The TSP must enter the total number of
+                        containers and total cube, along with dimensions.
+                  (b) DPM Shipments. After HHG or personal effects, the DPM contractor must enter
+                      the aggregate weight and cube of the total number of each different type of
+                      container shown in Block 26.
+                  (c)   Mobile Homes. After “Mobile Home with personal effects as indicated on the
+                        inventory,” enter the length, width, and height of the mobile home in feet and
+                        inches. If the mobile home is the expando type, indicate “expandable” and specify
+                        type (such as single, double, or triple room and one side or both sides). Also, enter
+                        the make, model, year, serial number, current license number, state, and year
+                        issued. If additional space is required, use the “remarks” block.
+                  (d) DPM or POV Consolidated Shipments. A single BL with continuation sheets must
+                      be issued. Enter “This is a consolidated shipment. See continuation sheet.” Each
+                      individual shipment lot must be identified on the continuation sheet, and the
+                      customer’s name, rank/grade, SSN (last four only), delivery address, and authority
+                      for shipment must be specified.
+                  (e)   Boat Shipments. (Commodity) for boats. The system will print “This shipment
+                        contains a Boat” if the shipment contains a boat only and “This shipment contains a
+                        Boat/Trailer” if the shipment contains a boat and trailer.
+             (29) Block 28, Weight:
+                  (a)   TGBL Shipments. The TSP must enter the gross, tare, and net weight in this
+                        column. The net weight includes the weight of PBP&E and Consumable Items
+                        (CONS).
+                  (b) DPM Shipments. Enter the total gross, tare, and net weights of the shipment.
+                  (c)   PBP&E. PBP&E must be weighed separately and the weight must be inserted in
+                        the space provided.
+                  (d) CONS. CONS must be weighed separately and the weight is annotated in the
+                      space provided for PBP&E weight. CONS precede this weight in order to
+                      distinguish between the weight of consumables and PBP&E.
+             (30) Blocks 29 and 30, For Use by Destination TSP Only. The TSP must enter these data
+                  elements for billing.
+             (31) Block 31, Tariff or Special Rate Authorities. Enter the special rate authority and for
+                  ITGBL shipments, the rate per cwt (such as, RS I-8/$52.50 cwt) and, for domestic
+                  shipments enter percentage (such as RS D-5/95%). For all OTO shipments
+
+
+                                                 IV-A-402-38
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+                  (O/M/BOTO), enter the words “OTO”, the TSP’s “rate tender number,” and the OTO
+                  “rate.”
+             (32) Block 32a, Issuing Officer. Enter the name and title of the issuing TO. Signature of the
+                  issuing TO is not required.
+             (33) Block 32b, Issuing Office. Enter the BLOC and full name of the military installation or
+                  activity issuing the BL.
+             (34) Block 33a, Name of Transportation Company. Enter the same information as in
+                  Block 1.
+             (35) Block 33b, Date of Receipt of Shipment. The TSP must enter the actual date the
+                  shipment is picked up.
+             (36) Block 33c, Signature of Agent/Driver. The TSP/agent or driver must sign the BL
+                  acknowledging receipt.
+             (37) Block 33d, PER. If the agent’s name is signed by the agent’s authorized representative,
+                  the initials of the representative must appear in this block.
+             (38) Block 34, For Use of Paying Officer. The TO must check the block to identify the
+                  reason for any excess cost involved in the shipment. The “Remarks” block must be used
+                  to fully explain the reason for the excess cost. Block 34 must be marked for all Navy-
+                  sponsored shipments that include a boat or mobile home.
+             (39) Blocks 35a through 35g, Certificate of TSP Billing for Charges. The TSP authorized to
+                  bill for charges must complete this portion of the BL after delivery has been
+                  accomplished.
+             (40) Block 36, Special Services Ordered (Reverse of BL). The issuing TO must enter any
+                  special services authorized.
+        b. Preparation of the SF Form 1200: See Table A-402-4.
+
+G. ADDITIONAL INFORMATION FOR ALASKA SHIPMENTS
+    1. Domestic Shipments:
+        a. dHHG shipments to/from CONUS and Alaska are identified as COS “D” or COS “2” (except
+           OTO locations in Alaska [e.g., Adak, Nome, and Bethel])
+        b. HHG shipments to/from Alaska can be moved either by Land (Alaska-Canadian Highway) or
+           via Land-Sea-Land (Seattle or Tacoma water ports). TSPs will select the mode (L and or
+           Land-Sea-Land) during acceptance of the Alaska shipment. The PPSO will validate that the
+           TSP’s invoice reflects the actual route used. For example, if the TSP used the land mode to
+           move the shipment, then the TSP must invoice based on land rates.
+        c. Intrastate (Alaska-to-Alaska) shipments (e.g., Anchorage to Fairbanks) are classified by
+           applicable rate area (e.g., US8101000, US8190100, US8050500, and US8030400) to
+           Region 15.
+        d. VM to/from Alaska or intrastate Alaska can move as COS “D” or COS “2”. See 400NG
+           Tariff for guidance.
+        e. 400NG applies to all domestic moves (except OTO shipments) to/from/within Alaska.
+             NOTE: There are no UB moves under the domestic program.
+
+
+
+
+                                                IV-A-402-39
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+    2. International Shipments:
+        a. Shipments to/from Alaska OTO areas and UB VM between CONUS and Alaska should be
+           routed as follows:
+             (1) HHG shipments will be routed as iHHG using COS “4”.
+             (2) UB shipments will be routed as UB using COS 7, 8, or J.
+        b. OTO, VM, iHHG, and UB shipments to/from Alaska from OCONUS locations will be routed
+           as follows:
+             (1) iHHG move as COS 4, 5, 6, or T.
+             (2) UB move as COS 7, 8, or J.
+    3. Mobile Homes to/from Alaska:
+        a. Mobile homes moving between CONUS and Alaska must be booked as Code “S” and must
+           be solicited under the OTO program.
+        b. Mobile homes are not authorized for movement under the international program.
+    4. Boat and Trailer to/from Alaska:
+        Boats and/or boat trailers requiring OTO movement because of size limitations are shipped under
+        the International OTO program for shipments moving between CONUS and Alaska, and for all
+        boats moving between OCONUS and Alaska.
+
+H. ADDITIONAL INFORMATION
+    1. Excess Weight Calculations: For Domestic, iHHG and UB shipments excess weight calculation
+       examples see JTR Paragraph 051306, Excess Charges.
+    2. Excess Distance:
+        a. The following is an example of the DPS excess distance calculations when a customer elects
+           to ship property between other than authorized locations. Customer contemplating shipment
+           of personal property other than between authorized locations must be advised of possible
+           excess cost. Excess costs may occur even if the distance is less than the distance between
+           authorized locations. The initial excess costs are calculated using the estimated weight
+           during counseling and recalculated based upon the actual weights after the shipment has been
+           picked up. DPS “flags” all shipments having potential excess costs. The PPSO is only
+           required to attempt collection of excess costs from the customer when they are no longer in a
+           “Pay Status” (Separation). Paragraph b is an example of the DPS calculation of excess cost
+           involving excess distance.
+        b. Estimated Excess Costs:
+             (1) Determine the mileage between authorized origin and destination as follows:
+                  (a)   Authorized Origin and Destination: Alameda, CA, to New Orleans, LA.
+                  (b) Total Miles: 2,285 miles.
+             (2) Determine shipment cost between authorized origin and destination as follows:
+                  (a)   Actual Origin and Destination: Alameda, CA, to New Orleans, LA.
+                  (b) Mileage: 2,285 miles.
+                  (c)   Estimated Weight of shipment: 17,000 lbs (170 cwt).
+
+
+
+                                               IV-A-402-40
+Defense Transportation Regulation – Part IV                                                    14 July 2026
+Personal Property
+
+
+                        NOTE: Cost is determined as follows: GCC =
+                        Average (Avg) LH Cost + Avg. Packing/Unpacking Cost
+             (3) Determine the mileage between requested origin and destination as follows:
+                  (a)   Requested Origin and Destination: Alameda, CA, to Norfolk, VA.
+                  (b) Total Miles: 2,989 miles.
+             (4) Determine shipment cost between requested origin and destination as follows:
+                  (a)   Requested Origin and Destination: Alameda, CA, to Norfolk, VA.
+                  (b) Mileage: 2,989 miles.
+                  (c)   Estimated Weight of shipment: 17,000 lbs (170 cwt).
+                        NOTE: Cost is determined as follows: GCC = Avg. LH Cost + Avg.
+                        Packing/Unpacking Cost.
+             (5) Estimated Excess Distance Cost Computation will be calculated as follows:
+                  (a)   Estimated Shipment Cost (4):                       $18,059
+                  (b) Estimated Shipment Cost (2):                     -$17,007
+                  (c)   Estimated Excess Cost to the customer:              $1,052
+        c. DPS determines the Actual Costs as follows:
+             (1) Determine the mileage between authorized origin and destination as follows:
+                  (a)   Authorized Origin and Destination: Alameda, CA, to New Orleans, LA.
+                  (b) Total Miles: 2,285 miles.
+             (2) Determine shipment cost between authorized origin and destination as follows:
+                  (a)   Actual Origin and Destination: Alameda, CA, to New Orleans, LA.
+                  (b) Mileage: 2,285 miles.
+                  (c)   Actual Weight of shipment: 17,000 lbs (170 cwt).
+                        NOTE: Cost is determined as follows: GCC = Avg. LH Cost + Packing/Unpacking
+                        Cost.
+             (3) Determine the mileage between requested origin and destination as follows:
+                  (a)   Requested Origin and Destination: Alameda, CA, to Norfolk, VA.
+                  (b) Total Miles: 2,989 miles.
+             (4) Determine shipment cost between requested origin and destination as follows:
+                  (a)   Requested Origin and Destination: Alameda, CA, to Norfolk, VA.
+                  (b) Mileage: 2,989 miles.
+                  (c)   Actual Weight of shipment: 17,000 lbs (170 cwt).
+                        NOTE: Actual Cost is determined as follows: LH Cost + Packing/Unpacking
+                        Cost.
+
+
+
+
+                                                IV-A-402-41
+Defense Transportation Regulation – Part IV                                         14 July 2026
+Personal Property
+
+
+             (5) Excess distance computation is calculated as follows:
+                  (a)   Actual Requested Shipment Cost (4):              $18,059
+                  (b) Authorized Shipment Cost (2):                      -$17,007
+                      (Use the Average LH rate for the channel)
+                  (c)   Total Excess Cost:                                $1,052
+
+
+
+
+                                               IV-A-402-42
+Defense Transportation Regulation – Part IV                                      14 July 2026
+Personal Property
+
+
+
+
+                     Figure A-402-1. DD Form 139, Pay Adjustment Authorization
+
+
+
+                                              IV-A-402-43
+Defense Transportation Regulation – Part IV                                         14 July 2026
+Personal Property
+
+
+
+
+       Figure A-402-2. U.S. Government Bill of Lading – Privately Owned Personal Property
+
+
+
+
+                                              IV-A-402-44
+Defense Transportation Regulation – Part IV                                         14 July 2026
+Personal Property
+
+
+
+
+           Figure A-402-3. CG Form 5131, Standard Travel Order for Military Personnel
+
+
+
+
+                                              IV-A-402-45
+Defense Transportation Regulation – Part IV                                                                 14 July 2026
+Personal Property
+
+
+                             Table A-402-1. dHHG/iHHG Shipment Quality Bands
+                                                   Quality     Number of
+                                                    Band       Shipments
+                                                     1                 5
+                                                     2                 3
+                                                     3                 2
+                                                     4                 1
+
+
+
+
+                                  Table A-402-2. UB Shipment Quality Bands
+                                                   Quality     Number of
+                                                    Band       Shipments
+                                                     1              50
+                                                     2              30
+                                                     3              20
+                                                     4              10
+
+
+
+
+                                    Table A-402-3. Codes of Service (COS)
+                Applicable Shipment Survey Categories                            Codes of Service
+            Domestic Household Goods (dHHG)                     D (Loose) and
+            Domestic Household Goods (dHHG)                     2 (containerized)
+            International Household Goods (iHHG)                4, 5, 6, and T
+            Unaccompanied Baggage (UB)                          7, 8, and J
+            Origin Storage
+            Local Moves
+            Non-Temporary Storage (NTS)
+                                                                Domestic: N/A
+            One Time Only (OTO)
+                                                                International: 4, 5, 6,7, 8, T & J
+                                                                Domestic: S
+            Mobile Homes One Time Only (MOTO)
+                                                                International: N/A
+                                                                Domestic: S
+            Boat One Time Only (BOTO)
+                                                                International: 4 (currently)
+            Direct Procurement Method (DPM) – Domestic          BA, BB, BC, BD, HA, HB, HC and HD
+            Direct Procurement Method (DPM) – International     BE, BF, BG, BH, HE, HF, HG and HH
+            Direct Procurement Method (DPM) – Inter-Theater     BK, BL, BM, BN, HK, HL, HM and HN
+            Direct Procurement Method (DPM) – Intra-Theater     BP, BR, BW, BX, BY, HP, HR, HW, HX and HY
+                                                                Domestic: D
+            Volume Moves
+                                                                International: 4, 5, 6,7, 8, T & J
+            International shipments (CONUS to/from Canada ,
+                                                                I
+            Alaska, and Mexico)
+           NOTE: See Paragraph G of this document for more information on Alaska shipments
+
+
+
+
+                                                         IV-A-402-46
+Defense Transportation Regulation – Part IV                                        14 July 2026
+Personal Property
+
+
+                   Table A-402-4. SF 1200 GBL Correction Notice and the Block(s)
+                                  on the BL that Can be Modified
+                                 Block        Description
+                                   1          Agent Code
+                                   3          Code of Service
+                                   6          Requested Pack Date
+                                   7          Requested Pickup Date
+                                   8          Required Delivery Date
+                                  10          Member Last Name
+                                  10          Member First Name
+                                  10          Member Middle Name or Initial
+                                  10          Rank or Pay Grade
+                                  10          Unit Gaining Member
+                                  10          Authorized Weight
+                                  11          Orders Number
+                                  12          Orders Date
+                                  13          Extra Pickup Street
+                                  13          Extra Pickup City
+                                  13          Extra Pickup County
+                                  13          Extra Pickup State
+                                  13          Extra Pickup Zip
+                                  13          Extra Delivery Street
+                                  13          Extra Delivery City
+                                  13          Extra Delivery County
+                                  13          Extra Delivery State
+                                  13          Extra Delivery Zip
+                                  15          Transportation Control Number
+                                  18          Receiving Agent Name (Consignee)
+                                  18          Delivery Street
+                                  18          Delivery City
+                                  18          Delivery County
+                                  18          Delivery State
+                                  18          Delivery Zip
+                                  19          Pickup City
+                                  19          Pickup City
+                                  19          Pickup County
+                                  19          Pickup State
+                                  19          Pickup Zip
+                                  24          Transportation Account Code
+                                  24          Movement Designator Code
+                                  24          Navy NMF Code
+                                  25          Remarks
+
+
+
+
+                                                   IV-A-402-47
+

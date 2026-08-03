@@ -1,0 +1,2125 @@
+Defense Transportation Regulation – Part IV                                                4 February 2026
+Personal Property
+
+
+                                              APPENDIX A-A
+
+                           THIRD PARTY PAYMENT SYSTEM (TPPS)
+
+A. Introduction
+    This appendix describes the Defense Personal Property Program (DP3) guidelines and procedures for
+    electronic bill payment processes using the Defense Personal Property System (DPS). These payment
+    processes use the Department of Defense (DoD) TPPS as a payment tool to reimburse Transportation
+    Service Providers (TSP) for services rendered, provide information visibility for stakeholders,
+    improve the Defense Finance and Accounting Service (DFAS) and Finance Center (FINCEN)
+    payment and collection process, and reduce paper documentation.
+    1. Scope:
+        a. These procedures apply to all the Services’ and Coast Guard’s Personal Property Shipping
+           Offices (PPSO) and participating commercial TSPs. In order to participate in the DP3, TSPs
+           must be DoD-approved and have a trading partner agreement on file with the TPPS provider.
+           Any personal property shipment that moves on a bill of lading (BL) is a part of these
+           procedures, with the exception of:
+             (1) Shipments moved under contracts (e.g., delivery out of Storage In Transit [SIT] after
+                 conversion to the customer’s expense).
+             (2) Direct Procurement Method (DPM).
+             (3) Personally Procured Moves.
+             (4) Shipments moved under Privately Owned Vehicle (POV) contracts.
+             NOTE: Non-temporary storage (NTS) invoicing procedures are contained in Paragraph G of
+             this appendix.
+
+B. Roles and Responsibilities
+    1. Key Organizations/Stakeholders:
+        a. Figure A-A-1 is a high-level context diagram of the organizations/stakeholders involved in
+           the electronic payment of Personal Property. The figure is followed by a description of the
+           roles and responsibilities of the stakeholders.
+
+
+
+
+                                                 IV-A-A-1
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+
+
+                                      Figure A-A-1. Context Diagram
+    2. The Personal Property electronic payment stakeholders:
+        a. Order/Authorization Issuing Activity: The Order/Authorization Issuing Activity issues the
+           movement order/authorization to the customer. This activity is responsible for relaying
+           correct, valid, and appropriated accounting information on each order/authorization to include
+           valid Transportation Account Code (TAC) and/or Standard Document Number (SDN).
+        b. Funds Manager (FM): The FM is responsible for the funds cited. FM are individuals
+           commonly located at command-level who manage financial resources to include major
+           activity, sub-activity directors, and their representatives who are delegated fund certification
+           responsibility. The FM resolves TAC/Line of Accounting (LOA)/Movement Designator
+           Code (MDC) disputes with Orders Issuing Activity. The FM ensures sufficient funding
+           levels that permit the timely payment of the TPPS Summary Invoice.
+        c. Service Representative: Services are represented on the TPPS team. Each representative is
+           responsible for Service-specific issue resolution, implementation coordination, and analysis.
+           In addition, each Service representative works with the implementation team to make
+           recommendations based on issues identified during implementation efforts.
+        d. PPSO: The PPSO is responsible for receiving and processing movement orders using the
+           DPS. The PPSO provides a BL to the TSP/agent. The PPSO resolves billing disputes with
+           the TSP. The PPSO uses the DPS to approve invoices and generate an Electronic Data
+           Interchange (EDI) 858 containing the Line-Haul (LH) and accessorial data, which is rated
+           and sent to the TPPS. The PPSO is also responsible for approving TSP payment in TPPS as
+           necessary.
+        e. TSP: The TSP performs required services at origin and destination; picks up the shipment;
+           transports the shipment to destination; provides destination delivery services; and provides
+           weight tickets within seven (7) Government Business Days (GBD) after shipment pickup, as
+           well as other supporting documents as required by each individual Service Headquarters
+
+
+                                                  IV-A-A-2
+Defense Transportation Regulation – Part IV                                                   4 February 2026
+Personal Property
+
+
+             (HQ) (see note below). The TSP submits an EDI 859 invoice, along with a Notification of
+             Service Completion (NOSC) to signal a completed invoice. TSPs can also use the Web
+             interface in TPPS to build an invoice. The TSP is responsible for entering all accessorial
+             services, weights, actual pickup date, actual delivery date to/from residence origin, and
+             destination or SIT facility and for obtaining all required pre-approvals. The TSP receives
+             payment from the TPPS and works with the PPSO to process any credit adjustments via the
+             TPPS. TSPs are responsible for the resolution of all invoices in “Audit Exception” status in
+             the TPPS.
+             NOTE: Air Force and Navy documentation requirements are as follows: (1) for domestic
+             shipments processed by an Air Force shipping office: weighted BL (Gross/Tare/Net/Pro
+             Gear weights); weight tickets; DD Form 619, Statement of Accessorial Services Performed,
+             Figure A-A-3; inventories; and third-party approval/invoices; and (2) for international
+             shipments: weighted BL (Gross/Tare/Net/Pro Gear weights), weight tickets, inventories, and
+             third-party approval/invoices. DD Form 619, Figure A-A-3, will be furnished when
+             applicable.
+        f.   TPPS Contractor. The DoD designated bank is responsible for issuing payment to TSPs
+             based on the charges that are either automatically or manually approved by the PPSO in DPS.
+             The bank also generates a Summary Invoice that is provided to the PPSO for approval and
+             payment. The bank subsequently receives reimbursement from DFAS/FINCEN.
+        g. Accountable Official: An individual responsible for providing a certifying officer with
+           information, data, or services needed or required in the certification of vouchers for payment.
+        h. Certifying Officer (CO): An individual designated to attest to the correctness of statements,
+           facts, accounts, and amounts appearing on a voucher, or other documents. A certifying
+           officer is pecuniary liable for payments in accordance with (IAW) 31 U.S.C. 3528.
+           (reference Department of Defense Financial Management Regulation [DoDFMR]
+           7000.14-R). The CO, who is designated or appointed by the Service or Coast Guard
+           authority, is responsible for certifying the TPPS Summary Invoice. The CO must be a United
+           States (U.S.) Government employee who does not disburse U.S. Government funds. The CO
+           must print the Summary Invoice each billing cycle and certify the charges. After reviewing
+           and signing the invoice, the CO submits the certified invoice to DFAS/FINCEN for payment
+           to the bank. The CO certifies electronically for FA2 LOAs relayed by the DPS to the TPPS
+           and prints the hard-copy Summary Invoice with text LOAs.
+             NOTE: The appointed CO must be a DoD military, non-DoD military, U.S. civilian, or
+             "direct hire" foreign local national civilian customer or a federal civilian employee of a non-
+             DoD agency.
+        i.   DFAS/FINCEN: As the disbursement agency, DFAS/FINCEN receives the certified
+             Summary Invoices from the CO and processes the payments to the bank.
+        j.   United States Transportation Command (USTRANSCOM): USTRANSCOM is responsible
+             for monitoring the accuracy of DPS’s rating engine for personal property shipments and
+             administering the DoD Personal Property Shipment and Storage Programs. USTRANSCOM
+             assists the Services and TSPs in the resolution of disputed charges. USTRANSCOM
+             provides program oversight as well as regulatory and statutory support.
+        k. General Services Administration (GSA): GSA is responsible for overseeing the pre-payment
+           audit, performing the post-payment audits, and conducting administrative reviews. GSA
+           relays their findings for the Armed Forces’ and USTRANSCOM’s guidance.
+
+
+
+
+                                                   IV-A-A-3
+Defense Transportation Regulation – Part IV                                                                                                                                  4 February 2026
+Personal Property
+
+
+              l.       Customer: The customer receives a movement order/authorization from the Orders Issuing
+                       Activity and relays the order/authorization to the PPSO or Personal Property Processing
+                       Office (PPPO). The customer must sign documents as required.
+      3. Implementation and Process Flow:
+              a. Figure A-A-2 presents a step-by-step process flow diagram of the DP3 Electronic Bill (eBill)
+                 Payment process. The diagram depicts the participating organizations as rectangles,
+                 processes as ovals, and the lines between them as data and information flows. Each process
+                 is described following the graphic depiction.
+
+                     Orders Issuing                1. Orders
+                                                                      Orders                    Customer
+                                                   Issuance
+                        Activity
+                                                                                                                                          13. Post Payment
+                                                                                                                                              Audit Data                            GSA
+                                                                                                                                              Retrieval
+                                                   Orders
+
+
+
+                                                                               5.1 Services
+                          PPSO                                                   Approval
+
+                                                                                                                                                                   EDI
+                                                                                                                                                                   858             FACTS
+                                                                                                              2.5b Entry and
+                                                                                                               Pre-Approval
+                     2.1 Customer and      8. TSP Payment                                                       of Services                TGET
+                       Shipment Data           Approval
+                           Entry
+                                                                                                                                            TGET         10.2 Feed to
+                                                                                                                                          download          FACTS
+                        Shipment                                                               6.3 Rating
+                          Data                      0. Solicitation
+                                                       Rate Data
+
+                                                   Solicitation                                                                     6.1 DTOD
+                                                                                                                                                                Mileage
+                                                    Rate Data                          Personal Property                             Mileage
+                                                                                                                                                  6.2 Rand       Data
+                                                                                       Defense Personal                                            McNally
+                                                                                                                                                   Mileage
+                           DPS                                                         Property System
+                                                     Shipment
+                                                       Data                                Database
+                                                                                                                                                                            DTOD
+   Phone
+    call                2.2 Electronic                                                                                     10.1 Payment
+                        Customer and                                                                                         Data Feed
+                        Shipment Data                                                               DP
+                             Feed                                                                             EDI
+                                                                2.4 Pre-Move                      4. EDI      858
+                                                                   Survey                     Submission
+                                                                                                                               EDI 810
+ 2.5a Pre-Approval                                                                              from PT
+      Request                                                                                                  7. EDI
+                              5.2 Status                                                                    Submission
+                                Review                                                           EDI         from CWA
+                                                                  Phone                          859                                                           Certifying
+                                                                   call                                                                        Invoice
+                                                                                                                                                                Officer
+             2.3 BoL Access
+                                                                                                                                                                                   11. Invoice
+                                                                                                                                                                                   Certification
+
+                                    3. Invoice          EDI 859/
+                                   Submission /           web
+                                   NOSC Entry
+                                                                                                                                                                                    Certified
+                                                       interface                                                                                                                     Invoice
+                                                                                                  TPPS
+
+                      Transportation                                             9. TSP                                             12. Bank                      DFAS
+                     Service Provider                   EFT                     Payment                                             Payment                                            FVH-DTR-A-0015
+
+                                                                                                                                                                                         LEGEND
+                                                                                                                                                                                         Manual
+                                                                                                                                                                                        Electronic
+
+                                                     Figure A-A-2. Electronic Bill Payment Process
+                       (1) 0.0 Solicitation Rate Data. Solicitation rate data is exported from DPS History into the
+                           DPS.
+                       (2) 1.0 Order/Authorization Issuance. The Orders Issuing Activity prepares the
+                           order/authorization and that activity’s funds management office ensures that the proper
+
+
+
+                                                                                                IV-A-A-4
+Defense Transportation Regulation – Part IV                                                4 February 2026
+Personal Property
+
+
+                  accounting data (e.g., LOA, TAC, and MDC) is entered on the Transfer Orders
+                  Document (TOD). The order/authorization is given to the customer. The customer
+                  provides the order/authorization to the PPSO.
+             (3) 2.1 Customer and Shipment Data Entry. The customer presents the order/authorization
+                 to the PPSO. The PPSO enters the shipment and accounting data into DPS. The BL is
+                 normally printed by the TSP. If the PPSO prints the BL, the original must be provided
+                 to the TSP. Customers have the option of self-counseling. If self-counseling is chosen,
+                 the customer must enter the move data and establish their shipment in the DPS and
+                 provide a copy of their order/authorization to the servicing PPSO.
+             (4) 2.2 Electronic Customer and Shipment Data Feed. The DPS receives downloads from
+                 the Transportation Global Edit Table-Revised (TGET-R) and converts appropriation
+                 data to FA2 format for each BL received from the DPS.
+             (5) 2.3 BL Access. The TSP and other authorized organizations (for example GSA) can
+                 print BLs from the DPS via the Web.
+             (6) 2.4 Pre-Move Survey. The TSP performs a pre-move survey and identifies accessorial
+                 services requiring pre-approval (i.e., approved by PPSO before the TSP performs
+                 services).
+             (7) 2.5a Pre-Approval Request. The TSP/agent must request pre-approvals online via the
+                 DPS.
+             (8) 2.5b Entry and Pre-Approval of Services. The PPSO enters approval/disapproval within
+                 three (3) GBDs for pre-approval services requested by the TSP/agent.
+             (9) 3.0 Invoice Submission/NOSC Entry. After delivery to SIT or the residence, the TSP
+                 submits an invoice for services provided to the TPPS, along with NOSC indicating the
+                 transit status for LH and accessorial services. The invoice and NOSC can be submitted
+                 either electronically in an EDI 859 or manually via the TPPS Web interface.
+                  The TSP must provide the weight tickets, as well as other supporting documents as
+                  required by each individual HQ (see note below), to the PPSO within seven (7) GBDs
+                  after shipment pickup and maintain copies of all supporting documents for audit and
+                  dispute purposes (see note below). Documents such as the annotated BL, inventory, and
+                  customer-signed DD Form 619 are randomly requested for the PPSO review or must be
+                  provided to the PPSO as required by Service policy, by either electronic or manual
+                  means. If weight tickets and all supporting documents are not received by the PPSO in a
+                  timely manner, the PPSO places affected line-haul service (LHS) items in a dispute
+                  status.
+                  NOTE: Air Force and Navy documentation requirements are as follows: (1) for
+                  domestic shipments processed by an Air Force or Navy shipping office: weighted BL
+                  (Gross/Tare/Net/Pro Gear weights), weight tickets, DD Form 619 (Figure A-A-3),
+                  inventories, and third-party approval/invoices; and (2) for international shipments:
+                  weighted BL (Gross/Tare/Net/Pro Gear weights), weight tickets, inventories, and third-
+                  party approval/invoices. DD Form 619 and/or DD Form 619-1 will be furnished when
+                  applicable.
+             (10) 4.0 EDI 859 Submission from TPPS. TPPS sends the information from the invoice
+                  needed for rating to DPS along with a unique TPPS assigned line-item identifier.
+             (11) 5.1 Services Approval. Origin and destination PPSOs must approve or deny the
+                  requested services (LH and accessorials) in the DPS. A denied status and note stating
+                  why the line item was denied must be given if the PPSO does not agree with the item
+
+
+                                                 IV-A-A-5
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+                  submitted for payment. The TSP and PPSO must resolve disagreements in the DPS,
+                  where both origin and destination PPSOs have visibility of the line items submitted for
+                  approval. Although invoice visibility is available to both the origin and destination
+                  PPSOs in the DPS, the destination PPSO does not have visibility in the TPPS.
+             (12) 5.2 Status Review. TSPs can review approval status of services via the DPS’ Web
+                  interface. The TSP can adjust the quantity for the PPSO to review and approve only if
+                  all line items have not been approved or denied.
+             (13) 6.1 Defense Table of Distance (DTOD). The DPS transmits the From and To location
+                  information to the DTOD for International Through Government Bill of Lading
+                  shipments (ITGBL). The DTOD returns the number of miles between the two location
+                  points.
+                  (a) Rand McNally Mileage Guide: The Rand McNally Mileage Guide establishes a
+                      uniform method of computing the shortest distance (in miles) between two points
+                      for Through Government Bill of Lading (TGBL) shipments and motor carrier tariff
+                      purposes. The Tariff 400NG uses the Rand McNally Mileage Guide for Base Point
+                      Cities (BPC). The BPC is taken from the National three-digit zip directory.
+             (14) 6.2 Rating. After services on the invoices are approved or denied, the DPS rates the line
+                  items. For approved line items the DPS will rate the item and post a cost. For denied
+                  line items, the DPS will not rate the item and assign a cost of zero.
+             (15) 7.0 EDI 858 Submissions from the DPS. The DPS feeds an EDI 858 containing data for
+                  rated LH and accessorial services, and denied services (with a quantity of zero and zero
+                  dollars) to the TPPS.
+             (16) 8.0 TSP Payment Approval. The TPPS compares the TSP cost data against the DPS cost
+                  data using the Matching Model with multiple invoices per BL. The TPPS “matches”
+                  data for each invoice at the line-item level. The shipper/DoD side of the transaction
+                  establishes the maximum total dollar amount that can be paid to the TSP for an invoice.
+                  If there are services submitted for each side, the shipper and TSP must match costs
+                  within the predetermined tolerance on the line-item total. The TPPS flags invoices as an
+                  “Audit Exception” if the line-item costs are not within tolerance. If all the invoice line-
+                  item dollar amounts are equal (or within the tolerance) the invoice is automatically
+                  approved for payment.
+                  If an audit exception exists, the TSP must adjust their cost to match the DPS data. After
+                  the cost has been updated and matched, the transaction automatically approves. A TSP
+                  using EDI 859 for invoice submission has the option to resubmit a corrected EDI 859
+                  with updated quantities and/or rates or use the Web interface to make adjustments. No
+                  PPSO action is required in the TPPS for invoices in the Audit Exception status.
+                  In those cases, in which the DPS provides an incorrect billing rate, the TSP must match
+                  the incorrect rate. The TPPS processes the invoice and automatically approves the
+                  payment. The TSP must submit a supplemental invoice for the difference between the
+                  published rate solicitation and the incorrect DPS billing rate. When billing a
+                  supplemental invoice, the TSP must annotate that the line item is a re-bill to correct an
+                  incorrect billing rate. This notifies the PPSO that the line item is a re-bill of the
+                  difference from a previously submitted invoice. The TSP Prompt Pay Interest (PPI)
+                  requirements are defined in Paragraph C.
+                  Matching to incorrect billing rates does not forfeit PPI as defined in Paragraph C. If a
+                  supplemental invoice is submitted, the 30-day clock starts upon submission of the new
+
+
+                                                  IV-A-A-6
+Defense Transportation Regulation – Part IV                                                     4 February 2026
+Personal Property
+
+
+                  invoice. USTRANSCOM monitors the items in Audit Exception and publishes metrics
+                  identifying TSPs and the number of Audit Exception transactions on a specific date.
+                  TPPS also ensures the total cost of the invoice is less than a predetermined maximum
+                  price threshold. The purpose of this threshold is to flag shipments whose costs are at or
+                  above the predetermined maximum price limit for further review prior to approval for
+                  payment. Using historical data, the Services determine the maximum price threshold.
+                  If the line-item costs are within the established tolerance and the total invoice cost is less
+                  than the maximum established threshold, the TPPS automatically “Approves” payment
+                  of the TSP invoice. If the total cost is above the maximum threshold, the TPPS flags the
+                  invoice as being in “Approval Required” status. The PPSO then must manually approve
+                  the invoice for payment on the TPPS. No TSP action is required in the TPPS for
+                  invoices in Approval Required status. The PPSO has three (3) GBDs to approve
+                  invoices in Approval Required status.
+                  Examples of Auto Approval/Audit Exception under Line-Item Matching.
+                  LH and Accessorial Line-Item Tolerance is +/- $10 (value is purely for example) and
+                  Invoice Threshold is <= $1,500 (value is purely for example)
+                  Example #1:
+                          Government Cost                                     $1,290
+                          LH                                                  $1,000
+                          Accessorial A                                         $200
+                          Accessorial B                                          $90
+                          TSP Cost                                            $1,301
+                          LH                                                  $1,000
+                          Accessorial A                                         $205
+                          Accessorial B                                          $96
+                          Total cost                                        < $1,500
+                          AND Cost difference on individual line items         < $10
+                          TPPS approves for Payment
+                  Example #2:
+                          Government Cost                                     $1,290
+                          LH                                                  $1,000
+                          Accessorial A                                         $200
+                          Accessorial B                                          $90
+                          TSP Cost                                            $1,307
+                          LH                                                  $1,000
+                          Accessorial A                                         $211
+                          Accessorial B                                          $96
+                          Total cost                                        < $1,500
+                          BUT Cost difference on Accessorial A                 > $10
+                          TPPS places transaction in Audit Exception
+             (17) 9. TSP Payment. As invoices are approved for payment, and a NOSC has been
+                  submitted by the TSP, payment is made to the TSP.
+             (18) 10.1 Payment Data Feed. TPPS feeds actual payment data on each line item to the DPS.
+
+
+
+
+                                                   IV-A-A-7
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+             (19) 10.2 Feed to Financial and Air Clearance Transportation System (FACTS). The DPS
+                  feeds the EDI 858 to the FACTS.
+             (20) 11.0 Summary Invoice Certification. The CO must print, review, and certify the
+                  Summary Invoice and then send the certified Summary Invoice to DFAS/FINCEN.
+                  After the Automated Finance and Accounting Process is fully implemented, the certified
+                  Summary Invoices must be submitted electronically to DFAS/FINCEN for further
+                  processing and payment.
+             (21) 12.0 Payment. DFAS/FINCEN pays the bank the certified Summary Invoice amount.
+             (22) 13.0 Post-Payment Audit Data Retrieval. The GSA conducts post-payment audits using
+                  invoice data from the TPPS and data on authorized services and weights from the DPS.
+                  The GSA reserves the right to request hard-copy supporting documentation from the
+                  TSP to conduct post-payment audits.
+    4. Business Rules for Implementation:
+        a. General:
+             (1) The TPPS business process model is the Line Item Matching Model.
+             (2) Matching Model with Multiple Invoices per BL: Both shipper and the TSP submit
+                 shipment price data to the TPPS. The shipper’s transaction data is submitted via
+                 multiple EDI 858 transaction sets from the DPS. The TSP may submit their invoices via
+                 EDI 859s or manual submission through the TPPS Web interface. The TPPS assigns a
+                 unique line item identifier to each line item in the TSP invoice and sends the amended
+                 EDI 859 invoice to the DPS for approval and rating. The rated shipper side of the
+                 transaction, sent back to the TPPS via EDI 858, establishes the maximum line item
+                 dollar amounts that can be paid to a TSP for each invoice. The total dollar amount paid
+                 for each BL increases with each additional invoice submitted and paid.
+             (3) While payment in the TPPS is at the invoice level, matching occurs at the line item level.
+                 For each invoice, the TPPS compares each line item and dollar amount against the line
+                 item and dollar amount on the shipper’s invoice for that BL. If the line item cannot find
+                 a corresponding match or the dollar amounts for matched line items are not equal (or
+                 within tolerance), the invoice goes into Audit Exception status. If all line items and
+                 costs match on an invoice, the invoice is automatically approved for payment. If the
+                 invoice amount is above a preset threshold, the transaction goes in Approval Required
+                 status. To facilitate payment for transactions in Approval Required status, the PPSO
+                 must manually approve Approval Required status invoices in the TPPS.
+        b. Key Process Business Rules:
+             (1) Order/Authorization Issuance (1.0):
+                  The order/authorization issuing process remains unchanged. The orders issuing activity
+                  (e.g., personnel office) prepares the TOD. The order/authorization issuing activity
+                  determines the correct appropriation data (e.g., LOA, TAC, MDC) to assign to the
+                  order/authorization. If necessary, the orders/authorization issuing activity confers with
+                  the FM to ensure that the correct data is entered onto the TOD. The TOD is provided to
+                  the customer, who must provide it to the PPSO.
+             (2) Customer and Shipment Data Entry (2.1):
+                  (a) As part of the process of counseling the customer on entitlement and shipping
+                      options, the PPSO must enter the customer data into the DPS for all shipments
+
+
+
+                                                  IV-A-A-8
+Defense Transportation Regulation – Part IV                                                4 February 2026
+Personal Property
+
+
+                       processed by the DPS. The PPSO also enters the accounting information from the
+                       customer’s order/authorization (the exact data varies by Service).
+                  (b) The weight ticket information must be entered into the DPS by the TSP. The TSP
+                      must provide the weight ticket to the PPSO within seven (7) government business
+                      days after shipment pickup. If the weight ticket is not received, the PPSO must
+                      dispute the invoice in the DPS. If the TSP continues to be non-compliant with the
+                      weight ticket submittal, the PPSO must follow procedures as set forth in the Quality
+                      Assurance Business Rules for administrative actions against the TSP.
+                  (c) The PPSO must enter the origin PPSO and destination PPSO Bill of Lading Office
+                      Code (BLOC) for the shipment. The BLOC is used to identify the site in the DPS.
+                      If the wrong identifier is used, the wrong PPSOs are assigned shipment view in the
+                      DPS.
+                  (d) When notified of a diversion, the origin PPSO must change the final destination
+                      location in the DPS in order for the correct destination PPSO to be associated with
+                      the destination services. The origin location must manage the approvals in the
+                      DPS, in conjunction with verbal communication to the diverted destination.
+                  (e) The “Bill To:” field on the BL must contain the DoD-designated TPPS bank or
+                      authorized paying office.
+                  (f) Includes Codes D, 2-8, T, and J shipments. With Code 5, T, and J shipments, the
+                      portion transported by the TSP is paid by the TPPS, while the portion transported
+                      by the Air Mobility Command/Military Sealift Command is paid via Transportation
+                      Control Movement Document.
+                  (g) Any shipment that moves on a BL with the exception of:
+                       1   Non-Temporary Storage.
+                       2   Shipments moved under contracts (e.g., delivery out of SIT after conversion to
+                           customer expense).
+                       3   DPM.
+                       4   Personally Procured Moves.
+                       5   Shipments moved under POV contracts.
+                  (h) If a one-time-only (OTO) rate tender is required, USTRANSCOM must solicit for
+                      Single Factor Rate (SFR) tenders from TSPs. USTRANSCOM will approve the
+                      TSP and their SFR and the PPSO will award the shipment. The USTRANSCOM-
+                      approved SFR rate is passed to the DPS for rating purposes.
+             (3) Electronic Customer and Shipment Data Feed (2.2):
+                  (a) The TSP normally prints the BL after completing the pre-move survey and updating
+                      the DPS. In the event the PPSO must print the BL document prior to the TSP
+                      printing it, the original must be provided to the TSP. The printing of the BL
+                      triggers the feed of data to the DPS and the TPPS.
+                  (b) TGET-R downloads the appropriation data to the DPS daily and converts
+                      appropriation data to FA2 LOAs.
+                  (c) A conversion failure report is available on-demand identifying transactions which
+                      are missing segments in the LOA and with an indication by transaction whether the
+                      EDI 859 has been received.
+
+
+
+                                                 IV-A-A-9
+Defense Transportation Regulation – Part IV                                                4 February 2026
+Personal Property
+
+
+             (4) BL Access (2.3):
+                  After the data is in the DPS, the TSP can print additional copies of the BL from the DPS
+                  using a Web interface. Other authorized organizations with read-only access to the DPS
+                  can print copies of the PPGB data (e.g., GSA, DFAS/FINCEN). TSPs and other
+                  authorized organizations with read-only access can download the BL from DPS onto
+                  their system as a PDF file. The PDF file can be saved and use as an attachment on an
+                  electronic mail (e-mail). However, DPS does not have the functionality to e-mail the
+                  BL.
+             (5) Pre-Move Survey (2.4):
+                  The TSP must contact the customer to complete the Pre-Move Survey and identify
+                  accessorial services requiring PPSO pre-approval.
+             (6) Pre-Approval Request (2.5a):
+                  Requested and approved online via DPS.
+             (7) Entry and Pre-Approval of Services (2.5b):
+                  The TSP must enter the services requiring pre-approval into the DPS Pre-Approval
+                  screen at the time of the Pre-Approval Request. The PPSO must enter both the approved
+                  and denied services for reference.
+             (8) Invoice Submission/NOSC Entry (3.0):
+                  (a) After a shipment has been picked up and delivered to the origin/destination SIT or
+                      actual destination, the TSP must submit an invoice for the services performed to
+                      obtain payment through TPPS.
+                  (b) There are no requirements for the PPSO to sign the DD Form 619 (see Figure A-A-
+                      3). Customer signatures are required on the DD Form 619/619-1.
+
+
+
+
+                                                 IV-A-A-10
+Defense Transportation Regulation – Part IV                                       4 February 2026
+Personal Property
+
+
+
+
+              Figure A-A-3. DD Form 619, Statement of Accessorial Services Performed
+
+
+                                              IV-A-A-11
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+                  (c) The TSP must submit shipment transit status (i.e., delivered to SIT, delivered to
+                      Destination) and rated invoice data to TPPS via an EDI 859 transaction set
+                      (preferred), or via the TPPS Web interface.
+                  (d) The invoice must contain the unique BL for that shipment and the TSP assigned
+                      invoice number. The services on the invoice may include LH and/or accessorial
+                      services including SIT data and surcharges (such as fuel and bunker surcharges).
+                  (e) The TSP must report NOSC of the shipment to TPPS before payment can be made.
+                  (f) Each service line item must indicate whether it is an origin or destination service.
+                      This is used to help DPS identify the PPSO with approval/denial authority.
+                  (g) All documentation must be maintained by the TSP for 6 years, so copies (or
+                      originals if requested) can be provided to GSA or to the PPSO IAW Service policy.
+                      GSA reserves the right to request documentation directly from the TSP at any given
+                      time.
+                  (h) When an item is billed solely or partially by weight, the TSP must submit to TPPS
+                      (either via the Web interface or the EDI 859) the billed weight, as well as the actual
+                      net weight (for household goods shipments) or the actual gross weight for baggage
+                      shipments.
+                  (i)   For TSPs using an EDI 859 transaction set to invoice into TPPS, receipt and error
+                        notification must be in the form of an EDI 997 for acknowledging receipt and/or
+                        rejection for syntax errors. An EDI 824 report on the TPPS website identifies
+                        errors from DPS besides syntax.
+                  (j)   TSPs have the choice of submitting more than one invoice against a single BL;
+                        however, LH service can be billed once. Additional and/or supplemental LH
+                        (LHSADD) charges must be billed using a different line item (LHSADD). Each
+                        invoice must reference the BL number and have a unique invoice number.
+             (9) EDI 859 Submission from TPPS (4.0):
+                  TPPS assigns a unique identifier known as the LineIDC for each line item submitted on
+                  the TSP’s invoice and creates an EDI 859 to be sent to DPS. If the TSP submitted an
+                  EDI 859 to TPPS, TPPS inserts a LineIDC into the EDI 859. This same identifier is
+                  used by DPS. This identifier is critical in the line item matching process and allows for
+                  the same item codes with different quantities (such as third-party services, TSPs) to
+                  match and pay successfully on an invoice.
+             (10) Services Approval (5.0):
+                  (a) The origin PPSO of record and destination PPSO(s) of record (from DPS) both
+                      have access to the shipment data in DPS.
+                  (b) With the exception of some services which are automatically approved (e.g., bunker
+                      surcharges, fuel surcharges) whenever a service line item is created in DPS, it is
+                      assigned an approval status of Pending.
+                        NOTE: Origin approved services are not automatically approved for destination.
+                        Example: long carry may be required at origin but not necessary at destination.
+                  (c) When a PPSO logs on to DPS the PPSO is able to view a list of all shipments for
+                      which the PPSO is either an origin or destination PPSO, and for which there is at
+                      least one service line item with an approval status of Pending. The PPSO may view
+                      the list of services that have been submitted by the TSP. The PPSO can filter the
+
+
+                                                  IV-A-A-12
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+                       view by status to show only Approved, Denied, In Dispute, Updated, or Pending
+                       service line items. The PPSO must input notes in DPS whenever a line item is
+                       denied with a reason explaining the denial and when a line item is disputed with the
+                       reason for the dispute. The PPSO must request additional information for line item
+                       charges in dispute status. As part of the notes, the PPSO must indicate the
+                       information is needed in seven (7) calendar days or the charge will be denied.
+                  (d) The PPSO has three (3) GBDs in which to assign a status of Approved, In Dispute,
+                      or Denied to items within an invoice. PPSOs are defined as either
+                      origin/destination based on shipment origination and final destination.
+                  (e) A random sample of the invoices is subject to documentation request for PPSO
+                      review before approval of the invoice can take place. (See sampling methodology
+                      and rules in Paragraph (11) below.)
+             (11) Personal Property Statistical Sampling Methodology for Documentation Review:
+                  (a) General
+                        1   EDI invoices from TSPs are sent via the authorized payment system TPPS to
+                            DPS. The invoices in DPS are approved or denied by the TO/PPSO rated in
+                            DPS and sent via EDI 858 to TPPS for payment to the TSP. GSA has certified
+                            the internal controls of DPS meet prepayment audit requirements. An overall
+                            guideline for the administrative examination of disbursement vouchers is set
+                            forth at http://comptroller.defense.gov/fmr.
+                        2   Until the customer’s signature is captured electronically for personal property,
+                            statistical sampling of supporting documentation is conducted prior to payment
+                            of invoices. The following documentation outlines the procedure for statistical
+                            sampling. This methodology is developed for pre-payment examination and is
+                            similarly based on the Office of the Secretary of Defense Comptroller and GSA
+                            approved CO sampling verification for certifying the summary invoice
+                            referenced in the Department of Defense Financial Management Regulation
+                            (DoDFMR) 7000.14R, Volume 5, Chapter 5, Accountable Officials and
+                            Certifying Officers for post payment examination. It has been modified for
+                            Transportation Officer (TO)/PPSO daily pre-payment invoice approval process
+                            in DPS.
+                            NOTE: For invoices under $2,500, a statistical sampling of supporting
+                            documentation is conducted prior to the certifying of invoices. Invoices
+                            exceeding $2500 must be verified separately. To calculate the dollar amount of
+                            the invoice, only utilize the line items on the invoice your Government BL
+                            Office Code (GBLOC) is responsible to Approve or Deny in calculating the
+                            invoice amount.
+                        3   The TO must review DPS invoices identified in these procedures for pre-TSP
+                            payment statistical sampling and verify the accuracy of the invoice. The
+                            sampled invoices must be exact or the TO must deny (the service billed was
+                            not performed) or dispute (the quantities billed are inaccurate and must be
+                            changed by the TSP) the items on the invoice for payment. The TO is not
+                            required to review invoices not specified in these rules, but must review any
+                            known discrepancies or erroneous invoices to ensure whether or not payment is
+                            appropriate to safeguard DoD funds.
+
+
+
+
+                                                  IV-A-A-13
+Defense Transportation Regulation – Part IV                                                        4 February 2026
+Personal Property
+
+
+                        4   The results of the sampled invoices also provide management officials with
+                            trends regarding the types and frequency of discrepancies found on these
+                            invoices.
+                            NOTE: Sampling is a manual process.
+                  (b) Preparing to Select Transactions for Pre-Payment Review
+                        Before selecting the sample, an estimate must be developed from past data
+                        regarding the number of DPS invoices expected to be processed for the current
+                        month. The purpose of this estimate is to determine the sample size and sample
+                        selection criteria. All DPS invoices are subject to review through this random
+                        selection process, regardless of category or dollar value.
+                  (c) Statistical Sampling Plan for Pre-Payment Review
+                       1    A systematic method must be used to select the DPS invoices for review.
+                            Table A-A-1 provides the approximate sample size based on the estimated total
+                            number of invoices for the given month. For example, using Table A-A-1, if
+                            the TO estimates that approximately 50 DPS invoices will be processed for the
+                            day, the sample size is approximately five and the sampling interval would be
+                            11. Next a random start number from 1 to 11 would be selected, for example,
+                            three). Starting with the 3rd invoice, every 11th invoice would be selected
+                            (e.g., 3, 14, 25) until the entire population has been exhausted and the total
+                            sample achieved. The actual sample size may vary from the estimate. After a
+                            sampling interval is selected, do not change the size of the sampling interval.
+                            At the start of a new month, a different sampling interval may be used based on
+                            revisions to the estimated summary population sizes.
+                       2    Until DPS is programmed to statistically sample invoices for documentation
+                            review, the manual process to randomly sample the invoices pending approval
+                            in DPS must be followed, as documented below.
+                       Table A-A-1. Sample Chart (Targeted Sample Size = 100)
+                  Daily Estimated DPS                                        Summary Est. Sample
+                                              Est. Sampling    Est. Sample
+                  Invoices Pending TO                                          Size (Based on 20
+                                                 Interval          Size
+                        Approval                                                     GBDs)
+                            5                      2                3                  50
+                           10                      3                3                  67
+                           15                      4                4                  75
+                           20                      5                4                  80
+                           25                      6                4                  83
+                           30                      7                4                  86
+                           35                      8                4                  88
+                           40                      9                4                  89
+                           45                      10               5                  90
+                           50                      11               5                  91
+                           55                      12               5                  92
+                           60                      13               5                  92
+                           65                      14               5                  93
+                           70                      15               5                  93
+                           75                      16               5                  94
+                           80                      17               5                  94
+                           90                      18               5                 100
+                           95                      19               5                 100
+
+
+
+
+                                                        IV-A-A-14
+Defense Transportation Regulation – Part IV                                                       4 February 2026
+Personal Property
+
+
+                        3   The PPSO/TO must maintain a checklist (Table A-A-2) of BL/invoice numbers
+                            that have been reviewed for documentation. If multiple invoices occur for a
+                            given BL, previously sampled invoices must not be included for additional
+                            documentation requests to the TSPs. The documentation for previously
+                            sampled invoices must remain on file at the PPSO for additional review.
+                                 Table A-A-2. Sampled Invoice Checklist
+                                               DPS PPSO Checklist
+                               Sampled Invoices for Documentation Review DD-MM-YY
+                                         Standard
+                 BL         Invoice                     Documentation    Notes for
+                                      Carrier Alpha                                  Action Taken
+               Number       Number                        Requested       Review
+                                           Code
+                                                       e.g., 619,                    e.g., Approved
+                                                       inventory                     items in DPS
+
+
+                  (d) TSPs with Web access to all their documentation are posted on DPS invoice in the
+                      TSP header notes. The PPSO must click on the TSP header notes, copy and paste
+                      the URL for webpage access to see all pertinent documentation.
+                  (e) The PPSO must review the line items in DPS with a status of Pending and assign
+                      one of the following approval statuses based on the following criteria:
+                        1   Approve: PPSO agrees that the services were requested and performed, and
+                            they agree with the quantities.
+                        2   Deny: PPSO disagrees that the services were requested and performed. The
+                            PPSO must enter a reason in the Notes field for denied line items.
+                        3   Dispute: PPSO agrees that the services were requested and performed, but
+                            disagrees with the quantities, or the PPSO requires additional information or
+                            documentation from the TSP before approving the line item. The PPSO must
+                            enter a reason in the Notes field for disputed line items.
+                  (f) TSPs have access to a downloadable report listing the status of all services
+                      submitted to DPS. The status reflects all services approved, denied, in dispute, or
+                      pending action.
+                  (g) TSPs have access to view the status of line items via the DPS Web interface. If an
+                      item is In Dispute, the TSP can adjust their quantities. If the quantity is changed,
+                      the status changes from In Dispute to Updated. TSPs cannot modify the quantity of
+                      service items that have been approved or denied.
+                  (h) If it is determined that the TSP is entitled to payment of a Denied item before the
+                      invoice is rated and sent to the TPPS, the PPSO can change the status to Approved.
+                      If the invoice has already been rated and locked from further changes, the TSP may
+                      include that item on a supplemental invoice through TPPS.
+                  (i)   All Disputes must be resolved in DPS since the destination PPSO does not have
+                        visibility or approval authority in TPPS.
+                  (j)   PPSOs must not change the quantities or rates in TPPS unless it is determined that
+                        DPS incorrectly rated a line item. TSPs must use supplemental invoices for any
+                        disputed claim not resolved in DPS.
+                  (k) The use of eBills should be minimal (except as noted). TSPs must submit
+                      supplemental invoices for additional items not paid on the original invoice. This
+                      allows the destination PPSO to have visibility and approval authority of the charges
+                      in DPS.
+
+
+                                                   IV-A-A-15
+Defense Transportation Regulation – Part IV                                                   4 February 2026
+Personal Property
+
+
+                  (l)   TSPs who owe the Government a refund, must submit a negative supplemental
+                        invoice through TPPS for repayment of government overcharges. TSPs must
+                        comply with the procedures outlining this process in the Offsets and Funds
+                        Recovery business rules found on the USTRANSCOM website at
+                        https://www.ustranscom.mil/dp3/index.cfm.
+                  (m) PPSOs must approve, dispute or deny transactions identified as “services awaiting
+                      approval” within three (3) GBDs. An aging report is available for the Services to
+                      determine the average number of days for “services awaiting approval” by PPSOs.
+                  (n) If a reweigh occurs and the weight is lower than the original weight ticket, the new
+                      lower weight must be entered in DPS. If the TSP invoice is already received (but
+                      not approved) in DPS, DPS recalculates all the cost associated with weight. If the
+                      invoice is already approved, the TSP must bill a supplemental invoice using the
+                      LHSADD line item.
+                  (o) TSP may bill for the reweigh fee at any point after the reweigh, the PPSO must
+                      determine if the TSP is entitled to the fee.
+             (12) DTOD Distance (6.1):
+                  (a) For ITGBL service line items which require the number of miles (e.g., LH,
+                      Delivery out of SIT), DPS transmits the location information associated with the
+                      “From” and “To” locations to DTOD, and DTOD returns the number of miles
+                      between the two locations for reference purposes.
+                  (b) If a PPSO disagrees with the origin or destination location submitted by a TSP, the
+                      PPSO must mark the line item as Denied.
+                  (c) If the PPSO disagrees with the distance submitted by the TSP, it is marked as In
+                      Dispute with Notes and must stay in that status until the TSP updates the distance.
+             (13) Rand McNally Mileage (6.2):
+                  (a) For TGBL service line items that require the number of miles (e.g., LH and delivery
+                      out of SIT), DPS transmits the location information associated with the “From” and
+                      “To” locations to DPS and DPS returns the number of miles between the two
+                      locations for reference purposes using the Rand McNally mileage reference tables.
+                  (b) If a PPSO disagrees with the origin or destination location submitted by a TSP, the
+                      PPSO must mark the line item as Denied.
+                  (c) If the PPSO disagrees with the distance submitted by the TSP, it is marked as In
+                      Dispute with Notes and must stay in that status until the TSP updates the distance.
+             (14) Rating (6.2):
+                  (a) After the PPSO has marked all items on an invoice as Approved or Denied, DPS
+                      rates the invoice. Denied line items are assigned a quantity of zero and a cost of
+                      zero. Both approved and denied line items are sent in the EDI 858 to TPPS. DPS
+                      uses the quantities and location information associated with each service line item
+                      to calculate the correct cost of each service line item IAW the rates on file for the
+                      TSP.
+                  (b) If a line item is approved by the PPSO, and the DPS determines it cannot be rated:
+                        1   DPS assigns a status of Denied and a quantity and cost of zero.
+                        2   DPS adds text to the notes field indicating it was denied for lack of information.
+
+
+
+                                                   IV-A-A-16
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+             (15) EDI 858 Submission from DPS (7.0):
+                  (a) DPS feeds an EDI 858 containing data for rated (approved and denied) line items to
+                      TPPS. The EDI 858 must reference the BL number as the key field along with the
+                      Line IDC, and the invoice number sent in the EDI 859 from TPPS.
+                  (b) The initial EDI 858 sent from DPS for a given BL must be sent as an original EDI
+                      858. As new services are approved and rated, subsequent EDI 858s are sent as
+                      incremental update EDI 858s. If a diversion or reweigh occurs, the EDI 858 is
+                      flagged so the header level information such as addresses and weights can be
+                      updated.
+             (16) TSP Payment Approval (8.0):
+                  (a) Payment Requirements:
+                       1   At the PPSO’s discretion, PPSOs can assign each individual TPPS user within
+                           an office a different maximum dollar amount for TSP payment approval. If the
+                           BL price on a shipment exceeds a user's maximum, the user cannot approve the
+                           TSP payment.
+                       2   The TSP payment process begins with the receipt of the NOSC and the shipper
+                           and TSP portions of the transaction are matched by the unique BL, Standard
+                           Carrier Alpha Code (SCAC) and Invoice Number combination. Actual TSP
+                           payment is based on the services provided under the BL. PPSOs must not
+                           approve invoices in TPPS in a status other than Approval Required.
+                  (b) Automatic Approval of Payment:
+                       1   For automatic approval of payment: Invoice and data submitted must match or
+                           be within preset tolerances. After the rated shipper’s invoice is received in
+                           TPPS, it is the TSP’s responsibility to update quantities or costs in TPPS to
+                           match the data submitted from DPS.
+                       2   If the quantity of an item was changed or denied in DPS, the TSP must edit
+                           their invoice in TPPS or the transaction is placed in Audit Exception status.
+                           For denied line items, TSPs must change that item cost and quantity to zero for
+                           it to match in TPPS. After the items and costs match, the invoice is
+                           automatically approved if the total cost falls below the predetermined
+                           maximum threshold.
+                       3   USTRANSCOM, with Service approval, establishes the DoD’s policy for
+                           automated TSP payment approval using TPPS matching model. This policy is
+                           coded into the DoD Business Rule Set within TPPS and all organizations must
+                           use this Business Rule Set as the basis for processing transactions.
+                       4   Paragraph C addresses prompt payment scenarios and business rules.
+                      NOTE: In the manual environment (without automation outlined in the Prompt Pay
+                      Procedures in Paragraph C), USTRANSCOM creates eBills in TPPS for those
+                      payments that have aged beyond 30 days as a result of Government system or user.
+                      PPSO’s must approve all eBills.
+             (17) Manual Approval of Payment:
+                  (a) The origin PPSO must approve for payment the amount they determine the
+                      Government is responsible to pay. The origin PPSO must work with the destination
+
+
+
+
+                                                 IV-A-A-17
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+                       PPSO to correctly approve invoices for payment since only the origin PPSO has
+                       access to the transactions in TPPS.
+                  (b) Origin PPSOs must log on each workday to TPPS to review transactions that have a
+                      Financial Status of:
+                       1   Audit Exception – No PPSO action is required in TPPS for invoices in the
+                           Audit Exception status. Stakeholders must alert USTRANSCOM of any rating
+                           errors and be aware of the TSP’s responsibilities as outlined in Paragraph B.2.e.
+                       2   Approval Required – The maximum threshold is below the total cost of the
+                           invoice and manual approval is required by the PPSO.
+                       3   Hold – The PPSO has placed an invoice on hold requesting further information
+                           on the charges.
+                  (c) For transactions in a status of Approval Required, the PPSO must take one of the
+                      following actions within three (3) GBDs after notification of service completion:
+                       1   Approve the payment.
+                       2   Place on hold and request additional information from the TSP, using the Notes
+                           Section of the transaction.
+                       3   Deny payment and record reason in the Notes section of the transaction.
+                  (d) After a response is received on a hold, the origin PPSO that placed the hold has
+                      three (3) GBDs to approve or deny.
+                  (e) If an invoice matches on cost but is above the predetermined threshold the invoice
+                      is in a status of Approval Required. The origin PPSO must manually approve these
+                      transactions within three (3) GBDs. The PPSO must check for invoices in this
+                      status each workday.
+             (18) TSP Payment (9.0):
+                  (a) The TSP cannot be paid until NOSC and PPSO approval (either automatic or
+                      manual) are received. The TSP is paid after the PPSO approves the invoice for
+                      payment, removes an invoice from hold status, or resolves an eBill.
+                  (b) The TSP is paid by submitting an EDI 820 remittance to the TSP system and an
+                      Electronic Funds Transfer (EFT) to the TSP bank.
+             (19) Payment Data Feed (10.1):
+                  (a) TPPS feeds payment data to DPS using an EDI 810 transaction set. This data is
+                      sent summary at the time of the summary invoice generation due to the ability to
+                      change LOAs in TPPS until summary invoice generation. TPPS also transmits the
+                      financial EDI 810 data feed to DFAS Expenditure Systems for all payments made.
+                  (b) The EDI 810 lists the all line items and the corresponding dollar amounts for each
+                      invoice. It also includes the LOA/TAC/MDC and obligation data assigned to each
+                      service line item.
+             (20) Feed to FACTS (10.2):
+                  DPS feeds the EDI 858 to FACTS.
+
+
+
+
+                                                  IV-A-A-18
+Defense Transportation Regulation – Part IV                                                      4 February 2026
+Personal Property
+
+
+             (21) Summary Invoice Certification (11.0):
+                      (a) Procedures for the Prompt Payment Act (PPA) and the responsibilities for COs,
+                          accountable officials, and review officials are contained in DoDFMR, Volume 5,
+                          Chapter 5, Accountable Officials and Certifying Officers. Under the terms of the
+                          TPPS contract, PPA interest begins to accrue 30 days from the summary invoice
+                          availability date. The summary invoice and supporting documentation (detailed
+                          summary invoice and customer’s orders) must be certified and arrive at the
+                          DFAS/FINCEN payment center by five (5) GBDs following receipt of the summary
+                          invoice. This is to ensure the payment center has sufficient time to disburse the
+                          amount owed to the bank. DFAS/FINCEN payment centers (for addresses go to
+                          www.dfas.mil or https://www.uscg.mil/fincen/) are as follows:
+                                  Table A-A-3. DFAS Financial Payment Centers
+                        Service               Payment Center        Phone Number        Fax Number
+          Army                            DFAS-Indianapolis          317-212-2464       317-212-2397
+                                                                                       207-328-1699 or
+          Air Force                       DFAS-Limestone             207-328-1605        207-328-1873
+                                                                                        (w/cover page)
+          Navy                            DFAS-Indianapolis          317-212-7814       317-212-3965
+          Marine Corps                    DFAS-Columbus              614-693-0953       866-217-6523
+          Coast Guard
+                                          DFAS-Indianapolis          317-212-2464       317-212-2397
+          (for non-Coast Guard shipments)
+          Coast Guard
+                                          FINCEN                     757-523-6022
+          (for Coast Guard Shipments)
+
+
+                      (b) The Certifying Official (CO) must print the summary invoice after the 15th of the
+                          month (the next business day, if the 15th falls on a weekend) or when TPPS
+                          generates the summary invoice on the TPPS website, whichever occurs later.
+                      (c) The summary invoice must be reviewed and certified by the CO prior to pre-
+                          validation of available funds by the DFAS/FINCEN payment office. (The “in-
+                          progress” summary invoice is available for review by the CO throughout the
+                          month). The overall scope of the review is to ensure that the invoice contains the
+                          necessary substantiation and documentation for lawful and proper payment. The
+                          CO business rules for summary invoice certification are outlined in Paragraph C.
+                          These rules must be strictly adhered as per the DoDFMR.
+                      (d) The LOA summarizes transportation charges on the summary invoice. Supporting
+                          line item detail is available for review in TPPS. The Expense Distribution Monitor
+                          Report or a similar report providing shipment level detail, including but not limited
+                          to the SDN and obligation data must be printed for use in the certification process
+                          and for submission to DFAS/FINCEN. If the LOA contains the obligation data, it
+                          is summarized on the summary invoice for the DFAS/FINCEN use in obligating
+                          funds.
+                          The DFAS/FINCEN accounting systems require obligation data to identify a
+                          transaction for processing within the system. If the obligation data is not present on
+                          the incoming certified billing for a specific line item transaction, the
+                          DFAS/FINCEN paying office must contact the supporting FM or the CO for valid
+                          obligation data. Upon receipt of missing obligation data, the DFAS/FINCEN
+                          paying office releases funds for that line item transaction.
+
+
+
+
+                                                      IV-A-A-19
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+                  (e) If the LOA is missing, TPPS assigns “xx” in the LOA field. This field remains
+                      open for editing from the BLs receipt from DPS until summary invoice generation.
+                      The CO must research instances of missing or inaccurate LOAs throughout the
+                      summary invoice cycle period using the Expense Distribution Monitor Report or
+                      the summary invoice, correcting the LOA for the respective TSP invoices. After
+                      the TSP payment has been processed, accounting data cannot be electronically
+                      edited.
+                  (f) After the summary invoice is certified in TPPS, the LOA fields are locked from
+                      further edits. The CO can manually correct LOAs on the summary invoice hard
+                      copy before sending the certified copy to DFAS/FINCEN.
+                  (g) The CO must review the summary invoice to ensure it reflects the actual TSP
+                      payments and existing LOAs and Obligation data. The CO must accomplish the
+                      pre-payment review of the summary invoice by validating the shipments from the
+                      summary invoice against details showing shipment level detail verifying the
+                      payment amounts are the same as those on the associated payment settled requests
+                      in the TPPS database. Any discrepancies must be immediately provided to the
+                      TPPS Help Desk. The CO must correct any LOA or obligation data errors
+                      discovered on the summary invoice and/or Expense Distribution Monitor Report
+                      and forward to DFAS/FINCEN within five (5) GBDs of the summary invoice
+                      availability date.
+                        1   Prior to certification of the summary invoice, the CO must review LOAs and
+                            obligation data for accuracy.
+                        2   If the summary invoice is missing or contains the incorrect shipper’s
+                            appropriation (LOA/Obligation data), the CO must contact the issuing order
+                            authority to resolve the discrepancy in TPPS. An entry in the Notes component
+                            of TPPS must document the actions taken to establish the correct appropriation.
+                  (h) Payment from the government to the bank is required in 30 days or less (“net 30
+                      days”) from the date the summary invoice is first available (the “Availability Date”
+                      field in TPPS). The bank invoice must be certified and arrive at the
+                      DFAS/FINCEN payment center by the 5th GBD following availability of the
+                      summary invoice. This is to ensure the payment center has sufficient time to
+                      disburse the amount owed to the bank.
+                  (i)   The Army Corps of Engineers (ACOE) and the U.S. Coast Guard (USCG) each
+                        have a separate summary invoice generated for their shipments regardless of the
+                        origin account holder in TPPS. For example, if a USCG customer moves out of
+                        Fort Belvoir, Fort Belvoir PPSO manages the invoices for payment. After the
+                        summary invoice is generated, Fort Belvoir’s summary invoice does not include
+                        that USCG transaction as it must be separated into a USCG invoice. The ACOE
+                        and USCG have their own payment centers to pay directly to the TPPS.
+                  (j)   For USCG installations:
+                        1   All non-USCG shipments must be generated on a separate summary invoice in
+                            TPPS that must be certified by the USCG CO and sent to the DFAS.
+                            NOTE: This process assumes the correct TAC was entered into DPS and/or
+                            TPPS.
+                        2   If a USCG move does appear on a summary invoice, the CO must manually
+                            enter the TAC for the noted transaction and forward the complete summary
+
+
+
+                                                  IV-A-A-20
+Defense Transportation Regulation – Part IV                                                                       4 February 2026
+Personal Property
+
+
+                                invoice (including the USCG move) to the payment center. DFAS then
+                                processes the summary invoice, and recoups the funds as necessary via an intra-
+                                governmental funds transfer with the USCG Finance Center. The DFAS
+                                payment center also requires the PPSO to submit orders for these moves.
+                    (k) Since the USCG is not a DoD organization, the USCG and the Services have
+                        entered into a reciprocal Memorandum of Agreement concerning their PPSOs’
+                        approval of payments to the TSPs. Each origin PPSO resolves discrepancies
+                        between the BL data and invoice data and approves payment to the TSP on behalf
+                        of both the USCG and the Services without regard to whether customer is a USCG
+                        or DoD customer.
+                    (l) The CO signs the summary invoice to certify it is correct and proper for payment.
+                        This must be accomplished within five (5) GBDs from the summary invoice
+                        availability. Certification means that the summary invoice accurately reflects actual
+                        payments made to TSPs in comparison to the Transaction Manager or Expense
+                        Distribution Monitor Report. The initial pre-TSP-payment approval process
+                        certified each payment transaction as being true and correct. The signed summary
+                        invoice and the detailed invoice with the customer’s orders are sent by facsimile
+                        (fax) (preferred) or overnight mail (by traceable means) to the DFAS/FINCEN
+                        payment center for that CO. The certified summary invoice and Expense
+                        Distribution Monitor Report (or similar detail report) must arrive at the
+                        DFAS/FINCEN payment center by five (5) GBDs from the summary invoice
+                        availability date.
+                          NOTE: An additional requirement for Navy summary invoice certification is the
+                          Prompt Payment Certification and Deduction Form (PPCD). The PPCD is
+                          completed and signed by the CO and is submitted each month to DFAS-
+                          Indianapolis along with the manually submitted summary invoice. The PPCD is
+                          used to identify/clarify payment related information, adjustments, and/or deductions
+                          (including TAC/LOAs not provided on the summary invoice) to ensure payments
+                          are timely and accurate.
+                           1. The following certification invoice must appear on the face of the summary
+                              invoice along with signature of the authorized certifying officer:
+                                “Pursuant to authority vested in me, I certify this billing invoice is correct and proper for
+                                payment, except as may be noted herein or on supporting documents.”
+                                                                                 ________________________________
+                                                                                 John Doe
+                                                                                 Authorized Certifying Officer
+
+               Table A-A-4. Summary Business Rules for Summary Invoice Certification
+                    Condition                                                       Rule
+     CO prints summary invoice delivered via CO stamps PPA effective date on summary invoice. Under the terms of the
+     the TPPS desktop.                       TPPS contract, PPA interest begins to accrue 30 days from the summary
+                                             invoice availability date.
+     Summary invoice not available or CO        CO contacts TPPS Help Desk. If the summary invoice “availability date”
+     encounters problems printing summary       shown on the TPPS invoice differs from the actual availability date (due to
+     invoice.                                   TPPS errors) the CO must note the actual Available Date on the invoice
+                                                before submitting to the DFAS/FINCEN payment center.
+     CO performs pre-payment invoice            Review summary invoice Shipment Detail Listing and verify that the payment
+     review to ensure invoice reflects actual   amounts are the same as those on the associated PAYMENT SETTLED
+     TSP payments.                              requests in TPPS.
+     CO reviews summary invoice By              Use TPPS to drill down to transactions for invalid LOAs and use information
+     Accounting Code section of summary         to contact the PPSO and/or shipment requestor and correct LOA entries. CO
+     invoice to identify any invalid LOAs.      has five (5) GBDs to correct the LOAs.
+
+
+
+
+                                                            IV-A-A-21
+Defense Transportation Regulation – Part IV                                                                    4 February 2026
+Personal Property
+
+
+                    Condition                                                      Rule
+     CO determines the summary invoice to      CO certifies and signs summary invoice and submits it to proper
+     be correct and proper.                    DFAS/FINCEN payment center for their Service by fax or express mail (i.e.,
+                                               traceable means).
+     PPSO or CO discovers overpayment.         PPSO or CO effects price adjustment by requesting TSP submit credit
+                                               invoice or as a last resort create eBill refund in TPPS.
+
+
+              (22) Bank Payment (12.0):
+                    (a) The summary invoice charges must be summarized by LOA. Supporting detail is
+                        available in the download details of summary invoice in TPPS.
+                    (b) If the LOA fails the edit because of the obligation is not established,
+                        DFAS/FINCEN contacts the FM to obtain permission to record the obligation.
+                        After the obligation is recorded the in accounting system, DFAS/FINCEN
+                        processes the payment against the obligation.
+                    (c) In instances where incorrect TSP billing or overcharges exist, adjustments must be
+                        credited/debited to the detail LOA as defined in the business rules covering Offsets
+                        and Funds Recovery. This offset is reflective for that month’s invoice.
+                          Table A-A-5. Summary Business Rules for Bank Payment
+                    Condition                                                          Rule
+ LOA fails edit in the entitlement system because   DFAS/FINCEN contacts the FM for authority to increase the obligation prior
+ of insufficient obligation.                        to payment.
+ LOA fails edit in the entitlement system because   DFAS/FINCEN contacts the FM to identify the appropriate accounting data,
+ of no obligation.                                  record the obligation and process the payment to TPPS.
+ LOA fails edit in the entitlement system because   DFAS/FINCEN contacts the FM to identify the appropriate accounting data,
+ of validity.                                       record the obligation and process the payment to TPPS.
+ DFAS/FINCEN receives certified summary             DFAS/FINCEN must provide payment for the summary invoice within 30
+ invoice.                                           calendar days after the PPSO received the invoice from TPPS. NOTE: If
+                                                    DFAS fails to meet any of the above conditions, a payment to TPPS
+                                                    CANNOT be processed by DFAS within 30 days subjecting the LOA to PPI.
+
+
+              (23) Post-Payment Audit Data Retrieval (13.0):
+                    GSA conducts post-payment audits, using invoice data from TPPS and data on
+                    authorized services and weights from the DPS. GSA reserves the right to request hard
+                    copy supporting documents to conduct post payment audits.
+              (24) DoD Annual Corrective Requirements:
+                    (a) Shipper Sites/TO Action: Review Summary Invoice under the Account Activity
+                        section for any Past Due Amount identified and work with the DFAS counterpart to
+                        resolve issues affecting disbursement on the account (e.g., invalid LOA, manual
+                        corrections erroneously made on Summary Invoice). Sites will accrue Prompt
+                        Payment-interest penalties assessed by DFAS for all amounts shown in this area.
+                        Aggressively follow up with the DFAS POC and TPPS contractor (Customer
+                        Operations Help Desk, 800-417-1844) to ensure payments are made and posted
+                        once issues are resolved.
+                    (b) Service/Agency HQ Action: Randomly review Summary Invoices on accounts
+                        under their jurisdiction. Provide oversight and assistance to ensure past due
+                        amounts/accounts are paid.
+
+
+
+
+                                                           IV-A-A-22
+Defense Transportation Regulation – Part IV                                                    4 February 2026
+Personal Property
+
+
+                        1 When notified that accounts have amounts in, or above, the 75 days past-due
+                          status, take action to ensure the account is brought current before expiration of
+                          the current cycle.
+                        2 Notify shipper site that when their account moves into the 105 days past-due
+                          status (four cycles), it will be suspended until payment(s) is/are received to bring
+                          it current.
+                        3 Services/Agencies are required to pay in full all remaining unpaid transactions on
+                          an annual basis by the end of the 1st quarter of the following FY/CY. For
+                          example, all charges on an account for FY21 would be required to be paid in full
+                          by the end of 1st quarter FY22.
+                  (c) DFAS Payment Center Action:
+                        1 DFAS POC will work with shipper site/HQ POC to resolve problems, following
+                          guidelines established in their Interim Manual Operating Procedures.
+                        2 DFAS will assist to resolve payment center issues and notify the Office of the
+                          Secretary of Defense (Comptroller) of unresolved issues.
+                        3 DFAS, in coordination with the CO/TO, will fully reconcile each account and
+                          provide a listing of all remaining unpaid transactions to the services for the prior
+                          FY/CY by (within 30 days of FY/CY end).
+                  (d) TPPS contractor Action: Once accounts have been paid current, they will be
+                      reactivated immediately by the TPPS contractor.
+             (25) Help Desk Information:
+                  TPPS Help Desk
+                  customer.support@syncada.com
+                  Toll-free in the U.S. (including Alaska, Hawaii, and Puerto Rico): 1.800.417.1844
+                  Direct dial from outside the U.S.: +001.612.973.3170
+                  DPS Help Desk
+                  sddc.safb.dpshd@us.army.mil
+                  Toll-Free (800) 462-2176 (option 5)
+                  Commercial 618-220-SDDC
+                  DSN 770-7332
+    5. CO Business Rules:
+        a. General:
+             Commanders, activity directors, and other personnel of equivalent position of an organization
+             must appoint a CO in writing. Commanders have the prerogative to appoint any qualified
+             individual as a CO. There must be a separation of duties between the TO approving invoices
+             in DPS versus the CO certifying the summary invoice for DFAS to pay the bank. The
+             appointed COs must be a DoD civilian employee or military personnel or a federal civilian
+             employee of a non-DoD agency. Contractors are not eligible to be a CO and COs may not
+             concurrently serve as a Disbursing Officer or Deputy Disbursing Officer.
+             The CO must ensure that the DFAS paying offices have the required documentation on file
+             for the appointment. The required documentation is the CO appointment letter and the
+             specimen signature card, DD Form 577, Appointment/Termination Record – Authorized
+             Signature, Figure A-A-4. Certification of the summary invoice must be IAW DoDFMR
+             7000.14-R, Volume 5, Chapter 5. To accomplish the tasks outlined below, access to TPPS
+
+
+                                                   IV-A-A-23
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+             and the establishment of internal controls within TPPS are under the purview of the CO even
+             if the individual is outside of the TO.
+             Qualifications for COs are located in DoDFMR, Volume 5, Chapter 5. Requirements for TSP
+             prepayment audit review are located in 41 Code of Federal Regulations (CFR), Parts 101-41,
+             Transportation Documentation and Audit, and 102-118, Transportation Payment and Audit;
+             and requirements for summary invoice certification are located in the DoDFMR, Volume 5,
+             Chapter 5. The extent of the liability of the CO is located in the DoDFMR reference. The 41
+             CFR is available through https://www.ecfr.gov/cgi-bin/text-
+             idx?SID=dab860358e23d0a584e3c9a329253b07&mc=true&tpl=/ecfrbrowse/Title41/41tab_0
+             2.tpl The DoDFMR is available through http://comptroller.defense.gov/fmr.
+             The CO must review those TPPS transactions identified for post-TSP payment statistical
+             sampling and verify the correctness of the summary invoice. All TSP payment approval
+             transactions regardless of thresholds and tolerances included in the sample are applicable
+             when reviewing the summary invoice for payment of correct amounts. The sampled
+             transactions must be accurate or correction action must be taken [eBill]. The CO is not
+             required to review other billings not specified in these rules, but must review any known
+             discrepancies or erroneous billings to ensure the appropriateness of payment and the
+             safeguarding of DoD funds.
+             The summary invoice must be reviewed and electronically certified in TPPS by the CO prior
+             to submission to and processing by the DFAS payment office. The overall scope of the
+             review is to ensure that the invoice contains the necessary substantiation and documentation
+             for lawful and proper payment. The CO utilizes the TPPS database and relies on information
+             supplied by the accountable official, and works with the FM to ensure:
+             (1) The summary invoice has complete LOAs for each line item on the summary invoice.
+             (2) Each transaction has an LOA or SDN.
+             NOTE: Not all Services use SDNs.
+             (3) The summary invoice certification is completed and received by the DFAS payment
+                 center within five (5) GBDs of receipt of the summary invoice.
+             (4) Complete LOAs and/or SDNs are annotated on the summary invoice or other Service
+                 required payment document.
+             (5) The certified manual summary invoice with the attached detailed summary invoice and
+                 customer’s order/authorization, for that time period is forwarded to the DFAS paying
+                 office for processing; the electronic portion of the summary invoice is automatically sent
+                 to the payment center via EDI 821/810 following electronic certification by the CO.
+             (6) The amount billed and the certified amount is accurate on the summary invoice.
+             The CO must review the summary invoice to ensure that it reflects the actual TSP payments
+             and ensure the detailed amounts identified supporting documentation equals the amount
+             certified on the summary invoice for reimbursement to the Bank. Adjustments for incorrect
+             or erroneous charges must be processed for credit in subsequent billings. The CO must
+             maintain records of such items until their final resolution and documented in TPPS and then
+             processed in a summary invoice. The detailed summary invoice must contain a full LOA,
+             including the SDN if applicable for each LOA to be charged. The CO must provide the
+             summary invoice and customer’s orders, electronically if the capability exists. The CO must
+             ensure that the summary invoice or other documentation is annotated with any missing data
+             (i.e., full LOA, SDN) before forwarding to the DFAS.
+
+
+
+                                                 IV-A-A-24
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+    6. Statistical Sampling Plan:
+        a. Preparing to Select Transactions for Review: Obtain a reasonable estimate of the number of
+           TPPS transactions expected to be processed for the current month from past data to determine
+           the sample size and sample selection criteria. All categories of TPPS transactions regardless
+           of dollar value are subject to review through random selection processes.
+        b. Transactions Requiring 100 percent Review: Any TPPS transaction that does not contain an
+           accounting classification or contains a partial accounting classification must be reviewed
+           prior to summary invoice certification. Any TPPS transaction over $2,500 for a shipment or
+           that has had a price variance greater than 30 percent from the original price must be reviewed.
+           Instruct personnel who are authorized to approve TSP payments in TPPS to record all upward
+           price adjustments in the journal entry section of the transaction. No transactions requiring
+           100 percent review may be included in the transactions sampled for post-payment
+           verification.
+        c. Selecting the Sample of Transactions for Post-TSP Payment Verification: The Sampling
+           Size/Interval Determination chart, Table A-A-6, provides the approximate sample size based
+           upon the estimated total number of transactions for the given month. For example, if the TO
+           estimates that approximately 2,000 TPPS transactions will be processed for the current
+           month, the sample size would be approximately 95 and the sampling interval would be 21.
+             A random start number from 1 to 21 would be selected (e.g., 5). Starting with the 5th
+             transaction, every 21st transaction would be selected (e.g., 5, 26, 47) until the entire
+             population had been exhausted and the total sample achieved. The actual sample size may
+             vary from the estimate. After a sampling interval is selected, do not change the size of the
+             sampling interval during the month. At the start of a new month, a different sampling
+             interval may be used based on revisions to the estimated summary population sizes.
+        d. Conducting the Post-TSP Payment Verification on a Statistical Sampling Basis: Conduct the
+           review of the TPPS transactions. Prepare a TPPS Certifying Officer Checklist, Table A-A-7,
+           or annotate the Expense Distribution Monitor Report for all transactions reviewed and upon
+           completion, retain in the CO file for reference. The CO must compare any available source
+           documentation (i.e., the Movement Request Order) with transactions from other source
+           systems to ensure that input to TPPS was accurate. If there is a deviation from the source
+           documentation or source input and the summary invoice, any journal entries related to the
+           transaction must be reviewed for an explanation of the differences. If the TSP was overpaid,
+           the CO must still certify the summary invoice and direct that an eBill be created to recoup the
+           overpayment. This process must be accomplished within 30 days. Collections against
+           vendors/TSPs no longer in the TPPS system or who have filed for protection under the
+           bankruptcy rules must be accomplished IAW with existing debt management processes (See
+           Volume 10, DoDFMR).
+             NOTE: TSPs in bankruptcy cannot be approved for Auto Approval.
+        e. TPPS Transaction Review Elements: The following elements must be reviewed to ensure the
+           transactions have been properly accomplished and that any source documentation and/or
+           source input supports the sampled TPPS transactions. This list can be augmented by other
+           review elements.
+             (1) SCAC is correct.
+             (2) Complete accounting classifications are present on the summary invoice.
+             (3) Amount claimed by the TSP is same amount on the shipping instructions.
+
+
+
+
+                                                 IV-A-A-25
+Defense Transportation Regulation – Part IV                                                   4 February 2026
+Personal Property
+
+
+             (4) Any adjustments to rate or price are documented via the Journal Entry feature in TPPS
+                 or the eBill process.
+             (5) All service rates and charges are clearly identified and authorized on the shipping
+                 instructions.
+             (6) USTRANSCOM regulations have been adhered to as applies to movement charges
+                 billed.
+             (7) Complete TPPS transaction is reviewed for:
+                  (a) Fraud, waste, and abuse by the TSP or others involved in the TSP payment
+                      approval process.
+                  (b) Additional monies the Government may be owed—create an eBill.
+                  (c) Irregular or incomplete entries in the Journal Entry feature for that transaction.
+             (8) Notification of the Service and USTRANSCOM of any TSP found abusing the fast
+                 payment process.
+                  Table A-A-6. Sample Size/Interval Determination (Target n = 100)
+       Estimated                                          Estimated
+                         Sampling         Estimated                        Sampling         Estimated
+       Summary                                            Summary
+                          Interval         Sample                           Interval         Sample
+       Population                                         Population
+                            Size            Size                              Size            Size
+          Size                                               Size
+           100               2                50               3600            37              97
+           200               3                67               3700            38              97
+           300               4                75               3800            39              97
+           400               5                80               3900            40              98
+           500               6                83               4000            41              98
+           600               7                86               4100            42              98
+           700               8                88               4200            43              98
+           800               9                89               4300            44              98
+           900               10               90               4400            45              98
+          1000               11               91               4500            46              98
+          1100               12               92               4600            47              98
+          1200               13               92               4700            48              98
+          1300               14               93               4800            49              98
+          1400               15               93               4900            50              98
+          1500               16               94               5000            51              98
+          1600               17               94               5100            52              98
+          1700               18               94               5200            53              98
+          1800               19               95               5300            54              98
+          1900               20               95               5400            55              98
+          2000               21               95               5500            56              98
+          2100               22               95               5600            57              98
+          2200               23               96               5700            58              98
+          2300               24               96               5800            59              98
+          2400               25               96               5900            60              98
+          2500               26               96               6000            61              98
+
+
+
+                                                   IV-A-A-26
+Defense Transportation Regulation – Part IV                                              4 February 2026
+Personal Property
+
+
+       Estimated                                          Estimated
+                         Sampling         Estimated                    Sampling        Estimated
+       Summary                                            Summary
+                          Interval         Sample                       Interval        Sample
+       Population                                         Population
+                            Size            Size                          Size           Size
+          Size                                               Size
+          2600               27               96               6100        62              98
+          2700               28               96               6200        63              98
+          2800               29               97               6300        64              98
+          2900               30               97               6400        65              98
+          3000               31               97               6500        66              98
+          3100               32               97               6600        67              99
+          3200               33               97               6700        68              99
+          3300               34               97               6800        69              99
+          3400               35               97               6900        70              99
+          3500               36               97               7000        71              99
+
+
+    For summary population sizes greater than 7000, the sampling interval is approximately equal to
+    the population size divided by 100. For example, if the number of TPPS transactions processed
+    each month is approximately 7500, then the sampling interval is 75, the sampling frequency is
+    1/75 and the total number of TPPS transactions selected for audit is approximately 100.
+
+
+
+
+                                                   IV-A-A-27
+Defense Transportation Regulation – Part IV                                   4 February 2026
+Personal Property
+
+
+
+
+      Figure A-A-4. DD Form 577, Appointment/Termination Record – Authorized Signature
+
+
+
+                                              IV-A-A-28
+Defense Transportation Regulation – Part IV                                   4 February 2026
+Personal Property
+
+
+
+
+ Figure A-A-4. DD Form 577, Appointment/Termination Record – Authorized Signature (Cont’d)
+
+
+
+                                              IV-A-A-29
+Defense Transportation Regulation – Part IV                                                         4 February 2026
+Personal Property
+
+
+                                      Table A-A-7. TPPS CO Checklist
+                                      TPPS Certifying Officer Checklist
+                            Sampled Transactions for the Month of __________ 20XX
+                     TPPS
+                                       LOA          Supported by       Journal Entry       eBill        Adjustment
+ BL Number        Transaction
+                                    Appropriate     TSP Payment          Reviewed       Adjustment          $$$
+                   Reviewed
+
+
+
+
+C. Invoice Submission, Prompt Payment, and Penalty Interest Procedures
+    1. General:
+        This program replicates the current program’s billing procedures into an electronic format using
+        TPPS as a payment tool to pay the TSP. eBill provides information visibility, improves the
+        DFAS payment and collection process, and reduces the amount of paper documentation. This
+        section details proper invoice requirements, how PPA interest due to the TSP is calculated,
+        procedures for calculating the number of days a TSP invoice has been outstanding, and the
+        associated PPI due.
+    2. Requirements for a Proper Invoice:
+                                     Table A-A-8. Invoice Requirements
+ Circular Requirements                          Description                                    Source
+Name of Vendor              Name or SCAC                                          Vendor Invoice
+Vendor Address              United States Postal Service Mailing address          Not required on vendor invoice;
+                                                                                  already on file at TPPS
+Invoice Date                Date of Vendor’s Invoice                              Vendor Invoice
+Government Contract         BL Number                                             Vendor Invoice
+Number.
+Description                 Line item/sub-line item/price/weight/quantity/services Vendor Invoice
+                            rendered by vendor
+Shipping and Payment        Conditions outlined in either contract or BL unless   Not required for invoices to TPPS
+Terms                       otherwise noted
+Tax identification number   Vendor’s Internal Revenue Service identification      Not required on vendor invoice;
+                                                                                  already on file at TPPS
+
+
+
+
+                                                       IV-A-A-30
+Defense Transportation Regulation – Part IV                                                      4 February 2026
+Personal Property
+
+
+ Circular Requirements                         Description                                  Source
+Banking Information        Vendor’s financial instructions for payment         Not required on vendor invoice;
+                                                                               already on file at TPPS.
+Contact name               Vendor contact information                          Not required on vendor invoice;
+                                                                               already on file at TPPS.
+Other substantiating       Documentation required to support invoice details   Hard-copy DD Form 619,
+Documentation                                                                  Statement of Accessorial Services
+                                                                               Performed, must be maintained
+                                                                               by the TSP and furnished to the
+                                                                               PPSO on demand as required by
+                                                                               Service.
+Receiving reports          Certification of service completion                 Required on vendor invoice; also
+information                                                                    known as “notice of service
+                                                                               completion”. Provided in the EDI
+                                                                               859.
+
+
+    3. Invoice Guidelines:
+        The following guidelines ensure the TSP submits invoices properly and charges are properly
+        processed in a timely and efficient manner. Normally an invoice must contain more than one line
+        item charge, unless invoice is submitted for supplemental charges. Single item invoices not
+        conforming to the procedures outlined below will be denied. Exceptions to these guidelines must
+        be handled on a case-by-case basis. The TSP must resubmit charges using one of the invoice
+        formats listed in the invoicing guidelines.
+        a. All origin SIT charges including LHS with fuel surcharge, and all associated accessorial.
+        b. All destination SIT with storage less than 30 days, including fuel surcharge and all associated
+           accessorial.
+        c. All destination SIT charges with storage more than 30 days, including fuel surcharge and all
+           associated accessorial. These services can be billed in 30 days increments or the TSP can
+           wait until the shipment is delivered before invoicing.
+        d. Partial delivery of destination SIT, including fuel surcharge and all associated accessorial.
+        e. Partial and remaining portion of destination SIT, including the fuel surcharge and all
+           associated accessorial.
+        f.   Reimbursement invoice(s) (credit invoice).
+        g. Reimbursement invoice(s) with re-invoiced charges (i.e., denied charge(s)).
+        h. Direct deliveries including LHS with fuel surcharge, and all associated accessorials.
+        i.   Any denied item code(s) from previous invoicing.
+        j.   Any item code(s) that was accidentally left off of the previous invoicing.
+    4. Main Guidelines for Application and Calculation of PPI (Title 5 CFR, Volume 3, Chapter III,
+       Subchapter B, Part 1315, and DFAS’s guidance on the current process):
+        a. The PPA clock begins when TPPS receives an invoice in TPPS (Invoice Create Date), either
+           in the form of an EDI 859, or when created using the TPPS User Interface.
+        b. All days referenced are calendar days.
+        c. Proper invoices must be paid within 30 days from date stamp in TPPS to avoid PPA interest.
+        d. Interest is paid based on the number of days exceeding 30.
+
+
+                                                     IV-A-A-31
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+        e. If an invoice is deemed to be improper, the TSP is notified by EDI 997 or by the TSP status
+           report from TPPS within 7 days of submission. Status codes are used to explain why a TSP
+           invoice is improper.
+        f.   Notification of an improper invoice stops the PPA clock. The PPA clock is re-started at zero
+             upon receipt of the corrected invoice. Payment must be made within 30 days from the receipt
+             of the corrected invoice to avoid interest payment.
+        g. If notification of an improper invoice exceeds seven (7) days, subtract the number of days in
+           excess of 7 from 30 to determine the time allowed for payment of the corrected invoice.
+        h. Interest is calculated on the paid invoice amount.
+        i.   Interest calculations are based on a 360-day year.
+        j.   Interest days are calculated from day 31 until the “Payment Settled” date in TPPS.
+             NOTE: DFAS has pointed out that (per Title 5 CFR, Volume 3, Chapter III, Subchapter B,
+             Part 1315) the payment date for an EFT payment is the day the payment is credited to the
+             vendor’s financial institution. However, in TPPS the EFT date is the date TPPS generates the
+             EFT and the invoice is marked as Payment Settled. This may not be the date upon which the
+             TSPs financial institution is credited. This is based solely upon the Automated Clearing
+             House rules.
+        k. Payments falling due on a weekend or government holiday may be made on the following
+           business day without incurring late payment interest penalties.
+        l.   The interest rate is obtained from the Treasury Department (800-266-9667). Late payment
+             interest is calculated at the interest rate in effect on the day after the payment due date.
+        m. An additional penalty payment is owed to a TSP if the late payment interest is not included in
+           the original payment, is not paid within 10 days of the actual payment date of the invoice and
+           the TSP makes a written request within 40 days of the original payment (additional caveats
+           are referenced in Title 5 CFR, Volume 3, Chapter III, Subchapter B, Part 1315). Any
+           additional penalty owed is equal to 100 percent of the original late payment interest but
+           cannot be less than $25.00 nor exceed $5,000.
+    5. Overall Business Rules for Notification of an Improper Invoice:
+        a. All line items on the individual invoice must be approved, denied, or disputed in DPS.
+        b. The PPSO must take action within three (3) GBDs on invoices awaiting PPSO action in DPS.
+        c. This three (3) GBDs time frame falls within the required 7-calendar-day period for
+           notification to the TSP of an improper invoice.
+        d. If this notification exceeds seven (7) calendar days, the number of days between the
+           notification day and the seven (7) calendar days in question is subtracted from the 30 calendar
+           days allowed for payment of the invoice. For example, if an agency receives an invoice on 1
+           November but does not return it as improper to the TSP until 13 November, five (5) days
+           after required, and the agency receives a corrected invoice on 20 November, the payment due
+           date is 15 December, or five (5) days earlier, if the payment was due 30 days after receipt of a
+           proper invoice.
+        e. Agencies are required to identify all defects that prevent payment.
+        f.   The PPSO daily receives e-mails requesting an action to outstanding invoices in DPS. Also,
+             an Aging Report has been established in DPS to identify transactions to which action is
+             overdue. A TSP status report also exists for transactions in TPPS. This report, sent daily via
+
+
+
+                                                 IV-A-A-32
+Defense Transportation Regulation – Part IV                                                   4 February 2026
+Personal Property
+
+
+             e-mail, outlines the status of each invoice (including cancelled invoices) and depicts each line
+             item’s quantities and cost as approved in DPS.
+    6. As-Is Improper Invoice Notification and PPI Clock Usage:
+        The following process flow depicts the points in the process where notification of an improper
+        invoice may occur and where the PPA clock starts and stops.
+        a. Invoice Submission: The TSP submits an EDI 859 Invoice to TPPS or creates an invoice via
+           the TPPS User Interface. TPPS performs edit checks and acknowledges receipt of EDI 859
+           via EDI 997 (includes notification of error as well). If the invoice is rejected, the clock stops.
+        b. Invoice Relay from TPPS to DPS: TPPS posts the TSP invoice and sends a copy via EDI 859
+           to DPS. DPS performs edit checks to include validating correct SCAC/BL combination and
+           acknowledges receipt via EDI 997 and/or rejects via EDI 824. Rejected invoices are
+           cancelled in TPPS. The clock stops. The TPPS create date is the start of the clock if there
+           are no DPS rejected invoices.
+        c. PPSO Invoice Approval/Denial/In Dispute: The PPSO receives an e-mail of pending
+           invoices from DPS and approves, denies, or disputes the line items within three (3) GBDs
+           (notification of invalid invoice is required in seven (7) calendar days). The TSPs are required
+           to input the shipment weight information in DPS prior to invoicing. For approved line items,
+           DPS then rates those on the invoice. Denied line items are rated as zero quantity and cost.
+           For approved and denied line items, the clock does not stop in DPS. With regards to disputed
+           line items, the PPI clock stops and restarts at zero when the dispute has been resolved.
+        d. Rated BL Submission: DPS sends EDI 858 of rated BL/invoice to TPPS which then matches
+           the TSP invoice.
+        e. Invoice Modification: If the TSP invoice in TPPS does not match price or quantity to DPS
+           rated BL/invoice, the invoice is in a status of Audit Exception in TPPS. TSPs receive the
+           TSP Status Report via e-mail daily notifying the status of all the invoices in TPPS including
+           those cancelled via EDI 824 from DPS. If there are denied line items, TSP accepts the partial
+           payment (of the approved line items). The TSP must resolve the denied line items with the
+           PPSO and send a supplemental invoice for those denied items they are entitled to. The clock
+           restarts at zero with the new invoice.
+             The PPSO and the TSP must resolve any disputed line items in DPS. Upon resolution, the
+             PPSO must approve the line item, which in turn is submitted to TPPS. The line items are
+             only submitted to TPPS as part of the entire invoice, when all line items have been updated to
+             the approved or denied status. At that point, the clock re-starts at zero. The transaction may
+             wind up in Audit Exception in TPPS. The TSP must modify their invoice to match the output
+             from DPS. The clock does not stop while the invoice is in Audit Exception and only stops
+             when the TSP updates their invoice.
+             If the TSP believes the items were denied incorrectly by the rating engine and the original
+             invoice amount and quantities were correct, the TSP must contact the SDDC help desk,
+             initiating the request for PPA interest. These instances are handled on a case-by-case basis
+             and are not automated.
+        f.   Invoice Approval: If the TSPs invoice amount is above the maximum dollar threshold
+             established by the Services, the transaction is in “Approval Required” status and the PPSO
+             must provide approval in TPPS before the TSP can be paid. The clock does not stop while
+             transactions are in this status.
+
+
+
+
+                                                  IV-A-A-33
+Defense Transportation Regulation – Part IV                                                                         4 February 2026
+Personal Property
+
+
+         g. Invoice Payment: If DPS rated BL/invoice matches on price and quantity with the TSPs
+            invoice then the transaction is automatically paid. The clock start is from the “Create Date”
+            in TPPS until the Payment Settled date.
+              NOTE: As part of the invoice verification process, the origin PPSO may request hard-copy
+              documentation from the TSP (to include the DD Form 619, Figure A-A-3) for any invoice. In
+              addition, the PPSO is required to review the hard-copy documentation for a set number of
+              transactions selected at random. Under all circumstances, the PPSOs request for hard-copy
+              documentation results in the PPI clock being stopped and restarted at zero after
+              documentation has been received.
+    7. Application of PPI – Scenarios:
+         Table A-A-9 provides examples of the application of PPI.
+                                          Table A-A-9. Prompt Pay Scenarios
+                                  Scenario                                                       PPI Applications
+Scenario One:                                                                 1. Invoice is considered improper and is not be
+TSPs invoice EDI 859 submitted to TPPS by the TSP has improper format            captured in TPPS.
+(caused by syntax errors). TSP receives an EDI 997 (acknowledgement of 2. PPI clock stops.
+receipt will state invalid invoice), generated by TPPS. (No EDI 997 for User
+Interface-created invoice is provided – it either passes or fails in the User
+Interface itself).
+Scenario Two:                                                                1. Invoice is considered improper and is cancelled in
+TSPs EDI 859 or User Interface invoice submitted to TPPS by the TSP has         TPPS.
+the proper format and is sent to DPS, but incurs errors beyond syntax (e.g., 2. PPI clock stops and restarts at zero upon
+Vendor Name/SCAC) (e.g., The BL number and SCAC combination are                 resubmission of invoice.
+incorrect). An EDI 824 error report is generated by DPS and made
+available to the TSPs in TPPS. TPPS provides a Status Report to the
+TSPs by e-mail.
+Scenario Three:                                                               1. Clock begins on TPPS invoice creation date.
+The TSP submits an invoice in TPPS and on day seven, the PPSO                 2. TSP gets paid on day 32 from invoice creation.
+approves the invoice items in DPS. DPS relays the rated invoice to TPPS.      3. Two (2) days PPI owed.
+The invoice goes into “Approval Required” in TPPS as it is above the
+threshold established by the Services. PPSO takes 25 days to approve.
+Scenario Four:                                                             1.     TSP gets paid partial amount on day 12 from
+The TSP submits an invoice in TPPS and after 10 days from invoice                 original invoice submission.
+submission the PPSO approves eight line items and denies two line items    2.     PPI clock starts at 3 days (10 days - 7 days)
+in DPS. The invoice is rated for the approved line items and sent to TPPS, 3.     TSP gets paid in full on day 40 for 2nd invoice.
+where the invoice goes into Audit Exception on day 11 from invoice
+                                                                           4.     No PPI on the original invoice. For the
+submission. TSP updates the invoice in DPS (zeros out the two denied line
+                                                                                  supplemental invoice, 10 days of PPI is due.
+items) and in TPPS on day 12. The rated BL and the TSPs’ invoice
+matches and is paid by TPPS. The TSP re-bills for the denied line items on
+day 12 from the original invoice submission and the PPSO takes 28 days to
+approve line items in DPS. Invoice is automatically approved in TPPS on
+day 40 from the original invoice submission.
+Scenario Five:                                                                  1. PPI is settled on a case-by-case basis.
+Same scenario as under scenario number Four, but includes one additional
+step: Upon further investigation, it is concluded that the PPSO denied the
+line items incorrectly. TSP initiates request for PPA on originally denied line
+items that were incorrectly denied.
+
+
+
+
+                                                             IV-A-A-34
+Defense Transportation Regulation – Part IV                                                                       4 February 2026
+Personal Property
+
+
+                                Scenario                                                       PPI Applications
+Scenario Six:                                                                1. PPI clock for the original invoice stands at three
+The TSP submits an invoice in TPPS.                                             (3) days.
+The PPSO takes three (3) days to dispute one line item on the invoice and    2. PPI clock restarts at zero on day 35 when the
+approve others in DPS. The approved line items are rated and the TSP            invoice for the originally disputed line item is
+zeros out the amount for the line item in dispute. The PPSO approves the        submitted to TPPS.
+invoice immediately and it is sent to TPPS. In TPPS, the transaction winds   3. TSP gets paid partially on day 3 and in full on day
+up in Audit Exception since the rated invoice from DPS does not match the       43.
+original invoice filed in TPPS. The TSP updates the invoice in TPPS and is   4. No PPI due (43 days - 35 days = 8 days of PPI
+paid immediately on day 3 from invoice submission. TSP fails to provide         clock).
+PPSO required documentation in a timely manner. The disputed line item
+is resolved 35 days after invoice submission. The transaction is sent back
+to TPPS and is in Audit Exception. The TSP updates the invoice for the
+one line item on day 43.
+Scenario Seven:                                                           1. PPI clock restarts at zero on day 35 when the
+The TSP submits an invoice in TPPS.                                          invoice is updated in DPS.
+The PPSO takes three (3) days to dispute one line item on the invoice and 2. The TSP gets paid on day 80.
+approve the remainder in DPS. The TSP updates the invoice in DPS to       3. 15 days of PPI due (80 - 35 - 30 days = 15 days).
+reflect the government rated amount for the disputed line item on day 35
+from invoice submission. The PPSO approves the updated line item and
+DPS relays the feed to TPPS. The transaction is sent back to TPPS and is
+in Audit Exception since the TSP did not update the invoice in TPPS. The
+TSP updates the invoice for the one line item in TPPS on day 80 and is
+paid immediately.
+Scenario Eight:                                                            1. PPI clock starts at 30 days (37 - 7 days) when
+The TSP submits an invoice in TPPS.                                           invoice is submitted to TPPS.
+The PPSO takes 37 days to dispute one line item and approve the            2. The TSP gets paid on day 43.
+remaining in DPS. The TSP updates the one line item to reflect the         3. 13 days of PPI due (43 – 30 = 13 days).
+government-rated line immediately in DPS. The PPSO approves the line
+item immediately and the transaction is sent to TPPS. It winds up in Audit
+Exception since the TSP did not update the invoice in TPPS. The TSP
+updates the Invoice on Day 40 in TPPS and the invoice subsequently goes
+into “Approval Required” since it is above the services-established
+threshold. The PPSO takes three (3) days to approve the invoice in TPPS.
+Scenario Nine:                                                          1. TSP gets paid on day 34 from invoice submission.
+The TSP submits an invoice in TPPS. The PPSO approves all line items in 2. 4 days of PPI due (34 - 30 days = 4 days).
+DPS on day 8. The invoice is above the threshold and has a status of
+“Approval Required” in TPPS. PPSO approves the invoice in TPPS on day
+34.
+
+
+    8. Process for Calculation and Posting of PPI:
+         a. The TPPS provider generates a report for paid invoices that includes those outstanding more
+            than 30 days using the status in TPPS, “Invoice Creation Date” to “Payment Settled”, as
+            parameters. This report is available on demand through TPPS, and includes invoices and
+            LOA used for the invoices in question.
+         b. USTRANSCOM runs report three times a week.
+         c. USTRANSCOM then analyzes the invoices in question to determine whether the transactions
+            are subject to PPI. USTRANSCOM determines whether PPI is applicable, taking into
+            account the required seven (7) days for notification, as well as the PPI clock reset in the event
+            a transaction has been “in dispute.”
+         d. If it is determined PPI is owed, the PPI worksheet calculates the amount of PPI owed to the
+            TSP. The basis of the PPI is the entire invoice-amount.
+         e. USTRANSCOM creates an eBill in TPPS due to the TSP referencing the TSP invoice
+            number and BL number. A specific item code for PPI is used on the eBill. The eBill
+            transactions become another paid item on the TPPS Summary Invoice for a PPSO. The eBill
+            contains the LOA for PPI as provided by the origin PPSO’s Service.
+
+
+                                                          IV-A-A-35
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+        f.   The origin PPSO must approve the eBill as created by USTRANSCOM.
+        g. DFAS, upon receipt of the summary invoice, applies the interest to the specific Service
+           associated with that LOA as mentioned above.
+        h. The Government will reimburse TPPS provider for interest when appropriate.
+    9. Procedures for Submitting Penalty PPI Request:
+        The following is the high-level process for paying penalty interest for interest payments that have
+        not been made within 10 days of the invoice payment date.
+        a. The TSP creates a request to receive penalty interest on invoices that are accumulated interest
+           but has not received an interest payment after 10 days. This request must be made within 40
+           days of the payment date or the request is not valid. The request must be submitted with the
+           proper information.
+        b. DPS Help Desk identifies the request and forwards it to Tier 2 level employees for analysis.
+           The Tier 2 employee first analyzes the transaction and determines if the transaction is owed
+           interest initially and whether or not the transaction is due penalty interest.
+        c. If the transaction is owed penalty payment of interest, the Tier 2 employee creates an eBill.
+           The eBill must be created in TPPS for double the amount of interest or a minimum of $25
+           and a maximum of $5000. Additionally, if the original interest payment has been paid, the
+           amount paid would be the double of the original interest or a minimum of $25 and a
+           maximum of $5000 - original interest (i.e., if the double interest payment is $100 and the
+           original interest in the amount of $50 has already been paid, $100 - $50 = $50 is owed to the
+           TSP because of the penalty interest). If the transaction is not owed double payment of
+           interest, the Tier 2 employee would not create an eBill but would identify why the interest
+           was not paid.
+             (1) The Tier 2 employee must then notify DPS Help Desk if the eBill has been created or if
+                 the double interest request has been denied.
+             (2) If the penalty interest was granted, the help desk must notify the TSP that an eBill has
+                 been generated and waiting approval by the PPSO. If the penalty interest request is
+                 denied, DPS Help Desk must close out the service request with a note stating why the
+                 double interest request was denied and forward the closed service request to the TSP.
+        d. After the eBill has been created, the eBill enters the “Approval Required” status in TPPS.
+           During the routine checks for transaction in “Approval Required” Status, the PPSO identifies
+           the eBill and approves or denies the transaction based on analysis. If approved, the eBill
+           enters “Payment Settled” status and is paid by TPPS via EFT. If denied, the eBill does not
+           get paid by TPPS and a record of the eBill is held in TPPS with a note describing why the
+           item has been denied.
+
+D. Contingency Plan
+    Figure A-A-5 depicts the contingency option to process shipments manually in cases where the
+    system is down for an extended period of time and there is no internet connection. The diagram
+
+
+
+
+                                                 IV-A-A-36
+Defense Transportation Regulation – Part IV                                                    4 February 2026
+Personal Property
+
+
+    depicts the participating organizations as rectangles, processes as ovals, and the lines between them as
+    data and information flows.
+
+
+
+
+                             Figure A-A-5. High-Level Contingency Process
+    1.0   Order/Authorization Issuance Activity prepares the order/authorization, and the activity’s funds
+          manager/budget office makes sure that the proper accounting data (e.g., TAC/LOA/MDC) is
+          entered on the TOD. The order/authorization is given to the customer.
+    2.0   The customer then relays the order/authorization to the PPSO.
+    3.0   The PPSO then creates a BL based on the order/authorization received and forwards the
+          document to the TSP and DFAS. The PPSO maintains a copy of each BL issued, including
+          those that are cancelled.
+    4.0   The TSP performs services, such as prepares and submits the inventory, weight ticket, and DD
+          Form 619 to the applicable origin or destination PPSO for review and approval.
+    4.1   The applicable origin or destination PPSO will review and authorize the DD Form 619, then
+          return it to the TSP.
+    5.0   The hard-copy documentation is either sent to GSA-approved pre-payment auditor (for
+          example, National Traffic Service) directly or the documents are sent to DFAS and then
+          forwarded to the pre-payment auditor.
+    6.0   DFAS and TSP representatives work to resolve billing discrepancies, such as missing
+          signatures or differing cost amounts. If a billing dispute needs to be escalated, it is raised to the
+          USTRANSCOM, and eventually to GSA if the disagreement cannot be resolved.
+    6.1   DTOD is used for ITGBL computation of LH and accessorial costs by DFAS.
+    6.2   Rand McNally mileage is used for TGBL computation of LH and accessorial costs by DFAS.
+    7.0 DFAS reviews, certifies the invoice for payment, and makes the payment to the TSP.
+
+
+                                                  IV-A-A-37
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+E. Processing Transactions in DPS or TPPS
+    The Service HQ must create a contingency plan to process transactions in DPS and TPPS. This plan
+    must ensure all transactions are processed if the PPSO site does not have the capabilities to access any
+    of the systems. Transactions which must be processed during this scenario include pending invoices
+    in DPS, Approval Required transactions in TPPS, and the summary invoice. The contingency plan
+    must determine the personnel who are responsible for processing transactions, relocation of any
+    hardware needed for functionality, and the processing location.
+    1. Proper Invoice Submission:
+        One of the Defense personal property program’s objectives is to replicate the current program’s
+        billing procedures (prior to DPS) into an electronic format using the TPPS as a payment tool to
+        pay the TSPs. The electronic billing procedures provide information visibility for stakeholders;
+        improve the DFAS payment and collection process; and reduce the amount of paper
+        documentation. These objectives provide a more efficient way of billing. While achieving the
+        program’s objectives, it is important to note that the business rules and procedures of the DTR are
+        the main guidelines for the DP3.
+        Outlined below are guidelines the TSP must use when submitting invoices to DPS for services
+        performed. Adherence to these guidelines ensures the TSP is submitting the invoice properly and
+        all charges are properly processed in a timely and efficient manner. The following guidelines
+        highlight the charges that included under one invoice when billing through the DP3.
+    2. Guidelines for Proper Invoicing:
+        a. All origin SIT charges including LHS with fuel surcharge, and all associated accessorial.
+        b. All destination SIT with storage less than 30 days, including fuel surcharge and all associated
+           accessorial.
+        c. All destination SIT charges with storage more than 30 days, including fuel surcharge and all
+           associated accessorial. These services can be billed in 30-day increments, or TSP can wait
+           until shipment is delivered before invoicing.
+        d. Partial delivery of destination SIT, including fuel surcharge and all associated accessorial.
+        e. Partial and remaining portion of destination SIT, including the fuel surcharge and all
+           associated accessorial.
+        f.   Reimbursement invoice(s) (credit invoice).
+        g. Reimbursement invoice(s) with re-invoiced charges (i.e., denied charge(s).
+        h. Direct deliveries including LHS with fuel surcharge, and all associated accessorials.
+        i.   Any denied item code(s) from previous invoicing.
+        j.   Any item code(s) that was accidentally left off of the previous invoicing.
+        NOTE 1: Exceptions to these guidelines are handled on a case-by-case basis.
+        NOTE 2: TSPs must not submit an invoice for each item code. Single item invoices that do not
+        conform to the procedures outlined above are denied. The TSP is required to resubmit charges
+        using one of the invoice formats listed in the invoicing guidelines.
+
+F. Shipment Codes of Service
+    The following shipment codes of service are used for Through Government Bill of Lading (TGBL)
+    and International Through Government Bill of Lading (ITGBL) shipments.
+
+
+
+                                                  IV-A-A-38
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+    1. Domestic Motor Van (Code 1). Movement of household goods whereby the carrier provides
+       packing, pickup, and loading in a motor van from origin residence in the Continental United
+       States (CONUS) to destination residence in CONUS. Automated systems will use Code 1A for
+       interstate movements and Code 1B for intrastate movements.
+    2. Domestic Container (Code 2). Movement of household goods whereby the carrier provides
+       packing, pickup, and loading in containers from origin residence in CONUS to destination
+       residence in CONUS. Automated systems will use Code 2A for interstate movements and Code
+       2B for intrastate movements.
+    3. International Door-to-Door Container (Code 3). Carrier provides origin services, line-haul
+       service from origin residence to a commercial ocean terminal, ocean transportation using Military
+       Surface Deployment and Distribution Command Operations Universal Service Contract rates for
+       over the ocean portion of the shipment, line haul to destination residence, and destination
+       services.
+    4. International Door-to-Door Container (Code 4). Movement of household goods in Military
+       Surface Deployment and Distribution Command approved door-to-door shipping containers
+       (wooden boxes) whereby a Transportation Service Provider provides complete through service
+       from origin residence to destination residence over land and/or ocean means.
+    5. International Door-to-Door Container Government Ocean Transportation (Code 5). Movement of
+       household goods in Military Surface Deployment and Distribution Command approved door-to-
+       door shipping containers (wooden boxes) whereby a carrier provides line-haul service from origin
+       residence to military ocean terminal, the government provides ocean (Military Sealift Command)
+       transportation to designated port of discharge, and the carrier provides line-haul service to
+       destination residence, all without rehandling of container contents.
+    6. International Door-to-Door Air Container (Code 6). Movement of household goods whereby the
+       carrier provides containerization at the origin residence, surface transportation to the airport
+       nearest origin that can provide required services, air transportation to the airport nearest
+       destination that can provide required services, and transportation to the destination residence.
+    7. International Land-Water-Land Baggage (Code 7). Movement of unaccompanied baggage
+       whereby the carrier provides packing and pickup at origin, surface transportation to destination,
+       and cutting of the banding and opening of the boxes at the destination residence.
+    8. International Land-Air-Land Baggage (Code 8). Movement of unaccompanied baggage whereby
+       the carrier provides packing and pickup at origin, transportation to the origin airport, air
+       transportation to the destination airport, surface transportation to destination, and cutting of the
+       banding and opening of the boxes at the destination residence.
+    9. International Door-to-Door Container –Air Mobility Command (Code T). Movement of
+       household goods whereby the carrier provides containerization at the origin residence and
+       transportation to the designated Air Mobility Command terminal. Air Mobility Command
+       provides terminal services at both origin and destination and air transportation to the designated
+       Air Mobility Command destination terminal. The carrier provides transportation to the
+       destination residence.
+    10. International Land-Air (Air Mobility Command) – Land Baggage (Code J). Movement of
+        unaccompanied baggage whereby the carrier provides packing and pickup at the origin and
+        transportation to the designated Air Mobility Command terminal. Air Mobility Command
+        provides terminal services at both origin and destination and air transportation to the designated
+        Air Mobility Command destination terminal. The carrier provides transportation to destination
+
+
+
+
+                                                 IV-A-A-39
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+        from Air Mobility Command terminal and cutting of the banding and opening of the boxes at the
+        destination residence.
+
+G. Electronic Bill Payment for NTS
+    This NTS electronic bill payment process is accomplished by multiple interfacing automated systems.
+    Web-Enabled Transportation Operational Property Standard System (ETOPS) transmits government
+    line item order data via Electronic Data Interchange (EDI) 858 to the TPPS upon the PPSO’s
+    validation of the monthly and quarterly (when applicable) invoices. Invoices are complete when the
+    NTS TSP has provided the PPSO with the weight tickets for handling-in and actual release date on
+    handling-out. When the TPPS receives the monthly/quarterly data from ETOPS, the government
+    order and corresponding invoices will automatically be created. Each item will be placed in an
+    approval required status pending TSPs Notice of Completion (NOC) and the PPSOs approval action.
+    The TPPS then processes a payment to the NTS TSP, normally within three (3) GBDs. Invoice audit
+    trail, payment tracking and transaction visibility is achieved.
+    The TPPS maintains an LOA Chart of Account (COA) sourced by the DFAS Transportation Global
+    Edit Table-Revised (TGET-R) and uses the table to retrieve, validate, and edit LOA contained in the
+    Tender of Service issued by the PPSO. ETOPS calculates an estimated shipment cost based on
+    shipment data gathered throughout the shipment process. The cost estimate is populated into an
+    electronic shipment file, the EDI 858 data feed, and is transmitted to the DFAS for payment.
+
+H. NTS PAYMENT Process
+    At the end of the billing cycle, the TPPS electronically generates monthly Summary Invoices, which
+    show all payments to the TSPs made by the TPPS provider on behalf of the DoD and credits to the
+    DoD. The monthly summary statement is made available for online viewing and certification by the
+    PPSO Certifying Officer (CO). The monthly summary statement certification triggers the TPPS to
+    send a copy of the EDI data feed to the DFAS. The DFAS matches the certification and processes the
+    monthly summary statement for payment (reimbursement) back to the TPPS provider.
+    Invoices for accessorial services that do not match the service order will also require the PPSO review
+    in approval required. The PPSO can dispute NTS TSP invoiced line item(s) by assigning a status of
+    “In Dispute” to the line item and providing reason(s). If an invoice is disputed for one or more line
+    items, the TSP is notified via the TPPS. Negotiation and resolution between the NTS TSP and the
+    PPSO must be achieved for all “In Dispute” items before they are approved in the TPPS.
+    The prompt payment interest “clock” begins when the TSP successfully submits the Notice Of
+    Service Completion (NOSC) in the TPPS. The “clock” stops during the dispute process as well as for
+    rejected invoices.
+    1. Process 1 – PPSO Validates/Edits Accounting Data:
+        As part of the personal property counseling process, the PPSOs/Personal Property Processing
+        Offices enter shipment and funding data in ETOPS from the customer’s travel order. If the
+        correct funding data is not provided on the order, the PPSO will refer the customer to the order
+        issuing authority for resolution.
+        The TPPS maintains an LOA COA sourced by the data contained in the DFAS TGET-R
+        repository. If the invoice contains LOA data that is formatted correctly (i.e., FA2 format), but is
+        incomplete, it will still transmit to the TPPS and align under the manual side of the monthly
+        summary statement.
+
+
+
+
+                                                 IV-A-A-40
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+    2. Process 2 – Initial Cost Estimates:
+        Estimated shipment costs will not be calculated/used within this interim electronic payment
+        process.
+    3. Process 3 – Global Exchange (GEX) Validates and Translates EDI 858:
+        The calculated shipment cost file from ETOPS is sent to GEX via a New Shipment EDI 858.
+        GEX translates the data from the EDI 858 into the appropriate User Defined File (UDF) 821.
+        GEX uses the value in the Accounting Installation Number (AIN) field of the FA2 LOA to
+        determine the DFAS/Payment Center location to which the ensuing UDF 821 must be routed.
+        The UDF 821 data feed is a customer file used to communicate expense obligation and accruals
+        in an accounting context.
+    4. Process 4 – DFAS/Payment Center Accounting and Entitlement Systems Validation:
+        When travel orders are established, the Funds Manager (FM) obligates funds to cover all related
+        expenses to be incurred by the traveler per the order. The FM creates the obligation in the travel
+        order issuing entity’s accounting system. The obligation file is transmitted to the DFAS on a
+        routine basis.
+        With the UDF 821 from GEX, the DFAS validates LOA/obligations for each transaction. When
+        a transaction fails the local edits, the DFAS notifies the FM responsible for the LOA/obligation to
+        take corrective actions. The LOA and obligation data reside in the DFAS until they are matched
+        with invoice data received from the TPPS at the end of the billing cycle.
+    5. Process 5 – TSP Invoices created in TPPS:
+        a. Handling-In and Handling-Out Invoices:
+             The TSPs must complete services by the end of the calendar month and submit the inventory
+             and weight tickets prior to the 7th calendar day of the following month. The PPSO will input
+             the shipment weights and print the monthly handle-in and handle-out invoices from ETOPS
+             not later than the 7th calendar day.
+             The TPPS assigns a unique identifier known as the LineIDC to each line item submitted on
+             the TSP’s invoice and transmits the EDI 859. The TSPs have the option of submitting more
+             than one invoice against a single DD Form 1164, Service Order for Personal Property. Each
+             invoice must reference the NTS Service Order Number and have a unique invoice number
+             assigned by ETOPS.
+        b. Quarterly Storage Invoicing:
+             The PPSO will determine the status of all pending receipt actions up to the end of the current
+             billing quarter by the NTS TSP through ETOPS management reports. Once all handling-in
+             and handling-out receipt actions for the current billing quarter have been validated, the PPSO
+             will generate the quarterly storage order for each NTS TSP’s Standard Carrier Alpha Code
+             through ETOPS to the TPPS.
+        c. Invoices for Accessorial Services:
+             Upon completion of services and submission, the TSP submits an invoice for services
+             (including the NOSC) in TPPS using one of two available methods:
+             (1) Through an EDI 859 transaction set (the EDI 859 is a generic electronic interface for
+                 shipment information).
+             (2) Manually through the TPPS User Interface. This can be accomplished by creating an
+                 invoice from the service order.
+
+
+
+                                                 IV-A-A-41
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+    6. Process 6 – Approval Required in TPPS:
+        TPPS uses the existing Shipment EDI 858 data from ETOPS to create the TSP’s invoice. The
+        Services’ maximum price threshold will be set at $0, triggering a manual PPSO approval required
+        for all invoices. Once the PPSO has approved the item and the TSP has entered the NOSC, the
+        TPPS provider will pay the TSP. The PPSO will have three (3) GBDs to approve, dispute, or
+        deny Handle In and Handle Out invoices and seven (7) GBDs for Quarterly Invoices.
+    7. Process 7 – Audit Exception Process in the TPPS:
+        Audit Exceptions will not be a part of the interim NTS payment process.
+    8. Process 8 – TPPS Summary Invoice Generation and Certification:
+        At the end of the NTS TPPS billing cycle, the monthly summary invoice listing all payments with
+        corresponding accounting information made by TPPS provider on behalf of the DoD to the TSPs
+        is generated. The monthly summary invoice will also include DoD credits. The PPSO COs may
+        access the monthly summary invoice online for review and certification. The PPSO COs also
+        review the individual transactions presented on the monthly summary invoice and confirm the
+        validity of accounting information used and the accuracy of costs. If the accounting information
+        is incorrect, the PPSO COs uses the TPPS COA to update accounting information.
+        The monthly summary invoice may reflect two different sections for accounting data, an
+        “electronic” (FA2-compliant) and a “manual” (text LOA) listing. If there is a manual listing on
+        the PPSO’s monthly summary invoice, then the PPSO CO will print a hard-copy monthly
+        summary invoice certifying the Text LOAs by signing and sending the report to the
+        DFAS/FINCEN payment center. The PPSO CO must certify the monthly summary invoice
+        within five (5) GBDs of the monthly summary invoice being made available in the TPPS.
+        The TPPS provides a separate PPSO account for processing all NTS charges (i.e., handling-in,
+        handling-out, accessorial, and quarterly storage charges).
+        The monthly summary invoice billing cycle will be on the 25th calendar day of each month.
+    9. Process 9 – Reconciliation and Obligation Adjustment:
+        Reconciliation and Obligation Adjustment will not be included under the interim NTS TPPS
+        electronic payment process.
+    10. Process 10 – The DFAS/Payment Center Approval and Processing of Payment to TPPS Provider:
+        Within 48 hours after monthly summary invoice certification, the TPPS creates an EDI 810
+        Invoice for each DFAS office using the electronic accounting data on the monthly summary
+        invoice. The EDI 810 is a generic electronic interface for invoice data. The TPPS sends the EDI
+        810 to the GEX. The GEX translates the EDI 810s into UDF 810s and sends them to the DFAS.
+        Using the transmitted UDF 810, the DFAS pre-validates payments by confirming the existence
+        and accuracy of the LOA and confirming sufficient funds were obligated. There is no tolerance
+        level within the pre-validation process. If insufficient funds were obligated, by any amount, the
+        invoice will not be approved for payment.
+        Once pre-validation is successful, the DFAS pays TPPS provider via an Electronic Funds
+        Transfer (EFT).
+
+
+
+
+                                                IV-A-A-42
+Defense Transportation Regulation – Part IV                                                                     4 February 2026
+Personal Property
+
+
+    11. NTS TPPS Electronic Payment Process Flow:
+
+                                                       vTOPS
+               1. Monthly Invoice
+                   Preaudit
+
+                                                   2. 858 Invoice Data
+                                                       (Govt Order)
+                    PPSO                                                                                NTS TSP
+                                                                         3. TSP Invoice
+                                                                             Created
+                                                                                                   6. TSP Payment
+                              5. 100% Approval
+                                  Required              TPPS                              4. Optional TSP
+                                                                                              Invoice
+
+                                                  7. Monthly Statement
+
+
+
+
+                                                        DFAS                               FVH-DTR-A-0026
+
+
+
+
+                                    Figure A-A-6. Interim NTS EBP Process Flow
+        a. 1. Monthly Invoice Preaudit: The PPSOs will execute a monthly audit process on active NTS
+           lots within ETOPS to ensure shipment details are correct (e.g., NTS lots are authorized
+           continued storage, proper weights have been entered).
+        b. 2. 858 Invoice Data: Invoice data EDI 858 from ETOPS to the TPPS: EDI 858 information
+           is sent to the TPPS.
+        c. 3. TSP Invoice Created: The TSP invoice is created from the Government Order immediately
+           after receiving the EDI 858 data file.
+        d. 4. Optional TSP Invoice: The TSP can also submit an invoice either electronically in an EDI
+           859 or manually via the TPPS Web interface or accept the invoice created automatically by
+           the TPPS in Paragraph H.11.c above. If the TSP invoice in the TPPS does not match the
+           TPPS order, the invoice will be in a status of “Audit Exception.” The TSPs receive the TSP
+           Status Report via e-mail daily notifying the status of all the invoices in the TPPS. If there are
+           denied line items, the TSP accepts the partial payment (of the approved line items). The TSP
+           will resolve the denied line items with the PPSO and resend a supplemental invoice for those
+           denied items to which they are entitled. The clock will restart at zero with the new invoice.
+        e. 5. 100 percent Approval Required: If the TSPs invoice amount is above the maximum dollar
+           threshold established by the Services, the transaction will be in “Approval Required” status
+           and the PPSO has to provide approval in the TPPS before the TSP is paid.
+        f.   6. TPS Payment: When the PPSO completes the approval required and the TSP enters the
+             service completion, payment is executed.
+        g. 7. Monthly Statement: The monthly statement will cycle on the 25th of each month.
+        NOTE: As part of the invoice verification process, the PPSO has the privilege to request
+        hardcopy documentation from the TSP for any invoice. In addition, the PPSO is required to
+        random sample in connection with this document. Under any circumstance, the PPSOs request
+        for hard-copy documentation will result in the Prompt Payment Interest clock being stopped and
+        restarted at zero (0) once documentation has been received by the TSP.
+
+
+                                                     IV-A-A-43
+Defense Transportation Regulation – Part IV                      4 February 2026
+Personal Property
+
+
+
+
+                            THIS PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+                                              IV-A-A-44
+

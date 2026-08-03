@@ -1,0 +1,806 @@
+Defense Transportation Regulation – Part IV                                              4 February 2026
+Personal Property
+
+
+                                              CHAPTER A-413
+
+      U.S. GOVERNMENT BILL OF LADING – PRIVATELY OWNED PERSONAL
+         PROPERTY (PPGBL/BL) AND U.S. GOVERNMENT BILL OF LADING
+                      CORRECTION NOTICE (SF 1200)
+
+A. GENERAL
+    This chapter establishes procedures and provides guidance for the accountability, use, issuance,
+    preparation, and distribution of the U.S. Government Bill of Lading-Privately Owned Personal
+    Property, Figure A-413-1. The PPGBL/BL must be used for the acquisition of authorized
+    transportation and related services from a commercial Transportation Service Provider (TSP) for the
+    movement of Department of Defense (DoD)-sponsored personal property shipments, mobile homes,
+    and Privately Owned Vehicles (POV) eligible for movement on a PPGBL/BL. This chapter does not
+    apply to Personally Procured Moves (PPMs), refer to Chapter A-411, PPMs.
+
+B. RESPONSIBILITIES
+    1. USTRANSCOM is responsible for prescribing administrative procedures regarding the use of
+       PPGBL/BLs for the procurement of commercial transportation services on behalf of the DoD.
+    2. The Administrator, General Services Administration (GSA), is responsible for prescribing
+       procedures governing the use of PPGBL/BLs throughout the U.S. Government. GSA has
+       published the regulations and procedures governing the procurement of, and the billing and
+       payment for, transportation services for the account of the United States in the Federal
+       Management Regulation, Part 102-118, Transportation Payment and Audit.
+
+C. PROCEDURES
+    1. Supply. At locations that cannot create computer-generated PPGBL/BLs, requisitions must be
+       submitted through normal DoD Component publications supply and distribution channels to the
+       U.S. Army Publications and Printing Command. Transportation Officers (TO) are responsible for
+       maintaining an adequate supply of PPGBL/BLs at their activity.
+    2. Accountability.
+        a. Each shipping activity must maintain records of PPGBL/BLs issued and the supply of
+           PPGBL/BLs on hand. PPGBL/BL forms are accountable, and the number of pre-printed
+           forms that an activity may keep on hand is limited by Service/Agency policy. Internal
+           procedures must be established to control stocks and assign accountability for PPGBL/BL
+           issuance and use. The TO, or in the absence of a TO, an acting TO, must be appointed in
+           writing as the responsible PPGBL/BL issuing officer and held accountable for PPGBL/BL
+           control, safekeeping, and disposition. To facilitate control, individual PPGBL/BL sets are
+           serially numbered when printed. The forms are issued by the U.S. Army Publications and
+           Printing Command and numbers provided by USTRANSCOM. Packages of PPGBL/BLs
+           must be opened immediately upon receipt and inventoried by the issuing officer or designated
+           representative to verify that none are missing. Activities must establish procedures for
+           conduct of audits by personnel external to the office controlling PPGBL/BLs. Audits must be
+           conducted at least every 180 days to verify inventories and records. TOs must provide the
+           same level of accountability and safeguarding of PPGBL/BL numbers maintained and issued
+           in automated systems as they do for pre-numbered PPGBL/BL forms. Audits conducted with
+           automated systems must consist of a review of the PPGBL/BL register to ensure each
+           PPGBL/BL number is properly assigned to a valid shipment or recorded as void.
+
+
+
+                                                 IV-A-413-1
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+        b. Computer-Prepared PPGBL/BLs. TOs, having facilities for computer preparation of
+           PPGBL/BLs, may order them in continuous tractor feed, fan-fold format through government
+           distribution centers. Authorization must be obtained from USTRANSCOM to imprint
+           PPGBL/BL numbers at the time of issuance.
+             (1) Automated Sites. The laser-generated PPGBL/BL must be used by all automated sites
+                 for the acquisition of authorized transportation and related services from commercial
+                 TSPs for the movement of DoD-sponsored personal property shipments, mobile homes,
+                 and POVs eligible for movement on a PPGBL/BL. Use software-generated PPGBL/BLs
+                 and continuation sheets (SF 1109) published using a laser printer and standard bond
+                 paper. USTRANSCOM controls PPGBL/BL numbers in coordination with GSA. The
+                 laser-generated PPGBL/BLs are only accountable when a number has been assigned to
+                 the form. All information printed on the reverse of the non-laser-produced PPGBL/BL
+                 is included in the Terms of Service (TOS), Appendix A-B. The first PPGBL/BL
+                 produced (and continuation sheets) must be annotated “Original.” All other
+                 copies/reprints must not contain the word, “Original.”
+             (2) Non-Automated Sites. Blank forms must be procured using normal forms supply
+                 procedures.
+        c. Transfer of Forms. Blank serially numbered original PPGBL/BLs or preassembled sets that
+           have been issued to TOs or their designated agents may not be transferred to other TOs or
+           their agents.
+        d. Disposition of Unfit or Canceled PPGBL/BLs. When PPGBL/BLs have become mutilated or
+           otherwise unfit for use or have been issued and the planned shipment is subsequently
+           canceled for any reason, all parts except the original must be destroyed. The original
+           PPGBL/BL must be marked “Canceled” or “Void” and must be filed in the property shipped
+           PPGBL/BL file. When circumstances prevent filing of the canceled or voided original
+           document, the property shipped copy or a substitute memorandum copy with notation of
+           disposition of the original PPGBL/BL must be filed in the property shipped file.
+        e. Reporting of Lost, Stolen, Canceled, or Missing PPGBL/BLs. The prefix symbol and serial
+           number of blank original PPGBL/BLs or preassembled sets that have become lost, stolen, or
+           are unaccountably missing or otherwise beyond the control of the issuing officer must be
+           reported to USTRANSCOM.
+    3. Issuing Officer. Only authorized or acting TOs may issue PPGBL/BLs. Such authorized persons
+       may be military personnel or civilian employees of the government on duty at the issuing office.
+       As stated in 41 Code of Federal Regulations (CFR) 101-41.302.4, accountability for PPGBL/BLs
+       used by a contractor-shipper remains with the issuing office. The name and title of the issuing
+       officer and the name and address of the issuing office, rather than those of the contractor-shipper,
+       must appear on the PPGBL/BL.
+    4. Format.
+        a. Computer-generated PPGBL/BLs. In instances where computer-generated PPGBL/BLs are
+           used, Paragraphs b and c below do not apply. The PPGBL/BL must be prepared and
+           provided to the TSP or its agent prior to the commencement of packaging/loading services on
+           the shipment.
+        b. The PPGBL/BL consists of five separate basic forms. For simultaneous preparation, the
+           forms are produced in a seven-part, carbon, interleaved set (except for laser-generated
+           PPGBL/BLs). The standard form numbers, form title, color, and distribution is described in
+           Paragraph E below.
+
+
+
+                                                IV-A-413-2
+Defense Transportation Regulation – Part IV                                                    4 February 2026
+Personal Property
+
+
+        c. In all instances, the PPGBL/BL original, shipping order (SF 1204), and the freight waybill
+           original (SF 1205) must be given to the initial TSP or designated agent for the TSP before the
+           shipment is packed and/or picked up. The TSP must sign and date the original PPGBL/BL
+           where the certification is printed “Certificate for Receipt of Shipment and Original BL.”
+        d. For Direct Procurement Method (DPM) Unaccompanied Baggage (UB) shipments, the
+           PPGBL/BL is not printed at the time of the pickup at the customer’s residence. The TSP
+           does not take possession of the shipment until after the contractor has picked up and prepared
+           the UB shipment. The PPGBL/BL for DPM UB shipments must not be printed until the TO/
+           Personal Property Shipping Office (PPSO) has received and input the actual weight and cube
+           from the contractor into Web-Enabled Transportation Operational Personal Property Standard
+           System (ETOPS).
+
+D. PREPARATION OF THE PPGBL/BL
+    1. The following preparation instructions are keyed to the numbered blocks appearing on the
+       PPGBL/BL. When different entries are required, due to different methods of shipment, (e.g.,
+       Through Government Bill of Lading (TGBL), DPM, Mobile Home, or POV) instruction by
+       shipment method is provided. In all other cases, the entry data provided is the same for all
+       methods of shipments.
+        a. BLOCK 1, TRANSPORTATION COMPANY AND AGENT TENDERED TO. Enter the
+           full business name of the initial line-haul TSP to which the shipment is tendered. The
+           business name must include the words “company,” “incorporated,” or “limited”. These
+           words may be abbreviated as co., inc., or ltd. No other company or TSP abbreviation, initial,
+           or symbol may be used. Enter the name of the TSP’s booking agent, servicing agent, or the
+           first agent in the Letter of Intent in parentheses after the business name of the initial line-haul
+           TSP.
+        b. Block 2, SCAC. Enter the four-position Standard Carrier Alpha Code (SCAC) assigned to
+           the initial line-haul TSP by the National Motor Freight Traffic Association.
+        c. Block 3, Service Code.
+             (1) TGBL Shipments. Enter the COS (e.g., Code 2, 4, 5, 6, 7, 8, D, T, or J).
+             (2) DPM Shipments. Enter the two-position DPM alpha code, (e.g., “HE”, “BA”, “BG”).
+                 DPM alpha codes are defined in Appendix A-H.
+             (3) Mobile Homes. Enter the code “S”.
+             (4) POVs. POVs are processed IAW DP3 Global POV Contract (GPC).
+        d. Block 4, Shipment Number. When more than one (1) shipment is made for an individual
+           customer, the PPGBL/BLs must be numbered in the same sequence as the DD Form 1299,
+           Application for Shipment and/or Storage of Personal Property, Figure A-413-5, (e.g., 1 of 3,
+           or 2 of 3). When only one (1) shipment is made, enter “1 of 1”.
+        e. Block 5, Date B/L Issued. Enter the calendar date (day, month, and year, e.g., 4 Dec 14) on
+           which the first entry is made in preparing the PPGBL/BL.
+        f.   Block 6, Requested Packing Date. Enter the calendar date (day, month, and year, e.g., 4 Dec
+             14) on which the TSP is to begin packing a TGBL shipment.
+
+
+
+
+                                                 IV-A-413-3
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+        g. Block 7, Requested Pickup Date.
+             (1) TGBL. Enter the requested pickup date or the date on which the TSP has agreed to pick
+                 up the shipment (e.g., 6 Dec 14).
+             (2) DPM.
+                  (a)   Enter the date the shipment is picked up at the customer’s residence, Non-
+                        Temporary Storage (NTS) facility, in cases where such pickup is performed by a
+                        DPM packing contractor.
+                  (b) Enter the scheduled date of pickup by the common TSP in all other cases (e.g.,
+                      pickup at the aerial port of debarkation/seaport of debarkation or TO installation
+                      facility).
+        h. Block 8, Required Delivery Date. Enter the RDD (day, month, and year) that the shipment is
+           required at the destination shown in Block 18 (e.g., 27 Dec 14).
+        i.   Block 9, No entry required.
+        j.   Block 10, Property Owner’s Name, Social Security Number (SSN), EIN (USCG only), Rank,
+             and Pay Grade. Enter the customer’s name (last, first, middle initial), Social Security
+             Number (SSN), and rank and pay grade. Also enter the customer’s status (PCS, TDY, SEP,
+             RET) and the unit and activity to which the customer is assigned.
+             NOTE: For DoD Service Members and DoD Civilian Employees, SSN will auto populate
+             “XXX-XX-XXXX”.
+             (1) Service Member E-1 – E-4: If the member’s grade is E-4 or below, indicate the
+                 “maximum authorized weight allowance” per the Joint Travel Regulations (JTR,
+                 Paragraph 0514).
+             (2) U.S. Navy (USN): For USN shipments only, enter the customer’s rank or rate code.
+                  NOTE: This code is the one-digit alpha character immediately following the
+                  abbreviation and subhead in the accounting data contained in the customer’s orders.
+             (3) For customer, enter “WD” (with dependents) or “WOD” (without dependents).
+             (4) Deceased Customer or Dependent: For deceased customers or deceased dependent(s) of
+                 a customer, annotate “BLUEBARK” immediately following the name.
+             (5) Early Return of Dependents: For early return of dependents, enter dependents name,
+                 followed by “Dependent of” and sponsors name, SSN (refer to paragraph D.1.j. NOTE)
+                 or EIN (USCG only), and rank and pay grade.
+        k. Block 11, Authority for Shipment. Enter the authority for shipment as shown on the
+           customer’s orders:
+             (1) Order Number,
+             (2) Paragraph Number, and
+             (3) Order Issuing Agency.
+        l.   Block 12, Date of Order. Enter the date the orders were issued.
+        m. Block 13, Extra Pickup/Delivery. When an extra pickup/delivery is requested, cross out the
+           service not applicable and enter the complete address.
+        n. Block 14, Department/Agency. Enter the sponsoring Service/Agency or other Agency.
+
+
+
+                                                 IV-A-413-4
+Defense Transportation Regulation – Part IV                                                    4 February 2026
+Personal Property
+
+
+        o. Block 15, Transportation Control Number. Enter the Transportation Control Number (TCN)
+           for shipments that move in the Defense Transportation System (DTS).
+             (1) The TCN must be constructed in accordance with (IAW) procedures set forth in DTR,
+                 Part II, Appendix L.
+             (2) The 15th position of the TCN requires a code that designates the shipment as one of the
+                 following:
+                  (a)   5 = Household goods (INTL MSC)
+                  (b) B = Unaccompanied baggage (DPM)
+                  (c)   H = Household goods (DPM)
+                  (d) J = Unaccompanied baggage (TGBL)
+                  (e)   K = Household goods (TGBL)
+                  (f)   P = POV
+                  (g) T = Household goods (INTL AMC)
+        p. Block 16, No entry required.
+        q. Block 17, Full Name of Shipper. Enter the full name of the military installation or activity
+           making the shipment.
+        r.   Block 18, Consignee. Enter name, destination, delivery address, and rate area code (e.g.,
+             US11, US12, US13). Information must be as specific as possible (i.e., city, installation,
+             county, state, country). Rate area code is only required on ITGBL shipments.
+             (1) TGBL Shipments.
+                  (a)   Consigned to the customer. Enter the customer’s name (last name, first name, and
+                        middle initial), rank/grade, and activity to which the customer is assigned
+                        (shipments destined overseas—spell out the name of the activity and country—do
+                        not show Army/Air Force Post Office [APO]/Fleet Post Office [FPO] number) or
+                        delivery address, including the street, city, county, state, or country, and ZIP code.
+                  (b) Consigned to the customer’s agent. Enter the full name of the customer’s
+                      designated agent, followed by the word “agent”, and the delivery address,
+                      including the street, city, county, state, country, and ZIP code.
+                  (c)   Consigned to a Commercial NTS Facility. Enter the full business name and
+                        address of the commercial storage contractor, including the street, city, county,
+                        state, and ZIP code.
+                  (d) Consolidated Shipments. A separate PPGBL/BL must be issued for each
+                      customer’s lot in the consolidated shipment. The individual PPGBL/BL must be
+                      cross-referenced by inserting the following statement in Block 27: “This is a
+                      consolidated shipment comprised of PPGBL/BL numbers” (list all other
+                      PPGBL/BL numbers involved in the consolidated shipment).
+             (2) DPM Shipments.
+                  (a)   DPM shipments are consigned IAW the PPCIG. For DPM shipments entering the
+                        DTS, the Continental United States (CONUS) seaport of embarkation (SPOE) or
+                        aerial port of embarkation (APOE) must be entered. The final overseas destination
+                        must appear in Block 20.
+
+
+
+                                                  IV-A-413-5
+Defense Transportation Regulation – Part IV                                                    4 February 2026
+Personal Property
+
+
+                  (b) For shipments to the SPOE, the desired delivery date (DDD) the shipment is
+                      required at the SPOE must be entered.
+             (3) Mobile Homes. Enter the customer’s name (last name, first name, and middle initial) (or
+                 the full name of the customer’s agent followed by the word “agent”), and the delivery
+                 address, including the street, city, county, state, and ZIP code.
+             (4) POVs. Enter the customer’s name (last name, first name, and middle initial) (or the full
+                 name of the customer’s agent followed by the word “agent”), and the delivery address,
+                 including the street, city, county, state, and ZIP code, or, if destined to a port, the ocean
+                 terminal.
+        s. Block 19, From. Complete address at point of pickup and rate area code (e.g., US11, US12,
+           US13). Rate area code is only required on ITGBL shipments.
+             (1) Shipments from Residence. Enter the exact location of the property to be shipped,
+                 including the street, city, or military installation, county, state, country, and ZIP code.
+             (2) Shipments from Storage or Contractor’s Facility. Enter the name of the commercial or
+                 government warehouse facility, including the street, city, county, state, country, and ZIP
+                 code. For shipments from NTS, enter the stored net weight, lot number, and service
+                 order number.
+        t.   Block 20, Responsible Destination Installation/Office.
+             (1) BLOC. Enter the destination TO BLOC in the designated block in Block 20.
+             (2) TGBL and DPM Shipments. Enter the name of the responsible destination TO, state,
+                 ZIP code, or country, APO/FPO number, and the commercial telephone number.
+             (3) DPM Shipments entering the DTS. For DPM shipments entering the DTS, the final
+                 overseas destination TO must be entered, not the CONUS SPOE/APOE, which appears
+                 in Block 18.
+             (4) Consolidated DPM Shipments entering the DTS. Enter the responsible destination TO
+                 and BLOC receiving the largest shipment by weight.
+        u. Block 21, Bill Charges To.
+             (1) Army and Air Force Shipments. Enter: Defense Finance and Accounting Service
+                 Indianapolis Center, Transportation Operations (DFAS-1-THA), Indianapolis, IN
+                 46249-0611.
+             (2) Navy Shipments.
+                  (a)   Defense Finance and Accounting Service, Indianapolis, Transportation Pay
+                        Services (DFAS-JFNBA/IN), 8899 East 56th Street, Indianapolis, IN 46249-0680,
+                        c/o National Traffic Service.
+                  (b) Navy Bills of Lading, both commercial and government, submitted for payment
+                      using the Standard Form SF-1113 must be sent to National Traffic Service (NTS),
+                      151 John James Audubon Pkwy, Amherst, NY 14228-1185.
+             (3) Marine Corps Shipments. Enter: Comptroller, Transportation Voucher Certification
+                 Branch, ATTN: Code 470, 814 Radford Blvd., Suite 20318, Albany, GA 31704-0318.
+             (4) Coast Guard Shipments. Enter: Commanding Officer (OTABl), U.S. Coast Guard
+                 Finance Center, 1430A Kristina Way, Chesapeake, VA 23326-0015.
+
+
+
+
+                                                  IV-A-413-6
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+             (5) Defense Logistics Agency, Defense Intelligence Agency, and Office of the Secretary of
+                 Defense Shipments. Enter: U.S. Army Finance and Accounting Center, Transportation
+                 Operations, Indianapolis, IN 46249-0680.
+             (6) All Air Force NAF. Enter: HQ AFSVA/SVFFC, 10100 Reunion Place, Suite 725, San
+                 Antonio, TX 78216-4138.
+             (7) Other. Enter the finance office indicated in the customer’s orders as being responsible
+                 for payment.
+        v. Block 22, Via.
+             (1) TGBL Shipments. Leave blank.
+             (2) DPM Shipments.
+                  (a)   INTL/AIR/COMM/DPM Shipments. Show the complete routing from origin to
+                        final destination as provided by the initial TSP.
+                  (b) All Other DPM Shipments. Only the name of the originating TSP is necessary
+                      unless it is to the advantage of the government to specify the connecting TSPs. It
+                      is the obligation of the originating TSP to forward shipments over a route that
+                      provides the lowest published charges within the mode. When it is necessary to
+                      route shipments, routing must be selected by experienced transportation personnel
+                      who are aware of various tariff restrictions and limitations to ensure that services
+                      are obtained at the lowest possible cost.
+             (3) POVs. The same instructions apply as those shown under “All other DPM Shipments.”
+             (4) Mobile Homes. For mobile home shipments, enter the method of movement (e.g.,
+                 towage, lowboy).
+        w. Block 23, No entry required.
+        x. Block 24, Appropriations Chargeable.
+             (1) Army Shipments. Enter the movement designator code from the customer’s orders.
+                 Also, for ITGBL shipments enter the four-digit Transportation Account Code (TAC).
+                 TACs are available via the Internet. The URL is https://beis.csd.disa.mil/beis-
+                 html/frontpage.html; select “TAC/LOA Inquiry (2875 Required)”.
+             (2) Air Force Shipments. Enter the accounting data from the customer’s travel order. For
+                 ITGBL shipments enter the TAC. The URL is https://beis.csd.disa.mil/beis-
+                 html/frontpage.html; select “TAC/LOA Inquiry (2875 Required)”.
+             (3) Navy Shipments. Enter the four-digit TAC shown in the customer’s orders. TACs are
+                 available via the Internet. The URL is https://beis.csd.disa.mil/beis-html/frontpage.html,
+                 select “TAC/LOA Inquiry (2875 Required)”.
+             (4) Marine Corps Shipments. Enter the line of appropriation and Standard Document
+                 Number from the customer’s orders. Marine Corps TAC guidance can be found at
+                 http://www.marines.mil/Portals/59/MCO%204610.37F.pdf.
+             (5) Coast Guard Shipments. Enter the accounting data indicated on the customer’s travel
+                 order. It is normally located in Block 7 of the CG Form 5131, Standard Travel Order for
+                 Military Personnel, Figure A-413-3, or specified in the body of a letter-format travel
+                 order.
+             (6) All Other DoD Shipments. Enter the accounting data from the customer’s orders. Also,
+                 for all ITGBL shipments enter the four-digit TAC shown in the customer’s orders.
+
+
+                                                 IV-A-413-7
+Defense Transportation Regulation – Part IV                                                  4 February 2026
+Personal Property
+
+
+                  Show the word “TAC” followed by the four-digit code. TACs are available via Internet.
+                  The URL is https://beis.csd.disa.mil/beis-html/frontpage.html; select “TAC/LOA Inquiry
+                  (2875 Required)”.
+        y. Block 25, Remarks.
+             (1) Storage in Transit (SIT).
+                  (a)   TGBL Shipments Authorized SIT. If SIT was used at origin, enter: _____ days
+                        SIT were used at origin.
+                  (b) Shipments from NTS. If SIT was used, enter: _____ days temporary storage were
+                      used at origin.
+                  (c)   Shipments Not Authorized SIT. Enter: SIT not authorized.
+             (2) Export and Import Annotations. For shipments originating in the CONUS and destined
+                 overseas, enter: For Export. For shipments moving by air, originating overseas and
+                 destined for the CONUS, enter: Imported by Air.
+             (3) Unpacking at Destination. When the TSP does not perform packing services at origin
+                 and unpacking services are required at destination, enter “Unpacking Required at
+                 Destination.” This applies to shipments moving from NTS and UB shipments when
+                 unpacking of UB is requested by the customer and authorized by the TO. When
+                 unpacking is authorized on the PPGBL/BL, the TSP/agent must prepare a DD Form 619,
+                 Statement of Accessorial Services Performed, Figure A-413-4, for labor charges and
+                 identify the applicable charges in the Remarks section. The customer must initial next to
+                 the item in the Remarks section to verify that unpacking services were performed. If the
+                 PPGBL/BL for a shipment from NTS is not annotated, the destination TO must
+                 authorize unpacking services on the DD Form 619.
+             (4) TGBL Notification.
+                  (a)   Direct Delivery Requested. If the customer has made advance arrangements with
+                        the origin TO for direct delivery to the destination residence, enter: Direct
+                        Delivery Authorized. Before completing the delivery, the TSP must notify the TO
+                        specified in Block 20.
+                  (b) Direct Delivery Not Requested. Enter: Before effecting delivery to a residence or
+                      placing in storage, the TSP must notify the TO specified in Block 20.
+                  (c)   BLUEBARK Shipments. Enter: Direct Delivery is not authorized. The TSP must
+                        contact the TO specified in Block 20 for instructions.
+             (5) Retrograde Shipments When Intermediate SIT Is Involved. Enter: TSP must request
+                 disposition instructions from the TO at the CONUS military ocean or air terminal.
+             (6) Mobile Homes.
+                  (a)   Enter: Necessary repairs and services are authorized, not to exceed $150 total (tire
+                        or tube replacement is excluded) without prior approval of the origin TO or
+                        customer. The total specified may be greater than $150 if authorized by the
+                        customer, in writing, at the time of counseling.
+                  (b) Also enter amounts paid by the origin TO on a local contract for accessorial
+                      services not performed by the customer or the TSP.
+                  (c)   Army, Air Force, Marine Corps, and other Agencies’ personnel not remaining in a
+                        pay status—insert the entitlement cost basis (maximum allowable cost) of the
+
+
+
+                                                 IV-A-413-8
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+                        mobile home shipment. For all other Army, Air Force, and Marine Corps
+                        personnel, 105 percent of the Base Line HHG Rate and the maximum packing rate
+                        must be entered.
+                  (d) For Navy personnel, the cost basis must not be shown.
+             (7) Special Authorization. For shipments made from or consigned to a point not specified in
+                 the customer’s orders, enter “Shipment authorized from (city/military installation,
+                 county, and state/country) to (city/military installation, county, and state/country).” For
+                 Army shipments, also enter “Shipment to authorized destination would have been under
+                 (enter USTRANSCOM rate solicitation #) at a total cost of $ (enter total charges).”
+             (8) Use of Government-Owned Containers. When government-owned containers are used
+                 for shipments moving in TGBL service, enter the statement from the rate solicitation.
+                 Also enter the number and type of containers used.
+             (9) Administrative Weight Limitation. For shipments to or from Outside CONUS
+                 (OCONUS) where administrative weight limitations are in effect, enter the following
+                 notation: “Maximum administrative weight allowance for household
+                 goods/unaccompanied baggage is (insert weight).”
+                  NOTE: Weight limitations for Navy shippers must be listed on the customer’s orders.
+             (10) NTS. When a shipment is consigned to an NTS facility, enter “For Nontemporary
+                  Storage.”
+             (11) Firearms. When the shipment contains firearms, enter “This Shipment Contains
+                  Firearms.”
+             (12) DPM and Code 5 Shipments Moving Through CONUS Military Ocean Terminals
+                  (MOT). Enter the prelodge, predelivery notification requirements as set forth by the
+                  MOT in the Personal Property Consignment Instruction Guide (PPCIG), Volume I
+                  (CONUS).
+             (13) POVs. Enter year, make, serial number, license number, and any other information
+                  necessary to identify the POV.
+             (14) Reweigh Required. When it is determined by the TO that a reweigh is necessary, or
+                  when a reweigh is requested by the customer at origin, the TO must annotate the
+                  PPGBL/BL with the words “REWEIGH REQUIRED”.
+             (15) DDD/ETA at POE. For Code 5 and T shipments, enter “DDD: (insert date) at the
+                  POE.” Compute the date from the estimated time of arrival (ETA) (Block 16) shown on
+                  the Transportation Control and Movement Document (TCMD).
+             (16) In Transit Contact Information. During counseling, enter customer in transit contact
+                  information (i.e., cell phone number, e-mail address) to assist in communications
+                  regarding the move.
+        z. Block 26, Packages.
+             (1) TGBL Shipments. Enter: 1 LOT.
+             (2) DPM Shipments. Enter the number and type of containers (e.g., 1 FL - 2 CTNS).
+             (3) Mobile Home Shipments. Enter: 1 EA.
+             (4) POVs. Enter: 1 VO.
+
+
+
+
+                                                 IV-A-413-9
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+        aa. Block 27, Description of Shipment. Enter the words “Household Goods,” “Unaccompanied
+            Baggage,” “Personal Effects,” “Mobile Home with personal effects as indicated on the
+            inventory”. For POVs, show the property classification and National Motor Freight
+            Classification/Standard Transportation Commodity Code number.
+             (1) TGBL Containerized Shipments. The TSP must enter the total number of containers
+                 and total cube, along with dimensions.
+             (2) DPM Shipments. After HHG or personal effects, the DPM contractor must enter the
+                 aggregate weight and cube of the total number of each different type of container shown
+                 in Block 26.
+             (3) Mobile Homes. After “Mobile Home with personal effects as indicated on the
+                 inventory,” enter the “length, width, height” of the mobile home in feet and inches. If
+                 the mobile home is the expando type, indicate “expandable” and specify type (such as
+                 single, double, or triple room, one side or both sides). Also, enter the make, model,
+                 year, serial number, current license number, state, and year issued. If additional space
+                 is required, use the “remarks” block.
+             (4) DPM or POV Consolidated Shipments. A single PPGBL/BL with continuation sheets
+                 must be issued. Enter: “This is a consolidated shipment. See continuation sheet.”
+                 Each individual shipment lot must be identified on the continuation sheet, and the
+                 customer’s name, rank/grade, SSN, delivery address, and authority for shipment must
+                 be specified.
+             (5) Shipment Valuation. The preprinted statement on the PPGBL/BL must be the only
+                 reference to the valuation of a shipment unless a higher valuation is declared. When
+                 this occurs, enter the following statement:
+                   (a) For TGBL Domestic Shipments. Enter one of the following:
+                        1   Increased Valuation - “Shipment is released at a declared lump sum value of
+                            $_________” or “Shipment is released at a valuation of $_________ times the
+                            net weight in pounds of the shipment.”
+                        2   Full Replacement Protection - “Shipment is released at full replacement
+                            protection of $3.50 times the net weight in pounds of the shipment or $21,000,
+                            whichever is greater.”
+                   (b) DPM Shipments. Enter: Released valuation not exceeding _________ cents per
+                       lb.
+        bb. Block 28, Weight.
+             (1) TGBL Shipments. The TSP enters the gross, tare, and net weight in this column. The
+                 net weight includes the weight of Professional Books, Papers & Equipment (PBP&E)
+                 and consumable items (CONS).
+             (2) DPM Shipments. Enter the total gross, tare, and net weight of the shipment.
+             (3) PBP&E. PBP&E must be weighed separately and the weight must be inserted in the
+                 space provided. (See Chapter 402, Paragraph F. 8.b.(3)(a).)
+             (4) CONS. CONS must be weighed separately and the weight must be annotated in the
+                 space provided for PBP&E weight. CONS must precede this weight in order to
+                 distinguish between the weight of CONS and PBP&E.
+
+
+
+
+                                                IV-A-413-10
+Defense Transportation Regulation – Part IV                                                4 February 2026
+Personal Property
+
+
+        cc. Blocks 29 and 30, For Use by Destination TSP Only. The TSP must enter these data
+            elements for billing.
+        dd. Block 31, Tariff or Special Rate Authorities. Enter the special rate authority and for ITGBL
+            shipments, the rate per hundred weight (cwt) (such as, rate score [RS] I-8/$52.50 cwt) and,
+            for domestic shipments enter percentage (such as RS D-5/95 percent). For OTO shipments,
+            enter the words “one-time-only” or “OTO”, the TSP’s rate tender number, and the OTO rate.
+        ee. Block 32a, Issuing Officer. Enter the name and title of the issuing TO. Signature of the
+            issuing TO is not required.
+        ff.   Block 32b, Issuing Office. Enter the BLOC and full name of the military installation or
+              activity issuing the PPGBL/BL.
+        gg. Block 33a, Name of Transportation Company. Enter the same information as in Block 1.
+        hh. Block 33b, Date of Receipt of Shipment. The TSP must enter the actual date the shipment is
+            picked up.
+        ii.   Block 33c, Signature of Agent/Driver. The TSP/agent or driver must sign the PPGBL/BL
+              acknowledging receipt.
+        jj.   Block 33d, PER. If the agent’s name is signed by the agent’s authorized representative, the
+              initials of the representative must appear in this block.
+        kk. Block 34, For Use of Paying Officer. The TO must check the block to identify the reason
+            for any excess cost involved in the shipment. The “Remarks” block must be used to fully
+            explain the reason for the excess cost. Block 34 must be marked for all Navy-sponsored
+            shipments that include a boat or mobile home.
+        ll.   Blocks 35a through 35g, Certificate of TSP Billing for Charges. The TSP authorized to bill
+              for charges must complete this portion of the PPGBL/BL after delivery has been
+              accomplished.
+        mm. Block 36, Special Services Ordered (Reverse of PPGBL/BL). The issuing TO must enter
+            any special services authorized.
+
+E. DISTRIBUTION AND SUBSTITUTE DOCUMENTS
+    1. General. The PPGBL/BL is printed as a seven-part form (original and 6 copies). This paragraph
+       provides guidance for the proper distribution of the PPGBL/BL for all methods and modes of
+       shipment. It also discusses procedures for the use of substitute documents when the original
+       PPGBL/BL has been lost or destroyed.
+    2. Distribution. The PPGBL/BL must be processed and distributed as outlined below. When laser-
+       printed PPGBL/BLs are used, ensure that enough copies are made for distribution.
+
+        a. Original copy of laser-printed               Provide to the origin TSP for submission to the
+           PPGBL/BL (TSP should have the                finance center for payment. Provide to the
+           original copy or be provided the certified   TSP or its agent prior to the commencement of
+           copy of the laser-printed PPGBL/BLs)         packaging/loading services on the shipment.
+
+        b. Shipping Order                               Provide to the origin TSP for retention as the
+           (Copy of laser-printed PPGBL/BLs)            actual service order.
+
+
+
+
+                                                IV-A-413-11
+Defense Transportation Regulation – Part IV                                              4 February 2026
+Personal Property
+
+
+        c. Freight Waybill TSP’s Copy SF 1205         Provide to the origin TSP for retention. May
+           (Copy of laser-printed PPGBL/BLs)          be used as substitute document (for a lost
+                                                      PPGBL/BL).
+
+        d. Accounting Copy                            For Army, Air Force, Navy, Marine Corps, and
+           (Copy of laser-printed PPGBL/BLs)          Agency Shipments – Provide to the TSP for
+                                                      annotation of weight charges as required by the
+                                                      TOS and for TGBL domestic—show mileage.
+
+        e. Customer Copy                              For All Methods Except DPM – Give to the
+           (Copy of laser-printed PPGBL/BLs)          origin TSP, who must:
+                                                      Give to the customer when pickup is made at
+                                                      the residence.
+                                                      Give to the customer when delivery is made at
+                                                      the residence if the origin pickup is from NTS.
+                                                      Give to the destination TO if the shipment
+                                                      originates from NTS and is to be placed in SIT
+                                                      at the destination. The TO must give the copy
+                                                      to the customer or the customer’s agent.
+                                                      For DPM shipments – The TO must forward
+                                                      the copy to the customer’s destination address
+                                                      or unit of assignment, if known.
+
+        f.   Property Received Copy                   Forward to the destination TO, who has final
+             (Copy of laser-printed PPGBL/BLs)        delivery responsibility, with required
+                                                      supporting documents, to arrive in advance of
+                                                      the shipment. BLUEBARK shipments must be
+                                                      so annotated and forwarded via certified mail.
+                                                      Notify the destination TO by telephone or
+                                                      message of the BLUEBARK shipment.
+
+        g. Property Shipped Copy                      For TGBL shipments, retain in an origin
+           (Copy of laser-printed PPGBL/BLs)          suspense file pending receipt of the accounting
+                                                      copy. Upon receipt, annotate the Property
+                                                      Shipped Copy and place in the shipment file.
+                                                      For a DPM shipment, retain in the origin
+                                                      shipment file.
+
+    3. PPGBL/BL Canceled After Distribution. If a PPGBL/BL must be canceled after partial or
+       complete distribution, a memorandum copy (and reproductions) must be clearly marked
+       “canceled” and forwarded to each recipient of the initial distribution and USTRANSCOM. Also,
+       when a PPGBL/BL Correction Notice is prepared, a complete distribution must be made IAW
+       Paragraph F below.
+    4. Substitute Documents Issued for a Lost PPGBL/BL.
+        a. Issuance. When it is evident that the original PPGBL/BL has been lost or destroyed, the TSP
+           must forward the original Freight Waybill (SF 1205) to the finance center for payment.
+           When both the original PPGBL/BL and the original Freight Waybill have been lost or
+
+
+
+                                              IV-A-413-12
+Defense Transportation Regulation – Part IV                                                 4 February 2026
+Personal Property
+
+
+             destroyed, the TSP must request a certified memorandum copy for use as a substitute billing
+             document. The origin TO must annotate the certified memorandum copy as follows: “I
+             certify that the services shown on this freight waybill were requested.” This certified
+             memorandum copy must be signed, dated, and returned to the TSP for billing.
+             NOTE: Manually generated certified copies must be signed; TOPS-generated certified copies
+             do not need to be signed.
+        b. Records and Control. The TO must note all memorandum PPGBL/BLs in the PPGBL/BL
+           accountability record and promptly notify the responsible paying finance center so the
+           finance center may take steps to preclude duplicate payment of the transportation charges.
+
+F. PREPARATION OF THE U.S. GOVERNMENT BILL OF LADING CORRECTION NOTICE
+   (SF 1200)
+    1. General.
+        a. This paragraph provides guidance and instruction in the preparation of the SF 1200,
+           Government Bill of Lading Correction Notice, Figure A-413-2, for making alterations and
+           corrections to PPGBL/BLs.
+        b. The subparagraph below is keyed to the numbered blocks on the SF 1200.
+             (1) Date Notice Prepared (unnumbered). Enter the date the SF 1200 is prepared.
+             (2) PPGBL/BL Number (Block 1). Enter the prefix symbol and serial number of the
+                 PPGBL/BL being corrected. Only one PPGBL/BL may be corrected on each SF 1200.
+             (3) Date PPGBL/BL Was Issued (Block 2). Enter the issue date shown on the PPGBL/BL
+                 being corrected.
+             (4) Total Weight Shown on PPGBL/BL (Block 3). Enter the total weight shown on the
+                 PPGBL/BL.
+             (5) Origin (Block 4). Enter the name of the origin address as shown on the PPGBL/BL.
+             (6) Destination (Block 5). Enter destination address as shown on the PPGBL/BL.
+             (7) Route (Block 6). Enter route shown on “via” block on the PPGBL/BL. Leave blank if
+                 no route is shown on the PPGBL/BL.
+             (8) Issuing Office (Block 7). Enter the name of the activity that issued the PPGBL/BL.
+             (9) To (Block 8). Enter name, address, and ZIP code of activity to which the original SF
+                 1200 is to be sent.
+             (10) Payment Data (Block 9). Self-explanatory.
+             (11) From (Block 10). Enter name, address, and ZIP code of activity issuing the SF 1200.
+             (12) Bill of Lading Now Reads (Block 11). Enter information from the PPGBL/BL that is to
+                  be corrected. If the SF 1200 is being issued to include information omitted from the
+                  PPGBL/BL, enter the words “information omitted” in this block.
+             (13) Correct Bill of Lading to Read (Block 12). Enter information to be shown on the
+                  corrected PPGBL/BL.
+             (14) Authority for Correction (Block 13). Enter information, which justifies correction.
+             (15) Remarks (Block 14). Enter remarks pertaining to the correction being made.
+
+
+
+
+                                                IV-A-413-13
+Defense Transportation Regulation – Part IV                                                   4 February 2026
+Personal Property
+
+
+             (16) Information Copy To (Block 15). Enter name, address, and ZIP code of all the
+                  recipients of SF 1200, excluding the addresses shown in Blocks 8 and 10.
+             (17) Signature and Title of Initiating Official (Block 16). Self-explanatory.
+             (18) TSP Representative’s Signature (Block 17). Self-explanatory.
+                  NOTE: Manually generated certified copies must be signed; TOPS-generated certified
+                  copies do not need to be signed.
+
+G. DISTRIBUTION OF SF 1200
+    1. When transportation charges are affected by the alteration or correction, the SF 1200 must be
+       prepared in sufficient quantities to permit the following distribution:
+        a. A copy to the consignee.
+        b. A copy to the disbursing officer.
+        c. Original and one copy to the originating TSP.
+        d. A copy to the office of the shipper service.
+        e. A copy to be attached to the consignor copy of the PPGBL/BL.
+        f.   Copies to all other addresses shown in “Information copy to” (Block 15).
+        g. A copy retained by the initiator of the SF 1200.
+    2. When the disbursing office or appropriation data changes, the SF 1200 must be prepared in
+       sufficient quantity to permit the following distribution:
+        a. The original to the initial disbursing office.
+        b. A copy to the new disbursing office as amended.
+        c. Two copies to the consignee.
+        d. A copy to the office of the shipper service.
+        e. A copy to origin TSP.
+        f.   A copy to be attached to the consignor copy of the PPGBL/BL.
+    3. When any other alterations or corrections are made, the SF 1200 must be prepared in sufficient
+       quantities to permit the same distribution as stated in Paragraph G.1 above.
+
+H. WHO MAY ISSUE SF 1200
+    1. Issuing Officer. In all cases where the issuing officer detects that an alteration or correction is
+       required, the issuing officer must initiate the SF 1200. This issuing officer must also make
+       distribution IAW Paragraph G.
+    2. Consignee.
+        a. When the consignee considers it necessary to make alterations or corrections which have not
+           been authorized by the issuing officer, the consignee must notify the issuing office by
+           electrical means or in writing, unless it is obvious that immediate alterations or corrections
+           are necessary to reflect the exact facts relating to the shipment. If a reply to this notification
+           is not received within 30 days, the consignee is permitted to make alterations or corrections.
+
+
+
+
+                                                 IV-A-413-14
+Defense Transportation Regulation – Part IV                                                4 February 2026
+Personal Property
+
+
+        b. When it is obvious that immediate alterations or corrections are necessary to reflect the exact
+           facts relating to the shipment, the consignee may make the necessary alterations or
+           corrections without the issuing officer’s authorization.
+
+
+
+
+                                               IV-A-413-15
+Defense Transportation Regulation – Part IV                                      4 February 2026
+Personal Property
+
+
+
+
+       Figure A-413-1. U.S. Government Bill of Lading – Privately Owned Personal Property
+
+
+
+
+                                              IV-A-413-16
+Defense Transportation Regulation – Part IV                                       4 February 2026
+Personal Property
+
+
+
+
+               Figure A-413-2. SF 1200, Government Bill of Lading Correction Notice
+
+
+
+
+                                              IV-A-413-17
+Defense Transportation Regulation – Part IV                                      4 February 2026
+Personal Property
+
+
+
+
+           Figure A-413-3. CG Form 5131, Standard Travel Order for Military Personnel
+
+
+
+                                              IV-A-413-18
+Defense Transportation Regulation – Part IV                                       4 February 2026
+Personal Property
+
+
+
+
+             Figure A-413-4. DD Form 619, Statement of Accessorial Services Performed
+
+
+
+                                              IV-A-413-19
+Defense Transportation Regulation – Part IV                                     4 February 2026
+Personal Property
+
+
+
+
+  Figure A-413-5. DD Form 1299, Application for Shipment and/or Storage of Personal Property
+
+
+
+
+                                              IV-A-413-20
+Defense Transportation Regulation – Part IV                                     4 February 2026
+Personal Property
+
+
+
+
+  Figure A-413-5. DD Form 1299, Application for Shipment and/or Storage of Personal Property
+                                          (Cont’d)
+
+
+
+
+                                              IV-A-413-21
+Defense Transportation Regulation – Part IV                    4 February 2026
+Personal Property
+
+
+
+
+                          THIS PAGE INTENTIONALLY LEFT BLANK
+
+
+
+
+                                              IV-A-413-22
+

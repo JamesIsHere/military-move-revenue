@@ -1,0 +1,2408 @@
+      Defense Personal Property Program (DP3)
+   Household Goods (HHG) Tender of Service (TOS)
+                       2026
+
+
+
+
+                   Managed by:
+Defense Personal Property Management Office (DPMO)
+      United States Transportation Command
+        508 Scott Drive Scott AFB, IL 62225
+
+
+            Effective Date: 15 May 2026
+
+                                                   As of: 18 February 2026
+
+
+
+                         1
+                           DP3 HHG ToS 2026
+                                18 Feb 2026
+
+
+
+
+Left Blank Intentionally
+
+
+
+
+          2
+                                                                                                                                    DP3 HHG ToS 2026
+                                                                                                                                         18 Feb 2026
+
+
+
+
+                                                                Table of Contents
+LIST OF CHANGES ................................................................................................................................. 6
+INTRODUCTION...................................................................................................................................... 9
+A. QUALIFICATIONS ........................................................................................................................... 9
+         1.     General ...................................................................................................................................... 9
+         2.     General Cyber Security Requirements ..…………………………………………………….11
+B. MUTUAL AGREEMENTS AND UNDERSTANDINGS ............................................................. 16
+         1.     Service ..................................................................................................................................... 16
+         2.     Personnel ................................................................................................................................. 16
+         3.     Through Responsibility ........................................................................................................... 17
+         4.     Pickup at or Delivery to a Military Terminal .......................................................................... 18
+         5.     Use of a DoW-Approved Alternate TSP ................................................................................. 18
+         6.     Tracing Shipments ................................................................................................................... 18
+         7.     Storage in Transit (SIT) ........................................................................................................... 19
+         8.     Weighing Shipments................................................................................................................ 19
+         9.     Removal of Property from Facilities Disqualified by DPMO ................................................. 20
+         10. Loss or Damage ...................................................................................................................... 20
+         11. Inconvenience Claim (IC) ....................................................................................................... 21
+         12. Statement of Accessorial Services Performed ........................................................................ 25
+         13. Shipment Inspection by PPSOs .............................................................................................. 25
+         14. Billing Procedures ................................................................................................................... 25
+         15. International Shipments .......................................................................................................... 25
+         16. Unusual Occurrences .............................................................................................................. 26
+         17. Third-Party Declaration .......................................................................................................... 26
+         18. Force Protection ...................................................................................................................... 26
+         19. Customer Satisfaction Survey (CSS) Language Prohibition ................................................... 27
+         20. Origin Servicing Agent Representation .................................................................................. 28
+         21. Move Management Company’s Performance......................................................................... 28
+         22. Foreign Vendor Suitability ..………………………………………………………………...28
+
+         23. Protecting the U.S. Government’s Interest When Subcontracting with Contractors Debarred,
+             Suspended, Proposed for Debarment, or Voluntarily Excluded……………………………..29
+
+
+
+
+                                                                            3
+                                                                                                                                   DP3 HHG ToS 2026
+                                                                                                                                        18 Feb 2026
+
+         24. Access to Contractor and Subcontractor Records……………………………………………30
+
+C. PERFORMANCE REQUIREMENTS ........................................................................................... 31
+         1.    Pickup and Delivery Dates ...................................................................................................... 31
+         2.    Preparation of Articles ............................................................................................................. 31
+         3.    Packing Requirements ............................................................................................................. 32
+         4.    Manner of Packing .................................................................................................................. 34
+         5.    Inventory.................................................................................................................................. 35
+         6.    Overflow Shipments ................................................................................................................ 35
+         7.    Containers ................................................................................................................................ 35
+         8.    Documents Provided to the PPSO/Aerial Port......................................................................... 36
+         9.    Documents Provided to the Customer ..................................................................................... 37
+         10. SIT ........................................................................................................................................... 34
+         11. Unloading and Unpacking at Destination ................................................................................ 34
+         12. Recording Loss or Damage ...................................................................................................... 35
+D. CERTIFICATION............................................................................................................................ 35
+         1.    Violations................................................................................................................................. 44
+         2.    Terms and Conditions .............................................................................................................. 44
+Figure B-1. DD Form 619 – Statement of Accessorial Services Performed ........................................ 46
+Figure B-2. Notification of Loss or Damage AT Delivery ..................................................................... 47
+Figure B-3. Notification of Loss or Damage AFTER Delivery ............................................................. 48
+Figure B-4. Unusual Occurrence Notification Form ............................................................................. 49
+Figure B-5 Foreign Vendor Report ……………………………………………………………………52
+Figure B-6 Inconvenience Claim Form ..………………………………………………………………53
+
+
+
+
+                                                                             4
+                                                                                  DP3 HHG ToS 2026
+                                                                                       18 Feb 2026
+                             LIST OF CHANGES
+                                                                          Revision
+Version                         Description                                              Page #s
+                                                                            Date
+ 2023     • Administrative updates throughout                            01 Dec 2022
+          • A. Qualifications
+            o 1.c – Updated paragraph and subparagraphs to
+               further define unethical acts                                           Pg 7
+          • B. Mutual Agreements and Understandings
+            o 1. – Updated sentence DPMO responsibilities of                           Pg 9
+               proprietary information
+            o 2. – Updated paragraph to clarify and provide
+               examples of Military Services and personal                              Pg 9
+               information
+            o 2.b. – Further clarified results of unfavorable
+               background checks                                                       Pg 9
+            o 3.b. – New paragraph on use of quality assurance
+               information                                                             Pg 10
+            o 3.f. – New paragraph on prohibition of double
+               brokering
+                                                                                       Pg 10
+            o 3.g. – New paragraph on law governing the
+               registration of service providers
+            o 6.a – Added language giving examples of                                  Pg 10
+               administrative actions
+            o 6.c. – New paragraph outlining administrative                            Pg 11
+               action for using agents in non-use
+            o 7. – Clarifying requirements for service providers                       Pg 11
+               during tracing of shipments
+            o 9.a.(2)(a) – Removed wording for reweigh prior to                        Pg 11
+               placement in SIT
+            o 9.b.(1) – Clarified language for lost certified                          Pg 12
+               weight tickets and need for prior approval to be
+               paid
+            o 16. – Updated requirements for international                             Pg 12
+               shipments and adhering to use of Cargo Preference
+               Act and Fly America Act                                                 Pg 18
+            o 19.b. – Updated version and date for TSP
+               Certificate of Health Protection Protocol Form
+                                                                                       Pg 20
+          •   C. Performance Requirements
+              o 1.k.(2) – Updated in-transit visibility language for
+                 notification requirements and timelines
+              o 1.k.(3) – Updated notification language for 24-                        Pg 23
+                 hour notification and second notification must be
+                 telephonically
+              o 1.l.(6) – Added language for any change request in                     Pg 23
+                 spread to be submitted no later than to the first day
+                 of packing
+              o 2.e. –Added lithium battery requirement for
+                                                                                       Pg 24
+
+
+
+                                              5
+                                                                           DP3 HHG ToS 2026
+                                                                                18 Feb 2026
+                   shipping lithium batteries lithium-ion and lithium
+                   metal                                                     Pg 25
+               o   5 – Electronic inventories remain highly-
+                   encouraged for 2023. Updates to inventory
+                   paragraph to increase clarity and requirements            Pg 27
+                   when electronic inventories are used
+               o   5.a.(3)(g) – Require a handwritten/hard copy of
+                   inventory if failure of e-inventory equipment             Pg 28
+               o   5.a.(9) – Updated privately owned firearm
+                   requirements to not ship privately made, non-             Pg 29
+                   serialized firearms
+               o   7.h.(4) – Clarified language on placement of seals
+                   on HHG shipments                                          Pg 31
+  2023     • Throughout Document                                  13 Sep 2023
+Change 1     o Revised use of punitive action to administrative
+                action
+           • B. Mutual Agreements and Understandings
+             o 3.f. – Revised paragraph on use of double                      Pg 10
+                brokering
+             o 3.g. – Revised paragraph for TSP registration                  Pg 10
+             o 12.d.(6) – Updated paragraph to provide additional
+                information if appealing a claim                              Pg 15
+             o 15. – Updated language on International
+                Shipments to streamline and removed sub
+                paragraphs                                                    Pg 18
+             o 18 – Added paragraph and updated language on
+                pandemic related notifications.                               Pg 19
+             o 18.a – Added new paragraph related to Safety
+                Move processes when received by authorized
+                TSPs.
+                                                                              Pg 19
+             o 18.c – Removed requirement for HPP Form
+                completion
+           • C. Performance Requirements                                      Pg 19-20
+             o 1.l.(6) – Updated language to clarify any change
+                request in spread dates must be sent to PPSO by
+                the customer and added verbiage.                              Pg 24
+             o 5.a.(10) – Clarified language for POFs that are
+                “manufactured in 1968 or after"
+                                                                              Pg 28
+
+
+
+
+                                              6
+                                                                            DP3 HHG ToS 2026
+                                                                                 18 Feb 2026
+ 2024      • B. Mutual Agreements and Understandings               29 Dec 2023
+             o 16. – Added language on using the DP3 Unusual
+                Occurrence Notification Form                                     Pg 19
+           • C. Performance Requirements
+             o 2.h – Added paragraph on items liable to cause
+                damage                                                           Pg 25
+           • Figure
+             o Figure B-4 – Added Unusual Occurrence
+                Notification Form                                                Pg 40
+
+
+
+
+ 2024      • Added INTRODUCTION                                    5 Mar 2024 Pg 8
+Change 1   • A. QUALIFICATIONS                                                Pg 8
+             o 1.b.(2). – Added language on DPMO efforts to
+                 assess program changes with GHC and make
+                 applicable updates as necessary.
+           • C. PERFORMANCE REQUIREMENTS                                         Pg 22
+             o 1.d. – Made administrative changes to remove
+                 reference to “peak season” when the requirement
+                 is beyond DP3 peak season.
+
+
+
+
+ 2025      •   A. QUALIFICATIONS                                   30 Jan 2025 Pg 8
+               o 1.b. – General: TOS – made updates to
+                  the effective year.
+ 2026      •   Introduction                                        28 Oct 2025 Pg 8
+
+               o Added “civilian employees” to list of personnel
+                 whose personal property is moved and added
+                 definition of “customer.”
+               o Changed to “international” to lower case
+
+           • A. QUALIFICATIONS
+
+               o Added Section 2. “General Cyber Security
+                 Requirements”
+
+           •   B. MUTIAL AGREEMENTS AND
+                  UNDERSTANDINGS
+
+               o 10.b- Language change to “After Action” Report
+                 (AAR)
+
+               o 11.d- Complete rewrite for “Reimbursement
+                 Section”
+                                            7
+                                                   DP3 HHG ToS 2026
+                                                        18 Feb 2026
+
+o 11.e.(4)- Added new line paragraph for this
+  section under “SIT”
+
+o 11.f.(2)- Sentence addition to the paragraph
+
+
+o 16.b. Language change to “Customer’s
+  Representatives”
+
+o Added Section 22. “Foreign Vendor Suitability”
+
+o Added Section 23. “Protecting the U.S.
+  Government’s Interest When Subcontracting with
+  Contractors Debarred, Suspended, Proposed for
+  Debarment, or Voluntarily Excluded”
+
+o Added Section 24. “Access to Contractor and
+  Subcontractor Records”
+
+
+o B.3.f Subcontractor Visibility; Added
+  requirements for TSP to provide information on
+  the company that hauled the shipment.
+
+
+o B.11.g.(3) Change "forced extended leases" to
+  "unexpected lease extensions.”
+
+
+o B.19.b.(6) Updated Contact: “HQ Coast Guard:
+  smb-comdt-traveltransportationpolicy@uscg.mil
+  Commercial telephone: 206-815-0555”
+
+
+
+
+                             8
+                                                                                           DP3 HHG ToS 2026
+                                                                                                18 Feb 2026
+INTRODUCTION
+
+Purpose: The Tender of Service (ToS) provides the rules and regulations published by the U.S.
+Transportation Command (USTRANSCOM) for the movement of personal property for DoW and US
+Coast Guard (USCG) members and civilian employees, hereafter referred to as “customers.”
+
+Scope: The ToS provides guidelines, rules, regulations, and other information required to participate in
+the movement of DoW personal property. The ToS specifies rules, regulations, and procedures that
+Transportation Service Providers (TSPs) are obligated to perform when moving customer personal
+property.
+
+Authority: Under responsibilities assigned to the Commander, USTRANSCOM, in the Defense
+Transportation Regulation (DTR) 4500.9-R. USTRANSCOM is responsible for the developing rules
+and guidelines worldwide for shipment of domestic and international personal property on behalf of the
+entire DoW, including civilian appropriated and non-appropriated fund employees, and the USCG.
+
+A. QUALIFICATIONS
+
+    1. General:
+
+          a. Gender: The first-person singular pronoun is used throughout the ToS and refers
+             to a person, partnership, or corporation submitting such tender.
+
+          b. ToS:
+
+             (1) I understand this ToS, in addition to the Defense Property Program
+                 International Tender (IT) and Defense Personal Property Program
+                 Domestic Tariff 400NG (400NG), is binding for shipments with a
+                 pickup date of 15 May 2026 or later for applicable DP3 shipments I
+                 accept including shipments on Bill of Lading(s) (BL), or purchase
+                 orders, and will form a part of the conditions thereof.
+
+             (2) I accept this ToS, in addition to the IT and the 400NG, is binding until
+                 14 May 2027 or until the U.S. Government publishes new documents
+                 superseding 2026 Business Rules.
+
+             (3) I will submit to the Director, Defense Personal Property Management
+                 Office (DPMO), United States Transportation Command
+                 (USTRANSCOM), the Electronic ToS Signature Sheet (ETOSSS)
+                 certifying I have read and understand the terms and conditions and
+                 agree to provide service as set forth in this ToS. I will retain the actual
+                 ToS for my files.
+             (4) I understand submission of this ETOSSS, hereafter referred to as Tender, is a
+                 prerequisite to my consideration for Department of War (DoW) approval for
+                 the movement of personal property; it does not obligate the U.S. Government
+                 in the distribution of traffic; and such submission indicates I consider myself
+                 to be qualified, willing, and able to accept shipments from military activities
+                 and seek such shipments under the terms set forth herein. Changes, additions,
+                 and deletions are effective upon receipt of notification unless specifically
+                 stated otherwise.
+                                                     9
+                                                                                                 DP3 HHG ToS 2026
+                                                                                                      18 Feb 2026
+                 (5) I agree to comply with all requirements of the DP3 Transportation
+                     Service Provider (TSP) Qualification Program as prescribed by the
+                     DPMO.
+
+                 (6) I agree to maintain up-to-date documentation with the Department of
+                     Transportation and State requirements to operate as a motor carrier or
+                     freight forwarder. This includes the ETOSSS, Certificate of Independent
+                     Pricing (CIP) and Certificate of Responsibility (COR), and all additional
+                     required certifications.
+
+            c. Unethical Acts: 1 I agree the ETOSSS is signed with knowledge of the law that:
+
+                 (1) whoever, in any matter within the jurisdiction of any department or agency
+                     of the United States, knowingly and willfully:
+
+                     (a) Falsifies, conceals, or covers up by any trick, scheme, or device, a material fact;
+                     (b) Makes any false, fictitious, or fraudulent statements, or representation; or
+                     (c) Makes or uses any false writing or document knowing the same to contain any
+                         false, fictitious, or fraudulent statement or entry shall be subject to the penalties
+                         prescribed in the criminal law of the United States (i.e., 18 U.S.C. § 1001,
+                         Statements or Entries Generally).
+                 (2) any person who—
+                     (a) knowingly presents, or causes to be presented, a false or fraudulent claim for
+                         payment or approval;
+                     (b) knowingly makes, uses, or causes to be made or used, a false record or statement
+                         material to a false or fraudulent claim;
+                     (c) conspires to commit a violation of subparagraph (a), (b), (d), (e), (f), or (g);
+                     (d) has possession, custody, or control of property or money used, or to be used, by the
+                         U.S. Government and knowingly delivers, or causes to be delivered, less than all
+                         of that money or property;
+
+
+1
+ This is a non-exclusive list. There are other criminal and civil statutes that apply such as:
+18 USC § 287, False, Fictitious or Fraudulent Claims
+18 USC § 201, Bribery of Public Officials and Witnesses
+18 USC §208, Acts affecting a personal financial interest
+18 USC § 1516, Obstruction of Federal Audit
+18 USC § 1341, Frauds and Swindles (Mail Fraud)
+18 USC § 1343, Fraud by Wire, Radio or Television (Wire Fraud)
+18 USC § 1832, Theft of Trade Secrets
+18 USC § 226, Bribery affecting port security
+41 USC § 51-58, Anti-Kickback Act
+15 USC § 1, Sherman Antitrust Act
+18 USC § 371, Conspiracy to Defraud the United States
+18 USC § 1031, Major Fraud Against the United States
+
+
+
+
+                                                              10
+                                                                                  DP3 HHG ToS 2026
+                                                                                       18 Feb 2026
+            (e) is authorized to make or deliver a document certifying receipt of property used,
+                or to be used, by the U.S. Government and, intending to defraud the U.S.
+                Government, makes or delivers the receipt without completely knowing that the
+                information on the receipt is true;
+            (f) knowingly buys, or receives as a pledge of an obligation or debt, public
+                property from an officer or employee of the U.S. Government, or a member
+                of the Armed Forces, who lawfully may not sell or pledge property; or
+            (g) knowingly makes, uses, or causes to be made or used, a false record or
+                statement material to an obligation to pay or transmit money or property to the
+                U.S. Government, or knowingly conceals or knowingly and improperly
+                avoids or decreases an obligation to pay or transmit money or property to the
+                U.S. Government,
+            (h) shall be subject to the penalties prescribed in the civil law of the United
+                States (i.e., 31 U.S.C. § 3729, False Claims); and
+            (i) is subject to administrative actions such as suspension and debarment and/or
+                removal from the program.
+
+2. General Cyber Security Requirements:
+     (c) Basic Safeguarding of TSP Information Systems:
+        (1) To protect Controlled Unclassified Information (CUI) and Federal Contract
+        Information (FCI) created by or used in the ToS, the U.S. Government is implementing
+        a phased approach to increasing cybersecurity controls including reporting of
+        cybersecurity breaches.
+        (2)    The phased approach models itself on the Cyber Maturity Model Certification
+        (CMMC). In order to be awarded any shipments after 15 May 2026, the TSP and any
+        subcontractors possessing CUI or FCI must complete by 15 March 2026 and maintain
+        as current, an affirmation, by the TSP’s CEO of continuous compliance with the
+        requirements associated with the CMMC Level 1 self-assessment in the Supplier
+        Performance Risk System (SPRS) (https://piee.eb.mil) for each CMMC unique
+        identifier (UID) applicable to each of the TSP information systems that process, store,
+        or transmit CUI or FCI and that are used in performance of the contract.
+        (3) In order to be awarded any shipments after 15 May 2027, the TSP and any
+        subcontractors possessing CUI or FCI must complete by 15 March 2027 and then
+        annually thereafter and maintain as current, an affirmation, by the TSP’s CEO of
+        continuous compliance with the requirements associated with the CMMC Level 2 self-
+        assessment in the SPRS for each CMMC unique identifier (UID) applicable to each of
+        the TSP information systems that process, store, or transmit FCI or CUI and that are
+        used in performance of the contract.
+        (4) I shall ensure all subcontractors and suppliers complete prior to subcontract award,
+        and maintain on an annual basis, an affirmation, by the affirming official (see 32 CFR
+        170.4), of continuous compliance with the requirements associated with the CMMC
+        level required for the subcontract or other contractual instrument for each of the
+        subcontractor information systems that process, store, or transmit CUI or FCI and that
+        are used in performance of the subcontract.
+
+
+                                              11
+                                                                              DP3 HHG ToS 2026
+                                                                                   18 Feb 2026
+(d)         Handling and Protection of Non-Public Information:
+      (1) Controlled Unclassified Information (CUI) means information the U.S.
+      Government creates or possesses, or information an entity creates or possesses for or on
+      behalf of the U.S. Government, that a law, regulation, or U.S. Government wide policy
+      requires or permits an agency to handle using safeguarding or dissemination controls
+      (32 CFR 2002.4(h)).
+      (2) Federal Contract Information (FCI) means information, not intended for public
+      release, that is provided by or generated for the U.S. Government under the ToS to
+      develop or deliver a service to the U.S. Government. It does not include information
+      provided by the U.S. Government to the public, such as on public websites, or simple
+      transactional information, such as information necessary to process payments.
+      (3) TSPs operating in the ToS have access to CUI, category, GENERAL PRIVACY
+      (PRVCY) information, which refers to personal information, or, in some cases,
+      “personally identifiable information (PII),” as defined in OMB M-17-12, or “means of
+      identification” as defined in 18 U.S.C. § 1028(d)(7). Examples of PII to which the TSP
+      has access are names of Servicemembers, DoW, USCG employees and their family
+      members, origin and destination addresses, work and personal telephone/mobile phone
+      numbers, social security numbers, DoW Identification Numbers, work and personal
+      email addresses, and electronic household goods inventories including remote surveys
+      and video, and claims related information including banking information provided to
+      pay inconvenience claims or loss/damage claims.
+      (4) I agree to use FCI information developed or received, including CUI while
+      performing under the ToS only for the purposes of fulfilling the contracted requirements
+      and to protect such information from unauthorized release or disclosure. Information
+      may be provided to subcontractors only as needed to perform their subcontracted duties.
+      Such information may not be sold or provided to third parties or others such as
+      advertisers or data-brokers.
+
+c. The following basic safeguarding requirements and procedures are required to protect
+TSP information technology systems, including mobile applications, that process
+information received under the ToS program. IAW 48 CFR 52.204-1 and 32 CFR Part 170,
+these requirements and procedures for basic safeguarding of TSP systems shall include, at a
+minimum, the following security controls:
+      (1) Limit information system access to authorized users, processes acting on behalf of
+      authorized users, or devices (including other information systems).
+      (2) Limit information system access to the types of transactions and functions that
+      authorized users are permitted to execute.
+      (3)   Verify and control/limit connections to and use of external information systems.
+      (4) Control information posted or processed on publicly accessible information
+      systems.
+      (5)   Identify information system users, processes acting on behalf of users, or devices.
+      (6) Authenticate (or verify) the identities of those users, processes, or devices, as a
+      prerequisite to allowing access to organizational information systems.
+      (7) Sanitize or destroy information system media containing HHG ToS information
+      before disposal or release for reuse.
+                                           12
+                                                                                            DP3 HHG ToS 2026
+                                                                                                 18 Feb 2026
+                (8) Limit physical access to organizational information systems, equipment, and the
+                respective operating environments to authorized individuals.
+                (9) Escort visitors and monitor visitor activity; maintain audit logs of physical access;
+                and control and manage physical access devices.
+                (10) Monitor, control, and protect organizational communications (i.e., information
+                transmitted or received by organizational information systems) at the external
+                boundaries and key internal boundaries of the information systems.
+                (11) Implement subnetworks for publicly accessible system components that are
+                physically or logically separated from internal networks.
+                (12) Identify, report, and correct information and information system flaws in a timely
+                manner.
+                (13) Provide protection from malicious code at appropriate locations within
+                organizational information systems.
+                (14)     Update malicious code protection mechanisms when new releases are available.
+                (15) Perform periodic scans of the information system and real-time scans of files from
+                external sources as files are downloaded, opened, or executed.
+
+            d. Cybersecurity Incident Reporting:
+
+                (1) “Cyber incident” means actions taken through the use of computer networks that
+                result in a compromise or an actual or potentially adverse effect on an information
+                system and/or the information residing therein. Reportable cyber-incidents (regardless
+                of whether the information system contains CUI or there is an impact to performance
+                such as delivery schedule delay), include, but are not limited to, the following:
+                       (a)   Cyber-incidents as defined in Table 2.
+                       (b) Notifications by a federal, state, or local law enforcement agency or cyber-
+                       center (i.e., National Cyber Investigative Joint Task Force (NCIJTF), National
+                       Cybersecurity & Communications Integration Center (NCCIC)) of being a victim of
+                       a successful or unsuccessful cyber-event, anomaly, incident, insider threat, breach,
+                       intrusion, or exfiltration.
+                                                   Table 2.
+Incident Category                                               Description
+Root Level Intrusion             Unauthorized privileged access to an information system (IS).
+                                 Privileged access, often referred to as administrative or root access,
+                                 provides unrestricted access to the IS. This category includes
+                                 unauthorized access to information or unauthorized access to account
+                                 credentials that could be used to perform administrative functions
+                                 (e.g., domain administrator). If the IS is compromised with malicious
+                                 code that provides remote interactive control, it will be reported in this
+                                 category.
+
+
+
+
+                                                        13
+                                                                                          DP3 HHG ToS 2026
+                                                                                               18 Feb 2026
+User Level Intrusion            Unauthorized non-privileged access to an IS. Non-privileged access,
+                                often referred to as user level access, provides restricted access to the
+                                IS based on the privileges granted to the user. This includes
+                                unauthorized access to information or unauthorized access to account
+                                credentials that could be used to perform user functions such as
+                                accessing Web applications, Web portals, or other similar information
+                                resources. If the IS is compromised with malicious code that provides
+                                remote interactive control, it will be reported in this category.
+
+Denial of Service               Denial of Service (Incident)-Activity that denies, degrades, or disrupts
+                                normal functionality of an IS or DoW information network.
+Malicious Logic                 Installation of software designed and/or deployed by adversaries with
+                                malicious intentions for the purpose of gaining access to resources or
+                                information without the consent or knowledge of the user. This only
+                                includes malicious code that does not provide remote interactive
+                                control of the compromised IS. Malicious code that has allowed
+                                interactive access should be categorized as Root or User Level
+                                Intrusion incidents. Interactive active access may include automated
+                                tools that establish an open channel of communications to and/or from
+                                an IS.
+Ransomware                      Malware designed to encrypt files on a device, rendering any files and
+                                the systems that rely on them unusable. Malicious actors then demand
+                                ransom in exchange for decryption. Ransomware actors often target
+                                and threaten to sell or leak exfiltrated data or authentication
+                                information if the ransom is not paid. Ransomware is a reportable
+                                incident that may be associated with multiple incident categories
+                                depending on the attack vector and execution.
+
+
+                  (2) When a cyber-incident occurs, the contractor is required to notify
+                  USTRANSCOM as soon as practical, but no later than 72 hours after discovering a
+                  reportable cyber-incident. The reporting timeline begins when the incident is
+                  discovered or reported to the company, its employees, contractors, or cybersecurity firm
+                  responsible for providing cybersecurity and response for the company. The TSP shall
+                  contact the USTRANSCOM Cyber Operations Center (CyOC) via phone at 618-817-
+                  4222. If the TSP does not immediately reach the CyOC via phone, the contractor shall
+                  send an email notification to transcom.scott.tcj6.mbx.cyoc-dodin-operations@mail.mil.
+             e. Mandatory Reporting Data:
+
+                  (1) I shall work with the USTRANSCOM CyOC through resolution of the incident.
+                      Within 72 hours of becoming aware of a reportable cyber-incident, the TSP shall
+                      provide an initial notification of the incident, even if some details are not yet
+                      available, which includes, but is not limited to, the following information:
+                     (a)   Company Name
+                     (b)   Who will be the POC with contact information
+                     (c)   DPMO/JPPSO POCs (names, telephones, email addresses)
+                     (d)   Overall Assessment –Description of incident, data at risk, mitigations applied
+                                                    14
+                                                                          DP3 HHG ToS 2026
+                                                                               18 Feb 2026
+       (e)   Indicators of compromise
+       (f)   Vector of attack (if known)
+       (g)   Estimated time of attack (if known)
+f. The TSP shall provide a follow-on cyber-incident report to the USTRANSCOM CyOC
+within five calendar days of becoming aware of a reportable cyber-incident, which includes,
+but is not limited to, the following information:
+   (1) TSP unique Commercial and U.S. Government Entity (CAGE) code
+   (2) TSP SCAC
+   (3) Bill of Lading numbers implicated
+   (4) Facility CAGE code where the incident occurred if different than the prime TSP
+       location
+   (5) POC is different than the POC recorded in the System for Award Management
+       (name, address, position, telephone, email)
+   (6) DPMO/JPPSO POC (name, telephone, email)
+   (7) Contract clearance level (should be unclassified)
+   (8) DoW programs, platforms, systems, or information involved
+   (9) Location(s) of compromise
+   (10) Date incident discovered
+   (11) Type of compromise (e.g., unauthorized access, inadvertent release, other)
+   (12) Description of technical information compromised
+   (13) Any additional information relevant to the information compromise
+g. In addition to the reporting required by paragraph e and d, when the TSP discovers a
+cyber incident that affects a TSP IT system containing ToS CUI or FCI, or that affects the
+contractor’s ability to perform the requirements of the contract, the Contractor shall:
+
+   (1) Conduct a review for evidence of compromise of CUI/FCI, including, but not
+       limited to, identifying compromised computers, servers, specific data, and user
+       accounts. This review shall also include analyzing covered TSP information
+       system(s) that were part of the cyber incident, as well as other information systems
+       on the TSP’s network(s), that may have been accessed as a result of the incident in
+       order to identify compromised covered defense information, or that affect the TSP’s
+       ability to provide ToS services; and
+
+   (2) Rapidly report cyber incidents to DoW at https://dibnet.dod.mil.
+
+   (3) Cyber incident report. The cyber incident report shall be treated as information
+       created by or for DoW and shall include, at a minimum, the required elements at
+       https://dibnet.dod.mil.
+
+   (4) Medium assurance certificate requirement. To report cyber incidents into DoW
+       Cyber Crime Center (DC3), the TSP or its subcontractor shall have or acquire a
+       DoW-approved medium assurance certificate to report cyber incidents. For
+       information on obtaining a DoW-approved medium assurance certificate, see
+                                        15
+                                                                            DP3 HHG ToS 2026
+                                                                                 18 Feb 2026
+        https://public.cyber.mil/eca/.
+
+h. Malicious software. When the Contractor or subcontractors discover and isolate
+malicious software in connection with a reported cyber incident, submit the malicious
+software to DC3 in accordance with instructions provided by DC3.
+
+i. Media preservation and protection: When a TSP discovers a cyber incident has
+occurred, the TSP shall preserve and protect images of all known affected information
+systems identified in paragraph d.(22).(b) and all relevant monitoring/packet capture data
+(information, data, logs, electronic files and similar information (See NIST Special
+Publication 800-61: Computer Security Incident Handling Guide, (current version)) (for at
+least 90 days from the submission of the cyber incident report to allow DoW to request the
+media or decline interest. This will permit a subsequent forensic analysis so that an
+accurate and complete damage assessment can be accomplished by the U.S. Government.
+
+j.   Incident Reporting Coordination:
+
+     (1) In the event of a cyber-incident, the DoW may conduct an on-site review of network
+         or information systems where FCI/CUI information is resident on or transiting to
+         assist the TSP in evaluating the extent of the incident and to share information in an
+         effort to minimize the impact to both parties. Date and time of on-site visits will be
+         mutually agreed upon by USTRANSCOM and the TSP in advance.
+
+     (2) I agree to allow follow-on actions by the U.S. Government (e.g., USTRANSCOM,
+         Federal Bureau of Investigation, Department of Homeland Security, DC3) to further
+         characterize and evaluate the suspect activity. The TSP acknowledges that damage
+         assessments might be necessary to ascertain an incident methodology and identify
+         systems compromised because of the incident.
+
+     (3) The TSP is not required to maintain an organic forensic capability, but must ensure
+         data is preserved (e.g., remove an affected system, while still powered on, from the
+         network) and all actions documented until forensic analysis can be performed by the
+         U.S. Government or, if the U.S. Government is unable to conduct the forensic
+         analysis, a mutually agreed upon third party (e.g., Federally Funded Research and
+         Development Center (FFRDC), commercial security TSP). Any follow-on actions
+         shall be coordinated with the TSP through the DPMO.
+
+     (4) I agree to indemnify and hold the U.S. Government harmless for following any
+         recommendations to remedy or mitigate the cyber-incident following the actions
+         under d.(22).(j) and d.(22).(j).
+
+k. Confidentiality and Non-Attribution Statement: The U.S. Government may use and
+disclose reported information as authorized by law and will only provide attribution
+information on a need-to-know basis to authorized persons for cybersecurity and related
+purposes (e.g., in support of forensic analysis, incident response, compromise or damage
+assessments, law enforcement, counterintelligence, threat reporting, and trend analysis).
+The U.S. Government may share threat information with other USTRANSCOM industry
+partners without attributing or identifying the affected TSP.
+
+
+
+                                          16
+                                                                                     DP3 HHG ToS 2026
+                                                                                          18 Feb 2026
+
+B. MUTUAL AGREEMENTS AND UNDERSTANDINGS
+
+  1. Service: I will use established, quality commercial practices to provide service
+     in accordance with (IAW) the provisions of this ToS. If requested by the
+     DPMO or DoW quality assurance inspectors, I will provide operating
+     procedures or established company standards as needed. The DPMO will
+     protect proprietary information IAW law and regulation.
+
+  2. Personnel: I will deliver quality moving and storage services to DP3 members. I will
+     service DP3 shipments with a trained, professional workforce that treats Military
+     Service (e.g., U.S. Army, U.S. Navy, U.S. Air Force, U.S. Marine Corps, U.S. Space
+     Force and U.S. Coast Guard) personnel and their families with respect; protects their
+     home and belongings from damage; prioritizes prompt, accurate correspondence; and
+     protects their personal information (e.g., personally identifying information (PII),
+     telephone numbers, addresses, etc.) from inappropriate release.
+
+       a.    I will ensure a background check is conducted, in accordance with
+       industry standards and at my expense, on all personnel whose role involves
+       interacting with a customer.
+
+       b.    I will make employment records available to the DoW upon request, to
+       the extent allowed by law. The DoW has the right to prevent certain
+       employees from performing due to an unfavorable background check;
+       personnel with an unfavorable background will not be permitted to enter a
+       military installation (e.g., fort, post, base, camp, station, etc.) nor are they
+       authorized to service a shipment.
+
+       c.    I will ensure all persons interacting with customers on and off
+       installation meet the specific requirements for local installation access as listed
+       in DoDM 5200.08, Vol 3, Section 4 Physical Security Program (see
+       https://www.esd.whs.mil).
+       d.    I will only use qualified personnel in their assigned duties in the handling
+       of personal property. Company representatives must present a clean, professional
+       appearance.
+
+       e. I will ensure at least one English-speaking representative is always
+       available when performing packing, loading, and delivery services.
+
+       f. I understand smoking (including e-cigarettes) is not allowed in the
+       customer’s residence, or within 50 feet of the personal property.
+
+       g. I will not dispatch personnel to a customer’s residence who appear to
+       be under the influence of alcohol or drugs, or in possession of a firearm. If
+       at any time after dispatching, my personnel become under the influence of
+       alcohol or drugs or are in possession of firearms or drugs or uses abusive
+       language during the handling of a customer’s personal property, I will
+       replace said individual(s) immediately with other qualified personnel.
+
+  3. Through Responsibility:
+
+                                                 17
+                                                                             DP3 HHG ToS 2026
+                                                                                  18 Feb 2026
+a. I understand all shipments tendered to me must be moved under my
+responsibility from origin to destination.
+
+b. I understand that inspection or quality assurance actions are not
+considered proprietary or privileged information and may be disclosed
+publicly to customers and their families and in support of actions against
+an agent or in support of other program interests.
+
+c. I agree that if through my fault, or the fault of my agent, I ship the wrong
+personal property or all or a portion of a shipment is sent to the wrong
+destination, I will be responsible for the return of the erroneous shipment and
+movement of the correct personal property to the customer’s destination at my
+expense. Movement must be expedited when the customer needs the property as
+ordered by the Personal Property Shipping Office (PPSO).
+
+d. I understand I am not liable for movement costs for shipments released in
+error by a DoW contractor, PPSO, owner, or owner’s representative.
+
+e. I understand if I am unable to perform in such a manner as to complete the
+through movement of a shipment in a timely manner, the U.S. Government may
+take possession of the personal property and complete the movement. I
+understand I am liable for all additional costs incurred by the U.S. Government
+in excess to those costs that would have been incurred if I had maintained total
+through movement of the shipment.
+
+f. Double Brokering of any DoW HHG is not permitted. TSPs may not solicit
+drivers with a price for specific loads through broker or load boards unless they
+have already been awarded that freight by a DoW shipper. Double brokering is
+defined as when a TSP assigns a shipment to a carrier who then brokers the
+shipment to another carrier. TSPs awarded DoW HHG shipments are
+responsible for ensuring that its underlying TSP(s) handle and deliver freight
+without the underlying TSP contracting the use of additional TSPs and brokers.
+To ensure subcontractor visibility, the awarded TSP shall record the following
+information in the “General Remarks” block in DPS no later than two (2)
+GBDs after the shipment’s departure from the origin:
+
+   (1) The legal name and US DOT number of the service provider hauling the
+       shipment.
+
+   (2) The shipment’s date of departure from the origin location.
+
+g. TSP is solely responsible for the acts and omissions of any third party or
+outsourcing that the TSP elects to enter into a private contract with. TSPs,
+household goods agents, or other vendors shall be responsible for conducting
+their own due diligence when making private commercial decisions, whether to
+contract commercially, concerning the performance of service under a particular
+bill of lading. TSPs, subcontractors and vendors are required to resolve their
+commercial problems and disputes independently of USTRANSCOM,
+presumably through measures available to entities involved in commercial
+contracting (e.g., mediation, arbitration, recourse to the judicial system,
+collection agencies) Reports: I agree to provide reports to USTRANSCOM
+                                           18
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+     DPMO as required and upon request.
+
+4. Pickup at or Delivery to a Military Terminal:
+
+     a. I understand when I have been notified an entire shipment is available for
+     pickup at a military terminal (air or surface), I must pick up the shipment as
+     soon as possible, but not later than (NLT) one U.S. Government Business Day
+     (GBD) for military air terminals and NLT five GBDs for military water
+     terminals from the date of receipt of notification.
+
+     b. Upon delivery of a shipment to a military air or ocean terminal, I agree to
+     provide the terminal with a memorandum copy of the BL describing the
+     shipment.
+
+5. Use of a DoW-Approved Alternate TSP:
+
+     a. I understand DPMO publishes a list of approved TSPs and a list of TSPs
+     that have been disqualified or revoked. TSPs appearing on the disqualified or
+     revoked lists shall not to be used by other approved TSPs. I understand the
+     use of aforementioned TSPs may result in administrative actions (e.g.,
+     revocation from the DP3 program, non-use, suspension, etc.) against me (see
+     DTR Part IV, Chapter A-405, Quality Assurance, of this regulation). I will
+     monitor the overall service performance of agent representatives providing
+     relocation services at the origin and destination. The quality assurance plan
+     will be in place to reverse trends of substandard performance.
+
+     b. I understand and accept that the performance of an alternate TSP I
+     chose to use will be reflected in my Performance Score.
+
+     c. I understand the use of SIT/NTS or other local agents who are in a
+     non-use status for origin or destination services in any capacity for
+     DoW personal property shipments may result in administrative action.
+
+6. Tracing Shipments: I agree to trace shipments upon request from a PPSO or the
+   customer. I agree to acknowledge such a request and notify the requester of the
+   shipment location within one GBD from the initial request domestically and within
+   72 hours (three GBDs) for international shipments.
+
+7. Storage in Transit (SIT): I understand SIT at origin and/or destination must be
+   in a DoW approved storage facility and may be approved based on the
+   customer’s ability to accept delivery. I will refer to the DTR, Part IV, Chapter
+   A-402, Shipment Management, IT and 400NG for further details. If shipment is
+   placed in “SIT AT ORIGIN” at U.S. Government’s direction, I will notify the
+   customer of placement into SIT to allow the customer to make arrangements at
+   destination. Upon release from SIT at origin, I agree to notify the customer of
+   the new RDD.
+
+8. Weighing Shipments:
+
+     a. I will weigh all shipments IAW the IT and 400NG and enter the shipment
+     weight in Defense Personal Property System (DPS), within four GBDs after
+
+                                              19
+                                                                            DP3 HHG ToS 2026
+                                                                                 18 Feb 2026
+shipment pickup date or prior to the shipment arrival, whichever is earlier, to
+allow the customer or PPSO the opportunity to request a reweight. I will also
+provide the weight tickets to the origin PPSO within seven GBDs after
+shipment pickup.
+
+   (1) Weighing Professional Books, Papers, and Equipment (PBP&E):
+
+       (a) When PBP&E (also known as Military (M-PRO) or Spouse (S-
+           PRO)), are included as part of the shipment, the weight of such
+           articles will be annotated separately on the inventory; weight may
+           be obtained using bathroom, certified platform-type, or warehouse
+           scales.
+
+       (b) In the event scales are not readily available, a constructive weight
+           of seven pounds per cubic foot may be used for PBP&E and the
+           symbol will be inserted by the TSP or agent after the weight to
+           indicate a constructed weight was used.
+
+   (2) Reweighing:
+
+       (a) I agree to reweigh a shipment in accordance with the IT
+           and 400NG.
+
+       (b) Upon request of the PPSO or customer to witness the reweigh, the TSP
+           must provide reweigh date and time to give a reasonable opportunity
+           for the interested parties to be present at the weighing.
+
+       (c) When a shipment is reweighed and the weight recorded is less than
+           the net or gross weight secured at the initial weighing, I agree to
+           update DPS by entering the lesser weight(s) prior to invoicing or
+           within four GBDs of reweighing, whichever is earlier, and to
+           invoice the U.S. Government on the lower of the two net or gross
+           weights. I will also provide the weight tickets to the origin PPSO
+           within seven GBDs after shipment pickup.
+
+       (d) In the event the reweigh is not performed prior to initial invoicing, I
+           will submit a supplemental invoice to refund any reduced charges
+           based upon the new weight obtained.
+
+       (e) I will reweigh all international shipments IAW IT Item 505 at
+           destination to enable witnessed reweighs. Note: Some OTO
+           locations don’t have certified scales; therefore, exceptions may
+           apply.
+
+   (3) Lost Certified Weight Tickets:
+
+       (a) When certified weight tickets are lost and otherwise unobtainable,
+           I must request prior approval from the PPSO to utilize a
+           constructed weight to be paid for services rendered.
+
+       (b) Any request for payment based on a constructed weight must be in
+
+                                         20
+                                                                                    DP3 HHG ToS 2026
+                                                                                         18 Feb 2026
+                 writing and contain a detailed description with all related
+                 documentation of the circumstances surrounding the loss of the
+                 weight tickets, to include all efforts to obtain certified true copies.
+
+             (c) The TSP is required to submit a legible inventory, signed by the
+                 customer or designated representative of all items packed and
+                 transported at U.S. Government’s expense. Upon PPSO approval,
+                 TSP must use the Weight Estimator (located at
+                 https://www.ustranscom.mil/dp3/weightestimator.cfm, download
+                 Weight Estimator) to obtain the cubed weight for items. For all
+                 items not covered in the Weight Estimator, the cube will be
+                 converted to a weight basis using seven pounds per cubic foot
+                 including PBP&E.
+
+9. Removal of Property from Facilities Disqualified by DPMO: When the
+   approval of my facilities or the SIT warehouse is rescinded by the DPMO from
+   further use, and it is considered necessary by the PPSO to remove the personal
+   property to prevent damage or contamination, I will immediately move the
+   property to another DoW- approved warehouse. The costs of such removal
+   will be at no expense to the U.S. Government or the customer.
+
+10. Loss or Damage:
+
+     a. I will exercise care to prevent loss or damage of personal property in the
+     process of packing and unpacking and will protect personal property in my
+     possession.
+
+     b. I agree to follow all provisions outlined in the DP3 Claims and Liability
+     Business Rules. The responsible TSP will submit a written “After Action”
+     Report (AAR) within ten GBDs to the DPMO for all unusual occurrence
+     shipments which includes the BL number, the customer’s name, the root cause
+     of the unusual occurrence and efforts the TSP is taking to resolve. Once all
+     mitigation efforts are complete, the TSP responsible will submit a written report
+     of all known facts and events in chronological order.
+
+     c. If a claim is not settled within the 60-day period, I will, at that time and at
+     the expiration of each succeeding 30-day period while the claim remains
+     pending, advise the claimant in writing the status of the claim and the reasons
+     for delay in making final disposition.
+
+     d. I will ensure the DPS is updated with final action taken, including
+     date and total amount of the settlement.
+
+     e. I acknowledge that I am responsible for real property damage. Prior to a pack-
+     out/delivery, I will install floor coverings in high traffic areas of interior areas (finished)
+     living spaces (e.g., floor coverings for entry and interior hallways). In addition, I will
+     protect doorways in high traffic areas (e.g., entry doorways, etc.) prior to a pack-
+     out/delivery. Upon arrival and before departure from residence, I will conduct a joint
+     inspection (walk-around) with the customer and report real property condition and note
+     any damages (interior and exterior) in writing to the member on the "DP3 Real Property
+     Damage Form" located at
+                                                21
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+     https://www.ustranscom.mil/dp3/docs/otherpdfs/0300+2021_Business_Rules/Real%20Pr
+     o perty%20Damage%20Form%201%20Feb%202021.pdf. I will advise the customer to
+     notify the responsible TSP within seven calendar days of the damage occurring during
+     the pack-out/pickup/delivery regardless of whether the damage was reported on the
+     form. My seven calendar day notification starts on the first day after the pickup/delivery
+     dates. My failure to provide a point of contact for real property damage negates the
+     seven calendar day period. I must arrange for a repair firm to inspect real property
+     damage within 15 calendar days of notification by the customer. Customers must
+     request a claim and seek recovery or restitution directly from the TSP responsible. The
+     TSP must allow the customer to file a claim for any damages to real property with the
+     TSP. I must provide the "DP3 Real Property Damage Form" to the customer at
+     pack-out/pickup/delivery.
+
+11. Inconvenience Claim (IC):
+
+     a. I hereby reaffirm it is my responsibility to pick up on the agreed date and deliver
+        shipments on or before the Required Delivery Date (RDD) as reflected on the
+        BL, (i.e., to include short fuse shipments) and to meet the agreed upon delivery
+        date out of SIT. When I am unable to meet these requirements, I must advise the
+        customer on IC rules prior to the missed pickup, RDD or agreed upon delivery
+        out of SIT as listed below. I will advise the customer they must file a claim with
+        my company for payment and will outline the process for doing so.
+
+
+     b. I understand the IC process provides a simplified method for customer to
+        account for inconveniences associated with my inability to meet agreed and/or
+        required dates. I understand the IC is intended to offset expenses incurred by a
+        customer and their dependents because they are not able to use necessary items
+        in their shipment to establish their household. The per diem provides my
+        company a method to calculate a baseline amount for IC payment by location
+        for the customer. I understand that customers who are not able to use necessary
+        items in their shipment to establish their household may incur personal
+        expenses beyond the baseline amount and I will review and consider those
+        claims in accordance with the guidance in B.11.g.
+
+     c. I agree to acknowledge an IC from a customer or a PPSO within five GBDs from the
+        date of contact.
+
+     d. Reimbursement:
+
+         (1) I agree to reimburse the customer for inconvenience within 30 days of receipt of
+             an IC. I will compensate the customer for all days that result from my failure to
+             pick up on the agreed dates and/or deliver on or before the RDD as stated on the
+             BL or correction notice thereof, when the member is available for delivery. I
+             agree the inconvenience claim will be computed beginning the day after the
+             agreed upon date or missed RDD as specified on the BL and ending the day that
+             the shipment is actually delivered. The actual day of delivery will be included in
+             the inconvenience claim period.
+
+        (2) I shall pay the customer a daily amount based on the U.S. Government meal and
+            incidental expense (M&IE) per diem rate (excluding lodging) at the applicable
+                                              22
+                                                                          DP3 HHG ToS 2026
+                                                                               18 Feb 2026
+       pickup or delivery location for the customer and all dependents traveling with
+       the customer on approved, funded relocation orders. Daily per diem rates can be
+       found at (https://www.defensetravel.dod.mil/site/perdiemCalc.cfm).
+
+       (a) For customers, the payment is calculated as the full M&IE per diem rate for
+           the number of days at the affected location.
+
+       (b) For each dependent traveling to the new location on approved, funded
+           relocation orders, per diem is calculated at 75 percent of the full M&IE per
+           diem rate for the number of days at the affected location.
+
+       (c) Dependents traveling with the customer on approved, funded relocation
+           orders will be verified by the customer on the Inconvenience Claim Form.
+
+       (d) Calculated Daily Per Diem Example:
+
+         Customer receives 100% of daily M&IE per diem rate; spouse and one child
+         75% of daily M&IE per diem rate.
+
+            Location: Mesa, Arizona for one day, 27 February 2025
+
+            Service Member: $81.00 (Meals) + $5.00 (Incidentals) = $86.00 (ME&I)
+
+            Spouse and Dependents daily per diem at 75%: $86.00 * 75% = $64.50 * 2
+            = $129.00
+
+            Total Per Diem Payable = $86.00 + $129.00 = $215.00
+
+e. Unaccompanied Baggage (UB): ICs for UB shipments will be solely based on
+   actual expenses incurred and will follow the processes outlined in para
+   B.11.f.
+
+f. SIT: I am responsible for an IC payment when a shipment goes into SIT if I fail to
+   make two documented unsuccessful attempts to contact the customer that are made
+   six hours apart. Customers are authorized an IC between the date placed into SIT and
+   the first available delivery date (FADD) out of SIT.
+
+   (1) I am responsible for an IC payment in the event I do not meet an RDD, and
+       customer is not able to receive the shipment, due to good cause (i.e.,
+       hospitalization, training, etc.), on FADD provided by myself. Customers are
+       authorized an IC between the RDD and the FADD. However, the request must
+       be accompanied by proper documentation substantiating the claim (i.e., doctor’s
+       evaluation, orders, etc.).
+
+   (2) I am responsible for an IC payment when a shipment is placed into SIT and I
+       am unable to deliver the shipment out of SIT within the following dates
+       whichever is later:
+
+       (a) Within seven GBDs of the date the customer makes first
+           contact requesting delivery or
+
+       (b) Within two GBDs of the requested delivery date when the requested
+                                      23
+                                                                           DP3 HHG ToS 2026
+                                                                                18 Feb 2026
+           date exceeds seven GBDs from when the customer makes first contact
+           requesting delivery.
+
+       (c) Compensation is calculated using the methodology described in
+           B.11.d.(2) -B.11.d.(4) above.
+
+g. Miscellaneous Expenses: The following guidelines apply to 1) UB
+   shipments and 2) instances where a customer claims miscellaneous
+   expenses for personal expenses.
+
+   (1) Miscellaneous expenses are personal expenses incurred by a customer
+       and their dependents because they are not able to use necessary items in
+       their shipment to establish their household. Expenses that are considered
+       for reimbursement when establishing a household include but are not
+       limited to furniture and/or appliance rental (to include rental of a
+       television).
+
+   (2) Miscellaneous expenses include special medical equipment unavailable
+       due to shipment delay for qualified customer and accompanying
+       dependents covered under the Exceptional Family Member Program
+       (EFMP) or other special medical requirements.
+
+   (3) Miscellaneous expenses will include costs incurred by the customer
+       above and beyond their Basic Allowance for Housing (BAH) due to
+       unexpected lease extensions of rental property at origin due to missed
+       pickup at origin.
+
+   (4) Groceries are not eligible for reimbursement. Lodging and individual
+       meals are normally not part of an IC but the U.S. Government
+       recognizes there may be unique circumstances that would require
+       consideration. I may consider exceptions (e.g., limited lodging and
+       meals required due to unexpected inability to deliver) on a case-by-case
+       basis. I must make customers aware that in instances where lodging or
+       individual meals are approved it should be reasonable and usually will
+       only be reimbursed for a short duration.
+
+   (5) Customers are required to document any miscellaneous expense claim
+       fully on the Inconvenience Claim Form with an itemized list of charges
+       and accompanying receipts for expenses incurred.
+
+   (6) A request for reimbursement of alcoholic beverages is prohibited.
+
+h. Disputed claim: I will make every effort to resolve any disputes with the customer. In
+   the event I am unable to resolve the dispute, I will contact the origin PPSO (for missed
+   pickup) or destination PPSO (for delivery) for resolution. Should I disagree with the
+   PPSO resolution, I may appeal the case to DPMO within 10 calendar days of
+   notification from the responsible PPSO. Should I decide to appeal to DPMO, I will
+   provide the date of my appeal to the responsible PPSO. I understand the decision of
+   DPMO is final and the claim must be settled within 10 days from the date of the final
+   decision. Appeals will be sent to transcom.scott.tcj9.mbx.pp- claims@mail.mil.
+   Reference para B.11.g. for details on expenses beyond the per diem amount.
+                                        24
+                                                                           DP3 HHG ToS 2026
+                                                                                18 Feb 2026
+i. I understand that I am not liable for an IC payment if:
+
+   (1) A delay was solely caused by natural disasters; acts of the public enemy; acts of
+       the U.S. Government; acts of the public authority; violent strikes; mob
+       interference; or delays of Code J or Code T shipments that were caused by the
+       U.S. Government and my negligence did not contribute to the delay.
+
+   (2) The customer, or their designated representative, are not available for
+       delivery (e.g., customer has not taken possession of their residence) on
+       TSPs FADD, as long as the FADD is before RDD.
+
+   (3) The delayed shipment is comprised entirely of alcohol.
+
+   (4) The shipment went into SIT except as identified in B.11.f. above.
+
+   (5) The shipment is turned back due to the discovery of mold or infestation at
+       time of pickup (except once mitigation is complete or if there is a negative
+       finding in the event of suspected mold and new pickup and RDD is
+       established)
+
+   (6) In the event of a catastrophic loss or in the event of requirement for
+       mold remediation, IC liability will terminate 15 days after payment is
+       received for essential items IAW Claims and Liability Business Rules.
+
+j. Report:
+
+   (1) I will provide a monthly report, (twice a month between 15 June through 31
+       October due on the 1st and 15th of each month, or first business day thereafter),
+       to USTRANSCOM Defense Personal Property Management Office detailing all
+       filed ICs (including completed payments), by BL, to
+       transcom.scott.tcj9.mbx.pp- ops@mail.mil.
+
+   (2) I understand I must report on all shipments with missed pickups, late
+       deliveries, or otherwise exceeding the allowed delivery timeframes out of
+       SIT.
+
+k. Turned Back Shipments:
+
+   (1) In the event I turn back a shipment within 14 calendar days of the pickup date, I
+       agree to reimburse the customer for miscellaneous expenses per para. B.11.g. if
+       PPSO is unable to rebook shipment with the original pickup dates and the dates
+       must be adjusted past the original pickup date request.
+
+   (2) In the event a turned back shipment or any other failure to service a
+       shipment, results in the Military Services reimbursing the customer for an
+       Actual Cost Reimbursement Personally Procured Move, I may be held
+       responsible to reimburse the U.S. Government for costs above the U.S.
+       Government constructed costs that exceeds the TSP’s rates on shipment.
+
+l. Missed RDD when customer was not available on a specific date due to mission impact:
+
+   (1) I am responsible for an IC in the event the customer was available for delivery on
+                                         25
+                                                                                 DP3 HHG ToS 2026
+                                                                                      18 Feb 2026
+             the missed RDD and were subsequently unavailable for delivery on the FADD,
+             due to good cause. Good Cause is defined as a short notice mission/exercise,
+             hospitalization, or convalescent leave of the customer on the specific date
+             shipment was offered and placed in SIT after a “Missed RDD.”
+
+         (2) I understand the customer can be negatively impacted due to legitimate
+             circumstances beyond their control. In the instances defined above, an IC is
+             authorized for payment for the time period between the missed RDD and the event
+             that triggered the good cause.
+
+         (3) A statement of non-availability to accept delivery on TSP’s FADD due to
+             good cause is required to support an IC submission. The non-availability
+             statement is incorporated into the DP3 Shipment IC Form available on the
+             internet at https://www.ustranscom.mil/dp3/pdfs.cfm posted under 2026
+             Business Rules.
+
+
+
+12. Statement of Accessorial Services Performed:
+
+     a. My representative will prepare a DD Form 619, Statement of
+        Accessorial Services Performed, Figure B-1, itemizing accessorial
+        services performed and will obtain the signature of the customer or their
+        representative to support services performed.
+
+     b.Any third-party service performed must include a paid invoice supporting
+       the type of service performed.
+
+     c. All accessorial services are requested and pre-approved by the PPSO in DPS
+        before service is rendered.
+
+13. Shipment Inspection by PPSOs: My services and manner of handling personal property are
+    subject to inspection and acceptance by the PPSO or PPSO’s authorized representative.
+
+14. Billing Procedures: For services rendered, I agree to bill the Military Service or Agency finance
+    office responsible for payment of the transportation charges IAW procedures disseminated by
+    DPMO or other Services.
+
+15. International Shipments:
+
+     a. For ocean shipments, I understand, that I must use a vessel of the
+        United States, i.e., U.S. -Flag vessel, unless such a vessel is
+        unavailable. I must request to use such a foreign flag vessel prior to use
+        in accordance the Cargo Preference Act, 10 U.S.C. § 2631 as outlined
+        in the International Tender.
+
+     b. Likewise, I must use a U.S. Flag aircraft IAW the Fly America Act
+        and will seek approval prior to using a foreign flag aircraft as
+        outlined in the International Tender. Definitions. As used in this
+        subparagraph-
+
+         (1) "International air transportation" means transportation by air
+                                                26
+                                                                                    DP3 HHG ToS 2026
+                                                                                         18 Feb 2026
+             between a place in the United States and a place outside the
+             United States or between two places both of which are outside the
+             United States.
+
+         (2) United States means the 50 States, the District of Columbia, and
+             outlying areas. "U.S.-flag air carrier" means an air carrier holding a
+             certificate under 49 U.S.C. Chapter 411.
+
+     c. TSPs and their associated port agents, overseas general agents, and/or other
+        responsible parties must ensure that the customer’s Social Security Number
+        (SSN), the customer’s rank/grade, the words “DoW Personal Property,
+        DoW Shipment or Military Shipment,” or the BL number is not utilized
+        (entered) in the “Marks and Numbers,” “Description of Goods,” or any
+        other fields in the Automated Manifest System (AMS) or the Automated
+        Commercial Environment (ACE). This ensures compliance with Homeland
+        Security Customs and Border Protection guidance for safeguarding
+        Personally Identifiable Information (PII). I understand that my failure to do
+        so is a violation of the ToS.
+
+16. Unusual Occurrences: In the event of incidents of major significance
+    producing significant loss, damage or delay resulting from strikes, port
+    congestion, fires, pilferage, vandalism, and similar incidents, I will notify the
+    origin and destination PPSO, the responsible Military Services Headquarters
+    and the DPMO IAW DTR Part IV, Chapter A-410 using the DP3 Unusual
+    Occurrence Notification Form, Figure B-4.
+
+17. Third-Party Declaration:
+
+     a. I will accurately disclose official(s) and third-party representative(s) within
+        five days of implementation or change in the DPS Qualifications module.
+
+     b. At a minimum, I will identify a Claims Manager, Move Management
+        Company (MMC) (servicing all or part of the SCAC, if applicable), and a
+        Trusted Agent (who is expected to be very familiar with DoW processes and
+        readily accessible to USTRANSCOM) in DPS. MMCs are those that provide
+        customer service; coordinate operational functions; or shipment management
+        support, to include a centralized corporate entity and are only permitted in the
+        domestic program.
+
+18. Force Protection:
+
+     a. TSPs who are allocated a Safety Move will see the “SM” indicator in the short
+        fuse queue and in shipment documentation under the Defense Personal
+        Property System (DPS) TSP master and TSP operation managers user roles.
+        TSPs with Safety Move shippers must ensure they only communicate with the
+        person listed in DPS and with the contact information in DPS. TSPs must
+        ensure that both origin and destination information is NOT shared outside of
+        the victim who is the person listed in DPS (who may not be the customer).
+        TSPs should contact their local PPPO/JPPSO and ask for a U.S. Government
+        user with elevated Safety Move privileges if they have any questions.
+
+                                                27
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+     b. I am responsible for complying during pandemics with appropriate City, State, and
+        Federal laws/guidance during personal property movements from origin to destination.
+        When a pandemic exists, I am to immediately notify the responsible J/PPSO/PPPO of
+        the customer and all affected stakeholders of pandemic- related positive test results to
+        alert potential exposure, mitigate the spread, and identify the possible need for medical
+        attention. I will comply with DoW and CDC policy guidance. In the event of a
+        pandemic, if I become aware of an employee(s) or company representative who tests
+        positive for a communicable disease at any time, I will immediately notify
+        USTRANSCOM and the Military Service Headquarters by phone and email using the
+        below POCs:
+
+        (1) USTRANSCOM: TCJ9-OH Operations & Quality Team at
+            transcom.scott.tcj9.mbx.pp-ops@mail.mil or Commercial: (618) 220-
+            5479/5448 or DSN 770-5479/5448
+
+        (2) HQ Army: usarmy.ria.asc.spo-personal-property@mail.mil;
+            usarmy.belvoir.asc.mbx.jppsoma-apple@mail.mil; 1-800-762-
+            7186
+
+        (3) HQ Navy: NAVSUPHQHHGS.fct@navy.mil
+
+        (4) HQ Marine Corps: usmcpersonalproperty@usmc.mil; Commercial telephone:
+            703- 695-7765, DSN: 225-7765, Commercial telephone: 703-483-0820
+
+        (5) HQ Air Force: ppahq.ppec.dod_personnelservice@us.af.mil; Commercial
+            telephone: 210- 652-3357, DSN: 487-3357
+
+        (6) HQ Coast Guard: smb-comdt-traveltransportationpolicy@uscg.mil;
+            Commercial telephone: 206-815-0555
+
+     c. I am required to review information on reporting confirmed cases of
+        pandemics by Health Departments.
+
+19. Customer Satisfaction Survey (CSS) Language Prohibition:
+
+     a. I understand that under no circumstance will I survey customers other than
+        reminding them about the DoW CSS. This includes verbal, print material,
+        electronic material, or social media.
+
+     b. I will not offer monetary gifts nor incentives to customers or other entities for
+        completion of a survey. Neither will I manipulate or coerce a customer to complete
+        a CSS in return for any claims related action. Claims actions must not be contingent
+        on completion of a CSS.
+
+     c. I understand that I am not authorized to transfer a customer to the Help
+        Desk for the purpose of completing the CSS.
+
+     d. I understand that instances of such conduct will be construed as an unethical
+        act and may result in administrative action.
+
+     e. I should engage customers at each stage of the move to ensure a quality move. Nothing
+        in this paragraph should be construed as limiting my ability to properly engage the
+                                             28
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+         customer and perform effective shipment management.
+
+20. Origin Servicing Agent Representation:
+
+     a. I agree to enter the name and telephone number of a valid servicing agent at origin in
+        DPS within 15 calendar days of shipment acceptance or NLT seven calendar days
+        prior to pick up, whichever is sooner. If the shipment is awarded as a short fuse, I will
+        update the origin servicing agent information within one (1) GBD. Entering name and
+        telephone number of an MMC as servicing agent is not acceptable.
+
+     b. I must update this information to reflect the origin representative who will
+        service the shipment prior to performing the pre-move survey.
+
+21. Move Management Company’s Performance:
+
+     a. I understand I must identify my MMC in DPS.
+
+     b. Repetitive violations committed by a MMC are subject to administrative actions
+        against individual TSPs.
+
+22. Foreign Vendor Suitability:
+
+     a. If participating in the international markets, I shall submit a submit a semi-annual report
+        to transcom.scott.tcj9.mbx.pp-quality@mail.mil containing each foreign service
+        provider, including any foreign reporting company in accordance with 31 U.S.C. §
+        5336(a)(11 )(A)(ii), operating as a separate legal entity, operating on behalf of the TSP.
+        This includes the foreign service provider’s commonly owned legal affiliate (if
+        applicable) that has employees who may have physical contact with U.S. Government
+        shipments or access to U.S. Government systems or information in the ordinary course
+        of contract performance. Foreign service providers within scope include, but are not
+        limited to, those that perform packing/unpacking, transportation by sea, linehaul, and
+        storage services. The initial report is due annually on 31 March and a subsequent report
+        six months later on 30 September.
+
+     b. The report must be submitted in Microsoft Excel workbook or a similar spreadsheet
+         program and include the following information. An associated template is provided at
+         Figure B-5, Foreign Vendor Report.
+
+         (1) Legal Company Name (in native language if known)
+
+         (2) Complete Address including Country
+
+         (3) Name, phone number and e-mail address of at least one point of contact at the
+             company
+
+         (4) Any Previous or Alternate Company Names
+
+         (5) Fax number
+
+         (6) Website URL
+
+         (7) International Civil Aviation Organization (ICAO) or International Maritime
+                                              29
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+            Organization (IMO) or national/international equivalent designator (if applicable)
+
+        (8) Owner(s)/Director(s) name(s) and e-mail address(es)
+
+        (9) Manager(s) name(s) and e-mail address(es)
+
+        (10) Frequency of use during reporting period
+
+     c. For foreign service providers that fall within the scope of the reporting requirement, I
+        shall provide a copy of business licenses required for the foreign service provider to
+        legally operate in that country.
+
+     d. I am responsible for appropriately marking sensitive information as proprietary/trade
+        secret. The U.S. Government will handle proprietary/trade secret information within
+        the applicable statutes, rules, and regulations regarding the handling and release of such
+        information.
+
+     e. Prior to rate filing and periodically throughout the rate year, DPMO shall make
+        available to me the name of active or potential foreign service providers determined to
+        be unsuitable. I shall not allow named entities to perform any role in performance of
+        DP3. If I choose to terminate the unsuitable foreign service provider, the U.S.
+        Government shall not be liable for any costs incurred by me in establishing or
+        terminating use of the unsuitable foreign service provider. I may choose not to
+        terminate the unsuitable foreign service provider for use in its commercial business.
+
+     f. An unsuitable determination does not preclude me from nominating an unsuitable entity
+        for reconsideration. I am encouraged to provide DPMO with additional information
+        that may affect the foreign service provider's suitability. Any entity listed in the U.S.
+        U.S. Government Consolidated Screening List
+        (http://export.gov/ecr/eg_main_023148.asp) will not be reconsidered.
+
+     g. Except as authorized by the Office of Foreign Assets Control (OFAC) in the
+        Department of the Treasury, I must not acquire any supplies or services if any
+        proclamation, Executive Order, or statue administered by OFAC, or if OFAC’s
+        implementing regulations at 31 Code of Federal Regulation (CFR) Chapter V, would
+        prohibit such a transaction by a person subject to the jurisdiction of the United States.
+        Most transactions involving Cuba, Iran, North Korea, and Syria are prohibited, as are
+        most imports from Russia, Belarus, Burma, Sudan, and the illegally annexed regions of
+        Donetsk, Luhansk, and Crimea in Ukraine into the United States or its outlying areas.
+        Lists of entities and individuals subject to economic sanctions are included in OFAC’s
+        List of Specially Designated Nationals and Blocked Persons. More information about
+        these restrictions, as well as updates, is available in OFAC’s regulations at 31 CFR
+        Chapter V and/or on OFAC’s website at https://ofac.treasury.gov/sanctions-programs-
+        and-country-information. Specific questions about restrictions should be made to the
+        Department of the Treasury Office of Foreign Assets Control, Washington, DC 20220
+        (Telephone (202) 622-2490).
+
+23. Protecting the U.S. Government’s Interest When Subcontracting with Contractors Debarred,
+    Suspended, Proposed for Debarment, or Voluntarily Excluded:
+
+     a. The U.S. Government suspends or debars or otherwise excludes TSPs to protect
+                                              30
+                                                                                    DP3 HHG ToS 2026
+                                                                                         18 Feb 2026
+         the U.S. Government’s interests. Other than a subcontract for a commercially
+         available off-the-shelf item, i.e., an item of supply, not a service, I shall not enter
+         into any subcontract with an entity that is debarred, suspended, excluded or
+         proposed for suspension, debarment or exclusion by any executive agency unless
+         there is a compelling reason to do so. Regardless, I may not contract with any
+         foreign entities that have been excluded under the authority of the Fiscal Year
+         2015 National Defense Authorization Act (Pub. L. 113-291) §§ 841-843, as
+         amended.
+
+     b. With the exception of subcontractors who provide only commercially available
+        off-the-shelf items, I shall require each proposed subcontractor to disclose to me,
+        in writing, whether the subcontractor, or its principals, is or is not debarred,
+        suspended, or otherwise excluded or proposed for debarment, suspension,
+        exclusion or voluntarily excluded, by the Federal U.S. Government as of the time
+        of award of the subcontract. I shall verify this disclosure by checking the list of
+        prohibited/restricted sources in the System for Award Management (SAM) at
+        http://www.sam.gov/
+
+     c. I shall notify the DPMO, in writing, at transcom.scott.tcj9.mbx.pp-
+        quality@mail.mil before entering into a subcontract with a party (other than a
+        subcontractor providing a commercially available off-the-shelf item) that is
+        debarred, suspended, excluded or proposed for debarment, suspension, exclusion
+        or voluntarily exclusion. The notice must include the following:
+
+         (1) The name of the subcontractor.
+
+         (2) My knowledge of the reasons for the subcontractor being listed with an
+             exclusion in SAM.
+
+         (3) The compelling reason(s) for doing business with the subcontractor
+             notwithstanding its being listed with an exclusion in SAM.
+
+         (4) The systems and procedures I have established to ensure that they are fully
+             protecting the U.S. Government's interests when dealing with such
+             subcontractor in view of the specific basis for the party’s debarment,
+             suspension, exclusion, or proposed debarment, suspension, exclusion or
+             voluntary exclusion.
+
+24. Access to Contractor and Subcontractor Records:
+
+     a. In addition to any other existing examination-of-records authority, the U.S.
+        Government is authorized to examine any records of the Contractor and its
+        subcontractors to the extent necessary to support the program established under
+        FY 2015 NDAA, § 841.
+
+     b. Subcontracts. The access to record requirements, including this paragraph (b), is
+        required to be included in subcontracts, including subcontracts for commercial
+        products and commercial services, that will be performed outside the United
+        States and its outlying areas.
+
+     c. LIMITATION: The examination authorized under subsection (a) may only take
+                                                31
+                                                                                   DP3 HHG ToS 2026
+                                                                                        18 Feb 2026
+           place after a written determination is made by the DPMO, based on a finding
+           from the combatant commander, stating that this examination will support the
+           program established under such section 841 and that less intrusive measures are
+           not reasonably available to manage the risk.
+
+
+
+C. PERFORMANCE REQUIREMENTS
+
+  1. Pickup and Delivery Dates:
+
+        a. When a shipment is accepted at origin, I agree to meet the specified
+           pickup date and will deliver the shipment on or before the RDD as stated
+           on the BL.
+
+        b. Shipments will not be scheduled by PPSO or me for pickup or delivery
+           on Saturdays, Sundays, U.S. holidays, or foreign national holidays unless
+           there is a mutual agreement between the customer, PPSO, and the TSP.
+
+        c. I will ensure my offices are staffed at all times with personnel reasonably
+           available to respond to U.S. Government or customer inquiries during
+           normal working hours of 0800-1700.
+
+        d. I will maintain a customer support capability for issues pertaining to a customer’s
+           move from 0800-1700 Monday – Saturday from 15 May through 31 October,
+           except U.S. holidays, or foreign national holidays. Customer support hours will
+           be based on the customer’s location/time zone. I will ensure that the customer or
+           U.S. Government receives a response to a voicemail or call within the same
+           business day and that wait times do not exceed 20 minutes.
+
+        e. I agree to assign, during initial communication with each customer, a single point
+           of contact (POC) responsible for coordination and communication throughout all
+           phases of the move. The POC’s contact information will be maintained throughout
+           the entire shipment process and until all associated actions are final.
+
+        f. For ease of understanding all TSP documentation and communications with the
+           customer must reflect the clear name of the TSP on the BL in addition to the
+           MMC information.
+
+        g. I will not begin pickup or delivery at the customer’s residence before 0800 hours
+           or after 1700 hours without prior approval of the customer.
+
+        h. I agree to provide information on the afternoon preceding the scheduled pack,
+           pickup or delivery dates as to whether the service will be performed in the morning
+           (0800 to 1200) or in the afternoon (1200 to 1700) of the following day.
+
+        i. I further agree I must not begin any service that will not allow completion by 2100 hours
+           without prior approval of the customer.
+
+  2.   Pre-Move Survey:
+
+        a. I agree to perform pre-move survey on all shipments, either in residence, virtually
+                                               32
+                                                                                  DP3 HHG ToS 2026
+                                                                                       18 Feb 2026
+          (with customer’s consent, e.g., email or software consent), or telephonically.
+
+      b. I will conduct a pre-move survey (electronic, telephonically, or physical) and provide
+         the U.S. Government and customer weight estimates on all shipments five GBD from
+         accepting shipment but NLT nine days prior to the first scheduled pack/pickup date,
+         whichever is later. For shipments ordered less than nine days prior to first scheduled
+         pack/pickup date, weight estimates must be provided NLT three days prior to first
+         scheduled pack/pickup date. For shipments ordered less than three days prior to the
+         first scheduled pack/pickup date, weight estimates must be provided NLT one day
+         prior to first scheduled pack/pickup date. Weight estimates must be accurate within
+         10% of actual shipment net weight. Failure to provide accurate weight estimates
+         within 10% of actual shipment net weight may result in administrative action.
+
+      c. I agree to make initial contact with the customer within three GBDs of shipment
+         award date to provide the customer with contact and pre-move information, including
+         on shipments originating from non-temporary storage (NTS).
+
+      d. Subject to the customer’s availability, I agree to complete the pre-move survey and
+         update DPS with pre-move survey data (estimated weight, agreed upon pack/pickup
+         dates, and delivery date information) as soon as possible but NLT three GBDs prior
+         to the pickup date (NLT one GBD prior for short fuse shipments).
+
+      e. I agree to contact local quality assurance immediately upon discovering any
+         concerns with the condition of the customer’s residence during the pre-move
+         survey.
+
+3.   Shipment Arrival/Delivery/Delays:
+
+      a. I agree to remain in contact with the customer to ascertain if delivery is possible and
+         upon arrival at destination, I agree to record the arrival and/or delivery in DPS and
+         to notify and coordinate delivery of the HHG with the customer. If I am unable to
+         contact the customer during the allowable time as outlined in the applicable 400NG
+         and/or IT, or in the event the delivery cannot be accomplished, I agree to submit a
+         request for storage approval in DPS.
+
+      b. I agree that I will notify the customer by phone or email of the shipment’s in-transit
+         visibility information upon the arrival or departure of the property from any in-transit
+         facility, storage facility, port of embarkation, port of debarkation or change in
+         estimated arrival. This notification will include the status, location and updated
+         estimated date of arrival at destination. This notification is annotated in DPS remarks
+         and occur within three GBD of pickup or within one GBD of any change in
+         estimated arrival at destination.
+
+      c. 24-hour Notification: I will provide customer at least 24-hour notice, via email or
+          telephonically, for delivery. I cannot deliver a customer’s personal property to SIT
+          unless two documented unsuccessful attempts to contact the customer are made six
+          hours apart. If first attempt to contact the customer is unsuccessful, I agree to make
+          the final attempt telephonically. I must ensure all dates are correct and updates made
+          in system within 24 hours.
+
+      d. I will provide the customer at least 24-hour notice prior to or after shipment
+                                               33
+                                                                            DP3 HHG ToS 2026
+                                                                                 18 Feb 2026
+     arrival at destination.
+
+e. Loose Load Shipments: Prior to arrival at destination, I must provide the FADD,
+   contact information (phone number(s), email(s), hours of operation), and inform the
+   customer they have 24 hours from the “first" notification to respond. After each
+   notification, I will immediately update DPS Shipment Management Remarks. If the
+   customer is available for delivery, I will immediately update DPS with the scheduled
+   delivery date. Once I have confirmed with the customer, they are not available to
+   accept delivery or if the 24 hours has expired and the shipment is at destination, I may
+   submit a request for SIT approval in DPS for the FADD.
+
+     NOTE: In the event a scheduled delivery date is confirmed I will arrive the shipment in
+           DPS and enter the scheduled delivery date regardless of shipment location.
+
+f.   Containerized Shipments: Upon arrival at destination, I must arrive shipment in
+     DPS, then contact the customer within 24 hours and provide the FADD, contact
+     information (phone number(s), email(s), hours of operation), and inform the
+     customer they have 24 hours from the “first" notification to respond. After each
+     notification, I will immediately update DPS Shipment Management Remarks. If the
+     customer is available for delivery, I will immediately update DPS with the scheduled
+     delivery date. If I document confirmation with the customer that they are not
+     available to accept delivery or if the 24 hours has expired, I may submit a request for
+     SIT approval in DPS for the FADD.
+
+g. SIT cannot start on weekends and/or holidays.
+
+h. If PPSO determines the TSP did not provide at least 24 hour notice to the customer
+   before placing shipment in SIT, PPSO will deny the SIT and delivery out charges.
+
+i.   When I know for any reason, it will be impossible for me to meet the scheduled
+     pickup date or to have the shipment at destination on or before the RDD, I agree to
+     notify the customer at the earliest practicable time, advising them of the new pickup
+     date or the estimated arrival date and IC guidance. In addition, I agree to update
+     DPS with the following prior to the missed pickup date and/or before expiration of
+     the RDD:
+
+     (1) New scheduled pickup date
+
+     (2) For missed RDDs
+
+     (3) Last known location of the shipment
+
+     (4) Cause for delay and new ETA
+
+j.   Pickup Spread Dates: For scheduling of personal property shipments, I understand the
+     U.S. Government authorizes the use of spread dates, consisting of seven consecutive
+     calendar days beginning with the first date of the spread for standard awards.
+     Although the pickup date must be inside the pickup spread date window, the pack
+     date(s) will immediately precede the pickup and maybe outside the pickup spread
+     date.
+
+
+                                          34
+                                                                                  DP3 HHG ToS 2026
+                                                                                       18 Feb 2026
+     k. The last day of the spread date is entered, by the customer, in DPS in the “Latest
+        Pickup Date” field and the spread date is calculated seven calendar days prior to the
+        date input by the customer.
+
+     l.   The customer’s desired pickup date is entered in the “Desired Pickup Date” field in
+          DPS.
+
+     m. I will confirm the agreed pickup date within the spread dates with the customer within
+        three (3) calendar days from date of shipment acceptance. This confirmation will be
+        in writing to the customer.
+
+     n. I will document the agreed pickup date, and the customer’s acceptance in DPS within
+        three calendar days or 24 hours prior to shipment pickup, whichever is sooner. I will
+        print the bill of lading no earlier than two GBDs prior to the first pack date.
+
+     o. If the customer requests a change to their pickup date that moves outside of the
+        allowed spread dates, I will advise the customer they must submit the requested
+        change in dates to the PPSO via email, copying my company on the email, and I will
+        reply all with acceptance, if applicable.
+
+     p. Pickup spread dates do not apply to NTS releases or Direct Procurement Method
+        shipments. I agree to pick up all NTS released shipments on the “Desired Pickup
+        Date” in DPS.
+
+     q. I will not schedule pickup or delivery on Saturdays, Sundays, and holidays unless
+        there is a mutual agreement between the customer, PPSO, and me. Agreement by
+        me and customer for weekend or holiday service does not authorize extra labor
+        and overtime.
+
+4. Preparation of Articles:
+
+     a. I understand all articles having surfaces liable to damage by scratching, marring,
+        soiling, or chafing must be wrapped at time of loading at residence in textile or paper
+        furniture pads, covers (other than burlap), or other acceptable wrapping materials.
+
+     b. Items of unusual nature such as, but not limited to, wall units, water beds, grandfather
+        clocks, hot tubs, pool tables, pipe organs, wall-mounted or flat-panel TVs, and
+        satellite dishes which may require special service by a third party require PPSO pre-
+        approval (see 400NG or IT). I may refuse waterbeds not properly drained and other
+        items not prepared by the customer as required in the It’s Your Move pamphlets in
+        Attachment A-K1/A-K2 of the DTR Part IV.
+
+     c. I agree to disassemble, at the point of origin, all the items of personal property that,
+        in my judgment, require disassembly to ensure safe transport and delivery at the
+        destination, except items that are outdoors, such as swing sets, other playground
+        equipment, television and radio antennas, and similar articles. I also agree to utilize
+        the services of reputable professionals with a proven record of satisfactory
+        performance.
+
+     d. All nuts, bolts, screws, small hardware, and other fasteners removed from
+        articles for shipment must be properly affixed/packaged to allow for reassembly
+                                               35
+                                                                                 DP3 HHG ToS 2026
+                                                                                      18 Feb 2026
+        at destination. If packaged separately, items must be properly inventoried and
+        cross- referenced to the associated inventory item in which the hardware belongs
+        (i.e., “Nuts, bolts, screws for Inventory #55 - Baby Crib”).
+
+     e. Items Liable to Cause Damage: I must not accept the following for shipment:
+
+     f. An item whose inherent nature is liable to contaminate or otherwise cause damage
+        to other property or equipment.
+
+     g. An item which cannot be taken from the premises without damage to the item or
+        the premises.
+
+     h. Lithium-Ion Batteries: I understand it is my responsibility to properly package, label,
+        and certify (if required) lithium-ion cells 20 watt-hours (Wh) or less or lithium-ion
+        batteries 100 Wh or less in accordance with 49 CFR 173.185(c), the International
+        Maritime Dangerous Goods (IMDG) Code, the International Air Transport
+        Association (IATA) and in accordance with local, state, federal, and foreign country
+        or international laws, regulations, or guidance.
+
+     i. Lithium-ion cells exceeding 20 Wh or lithium-ion batteries exceeding 100 Wh are
+        not allowed in personal property shipments or storage.
+
+     j. Lithium Metal Batteries: I understand it is my responsibility to properly package,
+        label, and certify (if required) lithium metal cells containing 1 gram of lithium
+        content or less or lithium metal batteries containing 2 grams of lithium content or
+        less in accordance with 49 CFR 173.185(c), the International Maritime Dangerous
+        Goods (IMDG) Code, the International Air Transport Association (IATA) and in
+        accordance with local, state, federal, and foreign country or international laws,
+        regulations, or guidance.
+
+     k. Lithium metal cells exceeding 1 gram of lithium content or lithium metal batteries
+        exceeding 2 grams of lithium content are not allowed in personal property shipments
+        or storage.
+
+     l. I understand it is my responsibility to ensure items containing lithium batteries are
+        properly packaged for the type of transportation service being provided.
+
+5. Packing Requirements:
+
+     a. Packing:
+
+        (1) I understand I am liable and responsible for all packing.
+
+        (2) I have the responsibility to inspect all pre-packed goods to ascertain the contents,
+            condition of the contents, and only articles not otherwise prohibited by the ToS
+            are contained in the shipment. When I determine goods require repacking, such
+            packing must be performed by me. I agree to use quality commercial practices in
+            selecting packing materials and agree to use containers that meet military
+            specifications when required.
+
+6. Materials:
+
+                                              36
+                                                                                 DP3 HHG ToS 2026
+                                                                                      18 Feb 2026
+     a. I understand all materials must be new or in sound condition and new material must be
+        used for mattresses, box springs, linens, bedding, and clothing.
+
+     b. When allowed and if material is not new, all markings pertaining to any previous
+        shipment must be completely obliterated. Cartons lacking a manufacturer’s
+        certification is not authorized.
+
+     c. Egg, fruit, and vegetable crates, and similar types of food containers will not be used.
+
+7. Manner of Packing:
+
+     a. All packing must be performed in a manner requiring the least cubic measurement,
+        producing packages that must withstand normal movement and at a minimum of
+        weight.
+
+     b. At the customer’s request, articles may be packed in original containers when
+        furnished by the customer, provided the containers are considered in good
+        condition for shipping purposes.
+
+     c. Books will be placed in cartons or boxes. All books of similar sizes will be packed
+        vertically together in rows. Padding will be inserted between rows and packed tightly to
+        fill out the carton or box and to prevent chafing. Books normally will be packed in a 1.5
+        cubic foot carton and not more than two rows high.
+
+     d. Linens, Clothing, Draperies, and Lightweight Items. I understand small,
+        lightweight, unbreakable items (e.g., clothing items, linens and items normally
+        kept in drawers) may remain in drawers instead of being removed and packed.
+        When not considered as safe for carriage in drawers, chests, dressers, trunks, these
+        and similar items must be packed separately. Clothing normally on hangers in
+        closets and draperies must be packed in wardrobe cartons subject to the following:
+
+        (1) Upright wardrobes will be used for Code D shipments.
+
+        (2) Flat wardrobes will be used for all containerized shipments, except when
+            upright wardrobes are requested by the customer.
+
+        (3) Hangers will be removed from clothing packed in flat wardrobes.
+
+        (4) For final line-haul delivery out of NTS, the wardrobe used for storage is
+            acceptable and no transfer is necessary.
+
+     e. These articles must be wrapped and packaged in a crate or fiberboard carton:
+
+        (1) Mirrors, Pictures, and Paintings (Glass-Faced or Other Than Glass Faced Paintings),
+
+        (2) Glass or Stone Tabletops, and Similar Fragile Articles Requiring Crating or
+            Similar Protection.
+
+     f. I understand, prior to performing accessorial crating services I must obtain
+        authorization from the PPSO. I further understand that internal crating authorization is
+        not permitted for shipments moving internationally when packing and crating
+        services are included in the transportation single factor rate. Rugs and rug pads must
+                                              37
+                                                                                    DP3 HHG ToS 2026
+                                                                                         18 Feb 2026
+          be properly rolled, (not folded) for shipment and must not be folded or bent to an
+          extent causing damage to the rug.
+
+8.   Privately Owned Firearms (POFs):
+
+      a. I will ensure all POFs are removed from safe (if applicable) and packaged
+         separately and inventoried IAW paragraph C.5 below.
+
+      b. I am responsible for complying with appropriate local, state and country laws in the
+         transport of firearms, including applicable interstate and international transport
+         requirements.
+
+      c. I will ensure that my agents pack firearms and do not place conspicuous page
+         markings indicating firearms or label cartons with firearms, and I will comply
+         with firearm packing and labeling requirements outlined in the IT.
+
+      d. For international containerized shipments only, I will ensure all POFs are placed in a
+         number one (1) external shipping container and positioned so that POFs are readily
+         accessible for examination by customs officials, when required, and the container sealed
+         at customer’s residence.
+
+      e. I will comply with the following provisions of Public Law 103-159, Brady
+         Handgun Violence Protection Act and the Personal Property Consignment Instruction
+         Guide (PPCIG).
+
+      f. Marking the outside of any package, luggage, or other container indicating that the
+         package contains a firearm is prohibited. This does not exclude attaching
+         documentation in a sealed envelope to a box/container of HHGs.
+
+      g. Written acknowledgement of receipt from the recipient of any package containing a
+         firearm is required. Signatures can be on a BL, inventory, or TSP- generated receipt.
+         Signatures are only required at the time of delivery, (i.e., not required at in-transit
+         points as shipments move between TSPs and agents).
+
+9. Inventory:
+
+      a. I agree to:
+
+          (1) Prepare an accurate, legible HHG Descriptive Inventory and understand that
+              an electronic inventory that provides equal or better information is highly
+              encouraged.
+
+          (2) Regardless, if an electronic inventory or a handwritten/hard copy inventory is
+              used, I understand I will provide the customer with a copy of the inventory prior
+              to the driver leaving the origin location with the personal property.
+
+          (3) Provide the customer or their representative with the opportunity to identify in
+              writing high-risk or high-value items or the optional use of a high-risk or high-
+              value inventory. For electronic inventories, I will specifically ensure the following
+              occur:
+
+          (4) Automated inventory software must ensure that the listing of each item
+                                            38
+                                                                          DP3 HHG ToS 2026
+                                                                               18 Feb 2026
+   must meet or exceed the inventory requirements currently contained in the
+   DTR.
+
+(5) The inventory will provide a clear condition descriptions of articles.
+
+(6) Customer must be able to thoroughly review inventory contents, including all
+    comments, conditions, and annotate exceptions, per line item, prior to signature.
+
+(7) TSP must obtain customer’s electronic signature separately on each individual page.
+
+(8) Inventory must not be editable once signed and provided to the customer.
+
+(9) TSP must provide the customer the electronic copy prior to departing the residence
+    with the property. TSPs must ensure they have appropriate functioning equipment
+    to comply.
+
+(10) In the event the TSP's equipment is not functional, the TSP must be able to
+     implement a backup plan to include the use of a handwritten or hard copy
+     inventory to accurately account for the customer's property prior leaving the
+     residence.
+
+(11) Customer and PPSO must be able to view inventories, including all comments,
+     conditions, exceptions, and signature in any subsequent email version.
+
+(12) Use care in listing articles as specifically as possible to include make, model,
+     color, and serial number when visible on the outside of the article.
+
+(13) Identify cartons by type and cube with an indication of general contents (e.g.,
+     Book CTN, 1.5 cubic ft., linens, pots and pans, etc.) and will not use words
+     such as “household goods/personal property” or other general descriptive
+     terms in the preparation of the inventory.
+
+(14) Ensure that my representative will use diligence to record any unusual conditions
+     and ensure the inventory reflects the true condition of the property and ensure
+     the customer is aware prior to signing. The “Exception Symbols” and “Location
+     Symbols,” as shown on the inventory must be used to describe the conditions
+     accurately. The omission of these symbols will indicate good condition except
+     for normal wear.
+
+(15) Ensure that the customer can review the inventory contents, including
+     conditions, and annotate exceptions on the inventory.
+
+(16) Professional Books, Papers, and Equipment (PBP&E) & Consumables:
+
+   a. Ensure that the term “M-PRO” is used to identify a military member’s PBP&E
+      and the term “S-PRO” is used to identify a military spouse’s PBP&E on the
+      inventory.
+
+   b. PBP&E must be segregated between the military members’ PBP&E and
+      spouse PBP&E, placed in separate cartons, marked, weighed and inventoried
+      separately.
+
+                                      39
+                                                                         DP3 HHG ToS 2026
+                                                                              18 Feb 2026
+   c. Use of the term “consumables” is used on the inventory when shipment of
+      consumables is authorized for movement on a BL.
+
+   d. All PBP&E and/or consumable items will be identified as such on the
+      inventory, together with the cube or weight of the container; a line entry
+      item for each container (e.g., carton M-PRO/S-PRO, 6 cubic ft., 50 lbs).
+
+   e. The total weight of the PBP&E must be entered into DPS. When it is
+      impossible or impractical to weigh the PBP&E or consumables, a constructive
+      weight, based on seven pounds per cubic foot, will be used.
+
+(17) I agree to annotate each privately owned firearm on the inventory by make,
+     model, caliber or gauge, and serial number. Privately owned firearms
+     manufactured prior to 1968 will be annotated as such on the inventory and
+     acknowledged by the customer. Privately owned firearms manufactured in 1968
+     or after without a serial number will not be packed in the customer’s personal
+     property and customers will be referred to the PPSO for alternate shipping
+     options.
+
+(18) I agree with shipments moving in door-to-door container service, if the
+     customer or PPSO permits me to partially containerize the shipment at the
+     warehouse, each item removed from the residence must be annotated on the
+     inventory as Containerized at Warehouse (CW).
+
+(19) I must use the same inventory prepared at origin to verify delivery at destination.
+
+(20) I must identify personal property by affixing a tag or tape to each article (not
+     applicable to individual items in packing containers). Each shipment must be
+     separately identified by lot, and each article must be assigned a number that
+     must correspond with the item number shown on the inventory form. The type
+     of identification used and the method of affixing it to the article must be such
+     as not to damage any article so identified.
+
+(21) I agree to identify items disassembled or serviced by my company at origin and
+     record such items on the HHGs Descriptive Inventory. In addition, if the
+     customer disassembles or services an item, I will annotate the inventory
+     accordingly.
+
+(22) I must only use the term “miscellaneous” or its abbreviation “misc.” to describe
+     the contents of containers when the total items in a container are too numerous to
+     list on the carton or inventory line item and then only if the room or area from
+     which they are packed is identified (e.g., “misc.-youths room”). If such a
+     description is used, I agree not to contest a claim for missing items related to the
+     nature of such cartons.
+
+(23) I must annotate all electronics (e.g., stereo equipment, computers, and
+     televisions) on the inventory with make, model, and serial number when they
+     are visible on the outside of the item.
+
+(24) Use of bingo cards or check off sheets at delivery. I agree that I may use bingo
+     cards or check off sheets as internal company documents only. However, a
+                                      40
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+             signed bingo card or check-off sheet does not indicate proof of delivery and
+             lost, missing or damaged items will still be indicated on the appropriate loss or
+             damage forms.
+
+         (25) Gun Safes:
+
+             a. I understand, when a gun safe(s) is included as part of the shipment, the
+                weight of such articles will be annotated separately on the BL and on the
+                inventory next to the line item.
+
+             b. I will identify the make and model of the gun safe(s) on the inventory.
+
+             c. I understand the gun safe(s) will be transported in the same way and to the
+                same authorized location as HHG.
+
+             d. I understand that the weight of gun safe(s) will be determined in accordance
+                with the 400NG and IT.
+
+10. Overflow Shipments: If it is necessary to split a shipment for line-haul movement, the
+    established RDD applies to all parts of the shipment. I must prepare a separate inventory
+    for the overflow portion of a shipment or clearly identify which items were split and
+    provide a copy to the customer at time of pickup.
+
+11. Containers:
+
+     a. I agree to use industry commercial practices in selecting containers to safeguard
+        movement of personal property and I agree to use containers that meet or exceed
+        military specifications when required (Reference: Surface Deployment Distribution
+        Command (SDDC) Pamphlet 55-12).
+
+     b. I agree that all shipments that require containerization based on the awarded code of
+        service must be packed, placed in lift vans and closed at the customer’s residence
+        unless containerization at the warehouse is authorized by the customer or servicing
+        PPSO. In such cases, items removed from the residence without containerization must
+        be annotated on the inventory as Containerized at Warehouse (CW).
+
+     c. Containers must be free from holes or other conditions that could permit the entry of
+        water and ensure covers, when closed, fit tightly and securely.
+
+     d. All wooden containers and commercially designed containers that are not of a
+        weatherproof nature must be properly protected from the elements when inclement
+        weather conditions exist.
+
+     e. I understand that TSP-owned or leased commercially designed shipping
+        containers are authorized provided they meet or exceed ASTM-D6251.
+
+     f. For all containerized shipments entering the Defense Transportation System (DTS)
+        through a DoW operated aerial or seaport, I agree to complete a Two-Dimensional
+        Military Shipping Label (2DMSL) and documentation requirements as listed in the
+        IT.
+
+     g. Container Marking and Labeling for Non-DTS Shipments:
+                                           41
+                                                                              DP3 HHG ToS 2026
+                                                                                   18 Feb 2026
+   (1) I agree to stencil or label Codes 4, 6, 7, and 8 shipment containers. Individual
+       shipment markings must be stenciled or labeled on two surfaces (one side and one
+       end panel) of each container.
+
+h. Place the following data on each stencil or label.
+
+   (1) FROM and TO: Name of Origin and Destination PPSO
+
+   (2) BL: Bill of Lading Number
+
+   (3) RDD: Required Delivery Date (Julian Date)
+
+   (4) TSP: TSP Standard Carrier Alpha Code (SCAC) code
+
+   (5) For: customer’s last name, first name.
+
+   (6) Old markings must be permanently removed. One copy of the customer’s order
+       must be placed in each container used to ship UB.
+
+i. Tamper Evident Seals for International, Code 2 HHG/UB Containers:
+
+   (1) I will apply a tamper-evident seal which, if breached or missing, provides
+       reasonable evidence that the container has been opened or otherwise tampered
+       with.
+
+   (2) Seals will be placed at residence and seal numbers will be annotated on the
+       inventory list. All exterior international and Code 2 HHG/UB containers and
+       boxes, including overflow and oversize boxes and rug tubes or cartons, will be
+       sealed with accountable tamper evident seals at the customer’s residence,
+       unless otherwise authorized by the customer. Sealing will be completed prior to
+       any movement and the seal (control) numbers entered on the inventory, cross-
+       referencing the container number.
+
+   (3) Two seals, at a minimum, for UB, will be used per box and tamper evident seals
+       will secure the access overlap top and ends. If only two seals out of a set of four
+       are used, the seals not used will be destroyed at the time of sealing or given to the
+       customer.
+
+   (4) Four seals, at a minimum, on HHG, will be used per box and tamper evident
+       seals will secure the access overlap door and side panels, which may include non-
+       removeable end panels.
+
+   (5) I understand that in the event the seals need to be broken prior to delivery I must
+       notify the PPSO/PPPO and the customer and provide them the opportunity to be
+       present. When available, the PPSO/PPPO will make arrangements for a Quality
+       Assurance (QA) Inspector to be present at the selected location within two GBDs
+       when the seals are broken. If the PPSO/PPPO is unable to provide a QA
+       Inspector, I will contact USTRANSCOM at transcom.scott.tcj9.mbx.pp-
+       perf@mail.mil. The containers will be resealed, notations made in DPS noting
+       the new seals numbers, and shipment will continue in-transit to destination.
+
+   (6) In the event that seals are discovered broken in-transit, I will reseal the
+                                          42
+                                                                                 DP3 HHG ToS 2026
+                                                                                      18 Feb 2026
+             container(s), replace the broken seal(s), and annotate the circumstances along
+             with the new seal numbers in DPS. I understand I must verify with the customer
+             upon shipment delivery that all container seals are intact. In the event it is not
+             discovered that the seals are broken until at the time of delivery, I will notify
+             customer and will also document under General Remarks in DPS.
+
+12. Documents Provided to the PPSO/Aerial Port:
+
+     a. I understand I must provide the following documentation to the PPSO NLT seven
+        GBDs after the pickup date and maintain original and copies of all supporting
+        documents for audit and dispute purposes.
+
+     b. NLT seven GBDs after the pickup date, I must furnish the origin PPSO
+        supporting shipment documentation as follows: Weighted BL
+        (Gross/Tare/Net/Pro Gear Weights), Weight Tickets, DD Form 619, Inventories,
+        and Third-Party Invoices.
+
+     c. Weight tickets must be legible and contain required information as outlined in the
+        applicable 400NG and/or IT. If the shipment is to be delivered prior to the submission
+        of the aforementioned documents, the origin or destination PPSO must be advised of
+        the weight via DPS and/or telephone to allow for a reweigh request prior to delivery.
+
+     d. I will ensure the port agent or delivery entity provides a copy of the BL,
+        transportation control movement document, and 2DMSL in connection with delivery
+        of shipment(s) to the aerial port.
+
+13. Documents Provided to the customer:
+
+     a. At the time of pickup, I must furnish the customer or their representative either in
+        hardcopy or electronic delivery of documents:
+
+     b. BL
+
+     c. HHGs Descriptive Inventory and a copy of the High Value Household Goods
+         Inventory (if used)
+
+     d. One legible copy of DD Form 619 (if applicable)
+
+     e. The DP3 Real Property Damage Form pre-populated with my information
+
+     f. At the time of delivery, I must furnish the customer or their representative:
+
+     g. One legible copy of DD Form 619 (if applicable)
+
+     h. For shipments originating from NTS, I must furnish the customer or their
+        representative a legible copy of the Household Goods Descriptive Inventory
+
+     i. One copy of the DoW DP3 Notification of Loss or Damage AT DELIVERY, Figure
+        B-2, and the DoW DP3, Notification of Loss or Damage AFTER DELIVERY, Figure
+        B-3, documents. I must ensure all listed loss or damage is identified on the document,
+        as applicable.
+
+                                              43
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+      j. The DP3 Real Property Damage Form pre-populated with my information At the time
+         of notification of a missed pickup, RDD or agreed upon delivery out of SIT, or in the
+         event I turn back a shipment within 14 calendar days of the pickup date, I will provide
+         the IC Form, located at
+         https://www.ustranscom.mil/dp3/docs/otherpdfs/0800+2022_Business_Rules/DP3%20
+         Shipment%2 0Inconvenience%20Claim%20Form%20(15%20May%2022).pdf, to the
+         affected customer and I will ensure the form is pre-populated with my information.
+
+ 14. SIT:
+
+      a. In addition to the packing requirements contained in this ToS for preparing
+         personal property for transportation, when a shipment is placed in SIT, I agree
+         to use a DoW- approved storage facility that must comply with the following
+         storage requirements:
+
+      b. Storage: When a shipment is placed into SIT, the warehouseman will have until the
+         close of business of the third GBD following the date the SIT is approved to
+         complete the handling-in services. Personal property must be stored IAW the
+         requirements listed under “Storage Area” in the Storage Management Branch Tender
+         of Service, Paragraph C-6.c.
+
+      c. Shipping Containers: The contents of containerized shipments must not be
+         removed from containers when placed in SIT.
+
+      d. Identification: All lots of loose Domestic HHGs must be properly identified. Proper
+         identification must consist of customer’s name, BL number, and SIT control
+         number. Such identification must be in plain view on each lot. Containerized HHG
+         (Codes D, 2, 4, 6, and T) and UB (Codes 7, 8, and J) are exempt from this
+         requirement provided containers are marked IAW Paragraph C.7.b.
+
+      e. Rugs and Carpets: Rugs and carpets must be stored on racks in a horizontal position
+         (rolled up in tubes) without folding any portion of the rug, carpet, or padding.
+
+15. Upholstered or Overstuffed Furniture:
+
+      a. Items stored loose on racks must be placed in an upright (normal) position and
+         covered or protected against dust. No boxes, cartons, or other items may be placed
+         upon this type of furniture.
+
+      b. When items are placed in individual storage rooms or when containers are employed
+         for warehouse storage, they will have protection, padding, blocking, and bracing to
+         preclude damage from any pressure against the upholstery, including pressure from its
+         own weight as well as from conditions external to the container. The use of shrink or
+         stretch- wrap is allowed but not required.
+
+16. Unloading and Unpacking at Destination:
+
+      a. I understand unloading at destination includes the one-time laying of rugs and the one-
+         time placement of furniture and like items in a room or dwelling designated by the
+         customer or their representative.
+
+
+                                              44
+                                                                                  DP3 HHG ToS 2026
+                                                                                       18 Feb 2026
+       b. All articles disassembled by the TSP or originating from NTS must be reassembled
+          on a one-time basis, all barrels, boxes, cartons, and/or crates must be unpacked
+          (upon request) and the contents placed in a room designated by the customer. This
+          includes the placement of articles in cabinets, cupboards, or on shelving in the
+          kitchen and consistent with safety of the article(s) and proximity of the area desired
+          by the customer but does not include arranging the articles in a manner desired by
+          the customer.
+
+       c. The unpacking service and removal of debris must be performed to the
+          customer’s satisfaction at the time the goods are delivered.
+
+       d. On the day of delivery and/or unpacking, I must remove from the customer’s premises
+          all of my unused, empty containers, packing materials and other debris accumulated
+          incident to packing, unpacking , loading, or unloading.
+
+       e. I will return to residence to perform debris removal if ordered IAW with the IT Item
+          506 and the 400NG Item 105.
+
+  17. Recording Loss or Damage:
+
+       a. I will record loss or damage revealed while unloading and/or unpacking. Such record
+          will be indicated on the DP3 Notification of Loss or Damage AT DELIVERY (jointly
+          signed by my representative and the customer or their authorized agent), Figure B-2,
+          and the DP3 Notification of Loss or Damage AFTER DELIVERY, Figure B-3,
+          documents, as applicable.
+
+       b. One copy will be furnished to the customer or their representative.
+
+       c. In case of missing items, tracer action will be initiated immediately, and the customer
+          will be advised in writing of the results within 30 days from the date of delivery of
+          the shipment. Every effort will be made to locate missing articles or items before
+          recommending the submission of a claim by the customer.
+
+       d. I agree, provided claims action has not been initiated, to forward to the customer by
+          expedited means located missing articles or items at no additional cost to the U.S.
+          Government or the customer. See Claims and Liability Business Rules for complete
+          claims guidance.
+
+       e. Quality Control Program: I agree to establish within my company a quality control
+          system to provide total visibility of all facets of the program and ensure the service
+          provided is equal to or greater than the standards of service established by the DPMO.
+          This system will include, but not be limited to, specific subsystems for the functions
+          of traffic management (routing, tracing, and billing), packaging, employee training
+          and supervision, and agent supervision. Upon request, I must provide DPMO with
+          detailed descriptions of this quality control system.
+
+D. CERTIFICATION
+
+  1. Violations: Any substantial violation of this ToS, or failure to perform IAW the DTR
+     Part IV, DP3 Business Rules, the International Tariff, and Domestic ToS, and/or other
+     legal requirements, may be used as the basis for administrative action by a PPSO or
+                                                45
+                                                                                DP3 HHG ToS 2026
+                                                                                     18 Feb 2026
+   DPMO.
+
+2. Terms and Conditions:
+
+     a. It is mutually agreed and understood between the U.S. U.S. Government and TSPs
+        (motor carriers and freight forwarders), who are parties to the BL that: The BL is
+        governed by the regulation relating thereto as published in 41 CFR Part 101- 41,
+        Transportation Documentation and Audit, with special attention drawn to Federal
+        Management Regulation (FMR), Part 102-118, Transportation Payment and Audit,
+        and applicable Commercial Shipments Rules and Conditions.
+
+     b. Except as provided in 41 CFR 101 or as otherwise stated hereon, the BLis also
+        subject to the same rules and conditions as govern commercial shipments made on
+        the usual forms provided therefore by the TSP.
+
+     c. All parties to the BL (TSPs, freight forwarders, or their representative), recognize
+        that this shipment is made under the auspices of the U.S. U.S. Government, agree to
+        forego any liens that may arise from any cause whatsoever and not to detain or
+        impound this shipment made on the usual forms provided therefore by the TSP.
+
+     d. The TSP will in no way demand prepayment of charges, nor make any collection
+        of charges, nor attempt to collect any payments from the customer.
+
+     e. Interest will accrue from the voucher payment date on overcharges made hereunder and
+        paid at the same rate in effect on that date as published by the Secretary of the Treasury
+        pursuant to the Debt Collection Act of 1982.
+
+     f. General instructions and administrative directions: Continuation sheets of the
+        prescribed must be used and attached hereto when space under “Description of
+        Shipment” on the face of the BL is inadequate.
+
+     g. All accessorial or special services must be requested and approved in DPS
+        prior to performance of service or use of special service.
+
+
+
+
+                                              46
+                                                                DP3 HHG ToS 2026
+                                                                 18 Feb 2026
+
+
+
+
+Figure B-1. DD Form 619 – Statement of Accessorial Services Performed
+                              47
+                                                        DP3 HHG ToS 2026
+                                                         18 Feb 2026
+
+
+
+
+Figure B-2 Notification of Loss or Damage AT Delivery
+
+
+
+
+                          48
+                                                            DP3 HHG ToS 2026
+                                                             18 Feb 2026
+
+
+
+
+Figure B-3. Notification of Loss or Damage AFTER Delivery
+
+
+
+
+                            49
+                                                   DP3 HHG ToS 2026
+                                                    18 Feb 2026
+
+
+
+
+Figure B-4. Unusual Occurrence Notification Form
+
+
+
+                       50
+                                                           DP3 HHG ToS 2026
+                                                            18 Feb 2026
+
+
+
+
+Figure B-4. Unusual Occurrence Notification Form (cont.)
+
+
+                          51
+                                    DP3 HHG ToS 2026
+                                     18 Feb 2026
+
+
+
+
+Figure B-5. Foreign Vendor Report
+
+
+
+
+              52
+                                      DP3 HHG ToS 2026
+                                       18 Feb 2026
+Figure B-6 Inconvenience Claim Form
+
+
+
+
+               53
+                                              DP3 HHG ToS 2026
+                                               18 Feb 2026
+Figure B-6 Inconvenience Claim Form (cont.)
+
+
+
+
+                   54
+
