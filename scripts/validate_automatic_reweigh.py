@@ -1,0 +1,184 @@
+#!/usr/bin/env python3
+"""Validate 2026 400NG Item 4.8 automatic-reweigh decisions."""
+
+from __future__ import annotations
+
+import copy
+import json
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from rules.automatic_reweigh import (  # noqa: E402
+    PROVENANCE,
+    RULE_ID,
+    RULE_PACKAGE_ID,
+    SOURCE_VERSION_ID,
+    RuleInputError,
+    determine_automatic_reweigh,
+)
+from rules.weight_determination import determine_initial_scale_weight  # noqa: E402
+
+
+FIXTURE_PATH = ROOT / "tests" / "fixtures" / "automatic-reweigh" / "item-4-8-cases.json"
+REGISTRY_PATH = ROOT / "rules" / "registry" / "registry.json"
+
+
+class ValidationError(Exception):
+    pass
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise ValidationError(message)
+
+
+def load_json(path: Path) -> dict:
+    with path.open(encoding="utf-8") as handle:
+        value = json.load(handle)
+    require(isinstance(value, dict), f"{path.relative_to(ROOT)} must contain an object")
+    return value
+
+
+def set_path(target: object, path: object, value: object) -> None:
+    require(isinstance(path, str) and path, "mutation path is required")
+    parts = path.split(".")
+    current = target
+    for part in parts[:-1]:
+        if isinstance(current, list):
+            require(part.isdigit() and int(part) < len(current), f"mutation path not found: {path}")
+            current = current[int(part)]
+        else:
+            require(isinstance(current, dict) and part in current, f"mutation path not found: {path}")
+            current = current[part]
+
+    final = parts[-1]
+    if isinstance(current, list):
+        require(final.isdigit() and int(final) < len(current), f"mutation path not found: {path}")
+        current[int(final)] = value
+    else:
+        require(isinstance(current, dict), f"mutation path parent is not an object: {path}")
+        current[final] = value
+
+
+def mutate(target: dict, mutations: object, case_id: str) -> None:
+    require(isinstance(mutations, list), f"{case_id} mutations must be a list")
+    for mutation in mutations:
+        require(isinstance(mutation, dict), f"{case_id} mutation must be an object")
+        set_path(target, mutation.get("path"), mutation.get("value"))
+
+
+def validate_registry_contract() -> None:
+    registry = load_json(REGISTRY_PATH)
+    packages = {record["id"]: record for record in registry["rule_packages"]}
+    rules = {record["id"]: record for record in registry["rules"]}
+    claims = {record["id"]: record for record in registry["source_claims"]}
+    locators = {record["id"]: record for record in registry["source_locators"]}
+    dependencies = [record for record in registry["rule_dependencies"] if record["rule_id"] == RULE_ID]
+    evidence = [record for record in registry["evidence_requirements"] if record["rule_id"] == RULE_ID]
+
+    require(RULE_PACKAGE_ID in packages, "automatic-reweigh package is missing")
+    require(packages[RULE_PACKAGE_ID]["publication_status"] == "published", "automatic-reweigh package is not published")
+    require(RULE_ID in rules, "automatic-reweigh rule is missing")
+    require(rules[RULE_ID]["rule_package_id"] == RULE_PACKAGE_ID, "automatic-reweigh rule uses the wrong package")
+    require(rules[RULE_ID]["implementation_status"] == "implemented", "automatic-reweigh rule is not implemented")
+    require(rules[RULE_ID]["publication_status"] == "published", "automatic-reweigh rule is not published")
+    require(not rules[RULE_ID]["blocked_by_conflict_ids"], "automatic-reweigh rule is unexpectedly conflict-blocked")
+    require({record["input_fact_type"] for record in dependencies} == {"final_initial_net_scale_weight", "automatic_reweigh_grade_band"}, "automatic-reweigh dependencies are incomplete")
+    require(len(evidence) == 1 and evidence[0]["requirement_code"] == "AUTHORIZED_GRADE_BAND_FACT", "grade-band evidence requirement is incomplete")
+
+    for reference in PROVENANCE:
+        claim_id = reference["source_claim_id"]
+        locator_id = reference["source_locator_id"]
+        require(claim_id in claims, f"evaluator claim missing from registry: {claim_id}")
+        require(locator_id in locators, f"evaluator locator missing from registry: {locator_id}")
+        require(claims[claim_id]["source_locator_id"] == locator_id, f"claim {claim_id} uses a different locator")
+        require(claims[claim_id]["interpretation_status"] == "reviewed", f"claim {claim_id} is not reviewed")
+        require(locators[locator_id]["source_version_id"] == SOURCE_VERSION_ID, f"locator {locator_id} uses a different source")
+
+
+def validate_result(result: dict, expected: dict, case_id: str) -> None:
+    require(result["case_id"] == case_id, f"{case_id} result case mismatch")
+    require(result["rule_package_id"] == RULE_PACKAGE_ID, f"{case_id} package mismatch")
+    require(result["rule_id"] == RULE_ID, f"{case_id} rule mismatch")
+    require(result["status"] == expected["status"], f"{case_id} expected {expected['status']}, got {result['status']}")
+    require(result["unresolved_assumptions"] == [], f"{case_id} silently introduced an assumption")
+    require(len(result["provenance"]) == len(PROVENANCE), f"{case_id} provenance is incomplete")
+    require(not {"fee", "item_code", "controlling_weight"}.intersection(result), f"{case_id} crossed the rule scope boundary")
+
+    if result["status"] == "FINAL":
+        require(result["human_review_required"] is False, f"{case_id} final result requires review")
+        require("blocked_reasons" not in result, f"{case_id} final result carries blocked reasons")
+        decision = result.get("decision")
+        require(isinstance(decision, dict), f"{case_id} final result lacks decision")
+        require(decision["automatic_reweigh_required"] is expected["required"], f"{case_id} requirement mismatch")
+        require(decision["preapproval_required"] is False, f"{case_id} automatic reweigh must not require preapproval")
+        require(decision["threshold"] == expected["threshold"], f"{case_id} threshold mismatch")
+        require(decision["threshold_unit"] == "lb", f"{case_id} threshold unit mismatch")
+        require(decision["initial_weight"] == expected["initial_weight"], f"{case_id} initial weight mismatch")
+        require(decision["weight_unit"] == "lb", f"{case_id} initial weight unit mismatch")
+    else:
+        require(result["human_review_required"] is True, f"{case_id} blocked result must require review")
+        require("decision" not in result, f"{case_id} blocked result must omit authoritative decision")
+        require(result["blocked_reasons"] == expected["blocked_reasons"], f"{case_id} blocked reasons mismatch")
+        if "upstream_reasons" in expected:
+            require(result.get("upstream_blocked_reasons") == expected["upstream_reasons"], f"{case_id} upstream reasons mismatch")
+
+
+def main() -> int:
+    try:
+        validate_registry_contract()
+        suite = load_json(FIXTURE_PATH)
+        require(suite.get("fixture_set") == "SYNTHETIC_ITEM_4_8_AUTOMATIC_REWEIGH_CASES", "fixture set is not labeled synthetic")
+        weight_fixture_path = (ROOT / suite["initial_weight_fixture_path"]).resolve()
+        require(weight_fixture_path.is_relative_to(ROOT), "weight fixture path escapes the repository")
+        weight_base = load_json(weight_fixture_path).get("base_case")
+        require(isinstance(weight_base, dict) and weight_base.get("data_status") == "synthetic", "weight base must be synthetic")
+
+        cases = suite.get("cases")
+        require(isinstance(cases, list) and cases, "automatic-reweigh fixture suite requires cases")
+        for fixture in cases:
+            require(isinstance(fixture, dict), "fixture case must be an object")
+            case_id = fixture.get("id")
+            require(isinstance(case_id, str) and case_id, "fixture case id is required")
+
+            weight_case = copy.deepcopy(weight_base)
+            weight_case["case_id"] = f"{case_id}-WEIGHT"
+            mutate(weight_case, fixture.get("weight_mutations", []), case_id)
+            weight_result = determine_initial_scale_weight(weight_case)
+            mutate(weight_result, fixture.get("initial_result_mutations", []), case_id)
+
+            candidate = {
+                "case_id": case_id,
+                "data_status": "synthetic",
+                "grade_band": fixture.get("grade_band"),
+                "grade_band_fact_status": fixture.get("grade_band_fact_status", "synthetic"),
+                "initial_weight_result": weight_result,
+            }
+            expected = fixture.get("expected")
+            require(isinstance(expected, dict), f"{case_id} expected result is required")
+            expected_error = expected.get("input_error_contains")
+            try:
+                result = determine_automatic_reweigh(candidate)
+            except RuleInputError as exc:
+                require(isinstance(expected_error, str), f"{case_id} unexpectedly raised input error: {exc}")
+                require(expected_error in str(exc), f"{case_id} raised the wrong input error: {exc}")
+                print(f"PASS {case_id} rejected malformed input: {exc}")
+                continue
+
+            require(expected_error is None, f"{case_id} unexpectedly accepted malformed input")
+            validate_result(result, expected, case_id)
+            print(f"PASS {case_id} {result['status']}")
+
+        print(f"PASS all {len(cases)} Item 4.8 automatic-reweigh cases")
+        return 0
+    except (OSError, json.JSONDecodeError, ValidationError) as exc:
+        print(f"FAIL {exc}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

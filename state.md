@@ -2,132 +2,93 @@
 
 ## Status
 
-Active. The outcome, first user, completion test, public-source strategy, and
-TSP-to-government domestic DP3 scope are ratified in `goal.md`.
+Active. The domestic DP3 TSP-to-government post-audit goal remains ratified.
+M1 source closure is externally constrained, M2's logical contract is complete,
+and M3 contains two published deterministic reference packages plus a
+conflict-aware draft registry.
 
 ## Active milestone
 
-M1 — Establish the source foundation. M2 schema work is advancing in parallel
-where it does not depend on the unresolved source-version questions.
+M1 — Establish the source foundation remains active for current PPA and
+source-version gaps. M3 — Implement the source and rule registry is advancing
+from reviewed 400NG/Tender material. M4 monetary shadow rating has not started.
+
+## Last checkpoint
+
+The current repository checkpoint includes the physical source/rule registry,
+initial-weight and Item 4.8 executable reference packages, post-reweigh source
+reconciliation, and CF-0004. Use `git log -1 --oneline` for its commit ID; the
+working tree should be clean at cold resume.
 
 ## Completed
 
-- Selected a read-only post-audit wedge.
-- Selected domestic DP3 and TSP-to-government billing for version one.
-- Defined a 25-case historical completion verifier.
-- Agreed to proceed with public sources and synthetic cases while the user pursues
-  authorized sanitized historical files separately.
-- Identified the initial categories of authoritative sources.
-- Ratified `goal.md` on 2026-08-03.
-- Archived and checksummed nine core public source artifacts.
-- Reviewed selected 400NG, TPPS, and Tender of Service pages visually and through
-  text extraction.
-- Established the first 71 reviewed/provisional source-to-field discoveries and
-  a provisional conceptual model.
-- Reformatted schema discoveries into narrow source indexes and mapping lists for
-  readable plain-text editing.
-- Reviewed Chapter A-402 shipment-date, arrival, delivery, partial-delivery, SIT,
-  operational-gate, and status-history sections against rendered PDF pages.
-- Modeled SIT as a versioned lifecycle episode, including split portions,
-  approvals, control identifiers, extensions, releases, and conversion.
-- Reconciled 400NG Items 17, 185, and 210 plus Appendix A against the Chapter
-  A-402 SIT model and added ten reviewed discoveries (`DISC-0072`–`DISC-0081`).
-- Separated SIT rating geography from the physical storage location and modeled
-  charge-specific accrual, weight-basis, effective-date, and evidence decisions.
-- Inspected all four archived P0 workbook families with the explicitly authorized
-  openpyxl read-only fallback and created a reproducible structural extract.
-- Added workbook-backed rate, item-code, transit, mileage, and SIT discoveries
-  `DISC-0082`–`DISC-0091`; the discovery inventory now contains 91 entries.
-- Recorded rather than resolved the tariff/rate-workbook date conflict, the
-  current-transit/mileage-tool conflict, and item-code supersession uncertainty.
-- Accepted a question-specific source-precedence and conflict-handling policy in
-  Decision 0002.
-- Registered three active interpretation cases containing six preserved source
-  claims, interim behavior, closure evidence, and affected discoveries.
-- Added source-claim, conflict-case, and interpretation-decision concepts to the
-  provisional conceptual schema.
-- Drafted the implementation-neutral logical schema across all 91 discoveries,
-  including logical types, units, cardinality/nullability, validation,
-  sensitivity, provenance, immutable versioning, and a logical ER map.
-- Defined exact-decimal rating, expected-charge, reconciliation, finding, and
-  human-review records while explicitly gating all three unresolved conflicts.
-- Structurally verified the logical-schema document and corrected its initial
-  omission of the first nine DD Form 619 discoveries.
-- Added four explicitly synthetic logical-schema scenarios: straight-through,
-  split SIT, correction history, and conflict-gated rating.
-- Added executable validation of exact decimals, explicit units, provenance,
-  references, invoice/payment balance, calculation steps, split-SIT boundaries,
-  immutable corrections, late status receipt, and conflict gating.
-- Tightened conditional cardinalities for blocked rule outcomes, unknown
-  eligibility booleans, unrated audit amounts, and declared portion-weight units.
-- Verified all four valid scenarios and four deliberately invalid regression
-  probes.
-- Researched current publication evidence for the Item Code Listing and
-  mileage/transit/SIT tool across the legacy USTRANSCOM library, the new PPA
-  resource center, current DTR text, and PPA advisories.
-- Established from archived XLSX core properties that the mileage/SIT tool was
-  last modified on 2025-09-26, before the 2026 transit table publication; this is
-  a version marker, not an effective period.
-- Narrowed CF-0002: the explicit 2026 table is the provisional domestic transit
-  source, but the 70-percent authorized-SIT-day expression remains unsupported.
-- Upgraded CF-0003 to a disputed publication-location gap because the 2026 400NG
-  points to the legacy listing while PPA Advisory 26-0105 identifies the new PPA
-  site as authoritative and its catalog does not expose that listing.
-- Added six source claims (`CLM-0007`–`CLM-0012`) and a dedicated
-  source-currency research record with archive limitations.
+- Ratified the domestic DP3 post-audit goal and 25-case historical completion
+  verifier; archived and checksummed nine public source artifacts.
+- Recorded 91 discoveries, the conceptual/logical contract, Decision 0002, and
+  the source-conflict workflow.
+- Added the file-backed physical registry and validator with archive hash checks,
+  provenance, dependencies, evidence requirements, and publication gates.
+- Published and implemented `2026.weight-determination.1`; 14 synthetic initial
+  weight/evidence cases pass.
+- Published and implemented `2026.automatic-reweigh.1`; ten Item 4.8 threshold,
+  blocked-input, and tampering cases pass.
+- Rendered and visually verified the controlling-weight/refund passages on
+  400NG pp. 19 and 22-23 and Tender printed p. 20; checked DTR A-402 section
+  D.7.b for operational evidence.
+- Added ten reviewed claims (`CLM-0023`-`CLM-0032`) for reweigh fee eligibility,
+  lower-weight invoicing, constructive weight, refunds/billing holds,
+  containerized provisional/correction paths, duplicate reweighs, and DPS/ticket
+  evidence.
+- Documented that the Tender's general lower-weight obligation and 400NG's
+  narrower fee/workflow provisions are scoped and additive, not directly
+  conflicting.
+- Registered `CF-0004` for the unstated weight fact that selects the 5,000-lb
+  reweigh-tolerance branch. Two affected tolerance rules remain draft and
+  blocked; the general lower-weight model is not blocked.
 
 ## Current task
 
-Prepare the first conflict-aware physical source/rule registry increment from
-the archived, reviewed subset. It must preserve candidate PPA publication
-observations without allowing CF-0001, CF-0002, or CF-0003 to publish affected
-rules.
+Model immutable completed and duplicate reweigh observations, including gross,
+tare, net, weighing date, ticket evidence, DPS update, source provenance, and
+supersession. After that model is exercised synthetically, implement only the
+non-tolerance lowest-completed-net selection. Do not implement fee or
+containerized reimbursement tolerance through CF-0004.
 
 ## Known blockers
 
-M1 source closure is externally constrained: PPA.mil and media.defense.gov
-returned HTTP 403 to direct archival requests, the in-app browser was unavailable,
-and the public record located so far does not state the mileage tool's effective
-period, the referenced SIT percentage, or a complete current domestic item-code
-supersession chain. Closure requires downloadable public artifacts, user-supplied
-copies of those public files, or publisher clarification. Production
-implementation of affected rate-date, authorized-SIT-day, and billing-code rules
-remains blocked. Final acceptance also depends on authorized historical cases.
+- CF-0004: the governing text does not identify the weight fact selecting the
+  5,000-lb tolerance branch.
+- Direct archival requests to PPA.mil and media.defense.gov returned HTTP 403.
+- The mileage/SIT tool effective period, authorized-SIT percentage/rounding, and
+  current domestic item-code supersession chain remain unresolved.
+- Final acceptance requires at least 25 authorized, anonymized historical cases
+  with independently approved outcomes.
 
 ## Decisions needed
 
-- Resolve the baseline-workbook banner versus 400NG Item 1.2(c) date-selection
-  conflict before implementing SIT/accessorial rate selection.
-- Establish the effective version of the mileage/SIT tool and the continued
-  applicability or supersession of the 2022 item-code listing.
-- Later: choose the initial subset of 400NG charge families for implementation.
-- After synthetic schema validation: choose physical database and EDI boundary
-  types without weakening the logical contract.
+- Resolve CF-0004 before publishing reweigh-fee or containerized-reimbursement
+  tolerance logic.
+- Resolve CF-0001 before SIT/accessorial rate-date selection.
+- Resolve CF-0002 before the disputed transit/SIT-tool behavior.
+- Resolve CF-0003 before treating the 2022 item-code workbook as authoritative
+  for 2026.
+- Later, select the first monetary charge family for shadow rating.
 
 ## Next three actions
 
-1. Obtain and checksum the PPA-linked mileage/SIT workbook and Advisory 26-0105
-   through an accessible public path or user-supplied public copies; compare the
-   workbook hash to the archived USTRANSCOM copy.
-2. Specify and implement the first physical source/rule registry from the
-   conflict-free subset, with automated provenance and conflict-gate validation.
-3. Expand synthetic validation when new source-backed conditional rules or EDI
-   constraints are added; keep disputed behavior conflict-gated.
+1. Add synthetic immutable reweigh-observation records and validation, including
+   duplicate reweighs and late corrections.
+2. Implement the reviewed non-tolerance lowest-completed-net selection with
+   explicit ticket and DPS-update evidence.
+3. Continue pursuing archivable current PPA source artifacts.
 
 ## Verification status
 
-Goal ratified; source manifest, 91 contiguous source-to-field discoveries,
-workbook inspection records, accepted source-precedence policy, three registered
-conflict cases containing 12 preserved claims, conceptual schema, and a 442-line
-logical schema exist. The logical schema's section set, Markdown table shapes,
-Mermaid fence balance,
-discovery-range coverage, and conflict gates passed structural checks. Four
-synthetic scenarios plus four negative probes pass
-`python scripts/validate_logical_schema_fixtures.py`; this is logical-contract
-validation, not tariff-rule approval. PDF findings were visually checked;
-workbook findings were structurally checked at the cell/formula level because no
-rendering engine was available. The workbook extract now preserves raw core
-properties; all four raw workbook hashes still match the manifest. PPA
-publication evidence is documented but remains candidate because CDN restrictions
-prevented raw archival. Executable tariff rules and a physical database schema do
-not exist yet.
+The physical registry now contains 29 archived-source claims, 27 locators, four
+open conflicts, three packages, and eleven rules: six disputed drafts, four
+published initial-weight rules, and one published automatic-reweigh rule. The
+registry validator passes one valid case and seven expected failures. Initial
+weight (14 cases), automatic reweigh (10 cases), and logical-schema validation
+pass. No completed-reweigh selector, tolerance result, fee, refund amount,
+billing item, expected invoice amount, or SIT result is implemented. Current
+registry and executable-reference work is included in the current checkpoint.

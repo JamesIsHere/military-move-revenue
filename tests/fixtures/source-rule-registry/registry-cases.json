@@ -1,0 +1,115 @@
+{
+  "fixture_set": "SYNTHETIC_SOURCE_RULE_REGISTRY_CASES",
+  "description": "Synthetic mutations that verify the physical registry's provenance and publication gates.",
+  "cases": [
+    {
+      "id": "REG-VALID-001",
+      "description": "The checked-in registry is a valid draft with every disputed rule blocked.",
+      "expected_valid": true,
+      "mutations": []
+    },
+    {
+      "id": "REG-INVALID-001",
+      "description": "An affected rule cannot publish while CF-0001 remains open.",
+      "expected_valid": false,
+      "error_contains": "cannot publish through open conflict(s): CF-0001",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "rules",
+          "id": "RULE-SIT-ACCESSORIAL-RATE-VERSION-DATE",
+          "field": "publication_status",
+          "value": "published"
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-002",
+      "description": "A rule cannot exist in the registry without archived source-claim provenance.",
+      "expected_valid": false,
+      "error_contains": "lacks source provenance",
+      "mutations": [
+        {
+          "op": "remove_where",
+          "collection": "rule_sources",
+          "field": "rule_id",
+          "value": "RULE-DIRECT-DELIVERY-SIT-DAY-PERCENT"
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-003",
+      "description": "An unarchived PPA web observation cannot be promoted to reviewed evidence.",
+      "expected_valid": false,
+      "error_contains": "must remain candidate until its artifact is archived",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "publication_observations",
+          "id": "OBS-PPA-ADV-26-0105-2026-08-03",
+          "field": "interpretation_status",
+          "value": "reviewed"
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-004",
+      "description": "A conflict cannot be marked resolved without an approved interpretation decision.",
+      "expected_valid": false,
+      "error_contains": "cannot resolve without an approved interpretation decision",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "conflict_cases",
+          "id": "CF-0002",
+          "field": "status",
+          "value": "resolved"
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-005",
+      "description": "A registered source version must continue to resolve to its archived raw artifact.",
+      "expected_valid": false,
+      "error_contains": "artifact does not exist",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "source_versions",
+          "id": "SV-DP3-2026-400NG-2025-12-05",
+          "field": "raw_artifact_path",
+          "value": "sources/raw/2026/missing-400ng.pdf"
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-006",
+      "description": "A published rule cannot hide its deterministic input dependencies.",
+      "expected_valid": false,
+      "error_contains": "must declare every input dependency before publication",
+      "mutations": [
+        {
+          "op": "remove_where",
+          "collection": "rule_dependencies",
+          "field": "rule_id",
+          "value": "RULE-INITIAL-NET-SCALE-WEIGHT"
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-007",
+      "description": "The disputed 5,000-lb branch input cannot silently publish a reweigh-fee tolerance rule.",
+      "expected_valid": false,
+      "error_contains": "cannot publish through open conflict(s): CF-0004",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "rules",
+          "id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES",
+          "field": "publication_status",
+          "value": "published"
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,9 @@ Exit criteria:
 
 ## M1 — Establish the source foundation
 
+Status: in progress; public archival gaps remain for the current PPA artifacts
+and disputed source-version questions.
+
 Exit criteria:
 
 - Mandatory public sources are downloaded and checksummed.
@@ -21,6 +24,9 @@ Exit criteria:
 - Source precedence and conflict-handling policy are documented.
 
 ## M2 — Derive the canonical schema
+
+Status: complete on 2026-08-03 for the public-source logical contract and
+synthetic verifier; authorized historical cases may still refine it later.
 
 Exit criteria:
 
@@ -33,6 +39,11 @@ Exit criteria:
 - The schema is tested with synthetic straight-through and boundary cases.
 
 ## M3 — Implement the source and rule registry
+
+Status: in progress. The first file-backed physical registry and conflict-gate
+validator were implemented on 2026-08-03. A separate initial-weight reference
+package and a separate Item 4.8 automatic-reweigh requirement package are now
+published and executable; no monetary charge rule is published yet.
 
 Exit criteria:
 

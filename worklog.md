@@ -451,3 +451,223 @@ Obtain the PPA-hosted workbook and Advisory 26-0105 through an accessible public
 download path or user-supplied copies, then compare hashes. In parallel, continue
 with a conflict-aware source/rule registry that cannot publish the blocked
 70-percent or item-code decisions.
+
+## 2026-08-03 — First physical source/rule registry increment
+
+### Objective
+
+Create the smallest physical registry that verifies archived-source identity,
+claim provenance, and conflict publication gates without prematurely choosing a
+database or implementing tariff calculations.
+
+### Change
+
+- Committed the prior source-research and logical-schema work as `d187246`.
+- Added a version-controlled JSON registry joined to the existing source
+  manifest. It registers all nine archived source versions, nine precise
+  locators, nine archived-source claims, three candidate publication
+  observations, three open conflicts, and four non-executable draft rule
+  candidates.
+- Kept the unarchived PPA and legacy-library observations separate from source
+  versions and archived source claims.
+- Added deterministic validation for repository scope, manifest completeness,
+  raw artifact paths, byte lengths, SHA-256 hashes, provenance relationships,
+  reciprocal conflict gates, interpretation decisions, and rule-package
+  publication constraints.
+- Added one valid and five deliberately invalid synthetic registry cases for
+  open-conflict publication, missing provenance, candidate-observation
+  promotion, unsupported conflict resolution, and missing raw artifacts.
+
+### Verification
+
+`python scripts/validate_source_rule_registry.py` passed the physical registry,
+recomputed all nine artifact hashes, accepted the valid draft case, and rejected
+all five negative cases for their expected reasons. Existing logical-schema
+validation, Python compilation, and repository diff checks are run again at the
+handoff.
+
+### Limitation
+
+The JSON representation is the first physical contract, not a final database
+choice. It publishes and executes no tariff rule. CF-0001, CF-0002, and CF-0003
+remain open and block all affected draft rules.
+
+### Next
+
+Choose the first conflict-free charge or reference family for implementation,
+then extend the registry with immutable version/supersession records and
+source-backed boundary tests. Continue pursuing archivable PPA artifacts in
+parallel.
+
+## 2026-08-03 — Initial scale-weight reference rules
+
+### Objective
+
+Implement the first deterministic 400NG reference family without relying on an
+open source conflict, disputed billing item code, or unresolved rate table.
+
+### Selection
+
+Selected initial shipment weight determination and weight-ticket sufficiency
+from 400NG Item 4.1, 4.9(a)-(e), and 4.10(a)-(d). Reweigh fees, automatic-reweigh
+selection, constructive article weights, refunds, and charge rating remain out
+of this increment.
+
+### Change
+
+- Added seven reviewed Item 4 claims and exact locators to the physical registry.
+- Added a separate published `2026.weight-determination.1` package with four
+  implemented rules for exact net scale weight, scale-method eligibility,
+  weighing conditions, and ticket sufficiency.
+- Declared eleven input dependencies and two evidence requirements. Candidate
+  defaults are prohibited for missing weights, units, scale facts, weighing
+  conditions, and ticket content.
+- Implemented exact-decimal `gross - tare` evaluation in
+  `rules/weight_determination.py`. A final result exposes inputs, calculation
+  steps, units, evidence IDs, package/rule IDs, and source provenance.
+- Invalid or incomplete evidence produces a `BLOCKED` result with human review
+  reasons and no authoritative calculation.
+- Added fourteen explicitly synthetic cases covering tare-first and gross-first
+  sequences, the 1,000/1,001-pound platform boundary, containerization, combined
+  tickets, required ticket content, certification, true copies, vehicle/container
+  continuity, positive net weight, exact-decimal strings, and explicit units.
+
+### Verification
+
+- `python scripts/validate_weight_determination.py` passed all 14 cases.
+- `python scripts/validate_source_rule_registry.py` accepted the registry and
+  rejected six deliberate provenance/publication mutations, including a
+  published rule with no declared dependencies.
+- Full logical-schema validation, Python compilation, and `git diff --check` are
+  run at the handoff.
+
+### Limitation
+
+This package determines an initial reference weight and evidence sufficiency; it
+does not calculate an expected invoice amount. It accepts only initial scale
+weighings and does not resolve any reweigh, item-code, rate-date, transit, or SIT
+question.
+
+### Next
+
+Implement the conflict-free automatic-reweigh requirement decision from Item
+4.8 as the next small reference rule, using explicit grade category and initial
+weight inputs with threshold boundary tests. Keep reweigh fee billing and
+controlling-weight selection separate.
+
+## 2026-08-03 — Item 4.8 automatic-reweigh requirement
+
+### Objective
+
+Implement the automatic-reweigh threshold decision without combining it with
+reweigh fee eligibility, billing codes, tolerances, or controlling-weight rules.
+
+### Source check
+
+- Reviewed 400NG Item 4.8(a)-(b), p. 20: E-1 through E-5 uses a 4,000-lb
+  inclusive threshold; E-6 through O-10 and DoW civilians use a 7,000-lb
+  inclusive threshold; automatic reweighs do not require preapproval.
+- Searched the archived 2026 Tender and DTR Chapter A-402 extracts. The Tender
+  defers reweighing to 400NG, and the DTR passages address requested reweighs;
+  neither supplies a competing automatic threshold.
+
+### Change
+
+- Added locator `LOC-0018` and reviewed claims `CLM-0020`-`CLM-0022`.
+- Added a separate published package `2026.automatic-reweigh.1`, rather than
+  changing the already-published initial-weight package.
+- Declared dependencies on a final initial net scale weight and an explicit
+  automatic-reweigh grade band, plus a grade-band evidence requirement.
+- Implemented `rules/automatic_reweigh.py`. It returns the required/not-required
+  boolean, inclusive threshold, exact initial weight, units, preapproval
+  behavior, evidence, and provenance.
+- Unmapped grade bands and blocked upstream weights produce `BLOCKED` results
+  with no eligibility boolean. The rule does not infer an individual grade.
+- Added ten synthetic cases covering 3,999/4,000 and 6,999/7,000 boundaries,
+  both stated 7,000-lb categories, an unmapped warrant-grade band, upstream
+  weight blocking, result-package tampering, and evidence-status mismatch.
+
+### Verification
+
+`python scripts/validate_automatic_reweigh.py` passed all ten cases. Full source
+registry, initial-weight, logical-schema, compilation, and diff validation are
+run again at handoff.
+
+### Limitation
+
+Item 4.8 says the earlier tolerances apply, but those tolerances concern the
+charge and subsequent reweigh handling, not whether the automatic reweigh must
+occur. This increment therefore does not determine a fee, billed item code,
+controlling weight, refund, or reimbursement.
+
+### Next
+
+Reconcile the controlling-weight and refund claims across 400NG Items 4.5 and
+4.11-4.13 with Tender paragraph 9.a.(2)(c)-(d) before implementing any post-
+reweigh weight selection. Preserve competing scope statements if they do not
+normalize to one rule.
+
+## 2026-08-03 — Post-reweigh source and scope reconciliation
+
+### Objective
+
+Determine whether 400NG and the Tender conflict on post-reweigh controlling
+weight, and isolate any unresolved input before implementing a selector, fee, or
+refund rule.
+
+### Reviewed
+
+- Rendered and visually checked 400NG Item 4.5, p. 19; Items 4.11-4.13, pp.
+  22-23; and Note 2, p. 23.
+- Rendered and visually checked Tender Weighing Shipments 8.a.(2)(c)-(d), printed
+  p. 20.
+- Checked DTR Chapter A-402 section D.7.b, p. IV-A-402-20, for the operational
+  reweigh facts and ticket-submission requirement.
+
+### Reconciliation
+
+- No 400NG-versus-Tender conflict was recorded for the general lower-weight
+  obligation. The Tender supplies the general lower-of-two invoicing/refund
+  duty; Item 4.5 governs separate fee eligibility; Items 4.11-4.13 add evidence,
+  billing holds, and containerized correction paths; Note 2 governs duplicate
+  reweighs.
+- Recorded ten reviewed claims (`CLM-0023`-`CLM-0032`) and ten precise locators.
+- Added `docs/reweigh-controlling-weight-reconciliation.md` with normalized
+  questions, source roles, interim behavior, and implementation boundaries.
+
+### New ambiguity
+
+Registered `CF-0004` because Items 4.5 and 4.13 do not state which weight fact
+selects the 5,000-lb absolute-versus-percentage tolerance branch. Candidate facts
+can fall on opposite sides of the boundary and change fee or reimbursement
+eligibility.
+
+Added two non-executable draft rules for the affected tolerance decisions. Both
+declare their inputs, evidence, source claims, and reciprocal CF-0004 block. The
+general lower-weight observation model remains unblocked.
+
+### Verification
+
+`python scripts/validate_source_rule_registry.py` passed the registry and rejected
+seven negative cases, including an attempted CF-0004 publication. Full rule and
+schema validators, Python compilation, and diff checks are run at handoff.
+
+### Limitation
+
+No completed-reweigh selector, fee, refund amount, reimbursement amount, billing
+code, or invoice adjustment was implemented. Closing CF-0004 requires governing
+clarification or an approved scoped interpretation plus 5,000-lb boundary tests.
+
+### Next
+
+Model immutable completed and duplicate reweigh observations with gross, tare,
+net, ticket, date, DPS-update, and supersession history. Then implement the
+non-tolerance lower-net selection from reviewed claims without crossing CF-0004.
+
+## 2026-08-03 — Registry and weight-reference checkpoint
+
+Checkpointed the physical registry, initial scale-weight package, Item 4.8
+automatic-reweigh package, synthetic validators, post-reweigh reconciliation,
+and CF-0004 for a clean-context restart. The cold-resume state points next to
+immutable completed/duplicate reweigh observations and the non-tolerance
+lowest-completed-net selector.

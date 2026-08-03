@@ -167,7 +167,7 @@ Stable identity for an authoritative source across versions.
 |---|---|---|---|---|
 | `source_locator` | `source_version_id`, `locator_kind`, `locator_value` | `page`, `section`, `item`, `sheet`, `cell_range`, `quoted_text_hash` | Locator is precise enough to re-find the claim; cell ranges preserve workbook coordinates | DISC-0010–0091 |
 | `source_claim` | `source_locator_id`, `subject_kind`, `subject_key`, `predicate`, `claim_value`, `value_type`, `claim_derivation_kind`, `interpretation_status` | `unit`, `qualifier`, `notes` | Derivation distinguishes direct text/data from interpretation; status is `candidate`, `reviewed`, `disputed`, `approved`, or `superseded` | Decision 0002; conflict register |
-| `conflict_case` | `conflict_code`, `topic`, `status`, `opened_at` | `resolved_at`, `resolution_summary` | Status cannot become resolved without an accepted interpretation decision | CF-0001–0003 |
+| `conflict_case` | `conflict_code`, `topic`, `status`, `opened_at` | `resolved_at`, `resolution_summary` | Status cannot become resolved without an accepted interpretation decision | CF-0001–0004 |
 | `conflict_claim` | `conflict_case_id`, `source_claim_id`, `claim_role` | `precedence_observation` | At least two distinct claims per conflict | Decision 0002 |
 | `interpretation_decision` | `conflict_case_id`, `decision_status`, `rationale`, `decided_at`, `decided_by` | `selected_claim_id`, `supersedes_id` | Only scoped `approved` decisions may unblock publication; history is immutable | Decision 0002 |
 | `decision_impact` | `interpretation_decision_id`, `impact_kind`, `impacted_key` | `notes` | Identifies every affected rule, rate table, field, test, and result | Decision 0002 |
@@ -407,6 +407,7 @@ not published tariff rules or production rating results.
 | `CF-0001` — requested versus actual pickup date | Publishing a rule that selects accessorial/SIT rate tables from the disputed effective-date fact | Store both typed dates, both claims, candidate decisions, and test scenarios |
 | `CF-0002` — transit-time table and 70% SIT formula | Publishing the mileage-tool transit result or derived SIT entitlement as authoritative | Archive workbook structure, compute clearly labeled candidate results, and route to human review |
 | `CF-0003` — 2022 item-code applicability | Treating the 2022 code list as the authoritative 2026 controlled vocabulary | Preserve raw billed code; store provisional mapping and requirements |
+| `CF-0004` — reweigh 5,000-lb branch input | Publishing fee or containerized-reimbursement tolerance logic with an assumed branch weight | Preserve all typed initial, reweigh, provisional, gross, tare, and net observations; allow non-tolerance workflow design |
 
 No conflict gate prevents storage of observed source or invoice data. It prevents
 only the disputed claim from silently controlling a final financial result.
