@@ -78,11 +78,12 @@ Exit criteria:
 
 ## M5 — Add evidence and post-audit comparison
 
-Status: in progress. Item 28A now has the first end-to-end deterministic audit
-slice: immutable corrected invoice/payment histories, reviewed completeness and
-source-evidence gates, exact expected/invoiced/paid variances, decided finding
-classifications, and human-review blocks. This does not yet cover another charge
-family or authorized historical data.
+Status: in progress. Item 28A and Item 28B now have deterministic audit slices:
+immutable corrected invoice/payment histories, reviewed completeness and source-
+evidence gates, exact expected/invoiced/paid variances, decided finding
+classifications, and human-review blocks. Both registered adapters run together
+against one shared synthetic shipment history with exact aggregate totals and
+all-or-nothing blocking. Authorized historical data is not yet available.
 
 Exit criteria:
 

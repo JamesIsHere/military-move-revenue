@@ -7,11 +7,12 @@ import re
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
 from rules.item_28a_extra_pickup import (
-    CURRENCY,
-    ITEM_CODE,
-    QUANTITY_UNIT,
+    CURRENCY as ITEM_28A_CURRENCY,
+    INTERPRETATION_DECISION_ID as ITEM_28A_DECISION_ID,
+    ITEM_CODE as ITEM_28A_CODE,
+    QUANTITY_UNIT as ITEM_28A_QUANTITY_UNIT,
     RULE_PACKAGE_ID as ITEM_28A_RULE_PACKAGE_ID,
-    UNIT_RATE,
+    UNIT_RATE as ITEM_28A_UNIT_RATE,
 )
 from rules.item_28a_post_audit import (
     AUDIT_POLICY_ID as ITEM_28A_AUDIT_POLICY_ID,
@@ -22,6 +23,22 @@ from rules.item_28a_post_audit import (
     audit_item_28a,
 )
 from rules.item_28a_extra_pickup import PROVENANCE as ITEM_28A_EXPECTED_PROVENANCE
+from rules.item_28b_extra_delivery import (
+    CURRENCY as ITEM_28B_CURRENCY,
+    INTERPRETATION_DECISION_ID as ITEM_28B_DECISION_ID,
+    ITEM_CODE as ITEM_28B_CODE,
+    PROVENANCE as ITEM_28B_EXPECTED_PROVENANCE,
+    QUANTITY_UNIT as ITEM_28B_QUANTITY_UNIT,
+    RULE_PACKAGE_ID as ITEM_28B_RULE_PACKAGE_ID,
+    UNIT_RATE as ITEM_28B_UNIT_RATE,
+)
+from rules.item_28b_post_audit import (
+    AUDIT_POLICY_ID as ITEM_28B_AUDIT_POLICY_ID,
+    AUDIT_POLICY_PROVENANCE as ITEM_28B_AUDIT_POLICY_PROVENANCE,
+    AUDIT_POLICY_VERSION as ITEM_28B_AUDIT_POLICY_VERSION,
+    AUDIT_SOURCE_PROVENANCE as ITEM_28B_AUDIT_SOURCE_PROVENANCE,
+    audit_item_28b,
+)
 
 
 REPORT_SCHEMA_VERSION = "audit-report-envelope.v1"
@@ -50,6 +67,9 @@ REPORT_POLICY_PROVENANCE = (
 
 ITEM_28A_ADAPTER_ID = "CHARGE-ADAPTER-DP3-ITEM-28A-V1"
 ITEM_28A_ADAPTER_VERSION = "2026-08-03.1"
+ITEM_28B_ADAPTER_ID = "CHARGE-ADAPTER-DP3-ITEM-28B-V1"
+ITEM_28B_ADAPTER_VERSION = "2026-08-04.1"
+REPORT_CURRENCY = "USD"
 SIGNED_DECIMAL_RE = re.compile(r"^-?(?:0|[1-9]\d*)(?:\.\d+)?$")
 
 
@@ -97,84 +117,90 @@ def _sorted_unique_strings(value: object, label: str) -> list[str]:
     return value
 
 
-def _validate_item_28a_result(result: object) -> dict:
-    _require(isinstance(result, dict), "Item 28A adapter result must be an object")
+def _validate_occurrence_result(result: object, contract: dict) -> dict:
+    label = contract["label"]
+    item_code = contract["item_code"]
+    quantity_unit = contract["quantity_unit"]
+    currency = contract["currency"]
+    unit_rate = contract["unit_rate"]
+    _require(isinstance(result, dict), f"{label} adapter result must be an object")
     policy = result.get("audit_policy")
     _require(
         isinstance(policy, dict)
-        and policy.get("id") == ITEM_28A_AUDIT_POLICY_ID
-        and policy.get("version") == ITEM_28A_AUDIT_POLICY_VERSION,
-        "Item 28A audit policy mismatch",
+        and policy.get("id") == contract["audit_policy_id"]
+        and policy.get("version") == contract["audit_policy_version"],
+        f"{label} audit policy mismatch",
     )
     _require(
         policy.get("billing_variance_expression") == "invoiced_amount - expected_amount"
         and policy.get("payment_variance_expression") == "paid_amount - invoiced_amount"
         and policy.get("realized_variance_expression") == "paid_amount - expected_amount",
-        "Item 28A variance contract mismatch",
+        f"{label} variance contract mismatch",
     )
     charge = result.get("audited_charge")
     _require(
         isinstance(charge, dict)
-        and charge.get("item_code") == ITEM_CODE
-        and charge.get("quantity_unit") == QUANTITY_UNIT
-        and charge.get("currency") == CURRENCY
-        and charge.get("expected_charge_rule_package_id") == ITEM_28A_RULE_PACKAGE_ID,
-        "Item 28A audited charge contract mismatch",
+        and charge.get("item_code") == item_code
+        and charge.get("quantity_unit") == quantity_unit
+        and charge.get("currency") == currency
+        and charge.get("expected_charge_rule_package_id") == contract["rule_package_id"]
+        and charge.get("interpretation_decision_id") == contract["interpretation_decision_id"],
+        f"{label} audited charge contract mismatch",
     )
     _require(
         result.get("provenance")
         == {
-            "audit_policy": [dict(value) for value in ITEM_28A_AUDIT_POLICY_PROVENANCE],
-            "observed_invoice_payment": [dict(value) for value in ITEM_28A_AUDIT_SOURCE_PROVENANCE],
-            "expected_charge": [dict(value) for value in ITEM_28A_EXPECTED_PROVENANCE],
+            "audit_policy": [dict(value) for value in contract["audit_policy_provenance"]],
+            "observed_invoice_payment": [dict(value) for value in contract["audit_source_provenance"]],
+            "expected_charge": [dict(value) for value in contract["expected_provenance"]],
         },
-        "Item 28A provenance mismatch",
+        f"{label} provenance mismatch",
     )
-    _require(result.get("unresolved_assumptions") == [], "Item 28A result contains unresolved assumptions")
-    _require(result.get("data_status") in {"synthetic", "authorized_sanitized"}, "Item 28A data status is invalid")
-    _instant(result.get("as_of_at"), "Item 28A as_of_at")
+    _require(result.get("unresolved_assumptions") == [], f"{label} result contains unresolved assumptions")
+    _require(result.get("data_status") in {"synthetic", "authorized_sanitized"}, f"{label} data status is invalid")
+    _instant(result.get("as_of_at"), f"{label} as_of_at")
 
     trace = result.get("expected_charge_trace")
-    _require(isinstance(trace, dict) and trace.get("status") in {"FINAL", "BLOCKED"}, "Item 28A expected trace is invalid")
-    _require(isinstance(trace.get("result_case_id"), str) and trace["result_case_id"], "Item 28A expected result id is missing")
-    _require(isinstance(trace.get("shipment_id"), str) and trace["shipment_id"], "Item 28A expected shipment id is missing")
-    _sorted_unique_strings(trace.get("reviewed_evidence_link_ids"), "Item 28A expected evidence ids")
+    _require(isinstance(trace, dict) and trace.get("status") in {"FINAL", "BLOCKED"}, f"{label} expected trace is invalid")
+    _require(isinstance(trace.get("result_case_id"), str) and trace["result_case_id"], f"{label} expected result id is missing")
+    _require(isinstance(trace.get("shipment_id"), str) and trace["shipment_id"], f"{label} expected shipment id is missing")
+    _sorted_unique_strings(trace.get("reviewed_evidence_link_ids"), f"{label} expected evidence ids")
     if trace["status"] == "FINAL":
         calculation = trace.get("calculation")
-        _require(isinstance(calculation, dict), "Item 28A expected calculation is missing")
-        quantity = _decimal(calculation.get("quantity"), "Item 28A expected quantity")
-        unit_rate = _money(calculation.get("unit_rate"), "Item 28A unit rate")
-        expected = _money(calculation.get("expected_amount"), "Item 28A expected amount")
+        _require(isinstance(calculation, dict), f"{label} expected calculation is missing")
+        quantity = _decimal(calculation.get("quantity"), f"{label} expected quantity")
+        observed_unit_rate = _money(calculation.get("unit_rate"), f"{label} unit rate")
+        expected = _money(calculation.get("expected_amount"), f"{label} expected amount")
         _require(
             calculation.get("operation") == "MULTIPLY"
-            and calculation.get("quantity_unit") == QUANTITY_UNIT
-            and calculation.get("currency") == CURRENCY
+            and calculation.get("quantity_unit") == quantity_unit
+            and calculation.get("currency") == currency
             and calculation.get("unrounded_amount") == calculation.get("expected_amount")
-            and unit_rate == UNIT_RATE
-            and quantity * unit_rate == expected,
-            "Item 28A expected calculation mismatch",
+            and observed_unit_rate == unit_rate
+            and quantity * observed_unit_rate == expected,
+            f"{label} expected calculation mismatch",
         )
     else:
-        _require("calculation" not in trace, "blocked Item 28A expected trace exposes a calculation")
+        _require("calculation" not in trace, f"blocked {label} expected trace exposes a calculation")
 
     status = result.get("status")
-    _require(status in {"FINAL", "BLOCKED"}, "Item 28A audit status is invalid")
+    _require(status in {"FINAL", "BLOCKED"}, f"{label} audit status is invalid")
     if status == "BLOCKED":
-        reasons = _sorted_unique_strings(result.get("blocked_reasons"), "Item 28A blocked reasons")
-        _require(reasons, "blocked Item 28A result lacks a reason")
-        _require(result.get("human_review_required") is True, "blocked Item 28A result must require review")
-        _require(result.get("audit_finding") == {"finding_code": "AUDIT_BLOCKED", "finding_status": "OPEN"}, "blocked Item 28A finding mismatch")
-        _require("comparison" not in result and "match" not in result, "blocked Item 28A result exposes authoritative comparison")
+        reasons = _sorted_unique_strings(result.get("blocked_reasons"), f"{label} blocked reasons")
+        _require(reasons, f"blocked {label} result lacks a reason")
+        _require(result.get("human_review_required") is True, f"blocked {label} result must require review")
+        _require(result.get("audit_finding") == {"finding_code": "AUDIT_BLOCKED", "finding_status": "OPEN"}, f"blocked {label} finding mismatch")
+        _require("comparison" not in result and "match" not in result, f"blocked {label} result exposes authoritative comparison")
         snapshot = result.get("input_snapshot", {})
-        _require(isinstance(snapshot, dict), "Item 28A input snapshot is invalid")
-        _require(snapshot.get("shipment_id", trace["shipment_id"]) == trace["shipment_id"], "blocked Item 28A shipment trace mismatch")
-        return {"status": status, "shipment_id": trace["shipment_id"], "currency": CURRENCY}
+        _require(isinstance(snapshot, dict), f"{label} input snapshot is invalid")
+        _require(snapshot.get("shipment_id", trace["shipment_id"]) == trace["shipment_id"], f"blocked {label} shipment trace mismatch")
+        return {"status": status, "shipment_id": trace["shipment_id"], "currency": currency}
 
-    _require(trace["status"] == "FINAL", "final Item 28A audit has a blocked expected trace")
-    _require(result.get("human_review_required") is False, "final Item 28A result unexpectedly requires review")
+    _require(trace["status"] == "FINAL", f"final {label} audit has a blocked expected trace")
+    _require(result.get("human_review_required") is False, f"final {label} result unexpectedly requires review")
     comparison = result.get("comparison")
     finding = result.get("audit_finding")
-    _require(isinstance(comparison, dict) and isinstance(finding, dict), "final Item 28A result is incomplete")
+    _require(isinstance(comparison, dict) and isinstance(finding, dict), f"final {label} result is incomplete")
     expected = _money(comparison.get("expected_amount"), "expected amount")
     invoiced = _money(comparison.get("invoiced_amount"), "invoiced amount")
     paid = _money(comparison.get("paid_amount"), "paid amount")
@@ -185,10 +211,10 @@ def _validate_item_28a_result(result: object) -> dict:
     expected_quantity = _decimal(comparison.get("expected_quantity"), "expected quantity")
     invoiced_quantity = _decimal(comparison.get("invoiced_quantity"), "invoiced quantity")
     _require(_decimal(comparison.get("quantity_variance"), "quantity variance") == invoiced_quantity - expected_quantity, "quantity variance arithmetic mismatch")
-    _require(comparison.get("currency") == CURRENCY and comparison.get("quantity_unit") == QUANTITY_UNIT, "comparison units mismatch")
+    _require(comparison.get("currency") == currency and comparison.get("quantity_unit") == quantity_unit, "comparison units mismatch")
 
     match = result.get("match")
-    _require(isinstance(match, dict) and match.get("match_status") in {"EXACT", "NO_MATCH"}, "Item 28A match contract mismatch")
+    _require(isinstance(match, dict) and match.get("match_status") in {"EXACT", "NO_MATCH"}, f"{label} match contract mismatch")
     matched = match["match_status"] == "EXACT"
     if expected > 0 and not matched:
         billing_code = "MISSING_EXPECTED_CHARGE"
@@ -219,14 +245,52 @@ def _validate_item_28a_result(result: object) -> dict:
     } and quantity_code == "QUANTITY_MATCH"
     _require(
         finding.get("finding_status") == ("CLOSED_NO_EXCEPTION" if no_exception else "OPEN"),
-        "Item 28A overall finding status mismatch",
+        f"{label} overall finding status mismatch",
     )
     snapshot = result.get("input_snapshot")
-    _require(isinstance(snapshot, dict) and isinstance(snapshot.get("shipment_id"), str), "Item 28A input snapshot is incomplete")
-    _require(snapshot["shipment_id"] == trace["shipment_id"], "Item 28A shipment trace mismatch")
+    _require(isinstance(snapshot, dict) and isinstance(snapshot.get("shipment_id"), str), f"{label} input snapshot is incomplete")
+    _require(snapshot["shipment_id"] == trace["shipment_id"], f"{label} shipment trace mismatch")
     for field in ("invoice_evidence_link_ids", "payment_evidence_link_ids", "completeness_assertion_ids"):
-        _sorted_unique_strings(snapshot.get(field), f"Item 28A {field}")
-    return {"status": status, "shipment_id": snapshot["shipment_id"], "currency": CURRENCY}
+        _sorted_unique_strings(snapshot.get(field), f"{label} {field}")
+    return {"status": status, "shipment_id": snapshot["shipment_id"], "currency": currency}
+
+
+ITEM_28A_REPORT_CONTRACT = {
+    "label": "Item 28A",
+    "item_code": ITEM_28A_CODE,
+    "quantity_unit": ITEM_28A_QUANTITY_UNIT,
+    "currency": ITEM_28A_CURRENCY,
+    "unit_rate": ITEM_28A_UNIT_RATE,
+    "interpretation_decision_id": ITEM_28A_DECISION_ID,
+    "rule_package_id": ITEM_28A_RULE_PACKAGE_ID,
+    "audit_policy_id": ITEM_28A_AUDIT_POLICY_ID,
+    "audit_policy_version": ITEM_28A_AUDIT_POLICY_VERSION,
+    "audit_policy_provenance": ITEM_28A_AUDIT_POLICY_PROVENANCE,
+    "audit_source_provenance": ITEM_28A_AUDIT_SOURCE_PROVENANCE,
+    "expected_provenance": ITEM_28A_EXPECTED_PROVENANCE,
+}
+ITEM_28B_REPORT_CONTRACT = {
+    "label": "Item 28B",
+    "item_code": ITEM_28B_CODE,
+    "quantity_unit": ITEM_28B_QUANTITY_UNIT,
+    "currency": ITEM_28B_CURRENCY,
+    "unit_rate": ITEM_28B_UNIT_RATE,
+    "interpretation_decision_id": ITEM_28B_DECISION_ID,
+    "rule_package_id": ITEM_28B_RULE_PACKAGE_ID,
+    "audit_policy_id": ITEM_28B_AUDIT_POLICY_ID,
+    "audit_policy_version": ITEM_28B_AUDIT_POLICY_VERSION,
+    "audit_policy_provenance": ITEM_28B_AUDIT_POLICY_PROVENANCE,
+    "audit_source_provenance": ITEM_28B_AUDIT_SOURCE_PROVENANCE,
+    "expected_provenance": ITEM_28B_EXPECTED_PROVENANCE,
+}
+
+
+def _validate_item_28a_result(result: object) -> dict:
+    return _validate_occurrence_result(result, ITEM_28A_REPORT_CONTRACT)
+
+
+def _validate_item_28b_result(result: object) -> dict:
+    return _validate_occurrence_result(result, ITEM_28B_REPORT_CONTRACT)
 
 
 ADAPTERS: dict[str, dict[str, object]] = {
@@ -236,23 +300,30 @@ ADAPTERS: dict[str, dict[str, object]] = {
         "audit_policy_id": ITEM_28A_AUDIT_POLICY_ID,
         "evaluator": audit_item_28a,
         "validator": _validate_item_28a_result,
-    }
+    },
+    ITEM_28B_ADAPTER_ID: {
+        "adapter_version": ITEM_28B_ADAPTER_VERSION,
+        "charge_family": "DP3_ITEM_28B_EXTRA_DELIVERY",
+        "audit_policy_id": ITEM_28B_AUDIT_POLICY_ID,
+        "evaluator": audit_item_28b,
+        "validator": _validate_item_28b_result,
+    },
 }
 
 
-def _billing_explanation(comparison: dict, code: str) -> str:
+def _billing_explanation(comparison: dict, code: str, item_label: str) -> str:
     expected = comparison["expected_amount"]
     invoiced = comparison["invoiced_amount"]
     variance = comparison["billing_variance"]
-    return f"Item 28A expected USD {expected}, invoiced USD {invoiced}, and has invoiced-minus-expected variance USD {variance}; finding {code}."
+    return f"{item_label} expected USD {expected}, invoiced USD {invoiced}, and has invoiced-minus-expected variance USD {variance}; finding {code}."
 
 
-def _quantity_explanation(comparison: dict, code: str) -> str:
-    return f"Item 28A expected {comparison['expected_quantity']} EA, invoiced {comparison['invoiced_quantity']} EA, and has quantity variance {comparison['quantity_variance']} EA; finding {code}."
+def _quantity_explanation(comparison: dict, code: str, item_label: str) -> str:
+    return f"{item_label} expected {comparison['expected_quantity']} EA, invoiced {comparison['invoiced_quantity']} EA, and has quantity variance {comparison['quantity_variance']} EA; finding {code}."
 
 
-def _payment_explanation(comparison: dict, code: str) -> str:
-    return f"Item 28A invoiced USD {comparison['invoiced_amount']}, paid USD {comparison['paid_amount']}, and has paid-minus-invoiced variance USD {comparison['payment_variance']}; finding {code}."
+def _payment_explanation(comparison: dict, code: str, item_label: str) -> str:
+    return f"{item_label} invoiced USD {comparison['invoiced_amount']}, paid USD {comparison['paid_amount']}, and has paid-minus-invoiced variance USD {comparison['payment_variance']}; finding {code}."
 
 
 def _evidence_record(instance_id: str, result: dict) -> dict:
@@ -303,6 +374,7 @@ def _compose_report(run_id: str, data_status: str, as_of_at: str, charge_results
                 + evidence_index[-1]["payment_evidence_link_ids"]
             )
         )
+        item_label = f"Item {result['audited_charge']['item_code']}"
         if result["status"] == "BLOCKED":
             for sequence, reason in enumerate(result["blocked_reasons"], start=1):
                 findings.append(
@@ -313,7 +385,7 @@ def _compose_report(run_id: str, data_status: str, as_of_at: str, charge_results
                         "finding_code": "AUDIT_BLOCKED",
                         "reason_code": reason,
                         "finding_status": "OPEN",
-                        "explanation": f"Item 28A audit is blocked pending human review: {reason}.",
+                        "explanation": f"{item_label} audit is blocked pending human review: {reason}.",
                         "evidence_link_ids": evidence_ids,
                     }
                 )
@@ -336,7 +408,7 @@ def _compose_report(run_id: str, data_status: str, as_of_at: str, charge_results
                     "dimension": dimension,
                     "finding_code": code,
                     "finding_status": "CLOSED_NO_EXCEPTION" if code in nonexceptions else "OPEN",
-                    "explanation": explain(comparison, code),
+                    "explanation": explain(comparison, code, item_label),
                     "evidence_link_ids": evidence_ids,
                 }
             )
@@ -358,7 +430,7 @@ def _compose_report(run_id: str, data_status: str, as_of_at: str, charge_results
         paid = sum((_money(value["comparison"]["paid_amount"], "paid total component") for value in final_results), Decimal("0"))
         summary.update(
             {
-                "currency": CURRENCY,
+                "currency": REPORT_CURRENCY,
                 "expected_amount": _money_text(expected),
                 "invoiced_amount": _money_text(invoiced),
                 "paid_amount": _money_text(paid),

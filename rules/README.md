@@ -56,8 +56,19 @@ rating produces no authoritative comparison and enters human review. Its
 versioned internal policy is documented in
 `docs/item-28a-post-audit-policy.md`; it is not a new Government billing rule.
 
+`item_28b_extra_delivery.py` implements the separately approved `INT-0002`
+contract using actual pickup date, completed extra deliveries before final
+delivery, Destination-PPSO authorization, reviewed evidence, and exact
+occurrence multiplication. `item_28b_post_audit.py` applies the shared internal
+occurrence-reconciliation core under its own Item 28B policy, package,
+provenance, mapping decision, and adapter contract.
+
+`audit_report.py` registers distinct Item 28A and Item 28B adapters. A single
+shipment report may contain both families; any blocked family suppresses all
+aggregate monetary totals without suppressing decided charge-level findings.
+
 The file-backed physical source/rule registry is under `rules/registry/`. Its
-seven reference/workflow packages and one monetary package are published
+seven reference/workflow packages and two monetary packages are published
 separately from the draft, non-executable rules affected by open conflicts.
 
 Every future executable rule must identify its source version and locator,

@@ -1544,3 +1544,53 @@ Item-Code rows 23–26.
 - Next, add immutable Item 28B invoice/payment facts, deterministic post-audit
   reconciliation, and a second registered report adapter. Do not infer that the
   Item 28A audit mapping or invoice facts apply without an Item 28B contract.
+
+## 2026-08-04 — Counsel billing-clarification brief
+
+### Outcome
+
+- Drafted a 521-word send-ready memo for the project owner's law-firm contact.
+- Prioritized the three questions with the greatest cross-family leverage:
+  currency of the 12 August 2022 domestic Item Code Listing, actual-versus-
+  requested pickup rate-date selection, and the Item 4.5 reweigh 5,000-pound
+  branch fact and exact boundaries.
+- Requested governing artifacts with version, effective period, locator, and
+  sanitized examples; distinguished published authority from customary
+  practice and prohibited live personal or financial data.
+
+### Verification and next
+
+- Cross-checked every technical premise against the conflict register and
+  monetary charge-family inventory. The brief contains 521 words and 74 source
+  lines; no external message or data transfer occurred.
+- Next, the owner can personalize and send the brief while Item 28B post-audit
+  reconciliation proceeds independently.
+
+## 2026-08-04 — Item 28B audit adapter and two-family report
+
+### Outcome
+
+- Added internal policy `AUDIT-DP3-ITEM-28B-RECONCILIATION-V1` and registered
+  `CHARGE-ADAPTER-DP3-ITEM-28B-V1`. Matching requires raw `28B`, `EA`, accepted
+  `INT-0002` mapping, reviewed immutable invoice/payment evidence, and complete
+  histories through the cutoff.
+- Extracted the existing occurrence-charge audit core into an explicit contract
+  boundary. Item 28A retains its own policy, package, provenance, decision, and
+  outputs; its complete prior regression suite remains unchanged.
+- Added synthetic corrected Item 28B invoice/payment history and 23 audit cases
+  covering billing, quantity, payment, missing/unsupported lines, mapping,
+  completeness, evidence, chronology, malformed input, and seven result tampers.
+- Added one shared synthetic shipment history with accepted Item 28A and Item
+  28B lines and allocations. The closed report totals exactly 397.00 USD; the
+  blocked case proves one family suppresses aggregate money without erasing the
+  other family's decided findings.
+
+### Verification and next
+
+- All 16 `scripts/validate_*.py` suites pass. Logical-schema coverage is 12
+  positive scenarios plus paired negative probes; audit-report coverage is six
+  canonical cases plus ten output-tamper and three request-contract probes.
+- Changed-module Python compilation and `git diff --check` pass. No real data,
+  external write, live submission, or money movement was used.
+- Next, send the counsel brief, register the response by authority type, and
+  re-run readiness before selecting the reweigh fee or Item 130.

@@ -6,6 +6,7 @@ from __future__ import annotations
 import copy
 import json
 import sys
+from decimal import Decimal
 from pathlib import Path
 
 
@@ -14,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 
 from rules.audit_report import (  # noqa: E402
     ITEM_28A_ADAPTER_ID,
+    ITEM_28B_ADAPTER_ID,
     REPORT_POLICY_ID,
     REPORT_POLICY_PROVENANCE,
     REPORT_POLICY_VERSION,
@@ -24,6 +26,10 @@ from rules.audit_report import (  # noqa: E402
     validate_audit_report,
 )
 from rules.item_28a_extra_pickup import INTERPRETATION_DECISION_ID, rate_item_28a_extra_pickups  # noqa: E402
+from rules.item_28b_extra_delivery import (  # noqa: E402
+    INTERPRETATION_DECISION_ID as ITEM_28B_DECISION_ID,
+    rate_item_28b_extra_deliveries,
+)
 
 
 FIXTURE_PATH = ROOT / "tests" / "fixtures" / "audit-report" / "audit-report-cases.json"
@@ -75,6 +81,14 @@ def mutate(target: dict, mutations: object, label: str) -> None:
         set_path(target, mutation.get("path"), mutation.get("value"))
 
 
+def replace_string(value: object, old: str, new: str) -> object:
+    if isinstance(value, dict):
+        return {key: replace_string(item, old, new) for key, item in value.items()}
+    if isinstance(value, list):
+        return [replace_string(item, old, new) for item in value]
+    return new if value == old else value
+
+
 def change_records(candidate: dict, fixture: dict, label: str) -> None:
     removals = fixture.get("remove_records", {})
     additions = fixture.get("append_records", {})
@@ -115,6 +129,33 @@ def build_audit_case(audit_suite: dict, fixture: dict, rating_base: dict, audit_
     return candidate
 
 
+def build_shared_audit_case(
+    *,
+    case_id: str,
+    as_of_at: str,
+    rating_base: dict,
+    original_shipment_id: str,
+    decision_id: str,
+    rating_evaluator: object,
+    shared_history: dict,
+) -> dict:
+    rating_records = replace_string(copy.deepcopy(rating_base["records"]), original_shipment_id, "SHP-MULTI-001")
+    rating_case = {
+        "case_id": f"{case_id}-EXPECTED",
+        "data_status": "synthetic",
+        "interpretation_decision_id": decision_id,
+        "records": rating_records,
+    }
+    expected_result = rating_evaluator(rating_case)  # type: ignore[operator]
+    return {
+        "case_id": case_id,
+        "data_status": "synthetic",
+        "as_of_at": as_of_at,
+        "expected_charge_result": expected_result,
+        "records": copy.deepcopy(shared_history["records"]),
+    }
+
+
 def validate_policy_contract() -> None:
     require(REPORT_SCHEMA_VERSION == "audit-report-envelope.v1", "report schema version changed")
     require(REPORT_POLICY_ID == "AUDIT-REPORT-ENVELOPE-V1", "report policy id changed")
@@ -138,14 +179,17 @@ def validate_report_case(report: dict, expected: dict, case_id: str) -> None:
     require(report["findings"] == sorted(report["findings"], key=lambda value: value["finding_id"]), f"{case_id} findings are unstable")
     require(report["unresolved_assumptions"] == [], f"{case_id} introduced an assumption")
     require(report["source_index"][0]["source_scope"] == "REPORT_POLICY", f"{case_id} report source is missing")
-    require(len(report["source_index"]) == 4, f"{case_id} source scopes are incomplete")
-    require(len(report["evidence_index"]) == 1, f"{case_id} evidence index is incomplete")
+    charge_count = expected.get("charge_count", 1)
+    require(summary["charge_count"] == charge_count, f"{case_id} charge count mismatch")
+    require(len(report["source_index"]) == 1 + 3 * charge_count, f"{case_id} source scopes are incomplete")
+    require(len(report["evidence_index"]) == charge_count, f"{case_id} evidence index is incomplete")
     if expected["totals_status"] == "FINAL":
         for field in ("expected_amount", "invoiced_amount", "paid_amount"):
             require(summary[field] == expected[field], f"{case_id} {field} mismatch")
-        require(len(report["findings"]) == 3, f"{case_id} must have three decided dimensions")
-        trace = report["charge_results"][0]["audit_result"]["expected_charge_trace"]["calculation"]
-        require(trace["operation"] == "MULTIPLY" and trace["expected_amount"] == summary["expected_amount"], f"{case_id} expected math trace mismatch")
+        require(len(report["findings"]) == 3 * charge_count, f"{case_id} decided dimension count mismatch")
+        traces = [value["audit_result"]["expected_charge_trace"]["calculation"] for value in report["charge_results"]]
+        require(all(value["operation"] == "MULTIPLY" for value in traces), f"{case_id} expected math operation mismatch")
+        require(sum(Decimal(value["expected_amount"]) for value in traces) == Decimal(summary["expected_amount"]), f"{case_id} expected math trace mismatch")
     else:
         for field in ("currency", "expected_amount", "invoiced_amount", "paid_amount", "billing_variance", "payment_variance", "realized_variance"):
             require(field not in summary, f"{case_id} blocked summary exposed {field}")
@@ -223,6 +267,15 @@ def main() -> int:
         require(rating_base.get("data_status") == "SYNTHETIC" and audit_base.get("data_status") == "SYNTHETIC", "report bases must be synthetic")
         audit_fixtures = {value["id"]: value for value in audit_suite["cases"]}
 
+        item_28b_suite_path = (ROOT / suite["item_28b_audit_suite_path"]).resolve()
+        shared_history_path = (ROOT / suite["shared_history_path"]).resolve()
+        require(item_28b_suite_path.is_relative_to(ROOT) and shared_history_path.is_relative_to(ROOT), "combined fixture path escapes repository")
+        item_28b_suite = load_json(item_28b_suite_path)
+        item_28b_rating_base = load_json((ROOT / item_28b_suite["rating_fixture_path"]).resolve())
+        shared_history = load_json(shared_history_path)
+        require(item_28b_suite["as_of_at"] == audit_suite["as_of_at"], "charge-family audit cutoffs differ")
+        require(item_28b_rating_base.get("data_status") == "SYNTHETIC" and shared_history.get("data_status") == "SYNTHETIC", "combined bases must be synthetic")
+
         tamper_baseline = None
         valid_request = None
         cases = suite.get("cases")
@@ -251,10 +304,46 @@ def main() -> int:
                 tamper_baseline = report
                 valid_request = request
 
+        combined_cases = suite.get("combined_cases")
+        require(isinstance(combined_cases, list) and combined_cases, "combined report suite requires cases")
+        for fixture in combined_cases:
+            case_id = fixture["id"]
+            item_28a_case = build_shared_audit_case(
+                case_id=f"{case_id}-28A",
+                as_of_at=audit_suite["as_of_at"],
+                rating_base=rating_base,
+                original_shipment_id="SHP-28A-001",
+                decision_id=INTERPRETATION_DECISION_ID,
+                rating_evaluator=rate_item_28a_extra_pickups,
+                shared_history=shared_history,
+            )
+            item_28b_case = build_shared_audit_case(
+                case_id=f"{case_id}-28B",
+                as_of_at=audit_suite["as_of_at"],
+                rating_base=item_28b_rating_base,
+                original_shipment_id="SHP-28B-001",
+                decision_id=ITEM_28B_DECISION_ID,
+                rating_evaluator=rate_item_28b_extra_deliveries,
+                shared_history=shared_history,
+            )
+            mutate(item_28b_case, fixture.get("item_28b_audit_mutations", []), case_id)
+            request = {
+                "audit_run_id": case_id,
+                "data_status": "synthetic",
+                "as_of_at": audit_suite["as_of_at"],
+                "charge_requests": [
+                    {"charge_instance_id": "ITEM-28A", "adapter_id": ITEM_28A_ADAPTER_ID, "audit_case": item_28a_case},
+                    {"charge_instance_id": "ITEM-28B", "adapter_id": ITEM_28B_ADAPTER_ID, "audit_case": item_28b_case},
+                ],
+            }
+            report = build_audit_report(request)
+            validate_report_case(report, fixture["expected"], case_id)
+            print(f"PASS {case_id} {report['status']} canonical multi-family report")
+
         require(tamper_baseline is not None and valid_request is not None, "report tamper baseline was not produced")
         validate_tamper_rejection(tamper_baseline)
         validate_request_rejection(valid_request)
-        print(f"PASS all {len(cases)} audit-report cases, 10 output-tamper probes, and 3 request-contract probes")
+        print(f"PASS all {len(cases) + len(combined_cases)} audit-report cases, 10 output-tamper probes, and 3 request-contract probes")
         return 0
     except (OSError, json.JSONDecodeError, KeyError, AuditReportError, ValidationError) as exc:
         print(f"FAIL {exc}", file=sys.stderr)

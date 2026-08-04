@@ -181,12 +181,20 @@ def _current_version_by_owner(
     return result
 
 
-def _validate_expected_charge_result(result: object) -> dict:
+def _validate_expected_charge_result(result: object, contract: dict) -> dict:
+    item_code = contract["item_code"]
+    quantity_unit = contract["quantity_unit"]
+    currency = contract["currency"]
+    interpretation_decision_id = contract["interpretation_decision_id"]
+    expected_rule_ids = contract["expected_charge_rule_ids"]
+    expected_rule_package_id = contract["expected_charge_rule_package_id"]
+    expected_provenance = contract["expected_charge_provenance"]
+    unit_rate = contract["unit_rate"]
     _require(isinstance(result, dict), "expected_charge_result must be an object")
-    _require(result.get("rule_package_id") == EXPECTED_CHARGE_RULE_PACKAGE_ID, "expected charge uses an unknown rule package")
-    _require(result.get("rule_ids") == list(EXPECTED_CHARGE_RULE_IDS), "expected charge rule sequence mismatch")
-    _require(result.get("interpretation_decision_id") == INTERPRETATION_DECISION_ID, "expected charge interpretation mismatch")
-    _require(result.get("provenance") == [dict(reference) for reference in EXPECTED_CHARGE_PROVENANCE], "expected charge provenance mismatch")
+    _require(result.get("rule_package_id") == expected_rule_package_id, "expected charge uses an unknown rule package")
+    _require(result.get("rule_ids") == list(expected_rule_ids), "expected charge rule sequence mismatch")
+    _require(result.get("interpretation_decision_id") == interpretation_decision_id, "expected charge interpretation mismatch")
+    _require(result.get("provenance") == [dict(reference) for reference in expected_provenance], "expected charge provenance mismatch")
     _require(result.get("unresolved_assumptions") == [], "expected charge contains unresolved assumptions")
     _require(result.get("status") in {"FINAL", "BLOCKED"}, "expected charge has unsupported status")
 
@@ -195,21 +203,21 @@ def _validate_expected_charge_result(result: object) -> dict:
     _require(
         source_contract
         == {
-            "item_code": ITEM_CODE,
-            "quantity_unit": QUANTITY_UNIT,
-            "rate_date_role": "ORIGINAL_REQUESTED_PICKUP",
-            "rate_effective_from": RATE_EFFECTIVE_FROM.isoformat(),
-            "rate_effective_to": RATE_EFFECTIVE_TO.isoformat(),
-            "rate_source_cell": RATE_SOURCE_CELL,
+            "item_code": item_code,
+            "quantity_unit": quantity_unit,
+            "rate_date_role": contract["rate_date_role"],
+            "rate_effective_from": contract["rate_effective_from"].isoformat(),
+            "rate_effective_to": contract["rate_effective_to"].isoformat(),
+            "rate_source_cell": contract["rate_source_cell"],
         },
         "expected charge source contract mismatch",
     )
     _require(
         result.get("evidence")
         == {
-            "approval_requirement_id": APPROVAL_REQUIREMENT_ID,
-            "performance_requirement_id": PERFORMANCE_REQUIREMENT_ID,
-            "rate_date_requirement_id": RATE_DATE_REQUIREMENT_ID,
+            "approval_requirement_id": contract["approval_requirement_id"],
+            "performance_requirement_id": contract["performance_requirement_id"],
+            "rate_date_requirement_id": contract["rate_date_requirement_id"],
         },
         "expected charge evidence contract mismatch",
     )
@@ -247,10 +255,10 @@ def _validate_expected_charge_result(result: object) -> dict:
     rate = _money(calculation.get("unit_rate"), "expected unit rate")
     amount = _money(calculation.get("expected_amount"), "expected amount")
     _require(quantity == Decimal(count), "expected calculation quantity differs from eligibility")
-    _require(rate == UNIT_RATE, "expected calculation rate mismatch")
+    _require(rate == unit_rate, "expected calculation rate mismatch")
     _require(amount == quantity * rate, "expected calculation arithmetic mismatch")
     _require(calculation.get("unrounded_amount") == calculation.get("expected_amount"), "expected calculation introduced rounding")
-    _require(calculation.get("currency") == CURRENCY and calculation.get("quantity_unit") == QUANTITY_UNIT, "expected calculation unit or currency mismatch")
+    _require(calculation.get("currency") == currency and calculation.get("quantity_unit") == quantity_unit, "expected calculation unit or currency mismatch")
     _require(result.get("expected_line_action") == ("CREATE" if count else "OMIT"), "expected line action mismatch")
     return {
         "status": "FINAL",
@@ -263,37 +271,44 @@ def _validate_expected_charge_result(result: object) -> dict:
     }
 
 
-def audit_item_28a(case: dict) -> dict:
-    """Return a deterministic Item 28A billing/payment finding or review block."""
+def audit_occurrence_charge(case: dict, contract: dict) -> dict:
+    """Return a deterministic occurrence-charge billing/payment finding or block."""
 
     _require(isinstance(case, dict), "case must be an object")
+    item_code = contract["item_code"]
+    item_token = contract["item_token"]
+    item_label = contract["item_label"]
+    quantity_unit = contract["quantity_unit"]
+    currency = contract["currency"]
+    interpretation_decision_id = contract["interpretation_decision_id"]
+    expected_rule_package_id = contract["expected_charge_rule_package_id"]
     case_id = case.get("case_id")
     _require(isinstance(case_id, str) and case_id, "case_id is required")
     _require(case.get("data_status") in {"synthetic", "authorized_sanitized"}, "data_status must be synthetic or authorized_sanitized")
     as_of_at = _instant(case.get("as_of_at"), "as_of_at")
-    upstream = _validate_expected_charge_result(case.get("expected_charge_result"))
+    upstream = _validate_expected_charge_result(case.get("expected_charge_result"), contract)
 
     common = {
         "case_id": case_id,
         "audit_policy": {
-            "id": AUDIT_POLICY_ID,
-            "version": AUDIT_POLICY_VERSION,
-            "scope": "DOMESTIC_DP3_ITEM_28A_POST_AUDIT",
+            "id": contract["audit_policy_id"],
+            "version": contract["audit_policy_version"],
+            "scope": contract["audit_scope"],
             "billing_variance_expression": "invoiced_amount - expected_amount",
             "payment_variance_expression": "paid_amount - invoiced_amount",
             "realized_variance_expression": "paid_amount - expected_amount",
         },
         "audited_charge": {
-            "item_code": ITEM_CODE,
-            "quantity_unit": QUANTITY_UNIT,
-            "currency": CURRENCY,
-            "expected_charge_rule_package_id": EXPECTED_CHARGE_RULE_PACKAGE_ID,
-            "interpretation_decision_id": INTERPRETATION_DECISION_ID,
+            "item_code": item_code,
+            "quantity_unit": quantity_unit,
+            "currency": currency,
+            "expected_charge_rule_package_id": expected_rule_package_id,
+            "interpretation_decision_id": interpretation_decision_id,
         },
         "provenance": {
-            "audit_policy": [dict(reference) for reference in AUDIT_POLICY_PROVENANCE],
+            "audit_policy": [dict(reference) for reference in contract["audit_policy_provenance"]],
             "observed_invoice_payment": [dict(reference) for reference in AUDIT_SOURCE_PROVENANCE],
-            "expected_charge": [dict(reference) for reference in EXPECTED_CHARGE_PROVENANCE],
+            "expected_charge": [dict(reference) for reference in contract["expected_charge_provenance"]],
         },
         "as_of_at": as_of_at.isoformat().replace("+00:00", "Z"),
         "data_status": case["data_status"],
@@ -395,7 +410,7 @@ def audit_item_28a(case: dict) -> dict:
     invoice_evidence_ids: list[str] = []
     for version in invoice_versions.values():
         _require(version.get("invoice_id") in invoices, f"{version['id']} references unknown invoice")
-        _require(version.get("currency") == CURRENCY, f"{version['id']} currency must be USD")
+        _require(version.get("currency") == currency, f"{version['id']} currency must be {currency}")
         _local_date(version.get("invoice_date"), f"{version['id']}.invoice_date")
         _money(version.get("claimed_total"), f"{version['id']}.claimed_total")
         _require(_instant(version.get("recorded_at"), f"{version['id']}.recorded_at") <= as_of_at, f"{version['id']} is later than audit cutoff")
@@ -414,7 +429,7 @@ def audit_item_28a(case: dict) -> dict:
         invoice_version = invoice_versions.get(version.get("invoice_version_id"))
         _require(invoice_version is not None, f"{version['id']} references unknown invoice version")
         _require(invoice_version.get("invoice_id") == line.get("invoice_id"), f"{version['id']} crosses invoice identities")
-        _require(version.get("currency") == CURRENCY, f"{version['id']} currency must be USD")
+        _require(version.get("currency") == currency, f"{version['id']} currency must be {currency}")
         amount = _money(version.get("claimed_amount"), f"{version['id']}.claimed_amount")
         quantity = _decimal(version.get("quantity"), f"{version['id']}.quantity")
         _require(quantity == quantity.to_integral_value(), f"{version['id']}.quantity must be a whole EA count")
@@ -444,20 +459,20 @@ def audit_item_28a(case: dict) -> dict:
     for version in current_line_versions.values():
         raw_code = version.get("billing_item_code_text")
         candidate_code = version.get("candidate_service_code")
-        if raw_code == ITEM_CODE:
-            if version.get("mapping_status") == "ACCEPTED" and version.get("interpretation_decision_id") == INTERPRETATION_DECISION_ID:
-                _require(version.get("quantity_unit") == QUANTITY_UNIT, f"{version['id']} quantity unit must be EA")
+        if raw_code == item_code:
+            if version.get("mapping_status") == "ACCEPTED" and version.get("interpretation_decision_id") == interpretation_decision_id:
+                _require(version.get("quantity_unit") == quantity_unit, f"{version['id']} quantity unit must be {quantity_unit}")
                 accepted_item_lines.append(version)
             else:
-                blocked_reasons.append(f"UNRESOLVED_ITEM_28A_MAPPING:{version['id']}")
-        elif candidate_code == ITEM_CODE:
-            blocked_reasons.append(f"AMBIGUOUS_ITEM_28A_MATCH:{version['id']}")
+                blocked_reasons.append(f"UNRESOLVED_{item_token}_MAPPING:{version['id']}")
+        elif candidate_code == item_code:
+            blocked_reasons.append(f"AMBIGUOUS_{item_token}_MATCH:{version['id']}")
     if len(accepted_item_lines) > 1:
-        blocked_reasons.append("AMBIGUOUS_MULTIPLE_ITEM_28A_LINES")
+        blocked_reasons.append(f"AMBIGUOUS_MULTIPLE_{item_token}_LINES")
 
     payment_evidence_ids: list[str] = []
     for payment in payments.values():
-        _require(payment.get("currency") == CURRENCY, f"{payment['id']} currency must be USD")
+        _require(payment.get("currency") == currency, f"{payment['id']} currency must be {currency}")
         _local_date(payment.get("payment_date"), f"{payment['id']}.payment_date")
         _money(payment.get("amount"), f"{payment['id']}.amount")
         _require(_instant(payment.get("recorded_at"), f"{payment['id']}.recorded_at") <= as_of_at, f"{payment['id']} is later than audit cutoff")
@@ -475,7 +490,7 @@ def audit_item_28a(case: dict) -> dict:
         _require(isinstance(key, str) and key, f"{allocation['id']} allocation_key is required")
         _require(allocation.get("payment_id") in payments, f"{allocation['id']} references unknown payment")
         _require(allocation.get("invoice_line_id") in invoice_lines, f"{allocation['id']} references unknown invoice line")
-        _require(allocation.get("currency") == CURRENCY, f"{allocation['id']} currency must be USD")
+        _require(allocation.get("currency") == currency, f"{allocation['id']} currency must be {currency}")
         _money(allocation.get("allocated_amount"), f"{allocation['id']}.allocated_amount")
         allocations_by_key[key].append(allocation)
         if not _reviewed_evidence(
@@ -576,19 +591,23 @@ def audit_item_28a(case: dict) -> dict:
             "match_status": "EXACT" if matched else "NO_MATCH",
             "invoice_line_id": matched_line_id,
             "invoice_line_version_id": matched["id"] if matched else None,
-            "matching_rationale": "Accepted raw 28A mapping under INT-0001" if matched else "No current accepted Item 28A line in complete invoice history",
+            "matching_rationale": (
+                f"Accepted raw {item_code} mapping under {interpretation_decision_id}"
+                if matched
+                else f"No current accepted {item_label} line in complete invoice history"
+            ),
         },
         "comparison": {
             "expected_amount": _money_text(expected_amount),
             "invoiced_amount": _money_text(invoiced_amount),
             "paid_amount": _money_text(paid_amount),
-            "currency": CURRENCY,
+            "currency": currency,
             "billing_variance": _money_text(billing_variance),
             "payment_variance": _money_text(payment_variance),
             "realized_variance": _money_text(realized_variance),
             "expected_quantity": str(upstream["count"]),
             "invoiced_quantity": str(int(invoiced_quantity)),
-            "quantity_unit": QUANTITY_UNIT,
+            "quantity_unit": quantity_unit,
             "quantity_variance": str(int(quantity_variance)),
         },
         "audit_finding": {
@@ -598,3 +617,34 @@ def audit_item_28a(case: dict) -> dict:
             "finding_status": "CLOSED_NO_EXCEPTION" if no_exception else "OPEN",
         },
     }
+
+
+ITEM_28A_AUDIT_CONTRACT = {
+    "item_code": ITEM_CODE,
+    "item_token": "ITEM_28A",
+    "item_label": "Item 28A",
+    "quantity_unit": QUANTITY_UNIT,
+    "currency": CURRENCY,
+    "interpretation_decision_id": INTERPRETATION_DECISION_ID,
+    "expected_charge_rule_ids": EXPECTED_CHARGE_RULE_IDS,
+    "expected_charge_rule_package_id": EXPECTED_CHARGE_RULE_PACKAGE_ID,
+    "expected_charge_provenance": EXPECTED_CHARGE_PROVENANCE,
+    "unit_rate": UNIT_RATE,
+    "rate_date_role": "ORIGINAL_REQUESTED_PICKUP",
+    "rate_effective_from": RATE_EFFECTIVE_FROM,
+    "rate_effective_to": RATE_EFFECTIVE_TO,
+    "rate_source_cell": RATE_SOURCE_CELL,
+    "approval_requirement_id": APPROVAL_REQUIREMENT_ID,
+    "performance_requirement_id": PERFORMANCE_REQUIREMENT_ID,
+    "rate_date_requirement_id": RATE_DATE_REQUIREMENT_ID,
+    "audit_policy_id": AUDIT_POLICY_ID,
+    "audit_policy_version": AUDIT_POLICY_VERSION,
+    "audit_scope": "DOMESTIC_DP3_ITEM_28A_POST_AUDIT",
+    "audit_policy_provenance": AUDIT_POLICY_PROVENANCE,
+}
+
+
+def audit_item_28a(case: dict) -> dict:
+    """Return a deterministic Item 28A billing/payment finding or review block."""
+
+    return audit_occurrence_charge(case, ITEM_28A_AUDIT_CONTRACT)

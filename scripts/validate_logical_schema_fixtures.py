@@ -1020,7 +1020,13 @@ def validate_item_28b_extra_delivery_facts(fixture: dict) -> None:
         require(not records(fixture, collection), f"Item 28B fact-only scenario cannot contain {collection}")
 
 
-def validate_item_28a_invoice_payment_history(fixture: dict) -> None:
+def validate_item_invoice_payment_history(
+    fixture: dict,
+    *,
+    shipment_id: str,
+    item_code: str,
+    interpretation_decision_id: str,
+) -> None:
     shipments = by_id(fixture, "shipments")
     invoices = by_id(fixture, "invoices")
     invoice_versions = by_id(fixture, "invoice_versions")
@@ -1032,8 +1038,8 @@ def validate_item_28a_invoice_payment_history(fixture: dict) -> None:
     payments = by_id(fixture, "payments")
     allocations = by_id(fixture, "payment_allocations")
 
-    require(set(shipments) == {"SHP-28A-001"}, "Item 28A audit history requires the rating shipment identity")
-    require(len(invoices) == 1 and len(invoice_lines) == 1, "Item 28A audit history requires one stable invoice and line identity")
+    require(set(shipments) == {shipment_id}, f"Item {item_code} audit history requires the rating shipment identity")
+    require(len(invoices) == 1 and len(invoice_lines) == 1, f"Item {item_code} audit history requires one stable invoice and line identity")
 
     def validate_version_chain(rows: list[dict], label: str) -> dict:
         ordered = sorted(rows, key=lambda row: row.get("version_number", 0))
@@ -1051,18 +1057,18 @@ def validate_item_28a_invoice_payment_history(fixture: dict) -> None:
         "invoice",
     )
     line = next(iter(invoice_lines.values()))
-    require(line.get("invoice_id") == invoice["id"], "Item 28A line belongs to another invoice")
+    require(line.get("invoice_id") == invoice["id"], f"Item {item_code} line belongs to another invoice")
     current_line_version = validate_version_chain(
         [row for row in line_versions.values() if row.get("invoice_line_id") == line["id"]],
         "invoice line",
     )
     require(
         current_line_version.get("invoice_version_id") == current_invoice_version["id"],
-        "current Item 28A line does not belong to the current invoice version",
+        f"current Item {item_code} line does not belong to the current invoice version",
     )
-    require(current_line_version.get("billing_item_code_text") == "28A", "current audit line must preserve raw code 28A")
+    require(current_line_version.get("billing_item_code_text") == item_code, f"current audit line must preserve raw code {item_code}")
     require(current_line_version.get("mapping_status") == "ACCEPTED", "current audit line mapping must be accepted")
-    require(current_line_version.get("interpretation_decision_id") == "INT-0001", "current audit line exceeds Decision 0003")
+    require(current_line_version.get("interpretation_decision_id") == interpretation_decision_id, "current audit line interpretation mismatch")
     require(current_line_version.get("quantity_unit") == "EA", "current audit line unit must be EA")
 
     invoice_document_versions = [
@@ -1122,7 +1128,25 @@ def validate_item_28a_invoice_payment_history(fixture: dict) -> None:
         "audit_findings",
         "human_review_cases",
     ):
-        require(not records(fixture, collection), f"Item 28A audit-history facts cannot contain {collection}")
+        require(not records(fixture, collection), f"Item {item_code} audit-history facts cannot contain {collection}")
+
+
+def validate_item_28a_invoice_payment_history(fixture: dict) -> None:
+    validate_item_invoice_payment_history(
+        fixture,
+        shipment_id="SHP-28A-001",
+        item_code="28A",
+        interpretation_decision_id="INT-0001",
+    )
+
+
+def validate_item_28b_invoice_payment_history(fixture: dict) -> None:
+    validate_item_invoice_payment_history(
+        fixture,
+        shipment_id="SHP-28B-001",
+        item_code="28B",
+        interpretation_decision_id="INT-0002",
+    )
 
 
 def validate_conflict_gated(fixture: dict) -> None:
@@ -1155,6 +1179,7 @@ VALIDATORS = {
     "item_28a_extra_pickup_facts": validate_item_28a_extra_pickup_facts,
     "item_28b_extra_delivery_facts": validate_item_28b_extra_delivery_facts,
     "item_28a_invoice_payment_history": validate_item_28a_invoice_payment_history,
+    "item_28b_invoice_payment_history": validate_item_28b_invoice_payment_history,
     "conflict_gated": validate_conflict_gated,
 }
 
@@ -1192,6 +1217,8 @@ def negative_probe(fixture: dict) -> None:
         broken["records"]["shipment_stops"][1]["stop_sequence"] = 4
     elif scenario_type == "item_28a_invoice_payment_history":
         del broken["records"]["invoice_line_versions"][1]["supersedes_id"]
+    elif scenario_type == "item_28b_invoice_payment_history":
+        broken["records"]["invoice_line_versions"][1]["interpretation_decision_id"] = "INT-0001"
     elif scenario_type == "conflict_gated":
         broken["records"]["rule_decisions"][0]["outcome_value"] = "false"
         broken["records"]["rule_decisions"][0]["outcome_type"] = "BOOLEAN"

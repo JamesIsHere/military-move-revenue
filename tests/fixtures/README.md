@@ -21,7 +21,7 @@ Run:
 python scripts/validate_logical_schema_fixtures.py
 ```
 
-The validator checks the eleven positive scenarios and applies one deliberately
+The validator checks the twelve positive scenarios and applies one deliberately
 invalid mutation to each as a regression check. These fixtures validate
 relationships and invariants only; they do not assert that a disputed source
 claim is an approved billing rule.
@@ -175,4 +175,17 @@ Run:
 
 ```powershell
 python scripts/validate_item_28b_extra_delivery.py
+```
+
+## Item 28B post-audit cases
+
+`item-28b-post-audit/item-28b-audit-cases.json` combines published Item 28B
+rating results with immutable corrected invoice/payment history. It covers
+expected, missing, unsupported, under/overbilled, quantity, payment, mapping,
+completeness, evidence, chronology, malformed-input, and result-tamper paths.
+
+Run:
+
+```powershell
+python scripts/validate_item_28b_post_audit.py
 ```
