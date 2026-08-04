@@ -1633,6 +1633,218 @@ def validate_item_130_boat_boundaries(fixture: dict) -> None:
         require(not records(fixture, collection), f"Item 130 boat fact fixture cannot contain {collection}")
 
 
+def validate_item_130_handling_sit_pairing_boundaries(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    performances = by_id(fixture, "service_performances")
+    pairs = by_id(fixture, "combined_handling_pair_candidates")
+    sit_episodes = by_id(fixture, "sit_episodes")
+    evidence = by_id(fixture, "evidence_links")
+
+    expected_articles = {
+        "ART-130PAIR-ZERO",
+        "ART-130PAIR-ONE",
+        "ART-130PAIR-MULTI",
+        "ART-130PAIR-UNMATCHED-LOAD",
+        "ART-130PAIR-UNMATCHED-UNLOAD",
+        "ART-130PAIR-DUP",
+        "ART-130PAIR-SIT-TSP",
+        "ART-130PAIR-SIT-NONTSP",
+        "ART-130PAIR-SIT-UNKNOWN",
+    }
+    require(set(articles) == expected_articles, "Item 130 handling/SIT article set mismatch")
+    require(
+        set(sit_episodes) == {"SIT-130PAIR-TSP", "SIT-130PAIR-NONTSP", "SIT-130PAIR-UNKNOWN"},
+        "Item 130 handling/SIT episode set mismatch",
+    )
+
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id", "service_definition_id",
+        "financial_eligibility", "billing_item_mapping_id",
+    }
+    for collection_rows in fixture.get("records", {}).values():
+        for record in collection_rows:
+            require(
+                not prohibited_fields.intersection(record),
+                f"{record['id']} contains a prohibited Item 130 financial or mapping field",
+            )
+    for record in [*articles.values(), *performances.values(), *pairs.values()]:
+        require(common_fields.issubset(record), f"{record['id']} lacks approved common metadata")
+        parse_instant(record["recorded_at"], f"{record['id']}.recorded_at")
+        require(record["record_source_kind"] == "SYNTHETIC_FIXTURE", f"{record['id']} source kind mismatch")
+        require(record["sanitization_status"] == "SYNTHETIC", f"{record['id']} is not synthetic")
+        require(record["sensitivity_class"] != "PII", f"{record['id']} cannot contain PII")
+        require(record["source_version_id"] and record["source_locator_id"], f"{record['id']} lacks source provenance")
+
+    require(set(fixture.get("open_conflict_ids", [])) == {"CF-0001", "CF-0003"}, "Item 130 handling/SIT conflicts must remain open")
+    gaps = {row.get("id"): row for row in fixture.get("unresolved_source_gaps", [])}
+    require(set(gaps) == {"GAP-130-COMBINED-VS-OD"}, "combined-service source gap must remain explicit")
+    gap = gaps["GAP-130-COMBINED-VS-OD"]
+    require(gap.get("status") == "OPEN_DO_NOT_DERIVE_QUANTITY_OR_MATCHING", "combined-service source gap was weakened")
+    require(
+        set(gap.get("provenance_refs", [])) == {"PROV-130PAIR-TARIFF", "PROV-130PAIR-ITEM-CODES"},
+        "combined-service source gap provenance mismatch",
+    )
+
+    def exact_evidence(target_kind: str, target_id: str, role: str) -> None:
+        candidates = [
+            row for row in evidence.values()
+            if row.get("target_kind") == target_kind
+            and row.get("target_id") == target_id
+            and row.get("evidence_role") == role
+        ]
+        require(len(candidates) == 1, f"{target_id} needs one exact {role} evidence target")
+        require(candidates[0].get("review_status") == "REVIEWED", f"{target_id} {role} evidence is not reviewed")
+
+    for article in articles.values():
+        require(article.get("shipment_id") == "SHP-130PAIR-001", f"{article['id']} shipment mismatch")
+        require(article.get("article_kind_observed") == "WINDSURFER", f"{article['id']} article kind mismatch")
+        require(article.get("tariff_classification_candidate") == "130C", f"{article['id']} classification mismatch")
+        require(article.get("classification_review_status") == "ACCEPTED", f"{article['id']} is not reviewed")
+        require(article.get("associated_trailer_status") == "ABSENT", f"{article['id']} trailer state mismatch")
+        exact_evidence("SHIPMENT_ARTICLE", article["id"], "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
+        exact_evidence("SHIPMENT_ARTICLE", article["id"], "HANDLING_PAIRING_COVERAGE_REVIEW")
+
+    for sit_episode in sit_episodes.values():
+        require(sit_episode.get("shipment_id") == "SHP-130PAIR-001", f"{sit_episode['id']} shipment mismatch")
+        require(sit_episode.get("sit_kind") == "DESTINATION", f"{sit_episode['id']} kind mismatch")
+        require(sit_episode.get("episode_status") == "CLOSED", f"{sit_episode['id']} status mismatch")
+
+    for performance in performances.values():
+        require(performance.get("shipment_id") == "SHP-130PAIR-001", f"{performance['id']} shipment mismatch")
+        require(performance.get("article_id") in articles, f"{performance['id']} article mismatch")
+        require(performance.get("candidate_service_family") == "ITEM_130_ARTICLE_HANDLING", f"{performance['id']} family mismatch")
+        require(performance.get("mapping_status") == "UNMAPPED", f"{performance['id']} must remain unmapped")
+        require(performance.get("performance_status") == "COMPLETED", f"{performance['id']} must be completed")
+        kind = performance.get("observed_handling_kind")
+        require(kind in {"LOADING", "UNLOADING"}, f"{performance['id']} handling kind mismatch")
+        parse_instant(performance.get("performed_at"), f"{performance['id']}.performed_at")
+        sit_episode_id = performance.get("sit_episode_id")
+        if sit_episode_id is None:
+            require("tsp_convenience_status" not in performance, f"{performance['id']} has SIT cause without SIT")
+            role = "COMPLETED_LOADING" if kind == "LOADING" else "COMPLETED_UNLOADING"
+        else:
+            require(sit_episode_id in sit_episodes, f"{performance['id']} SIT episode mismatch")
+            require(
+                performance.get("tsp_convenience_status") in {"TSP_CONVENIENCE", "NOT_TSP_CONVENIENCE", "UNKNOWN"},
+                f"{performance['id']} SIT cause mismatch",
+            )
+            role = f"COMPLETED_{kind}_WITH_SIT_CAUSE_REVIEW"
+        exact_evidence("SERVICE_PERFORMANCE", performance["id"], role)
+
+    accepted_reference_pairs: set[tuple[str, str]] = set()
+    for pair in pairs.values():
+        loading = performances.get(pair.get("loading_service_performance_id"))
+        unloading = performances.get(pair.get("unloading_service_performance_id"))
+        require(loading is not None and unloading is not None, f"{pair['id']} performance reference mismatch")
+        require(loading.get("observed_handling_kind") == "LOADING", f"{pair['id']} loading reference kind mismatch")
+        require(unloading.get("observed_handling_kind") == "UNLOADING", f"{pair['id']} unloading reference kind mismatch")
+        require(
+            pair.get("article_id") == loading.get("article_id") == unloading.get("article_id"),
+            f"{pair['id']} does not preserve one article identity",
+        )
+        require(
+            parse_instant(loading["performed_at"], loading["id"])
+            < parse_instant(unloading["performed_at"], unloading["id"]),
+            f"{pair['id']} chronology mismatch",
+        )
+        require(pair.get("pairing_status") in {"ACCEPTED", "CONFLICTING"}, f"{pair['id']} pairing status mismatch")
+        require("not billable quantity" in pair.get("pairing_basis", ""), f"{pair['id']} explanation lost no-quantity boundary")
+        sit_episode_id = pair.get("sit_episode_id")
+        if sit_episode_id is None:
+            require("sit_episode_id" not in loading and "sit_episode_id" not in unloading, f"{pair['id']} dropped SIT linkage")
+        else:
+            require(sit_episode_id in sit_episodes, f"{pair['id']} SIT episode is unknown")
+            require(
+                loading.get("sit_episode_id") == sit_episode_id == unloading.get("sit_episode_id"),
+                f"{pair['id']} SIT linkage mismatch",
+            )
+        if pair["id"].startswith("PAIR-130PAIR-DUP-"):
+            role = "HUMAN_REVIEWED_DUPLICATE_PAIRING_CONFLICT"
+        elif sit_episode_id is not None:
+            role = "HUMAN_REVIEWED_SIT_PAIRING"
+        else:
+            role = "HUMAN_REVIEWED_PAIRING"
+        exact_evidence("COMBINED_HANDLING_PAIR_CANDIDATE", pair["id"], role)
+        if pair.get("pairing_status") == "ACCEPTED":
+            references = (loading["id"], unloading["id"])
+            require(references not in accepted_reference_pairs, f"{pair['id']} duplicates an accepted pair")
+            accepted_reference_pairs.add(references)
+
+    def article_rows(article_id: str) -> tuple[list[dict], list[dict]]:
+        return (
+            [row for row in performances.values() if row.get("article_id") == article_id],
+            [row for row in pairs.values() if row.get("article_id") == article_id],
+        )
+
+    zero_performances, zero_pairs = article_rows("ART-130PAIR-ZERO")
+    require(not zero_performances and not zero_pairs, "zero-pair case must preserve reviewed absence")
+
+    one_performances, one_pairs = article_rows("ART-130PAIR-ONE")
+    require(len(one_performances) == 2 and len(one_pairs) == 1, "one-pair case cardinality mismatch")
+    require(one_pairs[0].get("pairing_status") == "ACCEPTED", "one-pair case is not accepted")
+
+    multi_performances, multi_pairs = article_rows("ART-130PAIR-MULTI")
+    require(len(multi_performances) == 4 and len(multi_pairs) == 2, "multiple-pair case cardinality mismatch")
+    require(all(row.get("pairing_status") == "ACCEPTED" for row in multi_pairs), "multiple-pair case is not accepted")
+    require(
+        len({(row["loading_service_performance_id"], row["unloading_service_performance_id"]) for row in multi_pairs}) == 2,
+        "multiple-pair case collapsed distinct references",
+    )
+
+    unmatched_load_performances, unmatched_load_pairs = article_rows("ART-130PAIR-UNMATCHED-LOAD")
+    require(
+        len(unmatched_load_performances) == 1
+        and unmatched_load_performances[0].get("observed_handling_kind") == "LOADING"
+        and not unmatched_load_pairs,
+        "unmatched-loading case mismatch",
+    )
+    unmatched_unload_performances, unmatched_unload_pairs = article_rows("ART-130PAIR-UNMATCHED-UNLOAD")
+    require(
+        len(unmatched_unload_performances) == 1
+        and unmatched_unload_performances[0].get("observed_handling_kind") == "UNLOADING"
+        and not unmatched_unload_pairs,
+        "unmatched-unloading case mismatch",
+    )
+
+    duplicate_performances, duplicate_pairs = article_rows("ART-130PAIR-DUP")
+    require(len(duplicate_performances) == 2 and len(duplicate_pairs) == 2, "duplicate-pair case cardinality mismatch")
+    require(all(row.get("pairing_status") == "CONFLICTING" for row in duplicate_pairs), "duplicate pairs must remain conflicting")
+    require(
+        len({(row["loading_service_performance_id"], row["unloading_service_performance_id"]) for row in duplicate_pairs}) == 1,
+        "duplicate-pair case no longer contains repeated references",
+    )
+
+    sit_cases = {
+        "ART-130PAIR-SIT-TSP": ("SIT-130PAIR-TSP", "TSP_CONVENIENCE"),
+        "ART-130PAIR-SIT-NONTSP": ("SIT-130PAIR-NONTSP", "NOT_TSP_CONVENIENCE"),
+        "ART-130PAIR-SIT-UNKNOWN": ("SIT-130PAIR-UNKNOWN", "UNKNOWN"),
+    }
+    for article_id, (sit_episode_id, cause) in sit_cases.items():
+        sit_performances, sit_pairs = article_rows(article_id)
+        require(len(sit_performances) == 2 and len(sit_pairs) == 1, f"{article_id} SIT pair cardinality mismatch")
+        require(all(row.get("sit_episode_id") == sit_episode_id for row in sit_performances), f"{article_id} SIT performance linkage mismatch")
+        require(all(row.get("tsp_convenience_status") == cause for row in sit_performances), f"{article_id} SIT cause mismatch")
+        require(sit_pairs[0].get("sit_episode_id") == sit_episode_id, f"{article_id} pair SIT linkage mismatch")
+        require(sit_pairs[0].get("pairing_status") == "ACCEPTED", f"{article_id} factual pair must remain accepted")
+
+    for collection in (
+        "service_definitions", "service_approval_events", "rating_runs", "rule_decisions",
+        "billing_eligibility_decisions", "charge_calculations", "calculation_steps",
+        "expected_charge_lines", "reconciliation_matches", "invoice_lines",
+        "invoice_line_versions", "payments", "payment_allocations", "audit_findings",
+        "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130 handling/SIT fixture cannot contain {collection}")
+
+
 def validate_item_130_exclusion_approval_boundaries(fixture: dict) -> None:
     articles = by_id(fixture, "shipment_articles")
     conditions = by_id(fixture, "article_condition_observations")
@@ -1855,6 +2067,7 @@ VALIDATORS = {
     "item_130_tv_boundaries": validate_item_130_tv_boundaries,
     "item_130_volume_assembly_boundaries": validate_item_130_volume_assembly_boundaries,
     "item_130_boat_boundaries": validate_item_130_boat_boundaries,
+    "item_130_handling_sit_pairing_boundaries": validate_item_130_handling_sit_pairing_boundaries,
     "item_130_exclusion_approval_boundaries": validate_item_130_exclusion_approval_boundaries,
     "conflict_gated": validate_conflict_gated,
 }
@@ -1870,6 +2083,31 @@ def validate_fixture(fixture: dict) -> None:
 def negative_probe(fixture: dict) -> None:
     broken = copy.deepcopy(fixture)
     scenario_type = broken["scenario_type"]
+    if scenario_type == "item_130_handling_sit_pairing_boundaries":
+        mutations = [
+            lambda value: value["records"]["service_performances"][0].__setitem__("article_id", "ART-130PAIR-ZERO"),
+            lambda value: value["records"]["combined_handling_pair_candidates"][0].__setitem__("pairing_status", "CONFLICTING"),
+            lambda value: value["records"]["combined_handling_pair_candidates"].__setitem__(slice(None), [row for row in value["records"]["combined_handling_pair_candidates"] if row["id"] != "PAIR-130PAIR-MULTI-2"]),
+            lambda value: next(row for row in value["records"]["service_performances"] if row["id"] == "SP-130PAIR-UNMATCHED-LOAD").__setitem__("observed_handling_kind", "UNLOADING"),
+            lambda value: next(row for row in value["records"]["combined_handling_pair_candidates"] if row["id"] == "PAIR-130PAIR-DUP-1").__setitem__("pairing_status", "ACCEPTED"),
+            lambda value: next(row for row in value["records"]["service_performances"] if row["id"] == "SP-130PAIR-SIT-TSP-LOAD").__setitem__("tsp_convenience_status", "NOT_TSP_CONVENIENCE"),
+            lambda value: next(row for row in value["records"]["combined_handling_pair_candidates"] if row["id"] == "PAIR-130PAIR-SIT-UNKNOWN").pop("sit_episode_id"),
+            lambda value: value["records"]["combined_handling_pair_candidates"][0].__setitem__("article_id", "ART-130PAIR-MULTI"),
+            lambda value: value.__setitem__("unresolved_source_gaps", []),
+            lambda value: value["records"]["service_performances"][0].__setitem__("service_definition_id", "SVCDEF-130"),
+            lambda value: value["records"]["combined_handling_pair_candidates"][0].__setitem__("quantity", "1"),
+            lambda value: next(row for row in value["records"]["evidence_links"] if row["id"] == "EVL-130PAIR-PAIR-SIT-UNKNOWN").__setitem__("review_status", "UNREVIEWED"),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130 handling/SIT negative regression probe did not fail")
+        print("PASS SYNTH-LS-018 Item 130 handling/SIT twelve negative probes rejected")
+        return
     if scenario_type == "item_130_exclusion_approval_boundaries":
         mutations = [
             lambda value: value["records"]["article_service_context_observations"][0].__setitem__("context_value_text", "CODE_D"),

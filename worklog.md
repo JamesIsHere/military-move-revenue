@@ -1892,3 +1892,33 @@ review conflicts and emitting no monetary or billing-mapping output.
   --check` pass.
 - Next, add zero/one/multiple/unmatched/duplicate handling pairs and the three
   SIT-cause states without deriving a billable quantity.
+
+## 2026-08-04 — Item 130 handling and SIT pairing boundaries
+
+### Outcome
+
+- Committed the previously verified `SYNTH-LS-016` and `SYNTH-LS-017`
+  checkpoint as `2e92d32` before beginning the next fixture.
+- Added synthetic fixture `SYNTH-LS-018` with nine reviewed Item 130C article
+  records. It distinguishes zero, one, two distinct, unmatched-loading,
+  unmatched-unloading, and duplicate loading/unloading pairing states.
+- Preserved duplicate pair references as two explicit `CONFLICTING` candidates;
+  they do not become an accepted count. Accepted pairs require the same article,
+  completed loading before unloading, reviewed evidence, and unique references.
+- Added three SIT-linked factual pairs with separate `TSP_CONVENIENCE`,
+  `NOT_TSP_CONVENIENCE`, and `UNKNOWN` cause observations. Pair acceptance only
+  records the reviewed physical relationship and does not decide eligibility.
+- Kept `GAP-130-COMBINED-VS-OD`, `CF-0001`, and `CF-0003` open. The fixture
+  contains no service definition, billing mapping, quantity, rate, money, rule,
+  reconciliation, payment, or audit output.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: all 18 scenarios pass;
+  `SYNTH-LS-018` rejects twelve focused mutations covering pairing cardinality,
+  article identity, duplicate conflict, SIT linkage/cause, evidence, the source
+  gap, premature mapping, and inserted quantity.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass.
+- Next, add the remaining 130A/130H and unlisted-similar-article boundary probes
+  under the same reviewed-evidence and no-financial-output gate.

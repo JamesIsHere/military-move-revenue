@@ -21,7 +21,7 @@ Run:
 python scripts/validate_logical_schema_fixtures.py
 ```
 
-The validator checks seventeen positive scenarios and applies deliberately
+The validator checks eighteen positive scenarios and applies deliberately
 invalid mutations as regression checks. These fixtures validate relationships
 and invariants only; they do not assert that a disputed source claim is an
 approved billing rule.
@@ -93,6 +93,16 @@ preapproval clears the non-financial fact-readiness gate; missing, denied,
 conflicting, late, and unreviewed approval remain separately identifiable.
 Twelve negative probes protect those distinctions, the unmapped service and
 approver profiles, and the no-money boundary.
+
+The Item 130 handling-and-SIT-pairing scenario preserves reviewed zero, one,
+multiple, unmatched-loading, unmatched-unloading, and duplicate pairing states.
+Duplicate references remain conflicting rather than becoming a count. Three
+additional factual pairs retain distinct TSP-convenience, non-TSP-convenience,
+and unknown SIT causes. The tariff-versus-item-code combined-service gap and
+`CF-0001`/`CF-0003` remain open; no service mapping, billable quantity, rate,
+amount, rule, reconciliation, or audit output is produced. Twelve negative
+probes protect cardinality, article identity, chronology, SIT linkage and cause,
+conflict/evidence gates, and the no-money boundary.
 
 ## Source/rule registry cases
 

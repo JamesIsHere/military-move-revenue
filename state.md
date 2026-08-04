@@ -18,11 +18,11 @@ canonical reporting. No authorized historical case is loaded.
 
 ## Last checkpoint
 
-Added `SYNTH-LS-017` for the ratified Item 130 exclusion and Government-
-preapproval boundaries. It separates Code 2, crating approval/performance,
-hand-carry/carton exclusions and named watercraft exceptions, shuttle transload,
-and six approval states. Only timely reviewed approval clears fact readiness;
-no financial or billing-mapping output exists.
+Added `SYNTH-LS-018` for ratified Item 130 loading/unloading lifecycle and SIT-
+cause boundaries. It preserves zero, one, multiple, unmatched, and duplicate
+pairing states plus TSP-convenience, non-TSP-convenience, and unknown SIT causes.
+Duplicate references remain conflicting; accepted factual pairs do not produce
+billable quantity, eligibility, service mapping, or money.
 
 ## Completed
 
@@ -30,7 +30,7 @@ no financial or billing-mapping output exists.
   verifier, and strict sensitive-data boundary.
 - Archived/checksummed ten public artifacts. The registry holds 40 reviewed
   claims, 37 locators, four open conflicts, and two scoped interpretations.
-- Completed the public-source logical schema and 17 synthetic scenarios with
+- Completed the public-source logical schema and 18 synthetic scenarios with
   paired or focused negative probes.
 - Published seven reference/workflow packages plus Item 28A and Item 28B
   monetary rating packages with exact Decimal arithmetic and evidence gates.
@@ -55,17 +55,19 @@ no financial or billing-mapping output exists.
   canonical service profiles into the logical schema, and added `SYNTH-LS-013`
   with five focused negative probes and no financial outputs.
 - Added `SYNTH-LS-014` for the 130G 48-inch and flat-screen boundaries with
-  exact decimal measurements, reviewed evidence, and five focused negative
-  probes.
+  exact decimal measurements, reviewed evidence, and five focused probes.
 - Added `SYNTH-LS-015` for both 130I/130J article families, the strict greater-
-  than-100-cubic-foot threshold, and moved-assembled condition, with six
-  focused negative probes.
+  than-100-cubic-foot threshold, and moved-assembled condition, with six focused
+  probes.
 - Added `SYNTH-LS-016` for the 130C–130F boat families, exact measurement
   methods and boundaries, all three associated-trailer states, HHG/OTO context,
   and explicit 130E/130F conflict preservation, with nine focused probes.
 - Added `SYNTH-LS-017` for distinct Item 130 exclusions and timely, missing,
   denied, conflicting, late, and unreviewed Government-preapproval states, with
   twelve focused probes.
+- Added `SYNTH-LS-018` for zero/one/multiple/unmatched/duplicate handling pairs
+  and three SIT-cause states. It keeps duplicate candidates conflicting,
+  preserves `GAP-130-COMBINED-VS-OD`, and rejects twelve focused mutations.
 - Added deterministic explanations, stable findings, source/evidence indexes,
   exact summary math, canonical JSON, and all-or-nothing report totals.
 - Drafted `docs/counsel-dp3-billing-clarification-brief.md`, cross-checked it
@@ -73,10 +75,9 @@ no financial or billing-mapping output exists.
 
 ## Current task
 
-Decision 0005 revised Alternative A is ratified. The active task is the next
-approved Item 130 non-monetary cluster: zero/one/multiple/unmatched/duplicate
-handling pairs and SIT pairing with TSP-convenience, non-TSP-convenience, and
-unknown cause. The recorded Item 130 source gaps must remain unresolved. No
+Decision 0005 revised Alternative A is ratified. The next approved Item 130
+non-monetary cluster is the remaining 130A/130H and unlisted-similar-article
+boundary probes. The recorded Item 130 source gaps must remain unresolved. No
 Item 130 money, service mapping, quantity, rule package, or audit adapter is
 authorized.
 
@@ -90,9 +91,9 @@ authorized.
 - `CF-0001` remains open outside the narrow Item 28B actual-pickup decision.
 - `CF-0003` remains open outside approved Item 28A/28B row contracts; neither
   `INT-0001` nor `INT-0002` authorizes Item 28C or broader code-list use.
-- Proposed Decision 0005 records four Item 130 source gaps: missing lawnmower
-  listing rows, narrower 130E listing descriptions, the 130F BOTO boundary, and
-  combined-service tariff quantity versus separate origin/destination rows.
+- Decision 0005 records four Item 130 source gaps: missing lawnmower listing
+  rows, narrower 130E listing descriptions, the 130F BOTO boundary, and combined-
+  service tariff quantity versus separate origin/destination rows.
 - Final acceptance requires at least 25 authorized, anonymized historical cases
   with independently approved outcomes.
 
@@ -108,10 +109,10 @@ authorized.
 
 ## Next three actions
 
-1. Add zero, one, multiple, unmatched, and duplicate loading/unloading pairing
-   cases without deriving billable quantity.
-2. Add SIT pairing with TSP-convenience, non-TSP-convenience, and unknown-cause
-   facts; then cover remaining 130A/130H and unlisted-similar article probes.
+1. Add reviewed 130A/130H and unlisted-similar-article boundary fixtures with
+   paired negative probes and no financial output.
+2. Re-run Item 130 fact-model coverage against all 18 ratified mandatory test
+   categories and identify any remaining non-monetary fixture gap.
 3. When available, send the counsel brief, register the response by authority
    type, and re-run monetary readiness before implementing any third family.
 
@@ -120,20 +121,19 @@ authorized.
 The registry contains ten public sources, 40 claims, 37 locators, four open
 conflicts, two approved interpretations, ten packages, and 25 rules. Nine
 packages and 19 rules are published; six rules remain draft. Passing suites:
-registry valid plus nine expected failures; logical schema 17 positive plus 12
-paired negative scenarios and 37 focused Item 130 probes; initial weight 14;
-automatic reweigh 10; completed reweigh 11; scale-
-reweigh lower 11; constructive reference 15; containerized provisional 15;
-reweigh-refund workflow 16; Item 28A rating 24 plus five tamper probes; Item 28A
-audit 27 plus seven; Item 28B rating 25 plus five; Item 28B audit 23 plus seven;
-Item 28B dossier four archived sources, ten mandatory tests, and four tamper
-probes; audit report six plus ten output-tamper and three request probes; source
-readiness two implemented references, five ranked blocked candidates, 16
-provenance records, five blockers, and six tamper probes; Item 130 v1 dossier
-seven entities, 56 fields, four source gaps, 18 mandatory tests, and six tamper
-probes; Item 130 v2 dossier five new entities/32 fields, two canonical profiles/
-19 fields, 11 common fields, ratified approval, preserved v1 source contract,
-and six tamper probes.
-All 18 validator scripts, changed-module compilation, and
-`git diff --check` pass. No real data, external message, live submission, money
-movement, or historical acceptance report exists.
+registry valid plus nine expected failures; logical schema 18 positive plus 12
+paired negative scenarios and 49 focused Item 130 probes; initial weight 14;
+automatic reweigh 10; completed reweigh 11; scale-reweigh lower 11; constructive
+reference 15; containerized provisional 15; reweigh-refund workflow 16; Item 28A
+rating 24 plus five tamper probes; Item 28A audit 27 plus seven; Item 28B rating
+25 plus five; Item 28B audit 23 plus seven; Item 28B dossier four archived
+sources, ten mandatory tests, and four tamper probes; audit report six plus ten
+output-tamper and three request probes; source readiness two implemented
+references, five ranked blocked candidates, 16 provenance records, five
+blockers, and six tamper probes; Item 130 v1 dossier seven entities, 56 fields,
+four source gaps, 18 mandatory tests, and six tamper probes; Item 130 v2 dossier
+five new entities/32 fields, two canonical profiles/19 fields, 11 common fields,
+ratified approval, preserved v1 source contract, and six tamper probes. All 18
+validator scripts, changed-module compilation, and `git diff --check` pass. No
+real data, external message, live submission, money movement, or historical
+acceptance report exists.
