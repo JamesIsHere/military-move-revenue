@@ -2,7 +2,7 @@
   "schema_version": "monetary-source-readiness.v1",
   "gate_policy_id": "MONETARY-SOURCE-READINESS-GATE-V1",
   "gate_policy_version": "2026-08-04.1",
-  "assessment_id": "DP3-MONETARY-READINESS-2026-08-04-1",
+  "assessment_id": "DP3-MONETARY-READINESS-2026-08-04-2",
   "assessment_date": "2026-08-04",
   "data_status": "PUBLIC_ARCHIVED_SOURCE_ASSESSMENT",
   "scope": "DOMESTIC_DP3_TSP_TO_GOVERNMENT_POST_AUDIT",
@@ -45,18 +45,18 @@
       }
     },
     {
-      "candidate_id": "ITEM-28B-EXTRA-DELIVERY", "rank": 1, "readiness": "BLOCKED", "implementation_status": "not_authorized", "selection_rationale": "Smallest next fact-model expansion; reuses Item 28 occurrence rating and audit design.",
+      "candidate_id": "ITEM-28B-EXTRA-DELIVERY", "rank": null, "readiness": "READY_IMPLEMENTED", "implementation_status": "published_and_audited", "selection_rationale": "Second reference family proving all six gates under the approved narrow Item 28B interpretation.",
       "gates": {
         "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM28"], "blocker_ids": []},
         "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM28"], "blocker_ids": []},
-        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
-        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-ITEM-CODES", "P-LIBRARY-SNAPSHOT"], "blocker_ids": ["BLK-CF-0003"]},
-        "evidence_contract": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM28", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "effective_date_selector": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES", "P-LIBRARY-SNAPSHOT"], "registry_refs": ["INT-0002"], "blocker_ids": []},
+        "billing_item_contract": {"status": "PASS", "provenance_ids": ["P-ITEM-CODES", "P-LIBRARY-SNAPSHOT"], "registry_refs": ["INT-0002"], "blocker_ids": []},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM28", "P-ITEM-CODES"], "registry_refs": ["EVID-ITEM-28B-001", "EVID-ITEM-28B-002", "EVID-ITEM-28B-003"], "blocker_ids": []},
         "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
       }
     },
     {
-      "candidate_id": "ITEM-4-REWEIGH-FEE", "rank": 2, "readiness": "BLOCKED", "implementation_status": "draft_tolerance_rule", "selection_rationale": "High reuse of published weight and refund workflow packages, but financial eligibility is ambiguous.",
+      "candidate_id": "ITEM-4-REWEIGH-FEE", "rank": 1, "readiness": "BLOCKED", "implementation_status": "draft_tolerance_rule", "selection_rationale": "High reuse of published weight and refund workflow packages, but financial eligibility is ambiguous.",
       "gates": {
         "governing_rule": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM4"], "registry_refs": ["RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES"], "blocker_ids": ["BLK-CF-0004"]},
         "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM4"], "blocker_ids": []},
@@ -67,7 +67,7 @@
       }
     },
     {
-      "candidate_id": "ITEM-130-LIGHT-BULKY", "rank": 3, "readiness": "BLOCKED", "implementation_status": "fact_model_not_implemented", "selection_rationale": "Simple per-article rate after a larger classification and combined-service fact model.",
+      "candidate_id": "ITEM-130-LIGHT-BULKY", "rank": 2, "readiness": "BLOCKED", "implementation_status": "fact_model_not_implemented", "selection_rationale": "Simple per-article rate after a larger classification and combined-service fact model.",
       "gates": {
         "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM130"], "blocker_ids": []},
         "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM130"], "blocker_ids": []},
@@ -78,7 +78,7 @@
       }
     },
     {
-      "candidate_id": "ITEM-120-EXTRA-LABOR", "rank": 4, "readiness": "BLOCKED", "implementation_status": "fact_model_not_implemented", "selection_rationale": "Requires worker/time/schedule and regular-overtime interval splitting.",
+      "candidate_id": "ITEM-120-EXTRA-LABOR", "rank": 3, "readiness": "BLOCKED", "implementation_status": "fact_model_not_implemented", "selection_rationale": "Requires worker/time/schedule and regular-overtime interval splitting.",
       "gates": {
         "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM120"], "blocker_ids": []},
         "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM120"], "blocker_ids": []},
@@ -89,7 +89,7 @@
       }
     },
     {
-      "candidate_id": "ITEM-105B-REGULAR-CRATING", "rank": 5, "readiness": "BLOCKED", "implementation_status": "interpretation_and_fact_model_pending", "selection_rationale": "Constant displayed rate, but volume fraction/truncation money behavior needs approval.",
+      "candidate_id": "ITEM-105B-REGULAR-CRATING", "rank": 4, "readiness": "BLOCKED", "implementation_status": "interpretation_and_fact_model_pending", "selection_rationale": "Constant displayed rate, but volume fraction/truncation money behavior needs approval.",
       "gates": {
         "governing_rule": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM105"], "blocker_ids": ["BLK-105B-ROUNDING"]},
         "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM105B"], "blocker_ids": []},
@@ -100,7 +100,7 @@
       }
     },
     {
-      "candidate_id": "ITEM-105A-FULL-PACK-UNPACK", "rank": 6, "readiness": "BLOCKED", "implementation_status": "discount_and_fact_model_pending", "selection_rationale": "Largest candidate surface: schedules, weight bands, deductions, waived service, discount, and rounding.",
+      "candidate_id": "ITEM-105A-FULL-PACK-UNPACK", "rank": 5, "readiness": "BLOCKED", "implementation_status": "discount_and_fact_model_pending", "selection_rationale": "Largest candidate surface: schedules, weight bands, deductions, waived service, discount, and rounding.",
       "gates": {
         "governing_rule": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM105"], "blocker_ids": ["BLK-105A-DISCOUNT"]},
         "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM105A"], "blocker_ids": []},
@@ -111,8 +111,8 @@
       }
     }
   ],
-  "recommended_next_candidate_id": "ITEM-28B-EXTRA-DELIVERY",
-  "recommended_next_action": "Prepare a narrow Item 28B decision dossier covering row 24 continuity, actual-pickup rate selection, destination-PPSO approval, and 2026 boundaries; request owner approval before publishing any rule or money.",
+  "recommended_next_candidate_id": "ITEM-4-REWEIGH-FEE",
+  "recommended_next_action": "Obtain authoritative resolution of CF-0004 plus the scoped billing-code and rate-date contract before publishing reweigh-fee money; if that response is unavailable, prepare a non-monetary Item 130 fact-model decision package without treating its blocked gates as resolved.",
   "not_ranked": [
     {"family": "SIT storage and pickup/delivery", "reason": "Blocked by CF-0001, CF-0002, CF-0003, discount inputs, mileage, and weight-band dependencies."},
     {"family": "linehaul and shorthaul", "reason": "Deferred for mileage, weight-band, geography, and TSP-specific discount inputs; not a narrow second family."},

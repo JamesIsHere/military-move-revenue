@@ -1594,3 +1594,223 @@ Item-Code rows 23–26.
   external write, live submission, or money movement was used.
 - Next, send the counsel brief, register the response by authority type, and
   re-run readiness before selecting the reweigh fee or Item 130.
+
+## 2026-08-04 — Post-Item-28B readiness refresh
+
+### Objective
+
+Re-run the deterministic monetary source-readiness gate after Item 28B approval,
+rating publication, and audit-adapter completion so the next-family decision no
+longer relies on the earlier blocked assessment.
+
+### Outcome
+
+- Published assessment `DP3-MONETARY-READINESS-2026-08-04-2`. Items 28A and 28B
+  are unranked implemented references whose six gates cite `INT-0001` and
+  `INT-0002`, their evidence contracts, archived sources, and audit support.
+- Re-ranked the five still-blocked candidates. The Item 4 reweigh fee is rank
+  one because it can reuse published weight/refund packages, but `CF-0004`,
+  `CF-0001`, and `CF-0003` still prohibit money. Item 130 is rank two and remains
+  the safe non-monetary fact-model fallback.
+- Corrected the first-family inventory's current-status note without altering
+  the historical selection result or broadening either scoped interpretation.
+- Strengthened validation to bind the assessment ID and require every all-pass
+  family to declare published-and-audited status.
+
+### Verification and next
+
+- `python scripts/validate_source_readiness_matrix.py`: seven candidates, 16
+  provenance records, five blockers, and six tamper probes pass.
+- `python scripts/validate_source_rule_registry.py`: the registry and all nine
+  expected-invalid mutations pass.
+- Next, register any counsel response and re-run the gate. If none is available,
+  prepare an Item 130 fact-model decision package that publishes no money and
+  preserves `CF-0001` and `CF-0003`.
+
+## 2026-08-04 — Proposed Item 130 non-monetary fact-model dossier
+
+### Objective and authority
+
+Prepare the rank-two Item 130 fact/evidence model while the reweigh and current
+item-code questions remain externally blocked. The project owner agreed that
+this bounded work makes sense; no field-level or financial interpretation
+approval was inferred.
+
+### Source findings
+
+- Re-read archived 400NG Item 130, pp. 54–55, and inspected all 66 candidate
+  `DOM_400NG!A53:Q118` rows from the unchanged 12 August 2022 listing.
+- Preserved four source gaps: tariff 130B includes riding lawnmowers absent from
+  the rows; tariff 130E names more over-14-foot watercraft than rows 89–90; 130F
+  directs boat trailers to BOTO while rows 91–92 present dHHG representations;
+  and the tariff's combined loading/unloading charge does not silently collapse
+  into the listing's separate origin/destination rows.
+- Retained `CF-0001` and `CF-0003`. The listing values remain candidate future
+  mapping evidence and are not treated as a current 2026 billing contract.
+
+### Proposed contract
+
+- Added Decision 0005 with seven proposed entities and 56 fields covering
+  article identity/classification, exact measurements, conditional state,
+  service context, immutable handling events, reviewed loading/unloading pairing
+  candidates, and Government preapproval.
+- Every field declares type, cardinality, evidence requirement, provenance, and
+  interpretation status. Unknown/conflicting values and human review remain
+  explicit; no real shipment fixture was created.
+- Added 18 mandatory boundary tests spanning 130A–130J, measurement thresholds,
+  exclusions, preapproval, Code 2/crating, hand-carry/carton exceptions, shuttle,
+  SIT/TSP convenience, event pairing, source gaps, exact decimals, and the
+  no-financial-output boundary.
+- Alternative `A_APPROVE_FACT_MODEL_ONLY` would authorize synthetic schema
+  fixtures and negative probes. `B_REVISE_FACT_MODEL` requests contract changes.
+  Neither alternative registers an interpretation or authorizes money.
+
+### Verification and next
+
+- `python scripts/validate_item_130_fact_model_dossier.py`: seven entities, 56
+  fields, four source gaps, 18 mandatory tests, and six tamper probes pass.
+- The validator checks the archived tariff, a canonical hash of all 66 raw
+  workbook rows, source versions, open conflicts, empty approval fields, absence
+  of Item 130 registry packages/rules/decisions, and prohibited financial fields.
+- Next, the owner reviews and explicitly selects `A_APPROVE_FACT_MODEL_ONLY` or
+  `B_REVISE_FACT_MODEL`. Do not create the synthetic fixture before that review.
+
+## 2026-08-04 — Item 130 fact-model revision after owner review
+
+### Decision
+
+- The project owner explicitly agreed with the architectural review and selected
+  `B_REVISE_FACT_MODEL`, instructing the project to proceed.
+- Recorded the accepted revision request separately from the unchanged version-1
+  proposal. The decision is an internal schema-design review and creates no
+  interpretation decision ID or financial authority.
+
+### Revision
+
+- Published a revised proposal that references the exact version-1 dossier by
+  SHA-256 and inherits its sources, classifications, four source gaps, 18 test
+  categories, open conflicts, exclusions, and no-money gate unchanged.
+- Replaced seven Item 130-specific entity proposals with five new article-domain
+  entities and two profiles of canonical `service_performance` and
+  `service_approval_event` records. The revised design avoids duplicate sources
+  of truth for handling and Government approval.
+- Added 11 common identity, audit, provenance, sensitivity, sanitization,
+  supersession, and correction fields. Status changes append or directly
+  supersede prior records; current status is derived and no in-place update is
+  allowed.
+- The service-performance profile preserves an unmapped candidate family and
+  prohibits `service_definition_id`, quantity, billing code, rate version, and
+  amount while `CF-0001`/`CF-0003` remain open. The approval profile preserves
+  raw approver text and prohibits a standardized Item 130 mapping.
+
+### Verification and next
+
+- `python scripts/validate_item_130_fact_model_dossier_v2.py`: five new
+  entities/32 fields, two canonical profiles/19 fields, 11 common fields,
+  preserved v1 source contract, and six architecture tamper probes pass.
+- The probes reject a changed base hash, unapproved status, duplicate service
+  entity, in-place status mutation, required mapped service definition, and
+  inserted money.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass.
+- Next, the owner reviews revised Alternative
+  `A_APPROVE_REVISED_FACT_MODEL_ONLY` or requests `B_REVISE_AGAIN`. No logical-
+  schema or fixture change is authorized before that review.
+
+## 2026-08-04 — Item 130 revised fact model ratified and integrated
+
+### Decision and boundary
+
+- Recorded the project owner's explicit ratification of revised Alternative A
+  in a separate approval record. This is an internal non-monetary schema-design
+  approval and creates no interpretation decision or financial authority.
+- Preserved `CF-0001`, `CF-0003`, all four tariff-versus-listing gaps, and the
+  18-category boundary-test contract. The approval does not select a code,
+  rate, unit, billable quantity, amount, or current Item 130 listing.
+
+### Schema and first fixture
+
+- Amended the logical schema with five append-only article-domain records and
+  Item 130 profiles of canonical `service_performance` and
+  `service_approval_event`. Unmapped candidate families and raw approver roles
+  remain evidence-backed facts; financial use still requires a separately
+  approved mapping and rule package.
+- Added synthetic fixture `SYNTH-LS-013`, centered on the exact 250-cc 130B
+  motorcycle boundary. It records classification, measurement, condition,
+  context, planned/completed handling, preapproval, and a non-billable combined
+  handling pair without any service definition, billing quantity, rate, amount,
+  reconciliation, or payment fact.
+- Extended the logical-schema validator for the ratified records, evidence
+  targets, chronology, append-only correction semantics, and no-money gate.
+  Five focused negative probes reject inserted money, premature service mapping,
+  missing measurement evidence, self-supersession, and a 249-cc mutation.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: 13 synthetic scenarios
+  pass; `SYNTH-LS-013` also rejects all five focused negative probes.
+- The revised-dossier validator now requires the ratification record and still
+  verifies the preserved version-1 source contract and architecture tamper
+  probes.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass after integration.
+- Next, expand the remaining ratified Item 130 non-monetary boundary fixtures.
+  Do not implement a monetary rule, mapping, rate, quantity, or audit adapter
+  unless the source conflicts close through a separate decision.
+
+## 2026-08-04 — Item 130G television boundary fixture
+
+### Outcome
+
+- Added synthetic fixture `SYNTH-LS-014` for the ratified Item 130G boundary
+  category. Three reviewed articles preserve an exact 48-inch non-flat positive
+  candidate, a 47.999-inch non-flat below-threshold result, and an exact
+  48-inch flat-screen exclusion.
+- Each classification, exact decimal measurement, explicit inch unit, and
+  flat-screen condition has an exact reviewed evidence target and full
+  source/design provenance. Rejected articles carry no 130G candidate rather
+  than an invented negative billing decision.
+- The fixture contains no service performance, approval, pairing, billing
+  mapping, quantity, rate, amount, rule, reconciliation, or audit output.
+
+### Verification and next
+
+- Extended the logical-schema validator with Item 130G invariants and five
+  focused negative probes. They reject a changed positive threshold, automatic
+  classification of either excluded article, missing classification evidence,
+  and inserted money.
+- `python scripts/validate_logical_schema_fixtures.py`: all 14 scenarios pass;
+  both Item 130 fixtures reject their five focused probes.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass after adding the cluster.
+- Next, implement the 130I/130J 100-cubic-foot and assembled-state boundary
+  cluster under the same non-monetary and exact-evidence gate.
+
+## 2026-08-04 — Item 130I/130J volume and assembly boundaries
+
+### Outcome
+
+- Added synthetic fixture `SYNTH-LS-015` for the ratified Item 130I/130J test
+  category after rechecking the archived 400NG wording on page 55.
+- Modeled six reviewed articles: a playhouse and hot tub each appear as an
+  assembled 100.001-cubic-foot positive candidate, an assembled exact-
+  100-cubic-foot rejection, and an over-100-cubic-foot disassembled rejection.
+- Preserved volume as exact decimal strings with explicit `cu_ft` units and
+  physical-dimensions methods. Article identity, volume, and moved-assembled
+  state each have exact reviewed evidence targets and source/design provenance.
+- No service performance, approval, pairing, billing mapping, quantity, rate,
+  amount, rule, reconciliation, or audit output was added.
+
+### Verification and next
+
+- Extended the logical-schema validator with family-specific classification,
+  strict-greater-than volume, assembled-state, evidence, and no-money
+  invariants. Six focused mutations test both families and reject missing
+  evidence and inserted money.
+- `python scripts/validate_logical_schema_fixtures.py`: all 15 scenarios pass;
+  `SYNTH-LS-015` rejects all six focused negative probes.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass after adding the cluster.
+- Next, build the boat-focused 130C–130F measurement, associated-trailer,
+  HHG-co-move, and BOTO/OTO boundary cluster without resolving the recorded
+  130E/130F source gaps.

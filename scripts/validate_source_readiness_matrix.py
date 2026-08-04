@@ -15,6 +15,7 @@ MATRIX_PATH = ROOT / "docs" / "monetary-source-readiness-matrix.json"
 REGISTRY_PATH = ROOT / "rules" / "registry" / "registry.json"
 MANIFEST_PATH = ROOT / "sources" / "source-manifest.csv"
 GATES = ["governing_rule", "numeric_rate", "effective_date_selector", "billing_item_contract", "evidence_contract", "audit_matching_support"]
+ASSESSMENT_ID = "DP3-MONETARY-READINESS-2026-08-04-2"
 
 
 class ValidationError(Exception):
@@ -47,6 +48,7 @@ def validate(matrix: dict, registry: dict, manifest_ids: set[str]) -> None:
     require(matrix.get("schema_version") == "monetary-source-readiness.v1", "matrix schema version mismatch")
     require(matrix.get("gate_policy_id") == "MONETARY-SOURCE-READINESS-GATE-V1", "gate policy id mismatch")
     require(matrix.get("gate_policy_version") == "2026-08-04.1", "gate policy version mismatch")
+    require(matrix.get("assessment_id") == ASSESSMENT_ID, "assessment id mismatch")
     require(matrix.get("assessment_date") == "2026-08-04", "assessment date mismatch")
     require(matrix.get("required_gates") == GATES, "required gate sequence mismatch")
     require(matrix.get("unresolved_assumptions") == [], "matrix contains unresolved assumptions")
@@ -108,6 +110,10 @@ def validate(matrix: dict, registry: dict, manifest_ids: set[str]) -> None:
                 all_pass = False
         expected_readiness = "READY_IMPLEMENTED" if all_pass else "BLOCKED"
         require(candidate.get("readiness") == expected_readiness, f"{candidate_id} readiness contradicts gates")
+        if expected_readiness == "READY_IMPLEMENTED":
+            require(candidate.get("implementation_status") == "published_and_audited", f"{candidate_id} ready status is not published and audited")
+        else:
+            require(candidate.get("implementation_status") != "published_and_audited", f"{candidate_id} blocked status claims published audit coverage")
         rank = candidate.get("rank")
         if expected_readiness == "READY_IMPLEMENTED":
             require(rank is None, f"{candidate_id} implemented reference must be unranked")
@@ -140,12 +146,12 @@ def main() -> int:
             manifest_ids = {row["source_id"] for row in csv.DictReader(handle)}
         validate(matrix, registry, manifest_ids)
         probes = [
-            ("false readiness", "candidates.1.readiness", "READY_IMPLEMENTED"),
-            ("pass with blocker", "candidates.1.gates.billing_item_contract.status", "PASS"),
+            ("false readiness", "candidates.2.readiness", "READY_IMPLEMENTED"),
+            ("pass with blocker", "candidates.2.gates.billing_item_contract.status", "PASS"),
             ("unknown provenance", "candidates.1.gates.numeric_rate.provenance_ids.0", "P-UNKNOWN"),
             ("missing closure", "blockers.BLK-CF-0003.closure_target", ""),
-            ("rank gap", "candidates.2.rank", 9),
-            ("wrong recommendation", "recommended_next_candidate_id", "ITEM-4-REWEIGH-FEE"),
+            ("rank gap", "candidates.3.rank", 9),
+            ("wrong recommendation", "recommended_next_candidate_id", "ITEM-130-LIGHT-BULKY"),
         ]
         for label, path, value in probes:
             tampered = copy.deepcopy(matrix)

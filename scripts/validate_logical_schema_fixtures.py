@@ -24,6 +24,7 @@ DECIMAL_FIELDS = {
     "declared_weight",
     "determined_weight",
     "expected_amount",
+    "measurement_value",
     "quantity",
     "released_weight",
     "result_value",
@@ -136,6 +137,8 @@ REFERENCE_TARGETS = {
         "service_definition_id": "service_definitions",
         "shipment_stop_id": "shipment_stops",
         "evidence_link_id": "evidence_links",
+        "article_id": "shipment_articles",
+        "supersedes_id": "service_performances",
     },
     "service_approval_events": {
         "service_performance_id": "service_performances",
@@ -201,6 +204,33 @@ REFERENCE_TARGETS = {
         "rule_decision_id": "rule_decisions",
     },
     "human_review_cases": {"audit_finding_id": "audit_findings"},
+    "shipment_articles": {
+        "shipment_id": "shipments",
+        "supersedes_id": "shipment_articles",
+    },
+    "article_measurement_observations": {
+        "article_id": "shipment_articles",
+        "evidence_link_id": "evidence_links",
+        "supersedes_id": "article_measurement_observations",
+    },
+    "article_condition_observations": {
+        "article_id": "shipment_articles",
+        "evidence_link_id": "evidence_links",
+        "supersedes_id": "article_condition_observations",
+    },
+    "article_service_context_observations": {
+        "article_id": "shipment_articles",
+        "evidence_link_id": "evidence_links",
+        "supersedes_id": "article_service_context_observations",
+    },
+    "combined_handling_pair_candidates": {
+        "article_id": "shipment_articles",
+        "loading_service_performance_id": "service_performances",
+        "unloading_service_performance_id": "service_performances",
+        "sit_episode_id": "sit_episodes",
+        "evidence_link_id": "evidence_links",
+        "supersedes_id": "combined_handling_pair_candidates",
+    },
 }
 
 
@@ -1149,6 +1179,323 @@ def validate_item_28b_invoice_payment_history(fixture: dict) -> None:
     )
 
 
+def validate_item_130_non_monetary_facts(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    measurements = by_id(fixture, "article_measurement_observations")
+    conditions = by_id(fixture, "article_condition_observations")
+    contexts = by_id(fixture, "article_service_context_observations")
+    performances = by_id(fixture, "service_performances")
+    approvals = by_id(fixture, "service_approval_events")
+    pairs = by_id(fixture, "combined_handling_pair_candidates")
+    evidence = by_id(fixture, "evidence_links")
+    item_130_records = [
+        *articles.values(),
+        *measurements.values(),
+        *conditions.values(),
+        *contexts.values(),
+        *performances.values(),
+        *approvals.values(),
+        *pairs.values(),
+    ]
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_financial_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id",
+    }
+    for record in item_130_records:
+        require(common_fields.issubset(record), f"{record['id']} lacks approved common metadata")
+        parse_instant(record["recorded_at"], f"{record['id']}.recorded_at")
+        require(record["record_source_kind"] == "SYNTHETIC_FIXTURE", f"{record['id']} source kind mismatch")
+        require(record["sanitization_status"] == "SYNTHETIC", f"{record['id']} is not synthetic")
+        require(record["sensitivity_class"] != "PII", f"{record['id']} cannot contain PII")
+        require(record["source_version_id"] and record["source_locator_id"], f"{record['id']} lacks source provenance")
+        require(not prohibited_financial_fields.intersection(record), f"{record['id']} contains prohibited financial or mapping fields")
+        if "supersedes_id" in record:
+            require(record["supersedes_id"] != record["id"], f"{record['id']} cannot supersede itself")
+            require(bool(record.get("correction_reason")), f"{record['id']} supersession lacks correction reason")
+        else:
+            require("correction_reason" not in record, f"{record['id']} correction reason lacks supersession")
+
+    def reviewed_evidence(record: dict, target_kind: str, role: str) -> None:
+        link_id = record.get("evidence_link_id")
+        if link_id is None:
+            candidates = [
+                link for link in evidence.values()
+                if link.get("target_kind") == target_kind and link.get("target_id") == record["id"]
+            ]
+            require(len(candidates) == 1, f"{record['id']} needs one exact evidence target")
+            link = candidates[0]
+        else:
+            link = evidence.get(link_id)
+            require(link is not None, f"{record['id']} lacks evidence link")
+        require(link.get("target_kind") == target_kind and link.get("target_id") == record["id"], f"{record['id']} evidence target mismatch")
+        require(link.get("evidence_role") == role and link.get("review_status") == "REVIEWED", f"{record['id']} evidence role/review mismatch")
+
+    require(len(articles) == 1, "Item 130 scenario needs one article")
+    article = next(iter(articles.values()))
+    require(article.get("shipment_id") == "SHP-130-001", "Item 130 article shipment mismatch")
+    require(article.get("article_kind_observed") == "MOTORCYCLE", "Item 130 boundary article must be a motorcycle")
+    require(article.get("tariff_classification_candidate") == "130B", "motorcycle classification candidate mismatch")
+    require(article.get("classification_review_status") == "ACCEPTED", "motorcycle classification must be reviewed")
+    require(article.get("associated_trailer_status") == "ABSENT", "motorcycle trailer state mismatch")
+    reviewed_evidence(article, "SHIPMENT_ARTICLE", "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
+
+    require(len(measurements) == 1, "Item 130 motorcycle needs one displacement measurement")
+    measurement = next(iter(measurements.values()))
+    require(measurement.get("article_id") == article["id"], "measurement article mismatch")
+    require(measurement.get("measurement_kind") == "ENGINE_DISPLACEMENT", "measurement kind mismatch")
+    require(decimal(measurement.get("measurement_value"), "Item 130 displacement") == Decimal("250"), "fixture must exercise exact 250cc boundary")
+    require(measurement.get("measurement_unit") == "cc" and measurement.get("measurement_method") == "DOCUMENTED_SPECIFICATION", "measurement unit/method mismatch")
+    require(measurement.get("review_status") == "ACCEPTED", "measurement is not reviewed")
+    reviewed_evidence(measurement, "ARTICLE_MEASUREMENT_OBSERVATION", "ENGINE_DISPLACEMENT_SPECIFICATION")
+
+    require(len(conditions) == 1, "Item 130 scenario needs one hand-carry condition")
+    condition = next(iter(conditions.values()))
+    require(condition.get("condition_kind") == "ONE_PERSON_HAND_CARRY" and condition.get("condition_value") == "NO", "hand-carry condition mismatch")
+    reviewed_evidence(condition, "ARTICLE_CONDITION_OBSERVATION", "HANDLING_CONDITION_REVIEW")
+
+    context_values = {row.get("context_kind"): row for row in contexts.values()}
+    require(set(context_values) == {"SHIPMENT_SERVICE_CODE", "CRATING_APPROVAL", "CRATING_PERFORMANCE"}, "Item 130 service-context set mismatch")
+    require(context_values["SHIPMENT_SERVICE_CODE"].get("context_value_text") == "CODE_D", "service code observation mismatch")
+    require(context_values["CRATING_APPROVAL"].get("context_value_text") == "NOT_REQUESTED", "crating approval observation mismatch")
+    require(context_values["CRATING_PERFORMANCE"].get("context_value_text") == "NOT_PERFORMED", "crating performance observation mismatch")
+    context_roles = {
+        "SHIPMENT_SERVICE_CODE": "SHIPMENT_SERVICE_CODE_OBSERVATION",
+        "CRATING_APPROVAL": "CRATING_APPROVAL_OBSERVATION",
+        "CRATING_PERFORMANCE": "CRATING_PERFORMANCE_OBSERVATION",
+    }
+    for kind, context in context_values.items():
+        require(context.get("article_id") == article["id"] and context.get("context_review_status") == "ACCEPTED", f"{context['id']} context review mismatch")
+        reviewed_evidence(context, "ARTICLE_SERVICE_CONTEXT_OBSERVATION", context_roles[kind])
+
+    require(len(performances) == 3, "Item 130 scenario needs planned, loading, and unloading performances")
+    by_kind = {row.get("observed_handling_kind"): row for row in performances.values()}
+    require(set(by_kind) == {"HANDLING_AND_BLOCKING", "LOADING", "UNLOADING"}, "Item 130 performance-kind set mismatch")
+    for performance in performances.values():
+        require(performance.get("shipment_id") == "SHP-130-001" and performance.get("article_id") == article["id"], f"{performance['id']} subject mismatch")
+        require(performance.get("candidate_service_family") == "ITEM_130_ARTICLE_HANDLING", f"{performance['id']} candidate family mismatch")
+        require(performance.get("mapping_status") == "UNMAPPED", f"{performance['id']} must remain unmapped")
+        require("service_definition_id" not in performance, f"{performance['id']} cannot assert a service definition")
+    plan = by_kind["HANDLING_AND_BLOCKING"]
+    loading = by_kind["LOADING"]
+    unloading = by_kind["UNLOADING"]
+    require(plan.get("performance_status") == "PLANNED" and "performed_at" not in plan, "planned handling performance mismatch")
+    require(loading.get("performance_status") == "COMPLETED" and unloading.get("performance_status") == "COMPLETED", "loading/unloading must be completed")
+    loading_at = parse_instant(loading.get("performed_at"), loading["id"])
+    unloading_at = parse_instant(unloading.get("performed_at"), unloading["id"])
+    require(loading_at < unloading_at, "unloading must follow loading")
+    reviewed_evidence(plan, "SERVICE_PERFORMANCE", "PLANNED_ARTICLE_HANDLING")
+    reviewed_evidence(loading, "SERVICE_PERFORMANCE", "COMPLETED_LOADING")
+    reviewed_evidence(unloading, "SERVICE_PERFORMANCE", "COMPLETED_UNLOADING")
+
+    require(len(approvals) == 1, "Item 130 scenario needs one preapproval event")
+    approval = next(iter(approvals.values()))
+    require(approval.get("service_performance_id") == plan["id"], "preapproval must target the stable planned performance")
+    require(approval.get("approval_event_type") == "PREAPPROVAL" and approval.get("decision_status") == "APPROVED", "preapproval decision mismatch")
+    require(approval.get("approver_role_mapping_status") == "UNMAPPED" and "approver_role" not in approval, "approver role was prematurely mapped")
+    require(parse_instant(approval.get("occurred_at"), approval["id"]) < loading_at, "preapproval must precede loading")
+    reviewed_evidence(approval, "SERVICE_APPROVAL_EVENT", "GOVERNMENT_PREAPPROVAL")
+
+    require(len(pairs) == 1, "Item 130 scenario needs one handling pair candidate")
+    pair = next(iter(pairs.values()))
+    require(pair.get("article_id") == article["id"], "pair article mismatch")
+    require(pair.get("loading_service_performance_id") == loading["id"] and pair.get("unloading_service_performance_id") == unloading["id"], "pair performance references mismatch")
+    require(pair.get("pairing_status") == "ACCEPTED", "pairing needs reviewed acceptance")
+    reviewed_evidence(pair, "COMBINED_HANDLING_PAIR_CANDIDATE", "HUMAN_REVIEWED_PAIRING")
+
+    for collection in (
+        "service_definitions", "rating_runs", "rule_decisions", "billing_eligibility_decisions",
+        "charge_calculations", "calculation_steps", "expected_charge_lines",
+        "reconciliation_matches", "invoice_lines", "invoice_line_versions", "payments",
+        "payment_allocations", "audit_findings", "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130 non-monetary fixture cannot contain {collection}")
+
+
+def validate_item_130_tv_boundaries(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    measurements = by_id(fixture, "article_measurement_observations")
+    conditions = by_id(fixture, "article_condition_observations")
+    evidence = by_id(fixture, "evidence_links")
+    require(
+        set(articles) == {"ART-130G-BOUNDARY", "ART-130G-BELOW", "ART-130G-FLAT"},
+        "Item 130G scenario needs boundary, below-threshold, and flat-screen articles",
+    )
+    require(len(measurements) == 3 and len(conditions) == 3, "each Item 130G article needs one measurement and one condition")
+
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id", "service_definition_id",
+    }
+    for record in [*articles.values(), *measurements.values(), *conditions.values()]:
+        require(common_fields.issubset(record), f"{record['id']} lacks approved common metadata")
+        parse_instant(record["recorded_at"], f"{record['id']}.recorded_at")
+        require(record["record_source_kind"] == "SYNTHETIC_FIXTURE", f"{record['id']} source kind mismatch")
+        require(record["sanitization_status"] == "SYNTHETIC", f"{record['id']} is not synthetic")
+        require(record["sensitivity_class"] != "PII", f"{record['id']} cannot contain PII")
+        require(record["source_version_id"] and record["source_locator_id"], f"{record['id']} lacks source provenance")
+        require(not prohibited_fields.intersection(record), f"{record['id']} contains a prohibited financial or mapping field")
+
+    def reviewed_evidence(record: dict, target_kind: str, role: str) -> None:
+        link_id = record.get("evidence_link_id")
+        if link_id is None:
+            candidates = [
+                link for link in evidence.values()
+                if link.get("target_kind") == target_kind and link.get("target_id") == record["id"]
+            ]
+            require(len(candidates) == 1, f"{record['id']} needs one exact evidence target")
+            link = candidates[0]
+        else:
+            link = evidence.get(link_id)
+            require(link is not None, f"{record['id']} lacks evidence link")
+        require(link.get("target_kind") == target_kind and link.get("target_id") == record["id"], f"{record['id']} evidence target mismatch")
+        require(link.get("evidence_role") == role and link.get("review_status") == "REVIEWED", f"{record['id']} evidence role/review mismatch")
+
+    measurements_by_article = {row.get("article_id"): row for row in measurements.values()}
+    conditions_by_article = {row.get("article_id"): row for row in conditions.values()}
+    require(set(measurements_by_article) == set(articles), "Item 130G measurements do not cover each article exactly once")
+    require(set(conditions_by_article) == set(articles), "Item 130G conditions do not cover each article exactly once")
+
+    expected = {
+        "ART-130G-BOUNDARY": (Decimal("48"), "NO", "130G", "ACCEPTED"),
+        "ART-130G-BELOW": (Decimal("47.999"), "NO", None, "REJECTED"),
+        "ART-130G-FLAT": (Decimal("48"), "YES", None, "REJECTED"),
+    }
+    for article_id, (screen_size, flat_screen, candidate, review_status) in expected.items():
+        article = articles[article_id]
+        measurement = measurements_by_article[article_id]
+        condition = conditions_by_article[article_id]
+        require(article.get("shipment_id") == "SHP-130G-001", f"{article_id} shipment mismatch")
+        require(article.get("article_kind_observed") == "BIG_SCREEN_TV", f"{article_id} article kind mismatch")
+        require(article.get("classification_review_status") == review_status, f"{article_id} classification review mismatch")
+        if candidate is None:
+            require("tariff_classification_candidate" not in article, f"{article_id} must not auto-classify as 130G")
+        else:
+            require(article.get("tariff_classification_candidate") == candidate, f"{article_id} classification candidate mismatch")
+        require(measurement.get("measurement_kind") == "SCREEN_SIZE", f"{measurement['id']} measurement kind mismatch")
+        require(decimal(measurement.get("measurement_value"), f"{measurement['id']}.measurement_value") == screen_size, f"{measurement['id']} screen boundary mismatch")
+        require(measurement.get("measurement_unit") == "in", f"{measurement['id']} must use inches")
+        require(measurement.get("measurement_method") == "DOCUMENTED_SPECIFICATION", f"{measurement['id']} measurement method mismatch")
+        require(measurement.get("review_status") == "ACCEPTED", f"{measurement['id']} is not reviewed")
+        require(condition.get("condition_kind") == "FLAT_SCREEN", f"{condition['id']} condition kind mismatch")
+        require(condition.get("condition_value") == flat_screen, f"{condition['id']} flat-screen state mismatch")
+        reviewed_evidence(article, "SHIPMENT_ARTICLE", "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
+        reviewed_evidence(measurement, "ARTICLE_MEASUREMENT_OBSERVATION", "SCREEN_SIZE_SPECIFICATION")
+        reviewed_evidence(condition, "ARTICLE_CONDITION_OBSERVATION", "FLAT_SCREEN_CONDITION_REVIEW")
+
+    for collection in (
+        "service_definitions", "service_performances", "service_approval_events",
+        "combined_handling_pair_candidates", "rating_runs", "rule_decisions",
+        "billing_eligibility_decisions", "charge_calculations", "calculation_steps",
+        "expected_charge_lines", "reconciliation_matches", "invoice_lines",
+        "invoice_line_versions", "payments", "payment_allocations", "audit_findings",
+        "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130G fact fixture cannot contain {collection}")
+
+
+def validate_item_130_volume_assembly_boundaries(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    measurements = by_id(fixture, "article_measurement_observations")
+    conditions = by_id(fixture, "article_condition_observations")
+    evidence = by_id(fixture, "evidence_links")
+    expected = {
+        "ART-130I-OVER-ASSEMBLED": ("PLAYHOUSE", Decimal("100.001"), "YES", "130I", "ACCEPTED"),
+        "ART-130I-EXACT-ASSEMBLED": ("PLAYHOUSE", Decimal("100"), "YES", None, "REJECTED"),
+        "ART-130I-OVER-DISASSEMBLED": ("PLAYHOUSE", Decimal("100.001"), "NO", None, "REJECTED"),
+        "ART-130J-OVER-ASSEMBLED": ("HOT_TUB", Decimal("100.001"), "YES", "130J", "ACCEPTED"),
+        "ART-130J-EXACT-ASSEMBLED": ("HOT_TUB", Decimal("100"), "YES", None, "REJECTED"),
+        "ART-130J-OVER-DISASSEMBLED": ("HOT_TUB", Decimal("100.001"), "NO", None, "REJECTED"),
+    }
+    require(set(articles) == set(expected), "Item 130I/130J scenario does not contain the six required boundary articles")
+    require(len(measurements) == 6 and len(conditions) == 6, "each Item 130I/130J article needs one volume and one assembled-state observation")
+
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id", "service_definition_id",
+    }
+    for record in [*articles.values(), *measurements.values(), *conditions.values()]:
+        require(common_fields.issubset(record), f"{record['id']} lacks approved common metadata")
+        parse_instant(record["recorded_at"], f"{record['id']}.recorded_at")
+        require(record["record_source_kind"] == "SYNTHETIC_FIXTURE", f"{record['id']} source kind mismatch")
+        require(record["sanitization_status"] == "SYNTHETIC", f"{record['id']} is not synthetic")
+        require(record["sensitivity_class"] != "PII", f"{record['id']} cannot contain PII")
+        require(record["source_version_id"] and record["source_locator_id"], f"{record['id']} lacks source provenance")
+        require(not prohibited_fields.intersection(record), f"{record['id']} contains a prohibited financial or mapping field")
+
+    def reviewed_evidence(record: dict, target_kind: str, role: str) -> None:
+        link_id = record.get("evidence_link_id")
+        if link_id is None:
+            candidates = [
+                link for link in evidence.values()
+                if link.get("target_kind") == target_kind and link.get("target_id") == record["id"]
+            ]
+            require(len(candidates) == 1, f"{record['id']} needs one exact evidence target")
+            link = candidates[0]
+        else:
+            link = evidence.get(link_id)
+            require(link is not None, f"{record['id']} lacks evidence link")
+        require(link.get("target_kind") == target_kind and link.get("target_id") == record["id"], f"{record['id']} evidence target mismatch")
+        require(link.get("evidence_role") == role and link.get("review_status") == "REVIEWED", f"{record['id']} evidence role/review mismatch")
+
+    measurements_by_article = {row.get("article_id"): row for row in measurements.values()}
+    conditions_by_article = {row.get("article_id"): row for row in conditions.values()}
+    require(set(measurements_by_article) == set(articles), "Item 130I/130J volumes do not cover each article exactly once")
+    require(set(conditions_by_article) == set(articles), "Item 130I/130J assembled states do not cover each article exactly once")
+
+    for article_id, (article_kind, volume, assembled, candidate, review_status) in expected.items():
+        article = articles[article_id]
+        measurement = measurements_by_article[article_id]
+        condition = conditions_by_article[article_id]
+        require(article.get("shipment_id") == "SHP-130IJ-001", f"{article_id} shipment mismatch")
+        require(article.get("article_kind_observed") == article_kind, f"{article_id} article family mismatch")
+        require(article.get("classification_review_status") == review_status, f"{article_id} classification review mismatch")
+        if candidate is None:
+            require("tariff_classification_candidate" not in article, f"{article_id} must not auto-classify")
+        else:
+            require(article.get("tariff_classification_candidate") == candidate, f"{article_id} classification candidate mismatch")
+        require(measurement.get("measurement_kind") == "VOLUME", f"{measurement['id']} measurement kind mismatch")
+        require(decimal(measurement.get("measurement_value"), f"{measurement['id']}.measurement_value") == volume, f"{measurement['id']} volume boundary mismatch")
+        require(measurement.get("measurement_unit") == "cu_ft", f"{measurement['id']} must use cubic feet")
+        require(measurement.get("measurement_method") == "PHYSICAL_DIMENSIONS", f"{measurement['id']} measurement method mismatch")
+        require(measurement.get("review_status") == "ACCEPTED", f"{measurement['id']} is not reviewed")
+        require(condition.get("condition_kind") == "ASSEMBLED", f"{condition['id']} condition kind mismatch")
+        require(condition.get("condition_value") == assembled, f"{condition['id']} moved-assembled state mismatch")
+        reviewed_evidence(article, "SHIPMENT_ARTICLE", "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
+        reviewed_evidence(measurement, "ARTICLE_MEASUREMENT_OBSERVATION", "CUBIC_VOLUME_MEASUREMENT")
+        reviewed_evidence(condition, "ARTICLE_CONDITION_OBSERVATION", "MOVED_ASSEMBLED_CONDITION_REVIEW")
+
+    for collection in (
+        "service_definitions", "service_performances", "service_approval_events",
+        "combined_handling_pair_candidates", "rating_runs", "rule_decisions",
+        "billing_eligibility_decisions", "charge_calculations", "calculation_steps",
+        "expected_charge_lines", "reconciliation_matches", "invoice_lines",
+        "invoice_line_versions", "payments", "payment_allocations", "audit_findings",
+        "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130I/130J fact fixture cannot contain {collection}")
+
+
 def validate_conflict_gated(fixture: dict) -> None:
     runs = records(fixture, "rating_runs")
     require(len(runs) == 1 and runs[0].get("run_status") == "BLOCKED", "conflict scenario rating run must be BLOCKED")
@@ -1180,6 +1527,9 @@ VALIDATORS = {
     "item_28b_extra_delivery_facts": validate_item_28b_extra_delivery_facts,
     "item_28a_invoice_payment_history": validate_item_28a_invoice_payment_history,
     "item_28b_invoice_payment_history": validate_item_28b_invoice_payment_history,
+    "item_130_non_monetary_facts": validate_item_130_non_monetary_facts,
+    "item_130_tv_boundaries": validate_item_130_tv_boundaries,
+    "item_130_volume_assembly_boundaries": validate_item_130_volume_assembly_boundaries,
     "conflict_gated": validate_conflict_gated,
 }
 
@@ -1194,6 +1544,61 @@ def validate_fixture(fixture: dict) -> None:
 def negative_probe(fixture: dict) -> None:
     broken = copy.deepcopy(fixture)
     scenario_type = broken["scenario_type"]
+    if scenario_type == "item_130_volume_assembly_boundaries":
+        mutations = [
+            lambda value: value["records"]["article_measurement_observations"][0].__setitem__("measurement_value", "100"),
+            lambda value: value["records"]["shipment_articles"][4].__setitem__("tariff_classification_candidate", "130J"),
+            lambda value: value["records"]["shipment_articles"][2].__setitem__("tariff_classification_candidate", "130I"),
+            lambda value: value["records"]["article_condition_observations"][3].__setitem__("condition_value", "NO"),
+            lambda value: value["records"]["evidence_links"].__setitem__(slice(None), [row for row in value["records"]["evidence_links"] if row["id"] != "EVL-130I-MEASURE-EXACT"]),
+            lambda value: value["records"]["shipment_articles"][0].update({"expected_amount": "297.78", "currency": "USD"}),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130I/130J negative regression probe did not fail")
+        print("PASS SYNTH-LS-015 Item 130I/130J six negative probes rejected")
+        return
+    if scenario_type == "item_130_tv_boundaries":
+        mutations = [
+            lambda value: value["records"]["article_measurement_observations"][0].__setitem__("measurement_value", "47.999"),
+            lambda value: value["records"]["shipment_articles"][1].__setitem__("tariff_classification_candidate", "130G"),
+            lambda value: value["records"]["shipment_articles"][2].__setitem__("tariff_classification_candidate", "130G"),
+            lambda value: value["records"]["evidence_links"].__setitem__(slice(None), [row for row in value["records"]["evidence_links"] if row["id"] != "EVL-130G-ARTICLE-BOUNDARY"]),
+            lambda value: value["records"]["shipment_articles"][0].update({"expected_amount": "297.78", "currency": "USD"}),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130G negative regression probe did not fail")
+        print("PASS SYNTH-LS-014 Item 130G five negative probes rejected")
+        return
+    if scenario_type == "item_130_non_monetary_facts":
+        mutations = [
+            lambda value: value["records"]["combined_handling_pair_candidates"][0].__setitem__("expected_amount", "297.78"),
+            lambda value: value["records"]["service_performances"][0].__setitem__("service_definition_id", "SVCDEF-130B"),
+            lambda value: value["records"]["evidence_links"].__setitem__(slice(None), [row for row in value["records"]["evidence_links"] if row["id"] != "EVL-130-MEASUREMENT"]),
+            lambda value: value["records"]["combined_handling_pair_candidates"][0].update({"supersedes_id": "CHPC-130B-001", "correction_reason": "invalid self-reference"}),
+            lambda value: value["records"]["article_measurement_observations"][0].__setitem__("measurement_value", "249"),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130 negative regression probe did not fail")
+        print("PASS SYNTH-LS-013 Item 130 five negative probes rejected")
+        return
     if scenario_type == "straight_through":
         broken["records"]["invoice_versions"][0]["claimed_total"] = 125.5
     elif scenario_type == "split_sit":

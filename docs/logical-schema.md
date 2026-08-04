@@ -294,9 +294,33 @@ assumptions (`DISC-0032–0041`).
 | Entity | Required fields | Conditional / repeating fields | Key invariants | Source basis |
 |---|---|---|---|---|
 | `service_definition` | `service_code`, `service_family`, `quantity_unit`, `rate_date_role` | `interpretation_decision_id` | Controlled billing contract is versioned; a scoped interpretation cannot authorize sibling codes | CLM-0036; INT-0001 |
-| `service_performance` | `shipment_id`, `service_definition_id`, `shipment_stop_id`, `performed_at`, `performance_status` | `portion_id`, `quantity`, `quantity_unit`, `performing_organization_id`, `remarks`, `evidence_link_id` | Performance is distinct from approval and billing; Item 28A requires a completed extra-pickup stop after the original pickup and exact `EA` quantity | DISC-0010–0013, 0042; CLM-0034, CLM-0036 |
-| `service_approval_event` | `service_performance_id`, `approval_event_type`, `decision_status`, `occurred_at`, `approver_role` | `recorded_at`, `authorization_reference`, `reason`, `evidence_link_id` | Request, preapproval, denial, and later authorization are separate events; Item 28A approval precedes performance and retains reviewed Government-authorization evidence | DISC-0044; CLM-0034, CLM-0036 |
+| `service_performance` | `shipment_id`, `performed_at` when completed, `performance_status` | `service_definition_id`, `candidate_service_family`, `mapping_status`, `shipment_stop_id`, `portion_id`, `quantity`, `quantity_unit`, `performing_organization_id`, `remarks`, `evidence_link_id`, Item 130 profile fields | Performance is distinct from approval and billing. An approved `service_definition_id` is required for financial use; an unmapped non-monetary observation instead requires a candidate family and mapping status and prohibits billing quantity. Corrections supersede; no in-place status update. | DISC-0010–0013, 0042; CLM-0034, CLM-0036; Decision 0005 v2 |
+| `service_approval_event` | `service_performance_id`, `approval_event_type`, `decision_status`, `occurred_at` | `approver_role`, `approver_role_text`, `approver_role_mapping_status`, `recorded_at`, `authorization_reference`, `reason`, `evidence_link_id`, Item 130 profile fields | Request, preapproval, denial, and later authorization are separate append-only events. A raw approver role remains unmapped when no approved controlled contract exists. | DISC-0044; CLM-0034, CLM-0036; Decision 0005 v2 |
 | `service_evidence_annotation` | `service_performance_id`, `annotation_type`, `annotation_text`, `recorded_at` | `customer_attestation_id` | Free text cannot determine eligibility without a rule decision | DISC-0012–0014 |
+
+### 8.1 Item 130 non-monetary article facts
+
+Decision 0005 ratified the following fact/evidence model only. Every record in
+this subsection inherits the common identity, record-audit, source-provenance,
+sensitivity, sanitization, supersession, and correction metadata in section 1.3.
+A status change creates a new event or a directly superseding record; current
+status is derived from the valid chain.
+
+| Entity or profile | Required fields | Conditional / repeating fields | Key invariants | Source basis |
+|---|---|---|---|---|
+| `shipment_article` | `shipment_id`, `article_kind_observed`, `classification_review_status` | `tariff_classification_candidate`, `associated_trailer_status`, `source_description` | The observed article is separate from its reviewed 130A–130J candidate. Similar-looking unlisted articles never auto-classify. | `SRC-DP3-2026-400NG`, Item 130, pp. 54–55; Decision 0005 v2 |
+| `article_measurement_observation` | `article_id`, `measurement_kind`, `measurement_value`, `measurement_unit`, `measurement_method`, `review_status`, `evidence_link_id` | `observed_at` | Exact decimal string and explicit unit; manufacturer and physical methods remain distinct; a correction supersedes rather than overwrites. | `SRC-DP3-2026-400NG`, Item 130.2–4, pp. 55–56; Decision 0005 v2 |
+| `article_condition_observation` | `article_id`, `condition_kind`, `condition_value`, `evidence_link_id` | `observed_at` | Assembled, flat-screen, one-person-hand-carry, and standard-carton conditions are separate observations; unknown/conflicting states remain explicit. | `SRC-DP3-2026-400NG`, Item 130 classifications and 1.b, pp. 54–55; Decision 0005 v2 |
+| `article_service_context_observation` | `article_id`, `context_kind`, `context_value_text`, `context_review_status`, `evidence_link_id` | `observed_at` | Preserves raw Code 2, crating, BOTO, and HHG co-move context without converting it to billing eligibility. | `SRC-DP3-2026-400NG`, Item 130.1 and 3–4, pp. 55–56; Decision 0005 v2 |
+| `combined_handling_pair_candidate` | `article_id`, `loading_service_performance_id`, `unloading_service_performance_id`, `pairing_status`, `pairing_basis`, `evidence_link_id` | `sit_episode_id` | Both references target completed profiled performances for the same article; pairing is reviewed, append-only, and never billable quantity. | `SRC-DP3-2026-400NG`, Item 130.1.a, p. 55; Decision 0005 v2 |
+| Item 130 `service_performance` profile | `shipment_id`, `article_id`, `candidate_service_family`, `observed_handling_kind`, `mapping_status`, `performance_status`, `evidence_link_id` | `performed_at`, `shipment_stop_id`, `sit_episode_id`, `tsp_convenience_status` | Candidate family is `ITEM_130_ARTICLE_HANDLING`; mapping is `UNMAPPED` or `CONFLICTING`; `service_definition_id`, quantity, billing code, rate version, and amount are prohibited. | `SRC-DP3-2026-400NG`, Item 130.1, p. 55; Decision 0005 v2; `CF-0001`, `CF-0003` |
+| Item 130 `service_approval_event` profile | `service_performance_id`, `approval_event_type`, `decision_status`, `occurred_at`, `approver_role_text`, `approver_role_mapping_status`, `evidence_link_id` | `authorization_reference` | Approval type is preapproval; raw Government role is preserved; standardized role mapping and financial eligibility are prohibited. | `SRC-DP3-2026-400NG`, Item 130.1, p. 55; disputed `SRC-DP3-ITEM-CODES` rows 53–118; Decision 0005 v2 |
+
+The approved model preserves four unresolved source gaps: the listing omits the
+tariff's riding-lawnmower description, narrows 130E watercraft descriptions,
+presents dHHG rows for the 130F BOTO boundary, and separates origin/destination
+rows where the tariff describes combined loading/unloading. These gaps force
+mapping review and cannot be resolved by schema or fixture data.
 
 ## 9. Storage in transit lifecycle
 
@@ -415,6 +439,11 @@ until CF-0002 is resolved and the interpretation is approved.
     not zero unless separate reviewed invoice-history and payment-history
     assertions are complete through the audit cutoff. A stale or missing
     assertion blocks the comparison.
+14. **Item 130 non-monetary boundary:** Item 130 article facts and profiled
+    service events may be stored and reviewed under Decision 0005. Until a
+    separate source decision closes the applicable conflicts, they cannot
+    produce an approved service definition, billing mapping or quantity, rate
+    selection, amount, reconciliation, rule package, or audit adapter.
 
 Synthetic validation scenarios for these invariants live under
 `tests/fixtures/logical-schema/` and are checked by
@@ -445,6 +474,7 @@ only the disputed claim from silently controlling a final financial result.
 | `DISC-0056–0071` | Chronology, survey/delivery events, portions, SIT authority and lifecycle, record history |
 | `DISC-0072–0081` | SIT rating locality, entitlement, intervals, weights, custody, conversion, calculations |
 | `DISC-0082–0091` | Versioned geography, rate matrices, item codes, transit/mileage data, conflict claims |
+| Decision 0005 | Item 130 article identity, exact measurements, conditions, service context, profiled handling/preapproval, reviewed pairing, and non-monetary gates |
 
 ## 15. Physical-design deferrals
 

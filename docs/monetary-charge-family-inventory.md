@@ -1,8 +1,9 @@
 # First Monetary Charge-Family Inventory
 
-Status: reviewed source assessment; Item 28A implemented and published as
-immutable package `2026.item-28a-extra-pickup.1` under Decision 0003 /
-`INT-0001`.
+Status: reviewed source assessment; Item 28A was selected and published as the
+first immutable package under Decision 0003 / `INT-0001`. Item 28B was
+subsequently published under Decision 0004 / `INT-0002`; current sequencing is
+maintained in `docs/monetary-source-readiness-matrix.json`.
 
 Assessment date: 2026-08-03.
 
@@ -29,7 +30,7 @@ remains open for the listing as a whole.
 |---|---|---|---|---|
 | `SRC-DP3-2026-400NG` | Published 2025-12-05; effective 2026-05-15 through 2027-05-14 | Item 1.2(c), p. 18; Item 4, pp. 19-20; Item 28, pp. 35-37; Item 50, p. 42; Item 105, pp. 44-49; Item 120, pp. 49-52; Item 130, pp. 54-55 | 2026-08-03 | Reviewed governing text |
 | `SRC-DP3-2026-RATES` | Version 2026; effective 2026-05-15 through 2027-05-14 | `Additional Rates!A1`; candidate cells `A3:F3`, `A13:F13`, `A15:H52` | 2026-08-03 | Numeric cells and headings reviewed; package remains disputed where rate-date selection depends on `CF-0001` or `CF-0003` |
-| `SRC-DP3-ITEM-CODES` | Published 2022-08-12; effective and supersession periods unstated | `DOM_400NG!A4:Q149`; candidate rows 8-9, 23-26, 32-48, and 53-118; legends `B154:L166` | 2026-08-03 | Direct workbook values reviewed; row 23 approved only for 2026 Item 28A by `INT-0001`; every broader use remains disputed under `CF-0003` |
+| `SRC-DP3-ITEM-CODES` | Published 2022-08-12; effective and supersession periods unstated | `DOM_400NG!A4:Q149`; candidate rows 8-9, 23-26, 32-48, and 53-118; legends `B154:L166` | 2026-08-03 | Direct workbook values reviewed; row 23 is approved only for 2026 Item 28A by `INT-0001` and row 24 only for 2026 Item 28B by `INT-0002`; every other use remains disputed under `CF-0003` |
 
 The raw artifacts and hashes remain registered in
 `sources/source-manifest.csv`. Workbook extracts were produced read-only by

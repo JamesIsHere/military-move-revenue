@@ -18,11 +18,11 @@ canonical reporting. No authorized historical case is loaded.
 
 ## Last checkpoint
 
-Added `AUDIT-DP3-ITEM-28B-RECONCILIATION-V1` and registered
-`CHARGE-ADAPTER-DP3-ITEM-28B-V1`. Item 28B's 23 audit cases and seven result-
-tamper probes pass. One shared synthetic Item 28A + 28B history produces an
-exact 397.00 USD report; a blocked Item 28B suppresses aggregate money while
-retaining decided Item 28A findings.
+Added `SYNTH-LS-015` for the ratified 130I/130J volume-and-assembly boundary.
+Six synthetic articles prove that the tariff requires both volume greater than
+100 cubic feet and movement while assembled for both a playhouse and hot tub.
+Every fact has exact reviewed evidence, and all service, financial, and billing-
+mapping outputs remain prohibited.
 
 ## Completed
 
@@ -30,8 +30,8 @@ retaining decided Item 28A findings.
   verifier, and strict sensitive-data boundary.
 - Archived/checksummed ten public artifacts. The registry holds 40 reviewed
   claims, 37 locators, four open conflicts, and two scoped interpretations.
-- Completed the public-source logical schema and 12 synthetic scenarios with
-  paired negative probes.
+- Completed the public-source logical schema and 15 synthetic scenarios with
+  paired or focused negative probes.
 - Published seven reference/workflow packages plus Item 28A and Item 28B
   monetary rating packages with exact Decimal arithmetic and evidence gates.
 - Implemented immutable expected/invoiced/paid reconciliation for both Item 28A
@@ -41,6 +41,25 @@ retaining decided Item 28A findings.
   audit-policy contracts while reusing a parameterized occurrence-audit core.
 - Registered distinct Item 28A and Item 28B report adapters and verified exact
   closed and blocked two-family reports over one shared synthetic history.
+- Corrected the monetary readiness gate after Item 28B publication; the current
+  assessment deterministically rejects stale readiness, blocker, provenance,
+  ranking, and recommendation mutations.
+- Prepared the proposed Item 130 fact/evidence contract and validated it against
+  the archived tariff, all 66 candidate item-code rows, the official-library
+  snapshot, and the still-open `CF-0001`/`CF-0003` gates.
+- Preserved the original Item 130 proposal, recorded the accepted revision
+  request separately, and removed duplicate Item 130 service/approval entities
+  from the revised proposal in favor of canonical entity profiles with explicit
+  append-only status semantics.
+- Ratified revised Alternative A, integrated the five article records and two
+  canonical service profiles into the logical schema, and added `SYNTH-LS-013`
+  with five focused negative probes and no financial outputs.
+- Added `SYNTH-LS-014` for the 130G 48-inch and flat-screen boundaries with
+  exact decimal measurements, reviewed evidence, and five focused negative
+  probes.
+- Added `SYNTH-LS-015` for both 130I/130J article families, the strict greater-
+  than-100-cubic-foot threshold, and moved-assembled condition, with six
+  focused negative probes.
 - Added deterministic explanations, stable findings, source/evidence indexes,
   exact summary math, canonical JSON, and all-or-nothing report totals.
 - Drafted `docs/counsel-dp3-billing-clarification-brief.md`, cross-checked it
@@ -48,10 +67,11 @@ retaining decided Item 28A findings.
 
 ## Current task
 
-The owner can personalize and send the counsel brief. The next monetary-family
-choice depends on the response: implement the reweigh fee if `CF-0004` and its
-code/date contract are resolved; otherwise reassess Item 130 as the next narrow
-family. Historical-acceptance planning may proceed without ingesting real data.
+Decision 0005 revised Alternative A is ratified. The active task is the next
+approved Item 130 non-monetary cluster: boat classifications 130C–130F,
+measurement methods, associated-trailer states, HHG/OTO context, and the BOTO
+boundary. The recorded 130E/130F source gaps must remain unresolved. No Item 130
+money, service mapping, quantity, rule package, or audit adapter is authorized.
 
 ## Known blockers
 
@@ -63,6 +83,9 @@ family. Historical-acceptance planning may proceed without ingesting real data.
 - `CF-0001` remains open outside the narrow Item 28B actual-pickup decision.
 - `CF-0003` remains open outside approved Item 28A/28B row contracts; neither
   `INT-0001` nor `INT-0002` authorizes Item 28C or broader code-list use.
+- Proposed Decision 0005 records four Item 130 source gaps: missing lawnmower
+  listing rows, narrower 130E listing descriptions, the 130F BOTO boundary, and
+  combined-service tariff quantity versus separate origin/destination rows.
 - Final acceptance requires at least 25 authorized, anonymized historical cases
   with independently approved outcomes.
 
@@ -73,29 +96,37 @@ family. Historical-acceptance planning may proceed without ingesting real data.
 - Resolve `CF-0002` before disputed transit/SIT-tool behavior.
 - Resolve `CF-0003` before broad 2022 item-code use.
 - Reopen `INT-0001` or `INT-0002` if contrary or superseding evidence appears.
+- Resolve the Item 130 source gaps and approve a separate interpretation and
+  financial contract before mapping services or implementing money.
 
 ## Next three actions
 
-1. Owner fills the recipient/sender/date placeholders and sends the counsel
-   brief, requesting authoritative artifacts and sanitized examples.
-2. Register every response as governing authority, written interpretation, or
-   customary practice; preserve conflicts rather than silently merging them.
-3. Re-run the readiness gate and select the reweigh fee if its branch/code/date
-   questions close, otherwise prepare the Item 130 fact-model decision package.
+1. Add the synthetic boat 130C–130F measurement and program-boundary cluster,
+   preserving the 130E/130F conflicts rather than inferring mappings.
+2. Continue with article exclusions, approval states, and handling/SIT pairing
+   without financial outputs.
+3. When available, send the counsel brief, register the response by authority
+   type, and re-run monetary readiness before implementing any third family.
 
 ## Verification status
 
 The registry contains ten public sources, 40 claims, 37 locators, four open
 conflicts, two approved interpretations, ten packages, and 25 rules. Nine
 packages and 19 rules are published; six rules remain draft. Passing suites:
-registry valid plus nine expected failures; logical schema 12 positive plus 12
-negative; initial weight 14; automatic reweigh 10; completed reweigh 11; scale-
+registry valid plus nine expected failures; logical schema 15 positive plus 12
+paired negative scenarios and 16 focused Item 130 probes; initial weight 14;
+automatic reweigh 10; completed reweigh 11; scale-
 reweigh lower 11; constructive reference 15; containerized provisional 15;
 reweigh-refund workflow 16; Item 28A rating 24 plus five tamper probes; Item 28A
 audit 27 plus seven; Item 28B rating 25 plus five; Item 28B audit 23 plus seven;
 Item 28B dossier four archived sources, ten mandatory tests, and four tamper
 probes; audit report six plus ten output-tamper and three request probes; source
-readiness seven candidates, 16 provenance records, five blockers, and six tamper
-probes. All 16 validator scripts, changed-module compilation, and
+readiness two implemented references, five ranked blocked candidates, 16
+provenance records, five blockers, and six tamper probes; Item 130 v1 dossier
+seven entities, 56 fields, four source gaps, 18 mandatory tests, and six tamper
+probes; Item 130 v2 dossier five new entities/32 fields, two canonical profiles/
+19 fields, 11 common fields, ratified approval, preserved v1 source contract,
+and six tamper probes.
+All 18 validator scripts, changed-module compilation, and
 `git diff --check` pass. No real data, external message, live submission, money
 movement, or historical acceptance report exists.

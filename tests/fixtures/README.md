@@ -21,10 +21,10 @@ Run:
 python scripts/validate_logical_schema_fixtures.py
 ```
 
-The validator checks the twelve positive scenarios and applies one deliberately
-invalid mutation to each as a regression check. These fixtures validate
-relationships and invariants only; they do not assert that a disputed source
-claim is an approved billing rule.
+The validator checks fifteen positive scenarios and applies deliberately
+invalid mutations as regression checks. These fixtures validate relationships
+and invariants only; they do not assert that a disputed source claim is an
+approved billing rule.
 
 The reweigh-observation scenario preserves two completed reweighs as distinct
 observations and models a late correction as an immutable superseding version.
@@ -51,6 +51,28 @@ The Item 28B facts scenario preserves an actual-pickup performance date, one
 Government-authorized completed extra-delivery occurrence before final delivery,
 and reviewed authorization and completion evidence. It intentionally contains
 no monetary result; the published rule package produces that result.
+
+The Item 130 non-monetary scenario exercises the ratified revised fact model
+with a synthetic 250-cc motorcycle, reviewed classification and measurement
+evidence, immutable handling performances, Government preapproval, and a
+non-billable loading/unloading pairing candidate. It intentionally leaves the
+candidate service family and approver role unmapped and contains no billing
+code, service definition, billable quantity, rate, amount, or financial result.
+Five negative probes reject money, premature service mapping, missing evidence,
+in-place supersession, and a changed measurement boundary.
+
+The Item 130G television-boundary scenario compares three evidence-backed facts:
+an exact 48-inch non-flat positive candidate, a 47.999-inch non-flat article
+below the threshold, and an exact 48-inch flat-screen exclusion. Five negative
+probes reject threshold drift, either excluded article being auto-classified,
+missing classification evidence, and inserted money.
+
+The Item 130I/130J volume-and-assembly scenario uses a playhouse and a hot tub to
+test both tariff families independently. For each family, an assembled article
+at 100.001 cubic feet is a reviewed positive candidate, an assembled article at
+exactly 100 cubic feet has no candidate, and an over-100 article moved
+disassembled has no candidate. Six negative probes protect the strict threshold,
+assembled-state gate, reviewed evidence, and no-money boundary.
 
 ## Source/rule registry cases
 
