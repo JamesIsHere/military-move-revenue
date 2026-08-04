@@ -75,6 +75,12 @@ Exit criteria:
 
 ## M5 — Add evidence and post-audit comparison
 
+Status: in progress. Item 28A now has the first end-to-end deterministic audit
+slice: immutable corrected invoice/payment histories, reviewed completeness and
+source-evidence gates, exact expected/invoiced/paid variances, decided finding
+classifications, and human-review blocks. This does not yet cover another charge
+family or authorized historical data.
+
 Exit criteria:
 
 - Evidence requirements attach to charge decisions.

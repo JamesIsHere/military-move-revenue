@@ -46,6 +46,16 @@ count by `Decimal("198.50")`. Blocked evidence produces no amount or line action
 The package is limited by Decision 0003 / `INT-0001` and cannot be generalized
 to Item 28B, Item 28C, or another item-code row.
 
+`item_28a_post_audit.py` consumes only a provenance-complete result from that
+published package plus immutable, reviewed invoice/payment history. It selects
+current superseding versions, requires reviewed completeness through the audit
+cutoff, matches only the accepted raw `28A`/`EA` contract, and computes exact
+invoiced-minus-expected, paid-minus-invoiced, and paid-minus-expected variances.
+Ambiguous matching, incomplete history, missing evidence, or blocked upstream
+rating produces no authoritative comparison and enters human review. Its
+versioned internal policy is documented in
+`docs/item-28a-post-audit-policy.md`; it is not a new Government billing rule.
+
 The file-backed physical source/rule registry is under `rules/registry/`. Its
 seven reference/workflow packages and one monetary package are published
 separately from the draft, non-executable rules affected by open conflicts.

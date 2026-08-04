@@ -64,12 +64,17 @@ QUANTITY_UNIT_FIELDS = {
 REFERENCE_TARGETS = {
     "bills_of_lading": {"shipment_id": "shipments"},
     "invoices": {"bill_of_lading_id": "bills_of_lading", "parent_invoice_id": "invoices"},
-    "invoice_versions": {"invoice_id": "invoices", "supersedes_id": "invoice_versions"},
+    "invoice_versions": {
+        "invoice_id": "invoices",
+        "supersedes_id": "invoice_versions",
+        "evidence_link_id": "evidence_links",
+    },
     "invoice_lines": {"invoice_id": "invoices", "parent_line_id": "invoice_lines"},
     "invoice_line_versions": {
         "invoice_line_id": "invoice_lines",
         "invoice_version_id": "invoice_versions",
         "supersedes_id": "invoice_line_versions",
+        "evidence_link_id": "evidence_links",
     },
     "invoice_line_status_events": {"invoice_line_id": "invoice_lines"},
     "invoice_submissions": {"invoice_version_id": "invoice_versions"},
@@ -87,7 +92,14 @@ REFERENCE_TARGETS = {
         "expected_charge_line_id": "expected_charge_lines",
         "invoice_line_version_id": "invoice_line_versions",
     },
-    "payment_allocations": {"payment_id": "payments", "invoice_line_id": "invoice_lines"},
+    "payments": {"evidence_link_id": "evidence_links"},
+    "payment_allocations": {
+        "payment_id": "payments",
+        "invoice_line_id": "invoice_lines",
+        "supersedes_id": "payment_allocations",
+        "evidence_link_id": "evidence_links",
+    },
+    "audit_data_completeness_assertions": {"shipment_id": "shipments"},
     "shipment_portions": {"shipment_id": "shipments", "parent_portion_id": "shipment_portions"},
     "weight_determinations": {"shipment_id": "shipments"},
     "sit_episodes": {
@@ -901,6 +913,111 @@ def validate_item_28a_extra_pickup_facts(fixture: dict) -> None:
         require(not records(fixture, collection), f"Item 28A fact-only scenario cannot contain {collection}")
 
 
+def validate_item_28a_invoice_payment_history(fixture: dict) -> None:
+    shipments = by_id(fixture, "shipments")
+    invoices = by_id(fixture, "invoices")
+    invoice_versions = by_id(fixture, "invoice_versions")
+    invoice_lines = by_id(fixture, "invoice_lines")
+    line_versions = by_id(fixture, "invoice_line_versions")
+    documents = by_id(fixture, "documents")
+    document_versions = by_id(fixture, "document_versions")
+    evidence_links = by_id(fixture, "evidence_links")
+    payments = by_id(fixture, "payments")
+    allocations = by_id(fixture, "payment_allocations")
+
+    require(set(shipments) == {"SHP-28A-001"}, "Item 28A audit history requires the rating shipment identity")
+    require(len(invoices) == 1 and len(invoice_lines) == 1, "Item 28A audit history requires one stable invoice and line identity")
+
+    def validate_version_chain(rows: list[dict], label: str) -> dict:
+        ordered = sorted(rows, key=lambda row: row.get("version_number", 0))
+        require(
+            [row.get("version_number") for row in ordered] == list(range(1, len(ordered) + 1)),
+            f"{label} version numbers must be contiguous",
+        )
+        for previous, current in zip(ordered, ordered[1:]):
+            require(current.get("supersedes_id") == previous["id"], f"{current['id']} does not supersede the prior {label}")
+        return ordered[-1]
+
+    invoice = next(iter(invoices.values()))
+    current_invoice_version = validate_version_chain(
+        [row for row in invoice_versions.values() if row.get("invoice_id") == invoice["id"]],
+        "invoice",
+    )
+    line = next(iter(invoice_lines.values()))
+    require(line.get("invoice_id") == invoice["id"], "Item 28A line belongs to another invoice")
+    current_line_version = validate_version_chain(
+        [row for row in line_versions.values() if row.get("invoice_line_id") == line["id"]],
+        "invoice line",
+    )
+    require(
+        current_line_version.get("invoice_version_id") == current_invoice_version["id"],
+        "current Item 28A line does not belong to the current invoice version",
+    )
+    require(current_line_version.get("billing_item_code_text") == "28A", "current audit line must preserve raw code 28A")
+    require(current_line_version.get("mapping_status") == "ACCEPTED", "current audit line mapping must be accepted")
+    require(current_line_version.get("interpretation_decision_id") == "INT-0001", "current audit line exceeds Decision 0003")
+    require(current_line_version.get("quantity_unit") == "EA", "current audit line unit must be EA")
+
+    invoice_document_versions = [
+        row for row in document_versions.values() if documents[row["document_id"]].get("document_type") == "SYNTHETIC_INVOICE"
+    ]
+    validate_version_chain(invoice_document_versions, "invoice document")
+
+    evidence_contracts = [
+        *[(row, "INVOICE_VERSION", "INVOICE_VERSION_SOURCE") for row in invoice_versions.values()],
+        *[(row, "INVOICE_LINE_VERSION", "INVOICE_LINE_SOURCE") for row in line_versions.values()],
+        *[(row, "PAYMENT", "PAYMENT_SOURCE") for row in payments.values()],
+        *[(row, "PAYMENT_ALLOCATION", "PAYMENT_ALLOCATION_SOURCE") for row in allocations.values()],
+    ]
+    for record, target_kind, evidence_role in evidence_contracts:
+        link = evidence_links.get(record.get("evidence_link_id"))
+        require(link is not None, f"{record['id']} lacks evidence")
+        require(
+            link.get("target_kind") == target_kind and link.get("target_id") == record["id"],
+            f"{record['id']} evidence target mismatch",
+        )
+        require(
+            link.get("evidence_role") == evidence_role and link.get("review_status") == "REVIEWED",
+            f"{record['id']} evidence is not reviewed for the required role",
+        )
+
+    current_allocations = [
+        row for row in allocations.values() if row["id"] not in {candidate.get("supersedes_id") for candidate in allocations.values()}
+    ]
+    for payment in payments.values():
+        allocated = sum(
+            (
+                decimal(row["allocated_amount"], f"{row['id']}.allocated_amount")
+                for row in current_allocations
+                if row.get("payment_id") == payment["id"]
+            ),
+            Decimal("0"),
+        )
+        require(allocated == decimal(payment["amount"], f"{payment['id']}.amount"), f"{payment['id']} current allocations do not balance")
+
+    assertions = records(fixture, "audit_data_completeness_assertions")
+    require(
+        {row.get("fact_scope") for row in assertions} == {"INVOICE_HISTORY", "PAYMENT_HISTORY"},
+        "Item 28A audit history requires invoice and payment completeness assertions",
+    )
+    for assertion in assertions:
+        require(assertion.get("assertion_status") == "COMPLETE", f"{assertion['id']} is not complete")
+        require(assertion.get("review_status") == "REVIEWED", f"{assertion['id']} is not reviewed")
+        parse_instant(assertion.get("complete_through"), assertion["id"])
+
+    for collection in (
+        "rating_runs",
+        "rule_decisions",
+        "charge_calculations",
+        "calculation_steps",
+        "expected_charge_lines",
+        "reconciliation_matches",
+        "audit_findings",
+        "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 28A audit-history facts cannot contain {collection}")
+
+
 def validate_conflict_gated(fixture: dict) -> None:
     runs = records(fixture, "rating_runs")
     require(len(runs) == 1 and runs[0].get("run_status") == "BLOCKED", "conflict scenario rating run must be BLOCKED")
@@ -929,6 +1046,7 @@ VALIDATORS = {
     "containerized_reweigh_facts": validate_containerized_reweigh_facts,
     "reweigh_refund_workflow": validate_reweigh_refund_workflow,
     "item_28a_extra_pickup_facts": validate_item_28a_extra_pickup_facts,
+    "item_28a_invoice_payment_history": validate_item_28a_invoice_payment_history,
     "conflict_gated": validate_conflict_gated,
 }
 
@@ -962,6 +1080,8 @@ def negative_probe(fixture: dict) -> None:
         broken["records"]["reweigh_billing_hold_events"][1]["occurred_at"] = "2026-06-11T12:00:00Z"
     elif scenario_type == "item_28a_extra_pickup_facts":
         broken["records"]["shipment_stops"][1]["stop_role"] = "ORIGINAL_PICKUP"
+    elif scenario_type == "item_28a_invoice_payment_history":
+        del broken["records"]["invoice_line_versions"][1]["supersedes_id"]
     elif scenario_type == "conflict_gated":
         broken["records"]["rule_decisions"][0]["outcome_value"] = "false"
         broken["records"]["rule_decisions"][0]["outcome_type"] = "BOOLEAN"

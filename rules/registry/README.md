@@ -89,3 +89,8 @@ service events, reviewed Government-decision and completion evidence, and exact
 `occurrence count * 198.50 USD` arithmetic. A blocked fact or evidence chain
 emits no amount. Its approved item-code continuity cannot be reused outside the
 2026 Item 28A scope.
+
+Reviewed DTR Appendix A-A claims also register the observed-data basis for
+line-item payment reporting, post-payment audit inputs, and line-item identity
+matching. The deterministic comparison formulas remain a separately versioned
+internal audit policy rather than being misrepresented as tariff rules.

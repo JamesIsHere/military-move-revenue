@@ -1293,3 +1293,66 @@ The package reconstructs only an expected Item 28A shadow charge. It does not
 compare invoice or payment records. Next, model immutable synthetic Item 28A
 invoice/payment line versions and implement an exact expected-versus-invoiced-
 versus-paid comparison before attempting another source-blocked monetary family.
+
+## 2026-08-03 — Item 28A expected/invoiced/paid audit slice
+
+### Objective
+
+Implement the first end-to-end read-only post-audit comparison without changing
+the published Item 28A rating package or treating absent invoice/payment data as
+zero without a reviewed completeness assertion.
+
+### Source and policy basis
+
+- Re-read the ratified `goal.md`, active M4/M5 plan, logical invoice/payment
+  contract, and published Item 28A evaluator boundary.
+- Reviewed DTR Appendix A-A paragraphs 3.(17)-(22), printed pp. IV-A-A-7–8,
+  and 4.a.(1)-(2)/(9), printed pp. IV-A-A-8 and IV-A-A-12, against the archived
+  text. Registered `CLM-0038` through `CLM-0040` for per-line payment data,
+  post-payment audit inputs/supporting documents, and line-item identity matching.
+- Added versioned internal policy
+  `AUDIT-DP3-ITEM-28A-RECONCILIATION-V1` / `2026-08-03.1`. It identifies the
+  ratified goal and logical schema as internal provenance and does not present
+  comparison formulas as Government tariff rules.
+
+### Change
+
+- Added synthetic logical scenario `SYNTH-LS-010` with a corrected invoice,
+  corrected current line, reviewed invoice/remittance documents, exact payment
+  allocation, and separate reviewed invoice/payment completeness assertions.
+- Extended logical validation for direct supersession, current-version alignment,
+  version totals, evidence targets, current payment-allocation balancing, and
+  completeness coverage.
+- Implemented `rules/item_28a_post_audit.py`. It validates the complete upstream
+  Item 28A result contract, selects current immutable invoice/line/allocation
+  versions, matches only raw `28A`/`EA` under `INT-0001`, and preserves every
+  selected version and evidence ID in the input snapshot.
+- Added exact Decimal comparisons:
+  `invoiced - expected`, `paid - invoiced`, `paid - expected`, and invoiced
+  quantity minus expected occurrence count.
+- Added decided billing, quantity, and payment findings for correct, missing,
+  unsupported, underbilled, overbilled, unpaid, partially paid, and overpaid
+  outcomes. Ambiguity, incomplete history, evidence gaps, or blocked upstream
+  rating produces `AUDIT_BLOCKED`, human review, and no comparison amounts.
+- Added corrected payment-allocation history so only the current allocation
+  version contributes to payment.
+
+### Verification
+
+- `python scripts/validate_item_28a_post_audit.py`: 27 final, blocked, and
+  malformed-input cases plus seven result-tamper probes pass.
+- `python scripts/validate_logical_schema_fixtures.py`: ten positive scenarios
+  and ten negative probes pass.
+- `python scripts/validate_source_rule_registry.py`: the physical registry and
+  all nine expected-invalid mutations pass with 37 reviewed claims and 34
+  locators.
+- All prior rule suites pass unchanged; Python compilation and `git diff
+  --check` pass, with only line-ending conversion warnings.
+
+### Limitation and next
+
+This is a single-charge synthetic vertical slice, not a batch audit product and
+not historical acceptance. No real shipment, invoice, payment, authenticated
+system, live submission, or money movement was used. Next, add a deterministic
+human-readable audit explanation/report envelope and a reusable charge-adapter
+contract before expanding to another source-complete monetary family.

@@ -335,9 +335,9 @@ until CF-0002 is resolved and the interpretation is approved.
 | Entity | Required fields | Conditional / repeating fields | Key invariants | Source basis |
 |---|---|---|---|---|
 | `invoice` | `bill_of_lading_id`, `invoice_namespace`, `invoice_number`, `issuer_organization_id` | `invoice_kind`, `parent_invoice_id` | Stable external identity; supplemental relationship explicit | DISC-0015, 0028 |
-| `invoice_version` | `invoice_id`, `version_number`, `invoice_date`, `claimed_total`, `currency`, `recorded_at` | `supersedes_id`, `correction_reason` | Append-only; total equals signed current line versions under declared rounding rule | DISC-0015–0017, 0025, 0041 |
+| `invoice_version` | `invoice_id`, `version_number`, `invoice_date`, `claimed_total`, `currency`, `recorded_at`, `evidence_link_id` | `supersedes_id`, `correction_reason` | Append-only; total equals signed line versions in that invoice version; observed source evidence targets the exact version | DISC-0015–0017, 0025, 0041 |
 | `invoice_line` | `invoice_id`, `line_identity_within_invoice`, `line_kind` | `external_line_id`, `parent_line_id` | Stable line identity; linehaul uniqueness/supplement constraints enforced by rules | DISC-0017, 0021, 0028 |
-| `invoice_line_version` | `invoice_line_id`, `invoice_version_id`, `version_number`, `billing_item_code_text`, `claimed_amount`, `currency`, `quantity`, `quantity_unit` | `billing_item_code_version_id`, `service_performance_id`, `description`, `supersedes_id` | Exact money/quantity; preserve raw code even when vocabulary applicability unresolved | DISC-0017–0018, 0025, 0031, 0086–0087 |
+| `invoice_line_version` | `invoice_line_id`, `invoice_version_id`, `version_number`, `billing_item_code_text`, `claimed_amount`, `currency`, `quantity`, `quantity_unit`, `evidence_link_id` | `billing_item_code_version_id`, `service_performance_id`, `description`, `mapping_status`, `interpretation_decision_id`, `candidate_service_code`, `supersedes_id` | Exact money/quantity; preserve raw code even when vocabulary applicability unresolved; only an accepted mapping may reconcile automatically | DISC-0017–0018, 0025, 0031, 0086–0087; INT-0001 |
 | `invoice_adjustment_line` | `invoice_line_id`, `adjustment_kind`, `signed_amount`, `currency`, `reason_code` | `related_payment_id`, `supersedes_id` | Corrections are signed append-only lines, never edits | DISC-0041 |
 
 ### 10.2 Transport and workflow
@@ -352,8 +352,8 @@ until CF-0002 is resolved and the interpretation is approved.
 | `reweigh_ticket_delivery_event` | `reweigh_refund_case_id`, `ticket_document_version_id`, `recipient_role_codes`, `occurred_at`, `recorded_at`, `timeliness_status`, `evidence_link_id` | — | Append-only proof that determining tickets reached the origin/ordering PPSO; working-day status is observed or produced by a separately versioned calendar rule | CLM-0026, CLM-0032 |
 | `reweigh_refund_adjustment_event` | `reweigh_refund_case_id`, `event_type`, `occurred_at`, `recorded_at` | `supplemental_invoice_id`, `previous_event_id`, `evidence_link_id` | Required, submitted, and processed states form an immutable chain; an amount is prohibited until deterministic financial calculation exists | CLM-0026, CLM-0031 |
 | `reweigh_billing_hold_event` | `reweigh_refund_case_id`, `hold_action`, `target_service_scope`, `reason_code`, `occurred_at`, `recorded_at` | `previous_event_id`, `release_basis_event_ids`, `evidence_link_id` | Destination/direct-delivery hold release follows DPS update, ticket delivery, and refund processing; placing or releasing a hold never rewrites invoice history | CLM-0026, CLM-0032 |
-| `payment` | `payer_organization_id`, `payment_reference`, `payment_date`, `amount`, `currency` | `external_message_id` | Exact money; payment identity unique within payer namespace | Post-audit requirement |
-| `payment_allocation` | `payment_id`, `invoice_line_id`, `allocated_amount`, `currency` | `allocation_reason`, `supersedes_id` | Allocations for a payment balance exactly under declared rounding policy | Post-audit requirement |
+| `payment` | `payer_organization_id`, `payment_reference`, `payment_date`, `recorded_at`, `amount`, `currency`, `evidence_link_id` | `external_message_id` | Exact money; payment identity unique within payer namespace; current reviewed allocations balance exactly to the payment | Post-audit requirement; Item 28A audit policy v1 |
+| `payment_allocation` | `allocation_key`, `version_number`, `payment_id`, `invoice_line_id`, `allocated_amount`, `currency`, `evidence_link_id` | `allocation_reason`, `supersedes_id` | Allocation corrections are contiguous immutable versions; current allocations for a payment balance exactly | Post-audit requirement; Item 28A audit policy v1 |
 
 ## 11. Deterministic rating, reconciliation, and review
 
@@ -366,7 +366,8 @@ until CF-0002 is resolved and the interpretation is approved.
 | `calculation_step` | `charge_calculation_id`, `ordinal`, `operation`, `operand_values`, `result_value`, `value_type` | `unit` | Ordinal unique; final step equals expected charge amount | Agent Operating Policy |
 | `expected_charge_line` | `rating_run_id`, `service_definition_id`, `expected_amount`, `currency`, `charge_calculation_id`, `eligibility_decision_id` | `portion_id`, `sit_episode_id`, `billing_item_mapping_id` | Zero expected amount requires an affirmative rule outcome, not missing data | Goal |
 | `reconciliation_match` | `expected_charge_line_id`, `invoice_line_version_id`, `match_status`, `comparison_amount`, `currency` | `quantity_variance`, `amount_variance`, `matching_rationale` | Exact signed variance; many-to-many allowed only with explicit rationale | Goal |
-| `audit_finding` | `rating_run_id`, `finding_code`, `severity`, `finding_status` | `claimed_amount`, `expected_amount`, `variance_amount`, `currency`, `invoice_line_id`, `evidence_gap`, `rule_decision_id` | Monetary fields require currency; a comparison finding requires claimed and expected amounts and `variance = claimed - expected`; a blocked/unrated finding omits unavailable amounts and requires human review | Goal; Agent Operating Policy |
+| `audit_data_completeness_assertion` | `shipment_id`, `fact_scope`, `complete_through`, `assertion_status`, `review_status` | `evidence_link_id`, `supersedes_id` | Invoice and payment history are asserted separately; absence may become zero only when a reviewed `COMPLETE` assertion covers the audit cutoff | Goal; Agent Operating Policy; Item 28A audit policy v1 |
+| `audit_finding` | `rating_run_id`, `finding_code`, `severity`, `finding_status` | `claimed_amount`, `expected_amount`, `paid_amount`, `billing_variance`, `payment_variance`, `realized_variance`, `quantity_variance`, `currency`, `invoice_line_id`, `evidence_gap`, `rule_decision_id` | Monetary fields require currency; exact variances are invoiced minus expected, paid minus invoiced, and paid minus expected; a blocked finding exposes no comparison and requires human review | Goal; Agent Operating Policy; Item 28A audit policy v1 |
 | `human_review_case` | `audit_finding_id`, `review_reason`, `review_status`, `opened_at` | `assigned_to`, `resolved_at`, `resolution_decision_id`, `notes` | Required for low-confidence facts, conflicting claims, or prohibited automation boundary | AI Boundary policy |
 | `billing_eligibility_decision` | `rule_decision_id`, `target_kind`, `target_id` | `eligible`, `hold_reason`, `prerequisite_evidence_requirement_id` | `eligible` is required only for a decided rule; unknown/conflicted decisions leave it null and require a hold reason | DISC-0038–0040, 0072, 0077 |
 | `operational_eligibility_decision` | `rule_decision_id`, `operation_code`, `target_id` | `allowed`, `blocking_fact_or_evidence` | `allowed` is required only for a decided rule; unknown/conflicted decisions leave it null and identify the blocker | DISC-0070 |
@@ -410,6 +411,10 @@ until CF-0002 is resolved and the interpretation is approved.
     authoritative outcome values. Dependent booleans, expected amounts, and
     variances remain null—not false or zero—and the blocking conflict or
     assumption is explicit. Material blocked findings enter human review.
+13. **Audit completeness:** absence of an invoice line or payment allocation is
+    not zero unless separate reviewed invoice-history and payment-history
+    assertions are complete through the audit cutoff. A stale or missing
+    assertion blocks the comparison.
 
 Synthetic validation scenarios for these invariants live under
 `tests/fixtures/logical-schema/` and are checked by

@@ -169,7 +169,9 @@
     {"id": "LOC-0030", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_item_page", "locator_value": "Item 28.1 and 28.3, pp. 35-36"},
     {"id": "LOC-0031", "source_version_id": "SV-DP3-2026-RATES-2026", "locator_kind": "workbook_cells", "locator_value": "Additional Rates!A1 and A13:F13"},
     {"id": "LOC-0032", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "locator_kind": "workbook_cells", "locator_value": "DOM_400NG!A4:Q4, A23:Q23, B154:L166"},
-    {"id": "LOC-0033", "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03", "locator_kind": "html_line_link", "locator_value": "line 4697; Household Goods section link titled Item Code Listing (12 Aug 2022).zip"}
+    {"id": "LOC-0033", "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03", "locator_kind": "html_line_link", "locator_value": "line 4697; Household Goods section link titled Item Code Listing (12 Aug 2022).zip"},
+    {"id": "LOC-0034", "source_version_id": "SV-DTR-IV-AAA-2026-02-04", "locator_kind": "regulation_paragraph_page", "locator_value": "Appendix A-A, para. 3.(17)-(22), printed pp. IV-A-A-7 through IV-A-A-8"},
+    {"id": "LOC-0035", "source_version_id": "SV-DTR-IV-AAA-2026-02-04", "locator_kind": "regulation_paragraph_page", "locator_value": "Appendix A-A, para. 4.a.(1)-(2) and 4.a.(9), printed pp. IV-A-A-8 and IV-A-A-12"}
   ],
   "source_claims": [
     {
@@ -557,6 +559,39 @@
       "claim_value": "Item Code Listing (12 Aug 2022).zip at docs/otherpdfs/0900+Household_Goods/Item Code Listing (12 Aug 2022).zip",
       "value_type": "artifact_link",
       "claim_derivation_kind": "direct_html_link",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0038",
+      "source_locator_id": "LOC-0034",
+      "subject_kind": "payment_observation",
+      "subject_key": "tpps_payment_data_feed",
+      "predicate": "reports",
+      "claim_value": "actual_payment_data_on_each_line_item",
+      "value_type": "financial_observation_contract",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0039",
+      "source_locator_id": "LOC-0034",
+      "subject_kind": "post_payment_audit",
+      "subject_key": "authorized_service_invoice_comparison",
+      "predicate": "uses",
+      "claim_value": "tpps_invoice_data_plus_dps_authorized_services_and_weights_with_supporting_documents_available_on_request",
+      "value_type": "audit_input_contract",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0040",
+      "source_locator_id": "LOC-0035",
+      "subject_kind": "invoice_line_matching",
+      "subject_key": "tpps_dps_line_item_identity",
+      "predicate": "requires",
+      "claim_value": "line_item_matching_with_unique_line_identifier_and_same_code_different_quantity_support",
+      "value_type": "matching_contract",
+      "claim_derivation_kind": "direct_text",
       "interpretation_status": "reviewed"
     }
   ],
