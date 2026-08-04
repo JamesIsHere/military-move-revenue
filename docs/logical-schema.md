@@ -427,7 +427,7 @@ not published tariff rules or production rating results.
 |---|---|---|
 | `CF-0001` — requested versus actual pickup date | Publishing a rule that selects accessorial/SIT rate tables from the disputed effective-date fact | Store both typed dates, both claims, candidate decisions, and test scenarios |
 | `CF-0002` — transit-time table and 70% SIT formula | Publishing the mileage-tool transit result or derived SIT entitlement as authoritative | Archive workbook structure, compute clearly labeled candidate results, and route to human review |
-| `CF-0003` — 2022 item-code applicability | Treating the 2022 code list as the authoritative 2026 controlled vocabulary | Preserve raw billed code and provisional mappings; Decision 0003 / `INT-0001` permits only the 2026 Item 28A row contract |
+| `CF-0003` — 2022 item-code applicability | Treating the 2022 code list as the authoritative 2026 controlled vocabulary | Preserve raw billed code and provisional mappings; Decisions 0003 / `INT-0001` and 0004 / `INT-0002` permit only the scoped 2026 Item 28A and Item 28B row contracts |
 | `CF-0004` — reweigh 5,000-lb branch input | Publishing fee or containerized-reimbursement tolerance logic with an assumed branch weight | Preserve all typed initial, reweigh, provisional, gross, tare, and net observations; allow non-tolerance workflow design |
 
 No conflict gate prevents storage of observed source or invoice data. It prevents

@@ -1511,3 +1511,36 @@ Item-Code rows 23–26.
 - Next, implement the Item 28B deterministic rating and all ten mandatory test
   classes. Only then may the draft rules/package be replaced by a published
   immutable version.
+
+## 2026-08-04 — Published Item 28B deterministic rating
+
+### Outcome
+
+- Implemented the Decision 0004 / `INT-0002` Item 28B evaluator for domestic
+  DP3 shipments. It selects the rate cycle from the actual pickup performance
+  fact, counts only completed extra deliveries before final delivery, requires
+  timely Destination-PPSO Government authorization and reviewed authorization/
+  completion evidence, and multiplies exact occurrences by 198.50 USD using
+  `Decimal` with no rounding.
+- Added synthetic logical fixture `SYNTH-LS-011` plus 25 rating cases covering
+  both effective boundaries, wrong-cycle blocks, requested-date isolation,
+  absent/denied/malformed authorization, evidence gates, final-delivery
+  exclusion, duplicates, exact two-occurrence arithmetic, units, chronology,
+  provenance, and five result-tamper probes. No real shipment data was used.
+- Promoted the approved draft to immutable published package
+  `2026.item-28b-extra-delivery.1`; all three authorized rules are implemented
+  and published. `CF-0001` and `CF-0003` remain open outside this narrow scope.
+- Updated the shared logical-schema validator, fixture guide, schema conflict
+  note, registry guide, and M3/M4 milestone status.
+
+### Verification and next
+
+- `python scripts/validate_item_28b_extra_delivery.py`: all 25 cases and five
+  result-tamper probes pass.
+- `python scripts/validate_logical_schema_fixtures.py`: all 11 positive scenarios
+  and paired negative probes pass.
+- Every repository `validate_*.py` suite passes; Python compilation and
+  `git diff --check` pass.
+- Next, add immutable Item 28B invoice/payment facts, deterministic post-audit
+  reconciliation, and a second registered report adapter. Do not infer that the
+  Item 28A audit mapping or invoice facts apply without an Item 28B contract.

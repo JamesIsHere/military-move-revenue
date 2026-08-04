@@ -816,13 +816,14 @@
       "published_on": "2026-08-03"
     },
     {
-      "id": "RP-DP3-2026-ITEM-28B-DRAFT-1",
+      "id": "RP-DP3-2026-ITEM-28B-1",
       "package_code": "DP3_ITEM_28B_EXTRA_DELIVERY_SHADOW_RATING",
-      "version": "2026.item-28b-extra-delivery.draft.1",
+      "version": "2026.item-28b-extra-delivery.1",
       "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
       "effective_from": "2026-05-15",
       "effective_to": "2027-05-14",
-      "publication_status": "draft"
+      "publication_status": "published",
+      "published_on": "2026-08-04"
     }
   ],
   "rules": [
@@ -915,40 +916,40 @@
     },
     {
       "id": "RULE-ITEM-28B-SCOPED-SOURCE-CONTRACT",
-      "rule_package_id": "RP-DP3-2026-ITEM-28B-DRAFT-1",
+      "rule_package_id": "RP-DP3-2026-ITEM-28B-1",
       "rule_kind": "controlled_vocabulary_selection",
-      "expression_language": "decision-expression-v0",
+      "expression_language": "python-decimal-v1",
       "expression": "item_28b_contract := actual_pickup_date_basis + EA_unit + SC_rate_reference + AE_additional_delivery_location + destination_ppso_approval_required for 2026 Item 28B only",
       "outcome_type": "scoped_billing_item_contract",
       "effective_date_fact_type": "actual_pickup_date",
-      "implementation_status": "not_implemented",
-      "publication_status": "draft",
+      "implementation_status": "implemented",
+      "publication_status": "published",
       "blocked_by_conflict_ids": [],
       "approved_interpretation_decision_ids": ["INT-0002"]
     },
     {
       "id": "RULE-ITEM-28B-ELIGIBLE-OCCURRENCE",
-      "rule_package_id": "RP-DP3-2026-ITEM-28B-DRAFT-1",
+      "rule_package_id": "RP-DP3-2026-ITEM-28B-1",
       "rule_kind": "service_occurrence_eligibility",
-      "expression_language": "decision-expression-v0",
+      "expression_language": "python-decimal-v1",
       "expression": "candidate_eligible_occurrence := completed_additional_delivery_before_final AND government_authorized AND reviewed_authorization_and_completion_evidence",
       "outcome_type": "quantity_occurrence",
       "effective_date_fact_type": "actual_pickup_date",
-      "implementation_status": "not_implemented",
-      "publication_status": "draft",
+      "implementation_status": "implemented",
+      "publication_status": "published",
       "blocked_by_conflict_ids": [],
       "approved_interpretation_decision_ids": ["INT-0002"]
     },
     {
       "id": "RULE-ITEM-28B-EXPECTED-CHARGE",
-      "rule_package_id": "RP-DP3-2026-ITEM-28B-DRAFT-1",
+      "rule_package_id": "RP-DP3-2026-ITEM-28B-1",
       "rule_kind": "monetary_calculation",
-      "expression_language": "decision-expression-v0",
+      "expression_language": "python-decimal-v1",
       "expression": "candidate_expected_amount_usd := eligible_item_28b_occurrence_count * 198.50 USD_per_occurrence; no rounding",
       "outcome_type": "money_usd",
       "effective_date_fact_type": "actual_pickup_date",
-      "implementation_status": "not_implemented",
-      "publication_status": "draft",
+      "implementation_status": "implemented",
+      "publication_status": "published",
       "blocked_by_conflict_ids": [],
       "approved_interpretation_decision_ids": ["INT-0002"]
     },

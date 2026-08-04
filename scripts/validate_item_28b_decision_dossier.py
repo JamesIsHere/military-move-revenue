@@ -87,9 +87,9 @@ def validate(dossier: dict, registry: dict) -> None:
     require(decision.get("decided_on") == "2026-08-04" and "explicit agreement" in decision.get("decided_by", ""), "owner approval provenance mismatch")
     require(decision.get("authorized_rule_ids") == ["RULE-ITEM-28B-SCOPED-SOURCE-CONTRACT", "RULE-ITEM-28B-ELIGIBLE-OCCURRENCE", "RULE-ITEM-28B-EXPECTED-CHARGE"], "authorized Item 28B rule scope mismatch")
     item_rules = [rules[value] for value in decision["authorized_rule_ids"]]
-    require(all(value.get("publication_status") == "draft" and value.get("implementation_status") == "not_implemented" for value in item_rules), "Item 28B rules advanced before implementation tests")
-    package = packages.get("RP-DP3-2026-ITEM-28B-DRAFT-1")
-    require(isinstance(package, dict) and package.get("publication_status") == "draft", "Item 28B draft package gate mismatch")
+    require(all(value.get("publication_status") == "published" and value.get("implementation_status") == "implemented" for value in item_rules), "Item 28B implementation/publication state mismatch")
+    package = packages.get("RP-DP3-2026-ITEM-28B-1")
+    require(isinstance(package, dict) and package.get("publication_status") == "published", "Item 28B published package gate mismatch")
     accepted_text = ACCEPTED.read_text(encoding="utf-8")
     require("Status: Accepted" in accepted_text and "A_APPROVE_NARROW" in accepted_text and "INT-0002" in accepted_text, "accepted decision record is incomplete")
     rate_row = workbook_row(ROOT / "sources" / "raw" / "2026" / "400ng-baseline-rates.zip", "Additional Rates", 13, 6)
@@ -119,7 +119,7 @@ def main() -> int:
                 print(f"PASS Item 28B dossier tamper rejected: {label}")
                 continue
             raise ValidationError(f"accepted dossier tamper: {label}")
-        print("PASS preserved Item 28B proposal, accepted INT-0002 draft-package gate, 4 archived sources, 10 mandatory tests, and 4 tamper probes")
+        print("PASS preserved Item 28B proposal, accepted INT-0002 published-package gate, 4 archived sources, 10 mandatory tests, and 4 tamper probes")
         return 0
     except (OSError, StopIteration, json.JSONDecodeError, KeyError, TypeError, ValidationError) as exc:
         print(f"FAIL {exc}", file=sys.stderr)

@@ -42,7 +42,7 @@ Exit criteria:
 
 Status: in progress. The first file-backed physical registry and conflict-gate
 validator were implemented on 2026-08-03. Seven immutable reference/workflow
-packages and one monetary package are now published and executable: initial
+packages and two monetary packages are now published and executable: initial
 weight, Item 4.8 automatic
 reweigh, completed-reweigh net selection, initial-versus-reweigh lower
 selection, constructive weight, containerized provisional weight, and
@@ -50,7 +50,9 @@ post-invoice reweigh refund workflow. Decision 0003 / `INT-0001` now approves a
 2026 Item 28A-only source contract from the archived tariff, rate cells,
 item-code row, and current public-library snapshot while leaving `CF-0003` open
 for all broader item-code uses. The published Item 28A package implements that
-narrow decision with exact-decimal rating and evidence gates.
+narrow decision with exact-decimal rating and evidence gates. Decision 0004 /
+`INT-0002` similarly approves and the registry publishes the scoped 2026 Item
+28B extra-delivery package without resolving broader `CF-0003` applicability.
 
 Exit criteria:
 
@@ -61,10 +63,11 @@ Exit criteria:
 
 ## M4 — Implement shadow rating
 
-Status: in progress. `2026.item-28a-extra-pickup.1` is the first published
-monetary package; its 24 synthetic cases and five result-tamper probes pass.
-Other candidate monetary families remain deferred by recorded source conflicts
-or larger fact-model requirements.
+Status: in progress. `2026.item-28a-extra-pickup.1` and
+`2026.item-28b-extra-delivery.1` are published monetary packages. Item 28A's 24
+synthetic cases and five result-tamper probes pass; Item 28B's 25 synthetic cases
+and five result-tamper probes pass. Other candidate monetary families remain
+deferred by recorded source conflicts or larger fact-model requirements.
 
 Exit criteria:
 

@@ -21,7 +21,7 @@ Run:
 python scripts/validate_logical_schema_fixtures.py
 ```
 
-The validator checks the eight positive scenarios and applies one deliberately
+The validator checks the eleven positive scenarios and applies one deliberately
 invalid mutation to each as a regression check. These fixtures validate
 relationships and invariants only; they do not assert that a disputed source
 claim is an approved billing rule.
@@ -46,6 +46,11 @@ a separate negative-supplemental identity, then records the completed reweigh,
 DPS update, PPSO ticket delivery, refund-required/submitted/processed chain, and
 destination/direct-delivery hold lifecycle. It contains no calculated refund,
 tolerance, fee, expected charge, reconciliation, or payment result.
+
+The Item 28B facts scenario preserves an actual-pickup performance date, one
+Government-authorized completed extra-delivery occurrence before final delivery,
+and reviewed authorization and completion evidence. It intentionally contains
+no monetary result; the published rule package produces that result.
 
 ## Source/rule registry cases
 
@@ -156,4 +161,18 @@ Run:
 
 ```powershell
 python scripts/validate_reweigh_refund_workflow.py
+```
+
+## Item 28B extra-delivery cases
+
+`item-28b-extra-delivery/item-28b-cases.json` applies the scoped contract from
+Decision 0004 / `INT-0002`. It covers both effective-period boundaries,
+actual-versus-requested date selection, occurrence eligibility, Government
+authorization, reviewed evidence, exact multi-occurrence arithmetic, malformed
+facts, duplicates, and result-package tampering.
+
+Run:
+
+```powershell
+python scripts/validate_item_28b_extra_delivery.py
 ```
