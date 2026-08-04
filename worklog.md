@@ -1814,3 +1814,81 @@ approval was inferred.
 - Next, build the boat-focused 130C–130F measurement, associated-trailer,
   HHG-co-move, and BOTO/OTO boundary cluster without resolving the recorded
   130E/130F source gaps.
+
+## 2026-08-04 — Cold-resume checkpoint
+
+### Outcome
+
+- Re-read `goal.md`, `state.md`, the active milestones in `plan.md`, and the
+  latest worklog entries.
+- Confirmed the working tree was clean and that `SYNTH-LS-015` is the last
+  completed logical-schema fixture.
+- Rechecked the archived 400NG Item 130 passage governing 130C–130F boat
+  classifications, fractional-foot handling, measurement methods, associated
+  trailers, HHG co-movement, and the separate OTO boundary.
+- Made no schema, fixture, validator, mapping, rule, or financial change.
+
+### Next
+
+Add the synthetic 130C–130F boat boundary cluster and focused negative probes,
+while preserving `GAP-130E-SUBTYPE-ROWS` and `GAP-130F-BOTO-BOUNDARY` as human-
+review conflicts and emitting no monetary or billing-mapping output.
+
+## 2026-08-04 — Item 130C–130F boat boundaries
+
+### Outcome
+
+- Added synthetic fixture `SYNTH-LS-016` with reviewed 130C canoe, jet-ski, and
+  kayak candidates spanning absent, present, and unknown associated-trailer
+  states; reviewed 130D/130E boat and dinghy candidates; and 130F boundary
+  facts.
+- Preserved exact decimal physical center-line, manufacturer length-overall,
+  manufacturer center-line, physical width/height, and trailer measurements.
+  The fixture proves that 14.999 and 16.999 feet exercise the tariff's
+  fractional-foot treatment while exact 17 feet is not assigned 130F.
+- Kept article classification separate from reviewed HHG co-move and domestic
+  OTO/BOTO program context. The width probe uses 83 inches and the height fact
+  uses the exact 77-inch boundary.
+- Preserved `GAP-130E-SUBTYPE-ROWS` and `GAP-130F-BOTO-BOUNDARY` as explicit,
+  provenance-linked open gaps. The 130F BOTO observation remains conflicting;
+  no service mapping, quantity, rate, money, rule, reconciliation, or audit
+  output was added.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: all 16 scenarios pass;
+  `SYNTH-LS-016` rejects nine focused mutations covering length, method,
+  trailer-state, classification, HHG/BOTO context, both source gaps, and money.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass.
+- Next, add the ratified Item 130 exclusion and Government-approval boundary
+  cluster, followed by handling/SIT pairing cases without financial outputs.
+
+## 2026-08-04 — Item 130 exclusions and preapproval boundaries
+
+### Outcome
+
+- Added synthetic fixture `SYNTH-LS-017` with separate reviewed observations
+  for Code 2, approval for crating, performed crating, one-person hand-carry,
+  standard-carton transport, and completed shuttle transload.
+- Preserved canoe, kayak, and dinghy as the three named exceptions to the
+  hand-carry/carton exclusion; ordinary windsurfer facts exercise both exclusion
+  paths without treating article classification as a financial decision.
+- Added six isolated completed handling performances. A deterministic
+  non-financial gate identifies timely approved reviewed preapproval as ready
+  and keeps missing, denied, conflicting, late, and unreviewed evidence states
+  distinct.
+- Reused the ratified canonical service-performance and approval-event profiles.
+  Service definitions, controlled approver roles, quantities, rates, money,
+  rules, reconciliation, and audit outputs remain prohibited.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: all 17 scenarios pass;
+  `SYNTH-LS-017` rejects twelve focused mutations covering exclusion collapse,
+  named exceptions, shuttle state, approval status/timing/evidence, premature
+  service mapping, and money.
+- All 18 repository validators, changed-validator compilation, and `git diff
+  --check` pass.
+- Next, add zero/one/multiple/unmatched/duplicate handling pairs and the three
+  SIT-cause states without deriving a billable quantity.

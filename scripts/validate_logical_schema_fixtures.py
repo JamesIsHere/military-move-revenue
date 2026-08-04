@@ -1496,6 +1496,330 @@ def validate_item_130_volume_assembly_boundaries(fixture: dict) -> None:
         require(not records(fixture, collection), f"Item 130I/130J fact fixture cannot contain {collection}")
 
 
+def validate_item_130_boat_boundaries(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    measurements = by_id(fixture, "article_measurement_observations")
+    contexts = by_id(fixture, "article_service_context_observations")
+    evidence = by_id(fixture, "evidence_links")
+    expected_articles = {
+        "ART-130C-CANOE-ABSENT": ("CANOE", "130C", "ACCEPTED", "ABSENT"),
+        "ART-130C-JETSKI-PRESENT": ("JET_SKI", "130C", "ACCEPTED", "PRESENT"),
+        "ART-130C-KAYAK-UNKNOWN": ("KAYAK", "130C", "ACCEPTED", "UNKNOWN"),
+        "ART-130D-FRACTION": ("BOAT_AT_MOST_14_FT", "130D", "ACCEPTED", "ABSENT"),
+        "ART-130E-MANUFACTURER-HHG": ("BOAT_OVER_14_FT_WITH_HHG", "130E", "ACCEPTED", "ABSENT"),
+        "ART-130D-WIDE-OTO": ("BOAT_AT_MOST_14_FT", "130D", "ACCEPTED", "ABSENT"),
+        "ART-130E-DINGHY-GAP": ("DINGHY_OVER_14_FT_WITH_HHG", "130E", "ACCEPTED", "UNKNOWN"),
+        "ART-130F-FRACTION": ("BOAT_TRAILER_AT_MOST_16_FT_BOTO_REFERENCE", "130F", "ACCEPTED", "PRESENT"),
+        "ART-130F-SEVENTEEN": ("BOAT_TRAILER", None, "REJECTED", "PRESENT"),
+    }
+    require(set(articles) == set(expected_articles), "Item 130C-130F scenario article set mismatch")
+    require(
+        {row.get("tariff_classification_candidate") for row in articles.values() if row.get("tariff_classification_candidate")} == {"130C", "130D", "130E", "130F"},
+        "Item 130C-130F direct tariff candidates are incomplete",
+    )
+    require(
+        {row.get("associated_trailer_status") for row in articles.values()} == {"PRESENT", "ABSENT", "UNKNOWN"},
+        "Item 130C-130F trailer-state coverage is incomplete",
+    )
+
+    gaps = fixture.get("unresolved_source_gaps")
+    require(isinstance(gaps, list), "Item 130 boat fixture needs unresolved_source_gaps")
+    gap_index = {row.get("id"): row for row in gaps}
+    require(set(gap_index) == {"GAP-130E-SUBTYPE-ROWS", "GAP-130F-BOTO-BOUNDARY"}, "Item 130 boat source gaps changed")
+    require(gap_index["GAP-130E-SUBTYPE-ROWS"].get("status") == "OPEN_DO_NOT_INFER_MAPPING", "130E subtype gap must remain open")
+    require(gap_index["GAP-130F-BOTO-BOUNDARY"].get("status") == "OPEN_PROGRAM_BOUNDARY_REVIEW", "130F BOTO gap must remain open")
+    require(all(set(row.get("provenance_refs", [])) == {"PROV-130BOAT-TARIFF", "PROV-130BOAT-ITEM-CODES"} for row in gaps), "Item 130 boat gaps need both conflicting sources")
+
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id", "service_definition_id",
+    }
+    for record in [*articles.values(), *measurements.values(), *contexts.values()]:
+        require(common_fields.issubset(record), f"{record['id']} lacks approved common metadata")
+        parse_instant(record["recorded_at"], f"{record['id']}.recorded_at")
+        require(record["record_source_kind"] == "SYNTHETIC_FIXTURE", f"{record['id']} source kind mismatch")
+        require(record["sanitization_status"] == "SYNTHETIC", f"{record['id']} is not synthetic")
+        require(record["sensitivity_class"] != "PII", f"{record['id']} cannot contain PII")
+        require(record["source_version_id"] and record["source_locator_id"], f"{record['id']} lacks source provenance")
+        require(not prohibited_fields.intersection(record), f"{record['id']} contains a prohibited financial or mapping field")
+
+    def reviewed_evidence(record: dict, target_kind: str, role: str) -> None:
+        link_id = record.get("evidence_link_id")
+        if link_id is None:
+            candidates = [
+                link for link in evidence.values()
+                if link.get("target_kind") == target_kind and link.get("target_id") == record["id"]
+            ]
+            require(len(candidates) == 1, f"{record['id']} needs one exact evidence target")
+            link = candidates[0]
+        else:
+            link = evidence.get(link_id)
+            require(link is not None, f"{record['id']} lacks evidence link")
+        require(link.get("target_kind") == target_kind and link.get("target_id") == record["id"], f"{record['id']} evidence target mismatch")
+        require(link.get("evidence_role") == role and link.get("review_status") == "REVIEWED", f"{record['id']} evidence role/review mismatch")
+
+    for article_id, (kind, candidate, status, trailer_status) in expected_articles.items():
+        article = articles[article_id]
+        require(article.get("shipment_id") == "SHP-130BOAT-001", f"{article_id} shipment mismatch")
+        require(article.get("article_kind_observed") == kind, f"{article_id} article kind mismatch")
+        require(article.get("classification_review_status") == status, f"{article_id} classification review mismatch")
+        require(article.get("associated_trailer_status") == trailer_status, f"{article_id} trailer state mismatch")
+        if candidate is None:
+            require("tariff_classification_candidate" not in article, f"{article_id} must not auto-classify")
+        else:
+            require(article.get("tariff_classification_candidate") == candidate, f"{article_id} classification candidate mismatch")
+        reviewed_evidence(article, "SHIPMENT_ARTICLE", "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
+
+    expected_measurements = {
+        "AMO-130D-FRACTION-LENGTH": ("ART-130D-FRACTION", "LENGTH", Decimal("14.999"), "ft", "PHYSICAL_CENTER_LINE", "BOAT_CENTER_LINE_PHYSICAL_MEASUREMENT"),
+        "AMO-130E-MANUFACTURER-LENGTH": ("ART-130E-MANUFACTURER-HHG", "LENGTH", Decimal("15.25"), "ft", "MANUFACTURER_LENGTH_OVERALL", "MANUFACTURER_LENGTH_OVERALL_SPECIFICATION"),
+        "AMO-130D-WIDE-LENGTH": ("ART-130D-WIDE-OTO", "LENGTH", Decimal("14"), "ft", "PHYSICAL_CENTER_LINE", "BOAT_CENTER_LINE_PHYSICAL_MEASUREMENT"),
+        "AMO-130D-WIDE-WIDTH": ("ART-130D-WIDE-OTO", "WIDTH", Decimal("83"), "in", "PHYSICAL_DIMENSIONS", "BOAT_WIDTH_MEASUREMENT"),
+        "AMO-130D-WIDE-HEIGHT": ("ART-130D-WIDE-OTO", "HEIGHT", Decimal("77"), "in", "PHYSICAL_DIMENSIONS", "BOAT_HEIGHT_MEASUREMENT"),
+        "AMO-130E-DINGHY-LENGTH": ("ART-130E-DINGHY-GAP", "LENGTH", Decimal("15"), "ft", "MANUFACTURER_CENTER_LINE", "MANUFACTURER_CENTER_LINE_SPECIFICATION"),
+        "AMO-130F-FRACTION-LENGTH": ("ART-130F-FRACTION", "LENGTH", Decimal("16.999"), "ft", "PHYSICAL_DIMENSIONS", "TRAILER_LENGTH_MEASUREMENT"),
+        "AMO-130F-SEVENTEEN-LENGTH": ("ART-130F-SEVENTEEN", "LENGTH", Decimal("17"), "ft", "PHYSICAL_DIMENSIONS", "TRAILER_LENGTH_MEASUREMENT"),
+    }
+    require(set(measurements) == set(expected_measurements), "Item 130 boat measurement set mismatch")
+    for measurement_id, (article_id, kind, value, unit, method, role) in expected_measurements.items():
+        measurement = measurements[measurement_id]
+        require(measurement.get("article_id") == article_id, f"{measurement_id} article mismatch")
+        require(measurement.get("measurement_kind") == kind, f"{measurement_id} kind mismatch")
+        require(decimal(measurement.get("measurement_value"), f"{measurement_id}.measurement_value") == value, f"{measurement_id} value mismatch")
+        require(measurement.get("measurement_unit") == unit, f"{measurement_id} unit mismatch")
+        require(measurement.get("measurement_method") == method, f"{measurement_id} method mismatch")
+        require(measurement.get("review_status") == "ACCEPTED", f"{measurement_id} is not reviewed")
+        reviewed_evidence(measurement, "ARTICLE_MEASUREMENT_OBSERVATION", role)
+
+    require(int(decimal(measurements["AMO-130D-FRACTION-LENGTH"]["measurement_value"], "130D fractional length")) == 14, "130D fractional feet were not disregarded")
+    require(int(decimal(measurements["AMO-130E-MANUFACTURER-LENGTH"]["measurement_value"], "130E manufacturer length")) == 15, "130E manufacturer length boundary mismatch")
+    require(int(decimal(measurements["AMO-130F-FRACTION-LENGTH"]["measurement_value"], "130F fractional length")) == 16, "130F fractional feet were not disregarded")
+    require(decimal(measurements["AMO-130D-WIDE-WIDTH"]["measurement_value"], "boat width") > Decimal("82"), "separate OTO width boundary is not exercised")
+    require(decimal(measurements["AMO-130D-WIDE-HEIGHT"]["measurement_value"], "boat height") == Decimal("77"), "boat height boundary mismatch")
+
+    expected_contexts = {
+        "ASC-130E-MANUFACTURER-HHG": ("ART-130E-MANUFACTURER-HHG", "HHG_CO_MOVE_AGREEMENT", "AGREED", "ACCEPTED", "HHG_CO_MOVE_AGREEMENT_REVIEW"),
+        "ASC-130D-WIDE-OTO": ("ART-130D-WIDE-OTO", "BOTO_PROGRAM", "SEPARATE_DOMESTIC_OTO_REQUIRED", "ACCEPTED", "BOTO_PROGRAM_CONTEXT_REVIEW"),
+        "ASC-130E-DINGHY-HHG": ("ART-130E-DINGHY-GAP", "HHG_CO_MOVE_AGREEMENT", "AGREED", "ACCEPTED", "HHG_CO_MOVE_AGREEMENT_REVIEW"),
+        "ASC-130F-BOTO-CONFLICT": ("ART-130F-FRACTION", "BOTO_PROGRAM", "BOTO_SCOPE_REVIEW_REQUIRED", "CONFLICTING", "BOTO_PROGRAM_CONTEXT_REVIEW"),
+    }
+    require(set(contexts) == set(expected_contexts), "Item 130 boat program-context set mismatch")
+    for context_id, (article_id, kind, value, status, role) in expected_contexts.items():
+        context = contexts[context_id]
+        require(context.get("article_id") == article_id, f"{context_id} article mismatch")
+        require(context.get("context_kind") == kind and context.get("context_value_text") == value, f"{context_id} value mismatch")
+        require(context.get("context_review_status") == status, f"{context_id} review status mismatch")
+        reviewed_evidence(context, "ARTICLE_SERVICE_CONTEXT_OBSERVATION", role)
+
+    require("GAP_130E_SUBTYPE_ROWS_OPEN" in articles["ART-130E-DINGHY-GAP"].get("interpretation_status", ""), "130E subtype mapping gap is not exposed")
+    require("GAP_130F_BOTO_BOUNDARY_OPEN" in articles["ART-130F-FRACTION"].get("interpretation_status", ""), "130F BOTO gap is not exposed")
+    require("GAP_130F_BOTO_BOUNDARY" in contexts["ASC-130F-BOTO-CONFLICT"].get("interpretation_status", ""), "130F program context is not held for review")
+
+    for collection in (
+        "service_definitions", "service_performances", "service_approval_events",
+        "combined_handling_pair_candidates", "rating_runs", "rule_decisions",
+        "billing_eligibility_decisions", "charge_calculations", "calculation_steps",
+        "expected_charge_lines", "reconciliation_matches", "invoice_lines",
+        "invoice_line_versions", "payments", "payment_allocations", "audit_findings",
+        "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130 boat fact fixture cannot contain {collection}")
+
+
+def validate_item_130_exclusion_approval_boundaries(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    conditions = by_id(fixture, "article_condition_observations")
+    contexts = by_id(fixture, "article_service_context_observations")
+    performances = by_id(fixture, "service_performances")
+    approvals = by_id(fixture, "service_approval_events")
+    evidence = by_id(fixture, "evidence_links")
+
+    expected_articles = {
+        "ART-130EA-CODE2": ("CANOE", "130C"),
+        "ART-130EA-CRATE-APPROVED": ("JET_SKI", "130C"),
+        "ART-130EA-CRATE-PERFORMED": ("KAYAK", "130C"),
+        "ART-130EA-HANDCARRY": ("WINDSURFER", "130C"),
+        "ART-130EA-CARTON": ("WINDSURFER", "130C"),
+        "ART-130EA-CANOE-EXCEPTION": ("CANOE", "130C"),
+        "ART-130EA-KAYAK-EXCEPTION": ("KAYAK", "130C"),
+        "ART-130EA-DINGHY-EXCEPTION": ("DINGHY", "130D"),
+        "ART-130EA-SHUTTLE": ("JET_SKI", "130C"),
+        "ART-130EA-APPROVAL-GATES": ("WINDSURFER", "130C"),
+    }
+    require(set(articles) == set(expected_articles), "Item 130 exclusion/approval article set mismatch")
+
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id", "service_definition_id",
+        "financial_eligibility", "standardized_approver_role",
+    }
+    for record in [
+        *articles.values(), *conditions.values(), *contexts.values(),
+        *performances.values(), *approvals.values(),
+    ]:
+        require(common_fields.issubset(record), f"{record['id']} lacks approved common metadata")
+        parse_instant(record["recorded_at"], f"{record['id']}.recorded_at")
+        require(record["record_source_kind"] == "SYNTHETIC_FIXTURE", f"{record['id']} source kind mismatch")
+        require(record["sanitization_status"] == "SYNTHETIC", f"{record['id']} is not synthetic")
+        require(record["sensitivity_class"] != "PII", f"{record['id']} cannot contain PII")
+        require(record["source_version_id"] and record["source_locator_id"], f"{record['id']} lacks source provenance")
+        require(not prohibited_fields.intersection(record), f"{record['id']} contains a prohibited financial or mapping field")
+
+    def evidence_for(record: dict, target_kind: str, role: str, review_status: str = "REVIEWED") -> dict:
+        link = evidence.get(record.get("evidence_link_id"))
+        if link is None:
+            candidates = [
+                row for row in evidence.values()
+                if row.get("target_kind") == target_kind and row.get("target_id") == record["id"]
+            ]
+            require(len(candidates) == 1, f"{record['id']} needs one exact evidence target")
+            link = candidates[0]
+        require(link.get("target_kind") == target_kind and link.get("target_id") == record["id"], f"{record['id']} evidence target mismatch")
+        require(link.get("evidence_role") == role and link.get("review_status") == review_status, f"{record['id']} evidence role/review mismatch")
+        return link
+
+    for article_id, (kind, candidate) in expected_articles.items():
+        article = articles[article_id]
+        require(article.get("shipment_id") == "SHP-130EA-001", f"{article_id} shipment mismatch")
+        require(article.get("article_kind_observed") == kind, f"{article_id} article kind mismatch")
+        require(article.get("tariff_classification_candidate") == candidate, f"{article_id} candidate mismatch")
+        require(article.get("classification_review_status") == "ACCEPTED", f"{article_id} is not reviewed")
+        require(article.get("associated_trailer_status") == "ABSENT", f"{article_id} trailer state mismatch")
+        evidence_for(article, "SHIPMENT_ARTICLE", "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
+
+    expected_contexts = {
+        "ASC-130EA-CODE2": ("ART-130EA-CODE2", "SHIPMENT_SERVICE_CODE", "CODE_2", "SHIPMENT_SERVICE_CODE_OBSERVATION"),
+        "ASC-130EA-CRATE-APPROVED": ("ART-130EA-CRATE-APPROVED", "CRATING_APPROVAL", "APPROVED", "CRATING_APPROVAL_OBSERVATION"),
+        "ASC-130EA-CRATE-PERFORMED": ("ART-130EA-CRATE-PERFORMED", "CRATING_PERFORMANCE", "PERFORMED", "CRATING_PERFORMANCE_OBSERVATION"),
+    }
+    require(set(contexts) == set(expected_contexts), "Item 130 exclusion context set mismatch")
+    for context_id, (article_id, kind, value, role) in expected_contexts.items():
+        context = contexts[context_id]
+        require(context.get("article_id") == article_id, f"{context_id} article mismatch")
+        require(context.get("context_kind") == kind and context.get("context_value_text") == value, f"{context_id} value mismatch")
+        require(context.get("context_review_status") == "ACCEPTED", f"{context_id} is not reviewed")
+        evidence_for(context, "ARTICLE_SERVICE_CONTEXT_OBSERVATION", role)
+
+    expected_conditions = {
+        "ACO-130EA-HANDCARRY": ("ART-130EA-HANDCARRY", "ONE_PERSON_HAND_CARRY"),
+        "ACO-130EA-CARTON": ("ART-130EA-CARTON", "STANDARD_CARTON_TRANSPORTABLE"),
+        "ACO-130EA-CANOE-EXCEPTION": ("ART-130EA-CANOE-EXCEPTION", "ONE_PERSON_HAND_CARRY"),
+        "ACO-130EA-KAYAK-EXCEPTION": ("ART-130EA-KAYAK-EXCEPTION", "STANDARD_CARTON_TRANSPORTABLE"),
+        "ACO-130EA-DINGHY-EXCEPTION": ("ART-130EA-DINGHY-EXCEPTION", "ONE_PERSON_HAND_CARRY"),
+    }
+    require(set(conditions) == set(expected_conditions), "Item 130 exclusion condition set mismatch")
+    for condition_id, (article_id, kind) in expected_conditions.items():
+        condition = conditions[condition_id]
+        require(condition.get("article_id") == article_id, f"{condition_id} article mismatch")
+        require(condition.get("condition_kind") == kind and condition.get("condition_value") == "YES", f"{condition_id} value mismatch")
+        evidence_for(condition, "ARTICLE_CONDITION_OBSERVATION", "HANDLING_CONDITION_REVIEW")
+
+    shuttle = performances.get("SP-130EA-SHUTTLE")
+    require(shuttle is not None, "Item 130 shuttle performance is missing")
+    require(shuttle.get("article_id") == "ART-130EA-SHUTTLE", "shuttle performance article mismatch")
+    require(shuttle.get("observed_handling_kind") == "SHUTTLE_TRANSLOAD", "shuttle transload kind mismatch")
+    require(shuttle.get("performance_status") == "COMPLETED", "shuttle transload must be completed")
+    evidence_for(shuttle, "SERVICE_PERFORMANCE", "COMPLETED_SHUTTLE_TRANSLOAD")
+
+    exclusion_facts = {
+        "ART-130EA-CODE2": "CODE_2",
+        "ART-130EA-CRATE-APPROVED": "CRATING_APPROVED",
+        "ART-130EA-CRATE-PERFORMED": "CRATING_PERFORMED",
+        "ART-130EA-HANDCARRY": "ONE_PERSON_HAND_CARRY",
+        "ART-130EA-CARTON": "STANDARD_CARTON_TRANSPORTABLE",
+        "ART-130EA-CANOE-EXCEPTION": "NAMED_WATERCRAFT_EXCEPTION",
+        "ART-130EA-KAYAK-EXCEPTION": "NAMED_WATERCRAFT_EXCEPTION",
+        "ART-130EA-DINGHY-EXCEPTION": "NAMED_WATERCRAFT_EXCEPTION",
+        "ART-130EA-SHUTTLE": "SHUTTLE_TRANSLOAD",
+    }
+    require(set(exclusion_facts) == set(articles) - {"ART-130EA-APPROVAL-GATES"}, "Item 130 exclusion coverage mismatch")
+    require({articles[row]["article_kind_observed"] for row, status in exclusion_facts.items() if status == "NAMED_WATERCRAFT_EXCEPTION"} == {"CANOE", "KAYAK", "DINGHY"}, "named watercraft exception set changed")
+
+    approval_performance_ids = {
+        "SP-130EA-APPROVAL-TIMELY": "READY",
+        "SP-130EA-APPROVAL-MISSING": "MISSING",
+        "SP-130EA-APPROVAL-DENIED": "DENIED",
+        "SP-130EA-APPROVAL-CONFLICTING": "CONFLICTING",
+        "SP-130EA-APPROVAL-LATE": "LATE",
+        "SP-130EA-APPROVAL-UNREVIEWED": "UNREVIEWED",
+    }
+    require(set(performances) == set(approval_performance_ids) | {"SP-130EA-SHUTTLE"}, "Item 130 approval performance set mismatch")
+    approvals_by_performance: dict[str, list[dict]] = {}
+    for approval in approvals.values():
+        approvals_by_performance.setdefault(approval.get("service_performance_id"), []).append(approval)
+        require(approval.get("approval_event_type") == "PREAPPROVAL", f"{approval['id']} type mismatch")
+        require(approval.get("approver_role_text") == "Synthetic Government authority", f"{approval['id']} raw approver role missing")
+        require(approval.get("approver_role_mapping_status") in {"UNMAPPED", "CONFLICTING"}, f"{approval['id']} approver role was prematurely mapped")
+        require("approver_role" not in approval, f"{approval['id']} cannot assert a standardized approver role")
+
+    def approval_gate(performance: dict) -> str:
+        events = approvals_by_performance.get(performance["id"], [])
+        if not events:
+            return "MISSING"
+        require(len(events) == 1, f"{performance['id']} must have at most one isolated preapproval event")
+        event = events[0]
+        link = evidence.get(event.get("evidence_link_id"))
+        require(link is not None, f"{event['id']} lacks evidence")
+        if link.get("review_status") != "REVIEWED":
+            return "UNREVIEWED"
+        if event.get("decision_status") == "DENIED":
+            return "DENIED"
+        if event.get("decision_status") == "CONFLICTING" or event.get("approver_role_mapping_status") == "CONFLICTING":
+            return "CONFLICTING"
+        require(event.get("decision_status") == "APPROVED", f"{event['id']} unsupported decision status")
+        if parse_instant(event.get("occurred_at"), event["id"]) >= parse_instant(performance.get("performed_at"), performance["id"]):
+            return "LATE"
+        return "READY"
+
+    for performance_id, expected_gate in approval_performance_ids.items():
+        performance = performances[performance_id]
+        require(performance.get("shipment_id") == "SHP-130EA-001" and performance.get("article_id") == "ART-130EA-APPROVAL-GATES", f"{performance_id} subject mismatch")
+        require(performance.get("candidate_service_family") == "ITEM_130_ARTICLE_HANDLING", f"{performance_id} candidate family mismatch")
+        require(performance.get("observed_handling_kind") == "HANDLING_AND_BLOCKING", f"{performance_id} handling kind mismatch")
+        require(performance.get("mapping_status") == "UNMAPPED" and "service_definition_id" not in performance, f"{performance_id} mapping boundary mismatch")
+        require(performance.get("performance_status") == "COMPLETED", f"{performance_id} must be completed")
+        parse_instant(performance.get("performed_at"), performance_id)
+        evidence_for(performance, "SERVICE_PERFORMANCE", "COMPLETED_ARTICLE_HANDLING")
+        require(approval_gate(performance) == expected_gate, f"{performance_id} approval gate mismatch")
+
+    expected_approval_evidence = {
+        "SAE-130EA-TIMELY": ("APPROVED", "UNMAPPED", "REVIEWED"),
+        "SAE-130EA-DENIED": ("DENIED", "UNMAPPED", "REVIEWED"),
+        "SAE-130EA-CONFLICTING": ("CONFLICTING", "CONFLICTING", "REVIEWED"),
+        "SAE-130EA-LATE": ("APPROVED", "UNMAPPED", "REVIEWED"),
+        "SAE-130EA-UNREVIEWED": ("APPROVED", "UNMAPPED", "PENDING"),
+    }
+    require(set(approvals) == set(expected_approval_evidence), "Item 130 approval event set mismatch")
+    for approval_id, (decision_status, mapping_status, review_status) in expected_approval_evidence.items():
+        approval = approvals[approval_id]
+        require(approval.get("decision_status") == decision_status, f"{approval_id} decision mismatch")
+        require(approval.get("approver_role_mapping_status") == mapping_status, f"{approval_id} mapping status mismatch")
+        evidence_for(approval, "SERVICE_APPROVAL_EVENT", "GOVERNMENT_PREAPPROVAL", review_status)
+
+    for collection in (
+        "service_definitions", "combined_handling_pair_candidates", "rating_runs",
+        "rule_decisions", "billing_eligibility_decisions", "charge_calculations",
+        "calculation_steps", "expected_charge_lines", "reconciliation_matches",
+        "invoice_lines", "invoice_line_versions", "payments", "payment_allocations",
+        "audit_findings", "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130 exclusion/approval fixture cannot contain {collection}")
+
+
 def validate_conflict_gated(fixture: dict) -> None:
     runs = records(fixture, "rating_runs")
     require(len(runs) == 1 and runs[0].get("run_status") == "BLOCKED", "conflict scenario rating run must be BLOCKED")
@@ -1530,6 +1854,8 @@ VALIDATORS = {
     "item_130_non_monetary_facts": validate_item_130_non_monetary_facts,
     "item_130_tv_boundaries": validate_item_130_tv_boundaries,
     "item_130_volume_assembly_boundaries": validate_item_130_volume_assembly_boundaries,
+    "item_130_boat_boundaries": validate_item_130_boat_boundaries,
+    "item_130_exclusion_approval_boundaries": validate_item_130_exclusion_approval_boundaries,
     "conflict_gated": validate_conflict_gated,
 }
 
@@ -1544,6 +1870,53 @@ def validate_fixture(fixture: dict) -> None:
 def negative_probe(fixture: dict) -> None:
     broken = copy.deepcopy(fixture)
     scenario_type = broken["scenario_type"]
+    if scenario_type == "item_130_exclusion_approval_boundaries":
+        mutations = [
+            lambda value: value["records"]["article_service_context_observations"][0].__setitem__("context_value_text", "CODE_D"),
+            lambda value: value["records"]["article_service_context_observations"][1].__setitem__("context_kind", "CRATING_PERFORMANCE"),
+            lambda value: value["records"]["article_service_context_observations"][2].__setitem__("context_value_text", "NOT_PERFORMED"),
+            lambda value: value["records"]["article_condition_observations"][0].__setitem__("condition_value", "NO"),
+            lambda value: value["records"]["shipment_articles"][5].__setitem__("article_kind_observed", "WINDSURFER"),
+            lambda value: value["records"]["service_performances"][0].__setitem__("observed_handling_kind", "LOADING"),
+            lambda value: value["records"]["service_approval_events"][0].__setitem__("occurred_at", "2026-06-15T13:00:00Z"),
+            lambda value: value["records"]["service_approval_events"][1].__setitem__("decision_status", "APPROVED"),
+            lambda value: value["records"]["service_approval_events"][2].__setitem__("approver_role_mapping_status", "UNMAPPED"),
+            lambda value: value["records"]["evidence_links"][29].__setitem__("review_status", "REVIEWED"),
+            lambda value: value["records"]["service_performances"][1].__setitem__("service_definition_id", "SVCDEF-130"),
+            lambda value: value["records"]["shipment_articles"][0].update({"expected_amount": "297.78", "currency": "USD"}),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130 exclusion/approval negative regression probe did not fail")
+        print("PASS SYNTH-LS-017 Item 130 exclusion/approval twelve negative probes rejected")
+        return
+    if scenario_type == "item_130_boat_boundaries":
+        mutations = [
+            lambda value: value["records"]["article_measurement_observations"][0].__setitem__("measurement_value", "15"),
+            lambda value: value["records"]["article_measurement_observations"][1].__setitem__("measurement_method", "PHYSICAL_CENTER_LINE"),
+            lambda value: value["records"]["shipment_articles"][2].__setitem__("associated_trailer_status", "ABSENT"),
+            lambda value: value["records"]["shipment_articles"][8].__setitem__("tariff_classification_candidate", "130F"),
+            lambda value: value["records"]["article_service_context_observations"][0].__setitem__("context_value_text", "NOT_AGREED"),
+            lambda value: value["records"]["article_service_context_observations"][3].__setitem__("context_review_status", "ACCEPTED"),
+            lambda value: value.__setitem__("unresolved_source_gaps", [row for row in value["unresolved_source_gaps"] if row["id"] != "GAP-130E-SUBTYPE-ROWS"]),
+            lambda value: value.__setitem__("unresolved_source_gaps", [row for row in value["unresolved_source_gaps"] if row["id"] != "GAP-130F-BOTO-BOUNDARY"]),
+            lambda value: value["records"]["shipment_articles"][0].update({"expected_amount": "297.78", "currency": "USD"}),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130C-130F negative regression probe did not fail")
+        print("PASS SYNTH-LS-016 Item 130C-130F nine negative probes rejected")
+        return
     if scenario_type == "item_130_volume_assembly_boundaries":
         mutations = [
             lambda value: value["records"]["article_measurement_observations"][0].__setitem__("measurement_value", "100"),

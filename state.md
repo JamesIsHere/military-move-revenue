@@ -18,11 +18,11 @@ canonical reporting. No authorized historical case is loaded.
 
 ## Last checkpoint
 
-Added `SYNTH-LS-015` for the ratified 130I/130J volume-and-assembly boundary.
-Six synthetic articles prove that the tariff requires both volume greater than
-100 cubic feet and movement while assembled for both a playhouse and hot tub.
-Every fact has exact reviewed evidence, and all service, financial, and billing-
-mapping outputs remain prohibited.
+Added `SYNTH-LS-017` for the ratified Item 130 exclusion and Government-
+preapproval boundaries. It separates Code 2, crating approval/performance,
+hand-carry/carton exclusions and named watercraft exceptions, shuttle transload,
+and six approval states. Only timely reviewed approval clears fact readiness;
+no financial or billing-mapping output exists.
 
 ## Completed
 
@@ -30,7 +30,7 @@ mapping outputs remain prohibited.
   verifier, and strict sensitive-data boundary.
 - Archived/checksummed ten public artifacts. The registry holds 40 reviewed
   claims, 37 locators, four open conflicts, and two scoped interpretations.
-- Completed the public-source logical schema and 15 synthetic scenarios with
+- Completed the public-source logical schema and 17 synthetic scenarios with
   paired or focused negative probes.
 - Published seven reference/workflow packages plus Item 28A and Item 28B
   monetary rating packages with exact Decimal arithmetic and evidence gates.
@@ -60,6 +60,12 @@ mapping outputs remain prohibited.
 - Added `SYNTH-LS-015` for both 130I/130J article families, the strict greater-
   than-100-cubic-foot threshold, and moved-assembled condition, with six
   focused negative probes.
+- Added `SYNTH-LS-016` for the 130C–130F boat families, exact measurement
+  methods and boundaries, all three associated-trailer states, HHG/OTO context,
+  and explicit 130E/130F conflict preservation, with nine focused probes.
+- Added `SYNTH-LS-017` for distinct Item 130 exclusions and timely, missing,
+  denied, conflicting, late, and unreviewed Government-preapproval states, with
+  twelve focused probes.
 - Added deterministic explanations, stable findings, source/evidence indexes,
   exact summary math, canonical JSON, and all-or-nothing report totals.
 - Drafted `docs/counsel-dp3-billing-clarification-brief.md`, cross-checked it
@@ -68,10 +74,11 @@ mapping outputs remain prohibited.
 ## Current task
 
 Decision 0005 revised Alternative A is ratified. The active task is the next
-approved Item 130 non-monetary cluster: boat classifications 130C–130F,
-measurement methods, associated-trailer states, HHG/OTO context, and the BOTO
-boundary. The recorded 130E/130F source gaps must remain unresolved. No Item 130
-money, service mapping, quantity, rule package, or audit adapter is authorized.
+approved Item 130 non-monetary cluster: zero/one/multiple/unmatched/duplicate
+handling pairs and SIT pairing with TSP-convenience, non-TSP-convenience, and
+unknown cause. The recorded Item 130 source gaps must remain unresolved. No
+Item 130 money, service mapping, quantity, rule package, or audit adapter is
+authorized.
 
 ## Known blockers
 
@@ -101,10 +108,10 @@ money, service mapping, quantity, rule package, or audit adapter is authorized.
 
 ## Next three actions
 
-1. Add the synthetic boat 130C–130F measurement and program-boundary cluster,
-   preserving the 130E/130F conflicts rather than inferring mappings.
-2. Continue with article exclusions, approval states, and handling/SIT pairing
-   without financial outputs.
+1. Add zero, one, multiple, unmatched, and duplicate loading/unloading pairing
+   cases without deriving billable quantity.
+2. Add SIT pairing with TSP-convenience, non-TSP-convenience, and unknown-cause
+   facts; then cover remaining 130A/130H and unlisted-similar article probes.
 3. When available, send the counsel brief, register the response by authority
    type, and re-run monetary readiness before implementing any third family.
 
@@ -113,8 +120,8 @@ money, service mapping, quantity, rule package, or audit adapter is authorized.
 The registry contains ten public sources, 40 claims, 37 locators, four open
 conflicts, two approved interpretations, ten packages, and 25 rules. Nine
 packages and 19 rules are published; six rules remain draft. Passing suites:
-registry valid plus nine expected failures; logical schema 15 positive plus 12
-paired negative scenarios and 16 focused Item 130 probes; initial weight 14;
+registry valid plus nine expected failures; logical schema 17 positive plus 12
+paired negative scenarios and 37 focused Item 130 probes; initial weight 14;
 automatic reweigh 10; completed reweigh 11; scale-
 reweigh lower 11; constructive reference 15; containerized provisional 15;
 reweigh-refund workflow 16; Item 28A rating 24 plus five tamper probes; Item 28A

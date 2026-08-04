@@ -21,7 +21,7 @@ Run:
 python scripts/validate_logical_schema_fixtures.py
 ```
 
-The validator checks fifteen positive scenarios and applies deliberately
+The validator checks seventeen positive scenarios and applies deliberately
 invalid mutations as regression checks. These fixtures validate relationships
 and invariants only; they do not assert that a disputed source claim is an
 approved billing rule.
@@ -73,6 +73,26 @@ at 100.001 cubic feet is a reviewed positive candidate, an assembled article at
 exactly 100 cubic feet has no candidate, and an over-100 article moved
 disassembled has no candidate. Six negative probes protect the strict threshold,
 assembled-state gate, reviewed evidence, and no-money boundary.
+
+The Item 130C-130F boat-boundary scenario preserves reviewed canoe, jet-ski,
+kayak, boat, dinghy, and boat-trailer facts with present, absent, and unknown
+trailer states. Exact decimal measurements test disregarding fractional feet,
+physical center-line and manufacturer methods, the 14-foot and 16-foot
+classifications, width/height OTO context, and HHG co-move context. The 130E
+listing-subtype and 130F BOTO-program gaps remain open and provenance-linked.
+Nine negative probes reject boundary or measurement-method drift, collapsed
+trailer states, invented 130F classification, changed HHG/BOTO context, removed
+conflict gates, and inserted money.
+
+The Item 130 exclusion-and-approval scenario keeps Code 2, crating approval,
+crating performance, one-person hand-carry, standard-carton transport, and
+shuttle transload as distinct evidence-backed facts. Canoe, kayak, and dinghy
+facts exercise the tariff's named hand-carry/carton exceptions. Six isolated
+handling performances prove that only timely, approved, reviewed Government
+preapproval clears the non-financial fact-readiness gate; missing, denied,
+conflicting, late, and unreviewed approval remain separately identifiable.
+Twelve negative probes protect those distinctions, the unmapped service and
+approver profiles, and the no-money boundary.
 
 ## Source/rule registry cases
 
