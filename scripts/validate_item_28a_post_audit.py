@@ -124,7 +124,7 @@ def validate_contracts() -> None:
         require(locators[locator_id]["source_version_id"] == reference["source_version_id"], f"audit source locator/version mismatch: {locator_id}")
 
     require(AUDIT_POLICY_ID == "AUDIT-DP3-ITEM-28A-RECONCILIATION-V1", "audit policy id changed")
-    require(AUDIT_POLICY_VERSION == "2026-08-03.1", "audit policy version changed")
+    require(AUDIT_POLICY_VERSION == "2026-08-03.2", "audit policy version changed")
     for reference in AUDIT_POLICY_PROVENANCE:
         path = ROOT / reference["document_path"]
         require(path.is_file(), f"audit policy source is missing: {reference['document_path']}")
@@ -139,6 +139,7 @@ def validate_contracts() -> None:
 
 def validate_result(result: dict, expected: dict, case_id: str) -> None:
     require(result["case_id"] == case_id, f"{case_id} result case mismatch")
+    require(result["data_status"] == "synthetic", f"{case_id} result data status mismatch")
     policy = result.get("audit_policy")
     require(isinstance(policy, dict), f"{case_id} audit policy is missing")
     require(policy["id"] == AUDIT_POLICY_ID and policy["version"] == AUDIT_POLICY_VERSION, f"{case_id} audit policy mismatch")

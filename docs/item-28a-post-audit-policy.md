@@ -1,7 +1,7 @@
 # Item 28A Post-Audit Policy
 
 - Policy ID: `AUDIT-DP3-ITEM-28A-RECONCILIATION-V1`
-- Version: `2026-08-03.1`
+- Version: `2026-08-03.2`
 - Status: Approved internal deterministic audit policy
 - Effective period: 2026-08-03 until superseded
 - Scope: Domestic DP3 Item 28A read-only TSP-to-Government post-audit
@@ -28,6 +28,11 @@ An audit requires:
 
 A blocked expected charge blocks the audit. Missing or stale completeness cannot
 be interpreted as a zero invoice or zero payment.
+
+The result preserves the validated upstream status, result and shipment IDs,
+reviewed evidence-link IDs, and—only for a final upstream result—the exact
+expected-charge calculation. This trace is part of the audit output contract;
+it supports downstream explanation without recalculating or AI-authored math.
 
 ## Current-version and matching policy
 

@@ -26,7 +26,7 @@ from rules.item_28a_extra_pickup import (
 
 
 AUDIT_POLICY_ID = "AUDIT-DP3-ITEM-28A-RECONCILIATION-V1"
-AUDIT_POLICY_VERSION = "2026-08-03.1"
+AUDIT_POLICY_VERSION = "2026-08-03.2"
 AUDIT_POLICY_PROVENANCE = (
     {
         "source_id": "GOAL-RATIFIED-2026-08-03",
@@ -40,7 +40,7 @@ AUDIT_POLICY_PROVENANCE = (
     {
         "source_id": "ITEM-28A-POST-AUDIT-POLICY",
         "document_path": "docs/item-28a-post-audit-policy.md",
-        "document_version": "2026-08-03.1",
+        "document_version": "2026-08-03.2",
         "effective_period": "2026-08-03/open",
         "locator": "Required inputs through Blocked results and AI boundary",
         "retrieval_date": "2026-08-03",
@@ -215,12 +215,25 @@ def _validate_expected_charge_result(result: object) -> dict:
     )
     snapshot = result.get("input_snapshot")
     _require(isinstance(snapshot, dict) and isinstance(snapshot.get("shipment_id"), str), "expected charge input snapshot is incomplete")
+    evidence_ids = snapshot.get("reviewed_evidence_link_ids")
+    _require(
+        isinstance(evidence_ids, list)
+        and all(isinstance(value, str) and value for value in evidence_ids)
+        and evidence_ids == sorted(set(evidence_ids)),
+        "expected charge reviewed evidence ids are invalid",
+    )
 
     if result["status"] == "BLOCKED":
         _require(result.get("human_review_required") is True, "blocked expected charge must require review")
         _require(isinstance(result.get("blocked_reasons"), list) and result["blocked_reasons"], "blocked expected charge lacks reasons")
         _require("calculation" not in result and "eligibility" not in result, "blocked expected charge exposes authoritative money")
-        return {"status": "BLOCKED", "shipment_id": snapshot["shipment_id"], "blocked_reasons": result["blocked_reasons"]}
+        return {
+            "status": "BLOCKED",
+            "shipment_id": snapshot["shipment_id"],
+            "blocked_reasons": result["blocked_reasons"],
+            "expected_result_case_id": result.get("case_id"),
+            "reviewed_evidence_link_ids": evidence_ids,
+        }
 
     _require(result.get("human_review_required") is False, "final expected charge unexpectedly requires review")
     eligibility = result.get("eligibility")
@@ -245,6 +258,8 @@ def _validate_expected_charge_result(result: object) -> dict:
         "count": count,
         "amount": amount,
         "expected_result_case_id": result.get("case_id"),
+        "reviewed_evidence_link_ids": evidence_ids,
+        "calculation": dict(calculation),
     }
 
 
@@ -281,6 +296,14 @@ def audit_item_28a(case: dict) -> dict:
             "expected_charge": [dict(reference) for reference in EXPECTED_CHARGE_PROVENANCE],
         },
         "as_of_at": as_of_at.isoformat().replace("+00:00", "Z"),
+        "data_status": case["data_status"],
+        "expected_charge_trace": {
+            "status": upstream["status"],
+            "result_case_id": upstream["expected_result_case_id"],
+            "shipment_id": upstream["shipment_id"],
+            "reviewed_evidence_link_ids": list(upstream["reviewed_evidence_link_ids"]),
+            **({"calculation": upstream["calculation"]} if upstream["status"] == "FINAL" else {}),
+        },
         "unresolved_assumptions": [],
     }
     if upstream["status"] == "BLOCKED":

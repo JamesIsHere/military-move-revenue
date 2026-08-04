@@ -1356,3 +1356,65 @@ not historical acceptance. No real shipment, invoice, payment, authenticated
 system, live submission, or money movement was used. Next, add a deterministic
 human-readable audit explanation/report envelope and a reusable charge-adapter
 contract before expanding to another source-complete monetary family.
+
+## 2026-08-03 — Deterministic audit report and charge-adapter boundary
+
+### Objective
+
+Render the Item 28A audit as a versioned, canonical report with deterministic
+explanations, exact aggregates, sources, evidence, findings, and blockers while
+creating a reusable boundary for future source-complete charge families.
+
+### Source and policy basis
+
+- Re-read the ratified goal, M5 plan, Item 28A rating/audit contracts, and
+  synthetic invoice/payment fixtures.
+- Added internal presentation policy `AUDIT-REPORT-ENVELOPE-V1` version
+  `2026-08-03.1`. Its provenance identifies the ratified goal and the policy
+  document with version, effective period, locator, retrieval date, and
+  interpretation status.
+- Published Item 28A audit policy version `2026-08-03.2` because preserving the
+  validated upstream calculation/evidence trace changes the result contract;
+  the prior `.1` behavior remains reproducible in Git history.
+
+### Change
+
+- Added `CHARGE-ADAPTER-DP3-ITEM-28A-V1`. The registered adapter executes the
+  deterministic reconciler and validates its audit policy, audited charge,
+  upstream math, provenance, evidence, exact comparison arithmetic, match, and
+  finding classification before report inclusion.
+- Added schema `audit-report-envelope.v1` with one-shipment/cutoff and one-
+  instance-per-charge-family gates, stable charge/finding ordering, exact
+  Decimal aggregation, and canonical JSON serialization.
+- Added deterministic billing, quantity, payment, and blocker explanations.
+  Sources retain report-policy, expected-charge, audit-policy, and observed-
+  invoice/payment scopes; evidence retains expected, invoice, payment, and
+  completeness IDs.
+- Aggregate values are all-or-nothing: any blocked charge emits no report-level
+  money. Decided open exceptions retain their authoritative comparison and
+  require human review.
+- Bound report and adapter `data_status` so a synthetic result cannot be
+  relabeled as authorized-sanitized data. No AI-authored financial conclusion
+  enters the envelope.
+
+### Verification
+
+- `python scripts/validate_audit_report.py`: four final/blocked end-to-end report
+  cases, ten output-tamper probes, and three request-contract probes pass.
+- The suite proves stable billing→quantity→payment ordering, one finding per
+  blocker, expected math preservation, source/evidence projection, canonical
+  round-trip JSON, all-or-nothing totals, data-status binding, unknown-adapter
+  rejection, cutoff matching, and duplicate-family rejection.
+- `python scripts/validate_item_28a_post_audit.py`: all 27 audit cases and seven
+  result-tamper probes pass under policy version `2026-08-03.2`.
+- All prior registry, schema, weight, workflow, and Item 28A rating suites pass.
+  Python compilation and `git diff --check` pass.
+
+### Limitation and next
+
+The report currently contains one synthetic Item 28A charge family; it is not a
+multi-family shipment audit or historical acceptance. No real data, live
+submission, or money movement was used. Next, rank candidate monetary families
+against a strict source-readiness gate and implement a second adapter only when
+its rule, rate, effective-date selector, evidence, and mapping authority are
+complete.
