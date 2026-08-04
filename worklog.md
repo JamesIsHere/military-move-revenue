@@ -1456,3 +1456,31 @@ Item-Code rows 23–26.
 - Next, draft the Item 28B decision dossier for owner review; do not implement
   until explicitly approved. If declined, pursue the current domestic item-code
   baseline/advisory chain as the highest-leverage external acquisition.
+
+## 2026-08-04 — Proposed Item 28B Decision 0004 dossier
+
+### Outcome
+
+- Verified archived 400NG Item 28, `Additional Rates!A13:F13`, Item-Code
+  `DOM_400NG!A24:Q24`, and the official-library snapshot.
+- Drafted Decision 0004 with status `PROPOSED_OWNER_APPROVAL_REQUIRED`. The
+  recommended narrow contract uses actual pickup date, `28B`, `EA`, `SC`, extra-
+  delivery location `AE`, Destination PPSO approval, and exact
+  `eligible occurrences * 198.50 USD` math through 2027-05-14.
+- Preserved both alternatives: `A_APPROVE_NARROW` and `B_DEFER`. `CF-0001` and
+  `CF-0003` remain open broadly; Item 28C, related transportation/additional
+  services, SIT, broad code validation, live submission, and money movement are
+  excluded.
+- Added ten mandatory boundary/evidence/Decimal/tamper tests and a hard gate
+  prohibiting interpretation registration or financial implementation before
+  explicit owner approval.
+
+### Verification and stop
+
+- `python scripts/validate_item_28b_decision_dossier.py`: four archived sources,
+  ten mandatory tests, and four proposal-tamper probes pass.
+- The validator reads the raw ZIP/XLSX rows, tariff extract, library HTML, open
+  conflict records, and registry; it proves no Item 28B rule or interpretation
+  has been registered.
+- Stop for the project owner's explicit selection of `A_APPROVE_NARROW` or
+  `B_DEFER`.

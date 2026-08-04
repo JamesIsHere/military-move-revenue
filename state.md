@@ -18,11 +18,11 @@ multi-family shipment report, or authorized historical case is implemented.
 
 ## Last checkpoint
 
-Published assessment policy `MONETARY-SOURCE-READINESS-GATE-V1` version
-`2026-08-04.1` and a machine-validated seven-family matrix. No second family is
-ready. Item 28B ranks first for a scoped decision dossier, but `CF-0001` and
-`CF-0003` block its date selector, row-24 contract, and Destination-PPSO evidence.
-Six readiness tamper probes pass; no rule, adapter, or money was produced.
+Drafted proposed Decision 0004 for Item 28B from four archived sources. It
+recommends a narrow actual-pickup-date, row-24, Destination-PPSO, 198.50 USD/EA
+contract through 2027-05-14, while preserving deferral as an alternative. Ten
+mandatory tests and four dossier-tamper probes pass. No interpretation, rule,
+adapter, or money was registered or implemented.
 
 ## Completed
 
@@ -58,10 +58,9 @@ Six readiness tamper probes pass; no rule, adapter, or money was produced.
 
 ## Current task
 
-Draft a narrow Item 28B Decision 0004 dossier that presents the competing date
-claims, archived row-24 publication evidence, exact 2026 scope and exclusions,
-and mandatory boundary/evidence tests. Stop for explicit owner approval before
-registering an interpretation or implementing financial code.
+Await the project owner's explicit Decision 0004 selection:
+`A_APPROVE_NARROW` or `B_DEFER`. Do not register an interpretation or implement
+Item 28B financial code before that selection.
 
 ## Known blockers
 
@@ -85,10 +84,10 @@ registering an interpretation or implementing financial code.
 
 ## Next three actions
 
-1. Draft Decision 0004 for Item 28B without marking it accepted.
-2. Request owner approval or rejection of the narrow date/code/evidence scope.
-3. If approved, register the immutable decision/package and build rating/audit
+1. Obtain the owner's explicit `A_APPROVE_NARROW` or `B_DEFER` selection.
+2. If approved, register the immutable decision/package and build rating/audit
    boundary tests; if rejected, target the current domestic item-code baseline.
+3. Preserve `CF-0001` and `CF-0003` broadly under either alternative.
 
 ## Verification status
 
