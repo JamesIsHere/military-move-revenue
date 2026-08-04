@@ -1418,3 +1418,41 @@ submission, or money movement was used. Next, rank candidate monetary families
 against a strict source-readiness gate and implement a second adapter only when
 its rule, rate, effective-date selector, evidence, and mapping authority are
 complete.
+
+## 2026-08-04 — Monetary source-readiness matrix
+
+### Objective and basis
+
+Apply a strict, provenance-backed gate to the next monetary families without
+using a score to hide a missing governing dependency. Re-read the ratified goal,
+active M1/M3/M4/M5 plan, physical registry, conflict register, source-currency
+research, first-family inventory, archived Item 28 text, rate extracts, and
+Item-Code rows 23–26.
+
+### Change
+
+- Added internal gate `MONETARY-SOURCE-READINESS-GATE-V1` version
+  `2026-08-04.1`. `READY` requires all six dimensions: rule, rate/unit,
+  effective-date selector, billing-item contract, evidence contract, and audit
+  matching support.
+- Added a machine-readable matrix with 16 complete provenance records, five
+  closure blockers, the implemented Item 28A reference, and six ranked blocked
+  candidates: Item 28B, reweigh fee, Item 130, Item 120, Item 105B, and Item
+  105A. SIT, linehaul/shorthaul, and Item 28C remain explicitly unranked.
+- Determined that no second family is ready. Item 28B ranks first because its
+  current tariff rule and 198.50 USD-per-occurrence rate are direct and its fact
+  model can reuse Item 28A, but `CF-0001` and `CF-0003` still block actual-
+  pickup rate selection, row-24 continuity, and Destination-PPSO evidence.
+- Recommended a narrow Decision 0004 dossier. This assessment does not approve
+  that interpretation and produces no rule, adapter, or money.
+
+### Verification and next
+
+- `python scripts/validate_source_readiness_matrix.py`: seven candidates, 16
+  provenance records, five blockers, and six tamper probes pass.
+- The validator joins every source/version to the manifest and registry,
+  requires open conflicts and exact closure targets, enforces all-gates-pass
+  readiness, contiguous ranking, and a rank-one blocked recommendation.
+- Next, draft the Item 28B decision dossier for owner review; do not implement
+  until explicitly approved. If declined, pursue the current domestic item-code
+  baseline/advisory chain as the highest-leverage external acquisition.

@@ -1,0 +1,122 @@
+{
+  "schema_version": "monetary-source-readiness.v1",
+  "gate_policy_id": "MONETARY-SOURCE-READINESS-GATE-V1",
+  "gate_policy_version": "2026-08-04.1",
+  "assessment_id": "DP3-MONETARY-READINESS-2026-08-04-1",
+  "assessment_date": "2026-08-04",
+  "data_status": "PUBLIC_ARCHIVED_SOURCE_ASSESSMENT",
+  "scope": "DOMESTIC_DP3_TSP_TO_GOVERNMENT_POST_AUDIT",
+  "required_gates": ["governing_rule", "numeric_rate", "effective_date_selector", "billing_item_contract", "evidence_contract", "audit_matching_support"],
+  "provenance_catalog": {
+    "P-TARIFF-ITEM1": {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 1.2(c), p. 18", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_conflict_evidence"},
+    "P-RATES-BANNER": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A1", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_conflict_evidence"},
+    "P-ITEM-CODES": {"source_id": "SRC-DP3-ITEM-CODES", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "document_version": "published 2022-08-12", "effective_period": "UNSTATED", "locator": "DOM_400NG!A4:Q149; legends A151:L166", "retrieval_date": "2026-08-03", "interpretation_status": "disputed_currency"},
+    "P-LIBRARY-SNAPSHOT": {"source_id": "SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03", "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03", "document_version": "snapshot 2026-08-03", "effective_period": "RETRIEVAL_STATE_ONLY", "locator": "HTML line 4697", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_publication_state"},
+    "P-AUDIT-LINES": {"source_id": "SRC-DTR-IV-AAA", "source_version_id": "SV-DTR-IV-AAA-2026-02-04", "document_version": "2026-02-04", "effective_period": "UNSTATED", "locator": "Appendix A-A paras. 3.(17)-(22), 4.a.(1)-(2), 4.a.(9), pp. IV-A-A-7, 8, 12", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-TARIFF-ITEM28": {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 28.1-28.4, pp. 35-37", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-RATES-ITEM28": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A13:F13", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-TARIFF-ITEM4": {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 4.4-4.5, p. 19", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_branch_fact_disputed"},
+    "P-RATES-ITEM4": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A3:E3", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-TARIFF-ITEM130": {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 130, pp. 54-55", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-RATES-ITEM130": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A52:E52", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-TARIFF-ITEM120": {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 120, pp. 49-52; Item 22 fractional hours", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-RATES-ITEM120": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A44:E51", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-TARIFF-ITEM105": {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 105, pp. 44-49", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_interpretation_gap"},
+    "P-RATES-ITEM105B": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A31:E34", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    "P-RATES-ITEM105A": {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A15:H30", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"}
+  },
+  "blockers": {
+    "BLK-CF-0001": {"conflict_id": "CF-0001", "closure_target": "Current applicable item-code contract plus scoped precedence decision for actual-pickup versus original-requested-pickup rate selection."},
+    "BLK-CF-0003": {"conflict_id": "CF-0003", "closure_target": "Current domestic Item Code Listing, explicit continued-applicability statement, complete domestic advisory chain, or owner-approved narrow continuity decision."},
+    "BLK-CF-0004": {"conflict_id": "CF-0004", "closure_target": "Applicable amendment, advisory, publisher clarification, or owner-approved scoped interpretation identifying the weight fact that selects the 5,000-lb branch."},
+    "BLK-105B-ROUNDING": {"internal_gap_id": "GAP-ITEM-105B-VOLUME-ROUNDING", "closure_target": "Approved interpretation and boundary examples reconciling per-cubic-foot-or-fraction language with two-decimal truncated invoiced volume."},
+    "BLK-105A-DISCOUNT": {"internal_gap_id": "GAP-ITEM-105A-DISCOUNT-ROUNDING", "closure_target": "Authoritative discount input contract and approved order-of-operations and rounding examples for pack/unpack money."}
+  },
+  "candidates": [
+    {
+      "candidate_id": "ITEM-28A-EXTRA-PICKUP", "rank": null, "readiness": "READY_IMPLEMENTED", "implementation_status": "published_and_audited", "selection_rationale": "Reference family proving all six gates.",
+      "gates": {
+        "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM28"], "blocker_ids": []},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM28"], "blocker_ids": []},
+        "effective_date_selector": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES", "P-LIBRARY-SNAPSHOT"], "registry_refs": ["INT-0001"], "blocker_ids": []},
+        "billing_item_contract": {"status": "PASS", "provenance_ids": ["P-ITEM-CODES", "P-LIBRARY-SNAPSHOT"], "registry_refs": ["INT-0001"], "blocker_ids": []},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM28", "P-ITEM-CODES"], "registry_refs": ["EVID-ITEM-28A-001", "EVID-ITEM-28A-002", "EVID-ITEM-28A-003"], "blocker_ids": []},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    },
+    {
+      "candidate_id": "ITEM-28B-EXTRA-DELIVERY", "rank": 1, "readiness": "BLOCKED", "implementation_status": "not_authorized", "selection_rationale": "Smallest next fact-model expansion; reuses Item 28 occurrence rating and audit design.",
+      "gates": {
+        "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM28"], "blocker_ids": []},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM28"], "blocker_ids": []},
+        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
+        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-ITEM-CODES", "P-LIBRARY-SNAPSHOT"], "blocker_ids": ["BLK-CF-0003"]},
+        "evidence_contract": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM28", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    },
+    {
+      "candidate_id": "ITEM-4-REWEIGH-FEE", "rank": 2, "readiness": "BLOCKED", "implementation_status": "draft_tolerance_rule", "selection_rationale": "High reuse of published weight and refund workflow packages, but financial eligibility is ambiguous.",
+      "gates": {
+        "governing_rule": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM4"], "registry_refs": ["RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES"], "blocker_ids": ["BLK-CF-0004"]},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM4"], "blocker_ids": []},
+        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
+        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM4", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM4"], "registry_refs": ["EVID-REWEIGH-TOL-001", "EVID-WEIGHT-001", "EVID-COMPLETED-REWEIGH-001"], "blocker_ids": []},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    },
+    {
+      "candidate_id": "ITEM-130-LIGHT-BULKY", "rank": 3, "readiness": "BLOCKED", "implementation_status": "fact_model_not_implemented", "selection_rationale": "Simple per-article rate after a larger classification and combined-service fact model.",
+      "gates": {
+        "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM130"], "blocker_ids": []},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM130"], "blocker_ids": []},
+        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
+        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM130"], "blocker_ids": []},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    },
+    {
+      "candidate_id": "ITEM-120-EXTRA-LABOR", "rank": 4, "readiness": "BLOCKED", "implementation_status": "fact_model_not_implemented", "selection_rationale": "Requires worker/time/schedule and regular-overtime interval splitting.",
+      "gates": {
+        "governing_rule": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM120"], "blocker_ids": []},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM120"], "blocker_ids": []},
+        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
+        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM120"], "blocker_ids": []},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    },
+    {
+      "candidate_id": "ITEM-105B-REGULAR-CRATING", "rank": 5, "readiness": "BLOCKED", "implementation_status": "interpretation_and_fact_model_pending", "selection_rationale": "Constant displayed rate, but volume fraction/truncation money behavior needs approval.",
+      "gates": {
+        "governing_rule": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM105"], "blocker_ids": ["BLK-105B-ROUNDING"]},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM105B"], "blocker_ids": []},
+        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
+        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM105"], "blocker_ids": []},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    },
+    {
+      "candidate_id": "ITEM-105A-FULL-PACK-UNPACK", "rank": 6, "readiness": "BLOCKED", "implementation_status": "discount_and_fact_model_pending", "selection_rationale": "Largest candidate surface: schedules, weight bands, deductions, waived service, discount, and rounding.",
+      "gates": {
+        "governing_rule": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM105"], "blocker_ids": ["BLK-105A-DISCOUNT"]},
+        "numeric_rate": {"status": "PASS", "provenance_ids": ["P-RATES-ITEM105A"], "blocker_ids": []},
+        "effective_date_selector": {"status": "BLOCKED", "provenance_ids": ["P-TARIFF-ITEM1", "P-RATES-BANNER", "P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0001", "BLK-CF-0003"]},
+        "billing_item_contract": {"status": "BLOCKED", "provenance_ids": ["P-ITEM-CODES"], "blocker_ids": ["BLK-CF-0003"]},
+        "evidence_contract": {"status": "PASS", "provenance_ids": ["P-TARIFF-ITEM105"], "blocker_ids": []},
+        "audit_matching_support": {"status": "PASS", "provenance_ids": ["P-AUDIT-LINES"], "registry_refs": ["CLM-0038", "CLM-0039", "CLM-0040"], "blocker_ids": []}
+      }
+    }
+  ],
+  "recommended_next_candidate_id": "ITEM-28B-EXTRA-DELIVERY",
+  "recommended_next_action": "Prepare a narrow Item 28B decision dossier covering row 24 continuity, actual-pickup rate selection, destination-PPSO approval, and 2026 boundaries; request owner approval before publishing any rule or money.",
+  "not_ranked": [
+    {"family": "SIT storage and pickup/delivery", "reason": "Blocked by CF-0001, CF-0002, CF-0003, discount inputs, mileage, and weight-band dependencies."},
+    {"family": "linehaul and shorthaul", "reason": "Deferred for mileage, weight-band, geography, and TSP-specific discount inputs; not a narrow second family."},
+    {"family": "Item 28C diversion", "reason": "Tariff directs 28C service to be billed using 28B until further notice; requires current alias/supersession authority in addition to CF-0001 and CF-0003."}
+  ],
+  "unresolved_assumptions": []
+}

@@ -18,13 +18,11 @@ multi-family shipment report, or authorized historical case is implemented.
 
 ## Last checkpoint
 
-Implemented internal policy `AUDIT-REPORT-ENVELOPE-V1` version `2026-08-03.1`,
-schema `audit-report-envelope.v1`, and adapter
-`CHARGE-ADAPTER-DP3-ITEM-28A-V1`. The adapter executes and validates the complete
-Item 28A reconciliation before inclusion. Four end-to-end report cases, ten
-output-tamper probes, and three request-contract probes pass. Item 28A audit
-policy version `2026-08-03.2` now preserves its validated expected calculation,
-shipment/result identity, reviewed evidence IDs, and data status.
+Published assessment policy `MONETARY-SOURCE-READINESS-GATE-V1` version
+`2026-08-04.1` and a machine-validated seven-family matrix. No second family is
+ready. Item 28B ranks first for a scoped decision dossier, but `CF-0001` and
+`CF-0003` block its date selector, row-24 contract, and Destination-PPSO evidence.
+Six readiness tamper probes pass; no rule, adapter, or money was produced.
 
 ## Completed
 
@@ -60,11 +58,10 @@ shipment/result identity, reviewed evidence IDs, and data status.
 
 ## Current task
 
-Rank the next domestic DP3 monetary charge candidates against a documented
-source-readiness gate. A candidate may proceed only with authoritative rule,
-rate, effective-period selector, item mapping, evidence requirement, and audit
-matching support. Record the precise blocker for every rejected candidate and
-implement a second rating/audit adapter only if one is complete.
+Draft a narrow Item 28B Decision 0004 dossier that presents the competing date
+claims, archived row-24 publication evidence, exact 2026 scope and exclusions,
+and mandatory boundary/evidence tests. Stop for explicit owner approval before
+registering an interpretation or implementing financial code.
 
 ## Known blockers
 
@@ -88,13 +85,10 @@ implement a second rating/audit adapter only if one is complete.
 
 ## Next three actions
 
-1. Produce a source-readiness matrix for candidate monetary families using only
-   archived authoritative artifacts and registered conflicts.
-2. Select the highest-value source-complete candidate, or record why every
-   candidate remains blocked without broadening an interpretation.
-3. If a candidate passes, publish its immutable rating package and add its audit
-   adapter to a two-family synthetic report; otherwise return to the highest-
-   leverage M1 archival gap with an explicit acquisition target.
+1. Draft Decision 0004 for Item 28B without marking it accepted.
+2. Request owner approval or rejection of the narrow date/code/evidence scope.
+3. If approved, register the immutable decision/package and build rating/audit
+   boundary tests; if rejected, target the current domestic item-code baseline.
 
 ## Verification status
 
@@ -109,3 +103,6 @@ tamper probes; audit report four plus ten output-tamper and three request probes
 Python compilation and `git diff --check` pass. No real data, second monetary
 family, multi-family report, live submission, money movement, or historical
 acceptance report exists.
+
+The source-readiness suite additionally passes seven candidates, 16 provenance
+records, five blockers, and six tamper probes.
