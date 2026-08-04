@@ -1187,3 +1187,109 @@ No fee, expected charge, billing line, reconciliation, or payment result is
 implemented. Next, obtain an authoritative current item-code baseline or a
 scoped approval that closes the Item 28A portion of `CF-0003`, then publish the
 package with Decimal and evidence-boundary tests.
+
+## 2026-08-03 — Item 28A scoped source interpretation
+
+### Objective
+
+Archive the current official publication state and approve only the Item 28A
+source contract needed for the first shadow-rating package without generalizing
+the 2022 Item Code Listing.
+
+### Source basis
+
+- Downloaded the unauthenticated USTRANSCOM DP3 public-library page from its
+  canonical URL and preserved the 374,079-byte raw HTML with SHA-256
+  `0474F523B827DBEE09CC676AF3177AB6DC33E6F4DAB9640ADFEAE95BCC2150E5`.
+- Verified HTML line 4697 links the exact archived
+  `Item Code Listing (12 Aug 2022).zip` artifact.
+- Reconciled that publication evidence with 2026 400NG Items 1.2(c) and 28,
+  `Additional Rates!A1` and `A13:F13`, and `DOM_400NG!A23:Q23` plus legends.
+- Retained the unarchived PPA publication-location observation as candidate and
+  did not treat search-result absence as supersession proof.
+
+### Change
+
+- Added the public-library HTML to the source manifest and physical registry,
+  with an exact locator and reviewed publication-state claim.
+- Added reviewed Item 28A eligibility, 198.50 USD-per-occurrence rate, and
+  billing-contract claims.
+- Recorded the project owner's explicit approval as Decision 0003 / `INT-0001`.
+  It authorizes requested-pickup date basis, `28A`, `EA`, `SC`, `AB`, Origin
+  PPSO, and approval-required fields only for the 2026 Item 28A package.
+- Kept `CF-0003` open for the complete listing and every other billing item.
+- Added a draft scoped source-contract rule linked reciprocally to `INT-0001`.
+- Strengthened registry validation and added two negative cases for missing
+  decision-rule reciprocity and missing regression requirements.
+
+### Verification
+
+The physical registry validator passes the checked-in registry and all nine
+expected-invalid mutations. JSON parsing, source hash/byte validation, and the
+direct HTML link check pass. No raw artifact was modified after retrieval.
+
+### Limitation and next
+
+No money or Item 28A eligibility result is implemented. Next, model immutable
+authorization and performed-occurrence facts, then publish the Item 28A
+eligibility/count/rating package with exact Decimal and interpretation-boundary
+tests.
+
+## 2026-08-03 — Item 28A deterministic shadow rating
+
+### Objective
+
+Publish the smallest source-complete monetary package under Decision 0003 /
+`INT-0001`, with exact arithmetic, occurrence-level evidence, effective-date
+selection, and mandatory boundary/tamper regression coverage.
+
+### Source and fact boundary
+
+- Reused reviewed claims `CLM-0001`, `CLM-0010`, and `CLM-0034` through
+  `CLM-0037`, with their exact source-version and locator relationships.
+- Added a Git attribute for `sources/raw/**` so archived evidence is neither
+  line-ending-normalized nor treated as an authored text diff.
+- Added synthetic logical scenario `SYNTH-LS-009` for immutable requested date,
+  ordered stops, performed service, Origin-PPSO decision, documents, document
+  versions, and reviewed evidence links. It deliberately contains no money.
+- Extended the logical validator with a paired negative probe that rejects an
+  Item 28A performance attached to the original pickup instead of an additional
+  pickup stop.
+
+### Change
+
+- Published immutable package `2026.item-28a-extra-pickup.1` and its scoped
+  source-contract, eligible-occurrence, and expected-charge rules.
+- Implemented `rules/item_28a_extra_pickup.py`. It selects the package by
+  original requested pickup date, rejects broadened interpretation scope,
+  counts only reviewed completed extra pickups after the first, applies the
+  self-storage-only exclusion, and requires one reviewed Origin-PPSO decision
+  no later than performance.
+- Used exact `Decimal("198.50")` multiplication. Blocked facts or evidence emit
+  no amount, occurrence count, or expected-line action.
+- Added the package's source, dependency, evidence, and reciprocal `INT-0001`
+  contracts to the physical registry.
+- Added a synthetic case suite and result-contract validator. The validator also
+  rejects non-string quantities and altered package, decision, rule sequence,
+  provenance, or amount output.
+
+### Verification
+
+- `python scripts/validate_item_28a_extra_pickup.py`: 24 positive, blocked,
+  exclusion, and malformed-input cases plus five result-tamper probes pass.
+- `python scripts/validate_logical_schema_fixtures.py`: nine positive scenarios
+  and nine negative probes pass.
+- `python scripts/validate_source_rule_registry.py`: the physical registry and
+  all nine expected-invalid mutations pass.
+- The case suite proves both rate-cycle edges, before/after blocking, zero/one/
+  two occurrences, exact `198.50 * 2 = 397.00`, evidence gates, denial evidence,
+  exclusions, duplicates, chronology, units, and decision scope.
+- Python compilation and `git diff --check` pass; diff check reports only
+  existing line-ending conversion warnings.
+
+### Limitation and next
+
+The package reconstructs only an expected Item 28A shadow charge. It does not
+compare invoice or payment records. Next, model immutable synthetic Item 28A
+invoice/payment line versions and implement an exact expected-versus-invoiced-
+versus-paid comparison before attempting another source-blocked monetary family.

@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / "rules" / "registry" / "registry.json"
 CASE_PATH = ROOT / "tests" / "fixtures" / "source-rule-registry" / "registry-cases.json"
 INTERPRETATION_STATUSES = {"candidate", "reviewed", "disputed", "approved", "superseded"}
+DECISION_STATUSES = {"proposed", "approved", "rejected", "superseded"}
 PUBLICATION_STATUSES = {"draft", "published", "retired"}
 SHA256_RE = re.compile(r"^[0-9A-Fa-f]{64}$")
 
@@ -242,9 +243,33 @@ def validate_registry(registry: dict) -> None:
     decisions_by_conflict: dict[str, list[dict]] = defaultdict(list)
     for decision_id, decision in decisions.items():
         label = f"interpretation_decisions[{decision_id}]"
-        nonempty(decision, ("conflict_case_id", "decision_status", "rationale", "decided_on", "decided_by"), label)
+        nonempty(
+            decision,
+            (
+                "conflict_case_id",
+                "decision_status",
+                "rationale",
+                "decided_on",
+                "decided_by",
+                "reviewer_role",
+                "effective_scope",
+            ),
+            label,
+        )
         require(decision["conflict_case_id"] in conflicts, f"{label} references unknown conflict")
+        require(decision["decision_status"] in DECISION_STATUSES, f"{label} has invalid decision_status")
         parse_date(decision["decided_on"], f"{label}.decided_on")
+        cited_claim_ids = decision.get("cited_claim_ids")
+        require(isinstance(cited_claim_ids, list) and cited_claim_ids, f"{label} requires cited_claim_ids")
+        for claim_id in cited_claim_ids:
+            require(claim_id in claims, f"{label} references unknown claim {claim_id}")
+        authorized_rule_ids = decision.get("authorized_rule_ids")
+        require(isinstance(authorized_rule_ids, list) and authorized_rule_ids, f"{label} requires authorized_rule_ids")
+        for rule_id in authorized_rule_ids:
+            require(rule_id in rules, f"{label} references unknown authorized rule {rule_id}")
+        regression_tests = decision.get("required_regression_tests")
+        require(isinstance(regression_tests, list) and regression_tests, f"{label} requires regression tests")
+        require(all(isinstance(test, str) and test.strip() for test in regression_tests), f"{label} has an empty regression test")
         decisions_by_conflict[decision["conflict_case_id"]].append(decision)
 
     for conflict_id, conflict in conflicts.items():
@@ -354,6 +379,14 @@ def validate_registry(registry: dict) -> None:
             require(conflict_id in conflicts, f"{label} references unknown conflict {conflict_id}")
             require(rule_id in conflicts[conflict_id]["affected_rule_ids"], f"{label} conflict {conflict_id} is not reciprocal")
 
+        approved_decision_ids = rule.get("approved_interpretation_decision_ids", [])
+        require(isinstance(approved_decision_ids, list), f"{label}.approved_interpretation_decision_ids must be a list")
+        for decision_id in approved_decision_ids:
+            require(decision_id in decisions, f"{label} references unknown interpretation decision {decision_id}")
+            decision = decisions[decision_id]
+            require(decision["decision_status"] == "approved", f"{label} references non-approved interpretation decision {decision_id}")
+            require(rule_id in decision["authorized_rule_ids"], f"{label} is outside interpretation decision {decision_id} scope")
+
         if rule["publication_status"] == "published":
             open_conflicts = [conflict_id for conflict_id in blocked if conflicts[conflict_id]["status"] == "open"]
             require(not open_conflicts, f"{label} cannot publish through open conflict(s): {', '.join(open_conflicts)}")
@@ -369,6 +402,15 @@ def validate_registry(registry: dict) -> None:
 
             if rule["rule_kind"] == "evidence_validation":
                 require(evidence_by_rule[rule_id], f"{label} must declare an evidence requirement")
+
+    for decision_id, decision in decisions.items():
+        if decision["decision_status"] != "approved":
+            continue
+        for rule_id in decision["authorized_rule_ids"]:
+            require(
+                decision_id in rules[rule_id].get("approved_interpretation_decision_ids", []),
+                f"interpretation_decisions[{decision_id}] authorized rule {rule_id} must reciprocally reference the decision",
+            )
 
     for package_id, package in packages.items():
         package_rules = rules_by_package[package_id]

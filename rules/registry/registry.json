@@ -65,6 +65,16 @@
       "interpretation_status": "disputed"
     },
     {
+      "id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03",
+      "source_id": "SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03",
+      "source_kind": "official_publication_index_snapshot",
+      "authoritativeness_class": "official-operational",
+      "raw_artifact_path": "sources/raw/2026/ustranscom-dp3-library-2026-08-03.html",
+      "media_type": "text/html",
+      "extraction_method": "Direct unauthenticated HTTPS retrieval followed by line-preserving text inspection",
+      "interpretation_status": "reviewed"
+    },
+    {
       "id": "SV-DP3-MILEAGE-SIT-RETRIEVED-2026-08-03",
       "source_id": "SRC-DP3-MILEAGE-SIT",
       "source_kind": "operational_tool",
@@ -155,7 +165,11 @@
     {"id": "LOC-0026", "source_version_id": "SV-DP3-2026-TOS-C1-2026-02-18", "locator_kind": "tender_paragraph_page", "locator_value": "Weighing Shipments 8.a.(2)(c), printed p. 20"},
     {"id": "LOC-0027", "source_version_id": "SV-DP3-2026-TOS-C1-2026-02-18", "locator_kind": "tender_paragraph_page", "locator_value": "Weighing Shipments 8.a.(2)(d), printed p. 20"},
     {"id": "LOC-0028", "source_version_id": "SV-DTR-IV-A402-2026-07-14", "locator_kind": "regulation_paragraph_page", "locator_value": "Chapter A-402, section D.7.b, p. IV-A-402-20"},
-    {"id": "LOC-0029", "source_version_id": "SV-DTR-IV-A402-2026-07-14", "locator_kind": "regulation_paragraph_page", "locator_value": "Chapter A-402, section D.8.c.(1)(a), p. IV-A-402-30"}
+    {"id": "LOC-0029", "source_version_id": "SV-DTR-IV-A402-2026-07-14", "locator_kind": "regulation_paragraph_page", "locator_value": "Chapter A-402, section D.8.c.(1)(a), p. IV-A-402-30"},
+    {"id": "LOC-0030", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_item_page", "locator_value": "Item 28.1 and 28.3, pp. 35-36"},
+    {"id": "LOC-0031", "source_version_id": "SV-DP3-2026-RATES-2026", "locator_kind": "workbook_cells", "locator_value": "Additional Rates!A1 and A13:F13"},
+    {"id": "LOC-0032", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "locator_kind": "workbook_cells", "locator_value": "DOM_400NG!A4:Q4, A23:Q23, B154:L166"},
+    {"id": "LOC-0033", "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03", "locator_kind": "html_line_link", "locator_value": "line 4697; Household Goods section link titled Item Code Listing (12 Aug 2022).zip"}
   ],
   "source_claims": [
     {
@@ -499,6 +513,51 @@
       "unit": "lb_per_cu_ft",
       "claim_derivation_kind": "direct_text",
       "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0034",
+      "source_locator_id": "LOC-0030",
+      "subject_kind": "charge_eligibility",
+      "subject_key": "item_28a_extra_pickup_stop_off_fee",
+      "predicate": "applies_per",
+      "claim_value": "government_ordered_completed_additional_pickup_after_the_first_excluding_only_pickup_or_delivery_at_self_storage_or_mini_warehouse",
+      "value_type": "condition_set",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0035",
+      "source_locator_id": "LOC-0031",
+      "subject_kind": "rate_value",
+      "subject_key": "item_28a_extra_pickup_stop_off_fee",
+      "predicate": "rate_per_occurrence",
+      "claim_value": "198.50",
+      "value_type": "decimal_string",
+      "unit": "USD_per_occurrence",
+      "claim_derivation_kind": "direct_workbook_value_and_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0036",
+      "source_locator_id": "LOC-0032",
+      "subject_kind": "billing_item_contract",
+      "subject_key": "item_28a_extra_pickup",
+      "predicate": "defines_fields",
+      "claim_value": "requested_pickup_date_basis;code_28A;unit_EA;rate_basing_SC;additional_pickup_location_AB;origin_ppso_approval_screen;approval_required",
+      "value_type": "controlled_field_set",
+      "claim_derivation_kind": "direct_workbook_values_and_legends",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0037",
+      "source_locator_id": "LOC-0033",
+      "subject_kind": "official_publication_state",
+      "subject_key": "domestic_item_code_listing_link",
+      "predicate": "offers_artifact",
+      "claim_value": "Item Code Listing (12 Aug 2022).zip at docs/otherpdfs/0900+Household_Goods/Item Code Listing (12 Aug 2022).zip",
+      "value_type": "artifact_link",
+      "claim_derivation_kind": "direct_html_link",
+      "interpretation_status": "reviewed"
     }
   ],
   "conflict_cases": [
@@ -557,7 +616,29 @@
       "affected_rule_ids": ["RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE"]
     }
   ],
-  "interpretation_decisions": [],
+  "interpretation_decisions": [
+    {
+      "id": "INT-0001",
+      "conflict_case_id": "CF-0003",
+      "decision_status": "approved",
+      "decided_on": "2026-08-03",
+      "decided_by": "project owner via explicit session approval",
+      "reviewer_role": "scope and interpretation approver",
+      "effective_scope": "Domestic 400NG Item 28A extra-pickup shadow rating only for the 2026 rate cycle, 2026-05-15 through 2027-05-14. Authorizes the 12 August 2022 DOM_400NG row 23 fields R, 28A, EA, SC, AB, Origin PPSO, and Yes only when combined with the current 2026 400NG eligibility text and 2026 Baseline Rates cell Additional Rates!A13:F13.",
+      "excluded_scope": "Does not approve the complete 2022 item-code workbook for 2026, invoice-line acceptance or rejection outside Item 28A, Item 28B or 28C, SIT, other accessorials, or any later rate cycle.",
+      "rationale": "The 2026 400NG expressly incorporates the official Item Code Listing for rate-date behavior and independently names Item 28A; the applicable 2026 Baseline Rates independently names 28A and supplies 198.50 USD per occurrence; the archived official library snapshot retrieved 2026-08-03 still offers the exact 12 August 2022 listing; and no contrary Item 28A source is archived. The project owner approved this narrow continuation inference while retaining the broader publication-location conflict.",
+      "cited_claim_ids": ["CLM-0001", "CLM-0010", "CLM-0034", "CLM-0035", "CLM-0036", "CLM-0037"],
+      "authorized_rule_ids": ["RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "RULE-ITEM-28A-EXPECTED-CHARGE"],
+      "required_regression_tests": [
+        "rate date before, on, and after each 2026 rate-cycle boundary",
+        "zero, one, and multiple completed eligible extra-pickup occurrences",
+        "self-storage-only exclusion",
+        "missing Government authorization or missing completion evidence",
+        "duplicate occurrence and duplicate evidence rejection",
+        "exact-decimal multiplication and result provenance tampering"
+      ]
+    }
+  ],
   "rule_packages": [
     {
       "id": "RP-DP3-2026-INITIAL-DRAFT",
@@ -637,6 +718,16 @@
       "effective_to": "2027-05-14",
       "publication_status": "published",
       "published_on": "2026-08-03"
+    },
+    {
+      "id": "RP-DP3-2026-ITEM-28A-1",
+      "package_code": "DP3_ITEM_28A_EXTRA_PICKUP_SHADOW_RATING",
+      "version": "2026.item-28a-extra-pickup.1",
+      "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+      "effective_from": "2026-05-15",
+      "effective_to": "2027-05-14",
+      "publication_status": "published",
+      "published_on": "2026-08-03"
     }
   ],
   "rules": [
@@ -687,6 +778,45 @@
       "implementation_status": "not_implemented",
       "publication_status": "draft",
       "blocked_by_conflict_ids": ["CF-0003"]
+    },
+    {
+      "id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT",
+      "rule_package_id": "RP-DP3-2026-ITEM-28A-1",
+      "rule_kind": "controlled_vocabulary_selection",
+      "expression_language": "python-decimal-v1",
+      "expression": "item_28a_contract := requested_pickup_date_basis + EA_unit + SC_rate_reference + AB_additional_pickup_location + origin_ppso_approval_required for 2026 Item 28A only",
+      "outcome_type": "scoped_billing_item_contract",
+      "effective_date_fact_type": "original_requested_pickup_date",
+      "implementation_status": "implemented",
+      "publication_status": "published",
+      "blocked_by_conflict_ids": [],
+      "approved_interpretation_decision_ids": ["INT-0001"]
+    },
+    {
+      "id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE",
+      "rule_package_id": "RP-DP3-2026-ITEM-28A-1",
+      "rule_kind": "service_occurrence_eligibility",
+      "expression_language": "python-decimal-v1",
+      "expression": "eligible_occurrence := completed_extra_pickup_after_first AND origin_ppso_approved_before_performance AND reviewed_approval_and_completion_evidence AND NOT self_storage_only",
+      "outcome_type": "quantity_occurrence",
+      "effective_date_fact_type": "original_requested_pickup_date",
+      "implementation_status": "implemented",
+      "publication_status": "published",
+      "blocked_by_conflict_ids": [],
+      "approved_interpretation_decision_ids": ["INT-0001"]
+    },
+    {
+      "id": "RULE-ITEM-28A-EXPECTED-CHARGE",
+      "rule_package_id": "RP-DP3-2026-ITEM-28A-1",
+      "rule_kind": "monetary_calculation",
+      "expression_language": "python-decimal-v1",
+      "expression": "expected_amount_usd := eligible_item_28a_occurrence_count * 198.50 USD_per_occurrence; no rounding",
+      "outcome_type": "money_usd",
+      "effective_date_fact_type": "original_requested_pickup_date",
+      "implementation_status": "implemented",
+      "publication_status": "published",
+      "blocked_by_conflict_ids": [],
+      "approved_interpretation_decision_ids": ["INT-0001"]
     },
     {
       "id": "RULE-INITIAL-NET-SCALE-WEIGHT",
@@ -878,6 +1008,16 @@
     {"rule_id": "RULE-DIRECT-DELIVERY-SIT-DAY-PERCENT", "source_claim_id": "CLM-0008", "source_role": "governing_cross_reference"},
     {"rule_id": "RULE-DOMESTIC-ITEM-CODE-CURRENCY-2026", "source_claim_id": "CLM-0006", "source_role": "candidate_values"},
     {"rule_id": "RULE-DOMESTIC-ITEM-CODE-CURRENCY-2026", "source_claim_id": "CLM-0010", "source_role": "tariff_reference"},
+    {"rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "source_claim_id": "CLM-0001", "source_role": "tariff_date_selection"},
+    {"rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "source_claim_id": "CLM-0010", "source_role": "incorporation_reference"},
+    {"rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "source_claim_id": "CLM-0034", "source_role": "eligibility_scope"},
+    {"rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "source_claim_id": "CLM-0035", "source_role": "rate_value_and_unit"},
+    {"rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "source_claim_id": "CLM-0036", "source_role": "scoped_billing_contract"},
+    {"rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "source_claim_id": "CLM-0037", "source_role": "current_publication_snapshot"},
+    {"rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "source_claim_id": "CLM-0034", "source_role": "completed_extra_pickup_eligibility"},
+    {"rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "source_claim_id": "CLM-0036", "source_role": "approval_role_and_location_contract"},
+    {"rule_id": "RULE-ITEM-28A-EXPECTED-CHARGE", "source_claim_id": "CLM-0035", "source_role": "exact_rate_value_and_unit"},
+    {"rule_id": "RULE-ITEM-28A-EXPECTED-CHARGE", "source_claim_id": "CLM-0036", "source_role": "item_code_quantity_unit"},
     {"rule_id": "RULE-INITIAL-NET-SCALE-WEIGHT", "source_claim_id": "CLM-0013", "source_role": "scope_requirement"},
     {"rule_id": "RULE-INITIAL-NET-SCALE-WEIGHT", "source_claim_id": "CLM-0014", "source_role": "calculation_basis"},
     {"rule_id": "RULE-INITIAL-SCALE-METHOD", "source_claim_id": "CLM-0013", "source_role": "certified_scale_requirement"},
@@ -906,6 +1046,13 @@
     {"rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "source_claim_id": "CLM-0028", "source_role": "tolerance_text"}
   ],
   "rule_dependencies": [
+    {"id": "DEP-ITEM-28A-CONTRACT-001", "rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "input_fact_type": "original_requested_pickup_date", "cardinality": "1", "unit": "local_date", "default_prohibited_reason": "The legally relevant requested-pickup rate date cannot be inferred."},
+    {"id": "DEP-ITEM-28A-CONTRACT-002", "rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "input_fact_type": "approved_interpretation_decision", "cardinality": "1", "unit": "decision", "default_prohibited_reason": "The narrow Item 28A continuity interpretation cannot be assumed or broadened."},
+    {"id": "DEP-ITEM-28A-ELIG-001", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "input_fact_type": "immutable_shipment_stop", "cardinality": "1..*", "unit": "record", "default_prohibited_reason": "Pickup order, stop role, and self-storage-only status cannot be inferred."},
+    {"id": "DEP-ITEM-28A-ELIG-002", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "input_fact_type": "service_performance_event", "cardinality": "0..1 per shipment stop", "unit": "event", "default_prohibited_reason": "An extra-pickup occurrence cannot be synthesized or duplicated."},
+    {"id": "DEP-ITEM-28A-ELIG-003", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "input_fact_type": "origin_ppso_approval_event", "cardinality": "1 approved or denied event per completed candidate occurrence", "unit": "event", "default_prohibited_reason": "Government authorization cannot be inferred."},
+    {"id": "DEP-ITEM-28A-ELIG-004", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "input_fact_type": "reviewed_service_evidence", "cardinality": "2 per completed approved occurrence", "unit": "document", "default_prohibited_reason": "Approval and completed-performance evidence cannot be synthesized or assumed reviewed."},
+    {"id": "DEP-ITEM-28A-RATE-001", "rule_id": "RULE-ITEM-28A-EXPECTED-CHARGE", "input_fact_type": "eligible_item_28a_occurrence_count", "cardinality": "1", "unit": "EA", "default_prohibited_reason": "The monetary calculation cannot accept an assumed or blocked occurrence count."},
     {"id": "DEP-WEIGHT-001", "rule_id": "RULE-INITIAL-NET-SCALE-WEIGHT", "input_fact_type": "gross_scale_weight", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "Gross scale weight cannot be inferred."},
     {"id": "DEP-WEIGHT-002", "rule_id": "RULE-INITIAL-NET-SCALE-WEIGHT", "input_fact_type": "tare_scale_weight", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "Tare scale weight cannot be inferred."},
     {"id": "DEP-WEIGHT-003", "rule_id": "RULE-INITIAL-SCALE-METHOD", "input_fact_type": "scale_type", "cardinality": "1..2", "unit": "code", "default_prohibited_reason": "Scale type must come from determining tickets."},
@@ -951,6 +1098,9 @@
     {"id": "DEP-REIMBURSE-TOL-003", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "input_fact_type": "tolerance_branch_weight_fact", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "CF-0004 prohibits choosing the 5,000-lb branch fact."}
   ],
   "evidence_requirements": [
+    {"id": "EVID-ITEM-28A-001", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "requirement_code": "REVIEWED_ORIGIN_PPSO_AUTHORIZATION", "target_kind": "service_approval_event", "document_or_fact_type": "government_service_approval", "minimum_count": 1},
+    {"id": "EVID-ITEM-28A-002", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "requirement_code": "REVIEWED_COMPLETED_EXTRA_PICKUP", "target_kind": "service_performance", "document_or_fact_type": "service_completion_record", "minimum_count": 1},
+    {"id": "EVID-ITEM-28A-003", "rule_id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT", "requirement_code": "ORIGINAL_REQUESTED_PICKUP_DATE_FACT", "target_kind": "shipment", "document_or_fact_type": "shipment_date_observation", "minimum_count": 1},
     {"id": "EVID-WEIGHT-001", "rule_id": "RULE-INITIAL-NET-SCALE-WEIGHT", "requirement_code": "ALL_DETERMINING_WEIGHT_TICKETS", "target_kind": "weight_determination", "document_or_fact_type": "weight_ticket_true_copy", "minimum_count": 1, "condition_rule_id": "RULE-INITIAL-WEIGHT-TICKET-SUFFICIENCY"},
     {"id": "EVID-WEIGHT-002", "rule_id": "RULE-INITIAL-WEIGHT-TICKET-SUFFICIENCY", "requirement_code": "TICKET_REQUIRED_CONTENT", "target_kind": "weight_ticket", "document_or_fact_type": "required_field_presence", "minimum_count": 7},
     {"id": "EVID-REWEIGH-001", "rule_id": "RULE-AUTOMATIC-REWEIGH-REQUIRED", "requirement_code": "AUTHORIZED_GRADE_BAND_FACT", "target_kind": "shipment", "document_or_fact_type": "grade_band_fact", "minimum_count": 1},

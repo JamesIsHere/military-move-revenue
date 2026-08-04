@@ -1,0 +1,2 @@
+# Archived source artifacts are byte-preserved evidence, not editable text.
+sources/raw/** -text -diff

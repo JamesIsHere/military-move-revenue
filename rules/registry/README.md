@@ -11,7 +11,8 @@ a database engine.
 - precise locators and reviewed claims used by active conflict cases;
 - candidate publication observations that are not promoted to archived source
   versions;
-- open conflict cases and their affected rule candidates; and
+- open conflict cases, scoped interpretation decisions, and their affected rule
+  candidates; and
 - a draft rule package whose disputed rules are blocked from publication; and
 - a separate published initial-weight reference package sourced from reviewed
   400NG Item 4 claims; and
@@ -25,7 +26,9 @@ a database engine.
 - a separate published containerized provisional-weight calculation and lower-
   selection package sourced only from 400NG Item 4.13(1)-(2); and
 - a separate published post-invoice reweigh refund and billing-hold workflow
-  package sourced from 400NG Item 4.12, Tender 8.a.(2)(d), and DTR D.7.b.
+  package sourced from 400NG Item 4.12, Tender 8.a.(2)(d), and DTR D.7.b.; and
+- a separate published Item 28A extra-pickup monetary package using the scoped
+  source contract approved by Decision 0003 / `INT-0001`.
 
 The CSV manifest remains the archival authority for issuer, title, version,
 effective period, retrieval date, byte length, checksum, canonical URL, and
@@ -39,8 +42,9 @@ python scripts/validate_source_rule_registry.py
 
 The validator recomputes every raw artifact's byte length and SHA-256 digest,
 checks source/locator/claim relationships, validates conflict evidence, requires
-rule provenance and dependencies, and rejects publication through an open
-conflict. Test cases in
+rule provenance and dependencies, validates the reviewer, scope, claims,
+regression coverage, and reciprocal rule link for interpretation decisions, and
+rejects publication through an open conflict. Test cases in
 `tests/fixtures/source-rule-registry/registry-cases.json` exercise both the valid
 draft registry and deliberately invalid publication/provenance mutations.
 
@@ -79,3 +83,9 @@ The reweigh-refund workflow package consumes only a verified lower-weight result
 and immutable invoice/evidence events. It decides supplemental-refund necessity
 and hold-release readiness without calculating the refund or applying any fee,
 tolerance, billing-code, or payment logic.
+
+The Item 28A package uses the original requested pickup date, immutable stop and
+service events, reviewed Government-decision and completion evidence, and exact
+`occurrence count * 198.50 USD` arithmetic. A blocked fact or evidence chain
+emits no amount. Its approved item-code continuity cannot be reused outside the
+2026 Item 28A scope.

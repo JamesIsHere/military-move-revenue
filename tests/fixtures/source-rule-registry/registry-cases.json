@@ -110,6 +110,36 @@
           "value": "published"
         }
       ]
+    },
+    {
+      "id": "REG-INVALID-008",
+      "description": "An approved scoped interpretation and its authorized rule must reference each other.",
+      "expected_valid": false,
+      "error_contains": "must reciprocally reference the decision",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "rules",
+          "id": "RULE-ITEM-28A-SCOPED-SOURCE-CONTRACT",
+          "field": "approved_interpretation_decision_ids",
+          "value": []
+        }
+      ]
+    },
+    {
+      "id": "REG-INVALID-009",
+      "description": "An interpretation approval must name its required regression coverage.",
+      "expected_valid": false,
+      "error_contains": "requires regression tests",
+      "mutations": [
+        {
+          "op": "set",
+          "collection": "interpretation_decisions",
+          "id": "INT-0001",
+          "field": "required_regression_tests",
+          "value": []
+        }
+      ]
     }
   ]
 }

@@ -38,9 +38,17 @@ requires a supplemental refund and whether the destination/direct-delivery hold
 is ready to release. It emits no refund amount, fee, tolerance, billing code, or
 payment result.
 
+`item_28a_extra_pickup.py` is the first monetary shadow-rating family. It uses
+the original requested pickup date to select the immutable 2026 package, counts
+only reviewed, completed, Origin-PPSO-authorized extra pickups after the first,
+applies the self-storage-only exclusion, and multiplies the exact occurrence
+count by `Decimal("198.50")`. Blocked evidence produces no amount or line action.
+The package is limited by Decision 0003 / `INT-0001` and cannot be generalized
+to Item 28B, Item 28C, or another item-code row.
+
 The file-backed physical source/rule registry is under `rules/registry/`. Its
-seven reference/workflow packages are published separately from the draft,
-non-executable rules affected by open conflicts.
+seven reference/workflow packages and one monetary package are published
+separately from the draft, non-executable rules affected by open conflicts.
 
 Every future executable rule must identify its source version and locator,
 effective period, required facts, calculation or decision, evidence requirements,

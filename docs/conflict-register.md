@@ -10,7 +10,7 @@ remain archived under their manifest source IDs.
 |---|---|---|---|---|
 | `CF-0001` | Which event date selects 2026 SIT/accessorial rate tables? | Direct/scope conflict | Rate-version selection and money | Open — disputed |
 | `CF-0002` | Which domestic transit table applies for 2026, and may it drive authorized SIT days? | Version/numeric conflict | RDD, transit days, SIT entitlement | Open — narrowed; 70% authority unresolved |
-| `CF-0003` | Is the 12 August 2022 item-code listing still applicable to 2026 shipments? | Publication-location and currency gap | Billing-code and evidence validation | Open — disputed publication gap |
+| `CF-0003` | Is the 12 August 2022 item-code listing still applicable to 2026 shipments? | Publication-location and currency gap | Billing-code and evidence validation | Open broadly; Item 28A-only exception approved by `INT-0001` |
 | `CF-0004` | Which weight fact selects the 5,000-lb reweigh-tolerance branch? | Material input ambiguity | Reweigh-fee and containerized reimbursement eligibility | Open — disputed input fact |
 
 ## CF-0001 — SIT/accessorial table-selection date
@@ -106,8 +106,12 @@ but continued applicability to 2026 is unproved.
 | Claim | Source provenance | Claim | Status |
 |---|---|---|---|
 | `CLM-0010` | `SRC-DP3-2026-400NG`; publication 2025-12-05; Item 1.2(c), p. 18 | The 2026 tariff expressly refers to the Item Code Listing at the legacy USTRANSCOM DP3 library when identifying SIT/accessorial date treatment. | Reviewed direct text |
-| `CLM-0011` | Legacy USTRANSCOM DP3 library; observed 2026-08-03 | The legacy page still offers “Item Code Listing (12 Aug 2022)” and no newer same-titled listing was located there. | Candidate publication observation; archived workbook exists, page capture pending |
+| `CLM-0011` | Legacy USTRANSCOM DP3 library; observed 2026-08-03 | The legacy page still offers “Item Code Listing (12 Aug 2022)” and no newer same-titled listing was located there. | Candidate historical observation retained; superseded for direct page evidence by archived `CLM-0037` |
 | `CLM-0012` | `SRC-PPA-ADV-26-0105`, 6 July 2026, para. 1; `SRC-PPA-RESOURCE-CENTER` catalog observed 2026-08-03 | Advisory 26-0105 identifies PPA.mil as the authoritative current resource surface, while the PPA business-rule catalog search did not expose the 2022 Item Code Listing. | Candidate publication-location conflict; raw PPA artifacts pending |
+| `CLM-0034` | `SRC-DP3-2026-400NG`; publication 2025-12-05; effective 2026-05-15-2027-05-14; Item 28.1 and 28.3, pp. 35-36 | Item 28A applies to a Government-ordered completed additional pickup after the first, excluding the sole self-storage/mini-warehouse pickup or delivery case. | Reviewed direct text |
+| `CLM-0035` | `SRC-DP3-2026-RATES`; version 2026; effective 2026-05-15-2027-05-14; `Additional Rates!A1`, `A13:F13` | The Item 28A/28B/28C rate is 198.50 USD per occurrence. | Reviewed direct workbook value and text |
+| `CLM-0036` | `SRC-DP3-ITEM-CODES`; publication 2022-08-12; effective/supersession unstated; `DOM_400NG!A4:Q4`, `A23:Q23`, legends `B154:L166` | Item 28A uses requested-pickup date basis, `EA`, `SC`, `AB`, the Origin PPSO approval screen, and requires approval. | Reviewed direct workbook values; approved only within `INT-0001` scope |
+| `CLM-0037` | `SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03`; snapshot/retrieval 2026-08-03; HTML line 4697 | The archived official library page links the exact `Item Code Listing (12 Aug 2022).zip` artifact. | Reviewed direct archived HTML |
 
 PPA Advisory 26-0110 separately demonstrates that item-code behavior can be
 supplemented by a 2026 advisory. That advisory concerns international air freight
@@ -119,6 +123,18 @@ mechanism only and is not incorporated into a domestic rule.
 - Use the fields and values for provisional schema design only.
 - Do not reject or approve a 2026 invoice line solely from this version.
 - Preserve original external codes even when a current validation set is absent.
+- Exception: Decision 0003 / `INT-0001` approves only the Item 28A row for the
+  2026 extra-pickup shadow-rating package. It does not approve broad item-code
+  validation.
+
+### Scoped decision
+
+The project owner approved `INT-0001` on 2026-08-03. The current tariff names
+Item 28A and its eligibility, the current rate workbook names Item 28A and its
+198.50 USD-per-occurrence rate, and the archived official library snapshot still
+publishes the exact 2022 listing that supplies the remaining row-level billing
+contract. This combined evidence is sufficient for Item 28A only. The complete
+decision, exclusions, and mandatory tests are recorded in Decision 0003.
 
 ### Evidence required to close
 
@@ -127,6 +143,9 @@ mechanism only and is not incorporated into a domestic rule.
   applicable shipment period.
 - Comparison of changed/retired codes and regression fixtures for each affected
   SIT code family.
+
+These remain closure requirements for `CF-0003` as a whole; they do not block
+the approved Item 28A-only implementation.
 
 Affected discoveries: `DISC-0031`, `DISC-0075`, `DISC-0078`, `DISC-0079`,
 `DISC-0086`, `DISC-0087`.

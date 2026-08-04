@@ -7,7 +7,7 @@ import copy
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
@@ -106,6 +106,7 @@ REFERENCE_TARGETS = {
     },
     "sit_release_events": {"sit_episode_id": "sit_episodes", "released_portion_id": "shipment_portions"},
     "shipment_date_observations": {"shipment_id": "shipments"},
+    "shipment_stops": {"shipment_id": "shipments", "location_id": "locations"},
     "document_versions": {"document_id": "documents", "supersedes_id": "document_versions"},
     "weighing_events": {
         "shipment_id": "shipments",
@@ -118,6 +119,16 @@ REFERENCE_TARGETS = {
         "weighing_event_id": "weighing_events",
     },
     "evidence_links": {"document_version_id": "document_versions"},
+    "service_performances": {
+        "shipment_id": "shipments",
+        "service_definition_id": "service_definitions",
+        "shipment_stop_id": "shipment_stops",
+        "evidence_link_id": "evidence_links",
+    },
+    "service_approval_events": {
+        "service_performance_id": "service_performances",
+        "evidence_link_id": "evidence_links",
+    },
     "dps_reweigh_update_events": {
         "weighing_event_id": "weighing_events",
         "evidence_link_id": "evidence_links",
@@ -219,6 +230,13 @@ def parse_instant(value: str, label: str) -> datetime:
         return datetime.fromisoformat(value.replace("Z", "+00:00"))
     except (TypeError, ValueError) as exc:
         raise ValidationError(f"{label} is not an ISO instant") from exc
+
+
+def parse_local_date(value: str, label: str) -> date:
+    try:
+        return date.fromisoformat(value)
+    except (TypeError, ValueError) as exc:
+        raise ValidationError(f"{label} is not an ISO local date") from exc
 
 
 def validate_common(fixture: dict) -> None:
@@ -774,6 +792,115 @@ def validate_reweigh_refund_workflow(fixture: dict) -> None:
     require(not records(fixture, "rule_decisions"), "fact-only refund workflow cannot apply tolerance, fee, or financial rules")
 
 
+def validate_item_28a_extra_pickup_facts(fixture: dict) -> None:
+    shipments = by_id(fixture, "shipments")
+    dates = records(fixture, "shipment_date_observations")
+    locations = by_id(fixture, "locations")
+    stops = by_id(fixture, "shipment_stops")
+    definitions = by_id(fixture, "service_definitions")
+    performances = by_id(fixture, "service_performances")
+    approvals = records(fixture, "service_approval_events")
+    evidence_links = by_id(fixture, "evidence_links")
+
+    require(len(shipments) == 1, "Item 28A fact scenario requires one shipment")
+    shipment_id = next(iter(shipments))
+    requested = [
+        row
+        for row in dates
+        if row.get("shipment_id") == shipment_id and row.get("date_role") == "ORIGINAL_REQUESTED_PICKUP"
+    ]
+    require(len(requested) == 1, "Item 28A requires one original requested pickup date")
+    parse_local_date(requested[0].get("local_date"), requested[0]["id"])
+
+    require(len(definitions) == 1, "Item 28A fact scenario requires one service definition")
+    definition = next(iter(definitions.values()))
+    require(definition.get("service_code") == "28A", "service definition is not Item 28A")
+    require(definition.get("quantity_unit") == "EA", "Item 28A service definition must use EA")
+    require(
+        definition.get("rate_date_role") == "ORIGINAL_REQUESTED_PICKUP",
+        "Item 28A rate-date role mismatch",
+    )
+    require(
+        definition.get("interpretation_decision_id") == "INT-0001",
+        "Item 28A source decision mismatch",
+    )
+
+    sequences = [stop.get("stop_sequence") for stop in stops.values()]
+    require(
+        all(isinstance(value, int) and value > 0 for value in sequences),
+        "shipment stop sequence must be a positive integer",
+    )
+    require(len(sequences) == len(set(sequences)), "shipment stop sequence must be unique")
+    original_stops = [stop for stop in stops.values() if stop.get("stop_role") == "ORIGINAL_PICKUP"]
+    require(len(original_stops) == 1, "Item 28A facts require one original pickup stop")
+    original_sequence = original_stops[0]["stop_sequence"]
+
+    require(len(performances) == 1, "Item 28A fact scenario requires one service performance")
+    performance = next(iter(performances.values()))
+    require(
+        performance.get("service_definition_id") == definition["id"],
+        "performance uses the wrong service definition",
+    )
+    stop = stops[performance["shipment_stop_id"]]
+    require(
+        stop.get("shipment_id") == shipment_id and performance.get("shipment_id") == shipment_id,
+        "Item 28A stop/performance shipment mismatch",
+    )
+    require(
+        stop.get("stop_role") == "EXTRA_PICKUP" and stop.get("stop_sequence") > original_sequence,
+        "Item 28A performance is not an additional pickup after the first",
+    )
+    require(
+        locations[stop["location_id"]].get("location_kind") not in {"SELF_STORAGE", "MINI_WAREHOUSE"},
+        "synthetic positive Item 28A fact cannot be self-storage-only",
+    )
+    require(performance.get("performance_status") == "COMPLETED", "Item 28A performance is not completed")
+    require(
+        decimal(performance.get("quantity"), f"{performance['id']}.quantity") == Decimal("1"),
+        "Item 28A performance quantity must be one",
+    )
+    require(performance.get("quantity_unit") == "EA", "Item 28A performance unit must be EA")
+    performed_at = parse_instant(performance.get("performed_at"), performance["id"])
+
+    related_approvals = [row for row in approvals if row.get("service_performance_id") == performance["id"]]
+    require(len(related_approvals) == 1, "Item 28A performance requires one approval event")
+    approval = related_approvals[0]
+    require(
+        approval.get("approval_event_type") in {"PREAPPROVAL", "GOVERNMENT_REQUEST"},
+        "Item 28A approval type is invalid",
+    )
+    require(approval.get("decision_status") == "APPROVED", "Item 28A approval is not approved")
+    require(approval.get("approver_role") == "ORIGIN_PPSO", "Item 28A approval role must be Origin PPSO")
+    require(
+        parse_instant(approval.get("occurred_at"), approval["id"]) <= performed_at,
+        "Item 28A approval occurred after performance",
+    )
+
+    for record, target_kind, evidence_role in (
+        (approval, "SERVICE_APPROVAL_EVENT", "GOVERNMENT_AUTHORIZATION"),
+        (performance, "SERVICE_PERFORMANCE", "COMPLETED_EXTRA_PICKUP"),
+    ):
+        link = evidence_links.get(record.get("evidence_link_id"))
+        require(link is not None, f"{record['id']} lacks evidence")
+        require(
+            link.get("target_kind") == target_kind and link.get("target_id") == record["id"],
+            f"{record['id']} evidence target mismatch",
+        )
+        require(
+            link.get("evidence_role") == evidence_role and link.get("review_status") == "REVIEWED",
+            f"{record['id']} evidence is not reviewed for the required role",
+        )
+
+    for collection in (
+        "charge_calculations",
+        "calculation_steps",
+        "expected_charge_lines",
+        "payments",
+        "payment_allocations",
+    ):
+        require(not records(fixture, collection), f"Item 28A fact-only scenario cannot contain {collection}")
+
+
 def validate_conflict_gated(fixture: dict) -> None:
     runs = records(fixture, "rating_runs")
     require(len(runs) == 1 and runs[0].get("run_status") == "BLOCKED", "conflict scenario rating run must be BLOCKED")
@@ -801,6 +928,7 @@ VALIDATORS = {
     "constructive_weight_facts": validate_constructive_weight_facts,
     "containerized_reweigh_facts": validate_containerized_reweigh_facts,
     "reweigh_refund_workflow": validate_reweigh_refund_workflow,
+    "item_28a_extra_pickup_facts": validate_item_28a_extra_pickup_facts,
     "conflict_gated": validate_conflict_gated,
 }
 
@@ -832,6 +960,8 @@ def negative_probe(fixture: dict) -> None:
         broken["records"]["containerized_reweigh_completion_events"][0]["reimbursement_tolerance_status"] = "EVALUATED"
     elif scenario_type == "reweigh_refund_workflow":
         broken["records"]["reweigh_billing_hold_events"][1]["occurred_at"] = "2026-06-11T12:00:00Z"
+    elif scenario_type == "item_28a_extra_pickup_facts":
+        broken["records"]["shipment_stops"][1]["stop_role"] = "ORIGINAL_PICKUP"
     elif scenario_type == "conflict_gated":
         broken["records"]["rule_decisions"][0]["outcome_value"] = "false"
         broken["records"]["rule_decisions"][0]["outcome_type"] = "BOOLEAN"

@@ -1,0 +1,180 @@
+{
+  "fixture_set": "SYNTHETIC_2026_ITEM_28A_EXTRA_PICKUP_CASES",
+  "base_fixture_path": "tests/fixtures/logical-schema/item-28a-extra-pickup-facts.json",
+  "description": "Synthetic boundary, eligibility, evidence, exact-decimal, and malformed-input cases for the narrowly approved 2026 Item 28A interpretation.",
+  "provenance": {
+    "source_claim_ids": ["CLM-0001", "CLM-0010", "CLM-0034", "CLM-0035", "CLM-0036", "CLM-0037"],
+    "interpretation_decision_id": "INT-0001",
+    "data_status": "SYNTHETIC"
+  },
+  "cases": [
+    {
+      "id": "ITEM-28A-BOUNDARY-START",
+      "expected": {"status": "FINAL", "count": 1, "amount": "198.50", "line_action": "CREATE"}
+    },
+    {
+      "id": "ITEM-28A-AFTER-START",
+      "mutations": [{"path": "records.shipment_date_observations.0.local_date", "value": "2026-05-16"}],
+      "expected": {"status": "FINAL", "count": 1, "amount": "198.50", "line_action": "CREATE"}
+    },
+    {
+      "id": "ITEM-28A-BEFORE-END",
+      "mutations": [{"path": "records.shipment_date_observations.0.local_date", "value": "2027-05-13"}],
+      "expected": {"status": "FINAL", "count": 1, "amount": "198.50", "line_action": "CREATE"}
+    },
+    {
+      "id": "ITEM-28A-BOUNDARY-END",
+      "mutations": [{"path": "records.shipment_date_observations.0.local_date", "value": "2027-05-14"}],
+      "expected": {"status": "FINAL", "count": 1, "amount": "198.50", "line_action": "CREATE"}
+    },
+    {
+      "id": "ITEM-28A-BEFORE-RATE-CYCLE",
+      "mutations": [{"path": "records.shipment_date_observations.0.local_date", "value": "2026-05-14"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["NO_APPLICABLE_2026_ITEM_28A_RATE_VERSION"]}
+    },
+    {
+      "id": "ITEM-28A-AFTER-RATE-CYCLE",
+      "mutations": [{"path": "records.shipment_date_observations.0.local_date", "value": "2027-05-15"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["NO_APPLICABLE_2026_ITEM_28A_RATE_VERSION"]}
+    },
+    {
+      "id": "ITEM-28A-ZERO-NOT-PERFORMED",
+      "mutations": [{"path": "records.service_performances.0.performance_status", "value": "NOT_PERFORMED"}],
+      "expected": {"status": "FINAL", "count": 0, "amount": "0.00", "line_action": "OMIT", "ineligible_reason": "SERVICE_NOT_COMPLETED"}
+    },
+    {
+      "id": "ITEM-28A-ZERO-NO-OCCURRENCES",
+      "remove_records": {
+        "service_performances": ["SVCPERF-28A-001"],
+        "service_approval_events": ["SVCAPP-28A-001"],
+        "evidence_links": ["EVL-28A-APPROVAL", "EVL-28A-PERFORMANCE"]
+      },
+      "expected": {"status": "FINAL", "count": 0, "amount": "0.00", "line_action": "OMIT"}
+    },
+    {
+      "id": "ITEM-28A-TWO-OCCURRENCES",
+      "mutations": [{"path": "records.shipment_stops.2.stop_sequence", "value": 4}],
+      "append_records": {
+        "locations": [
+          {"id": "LOC-28A-EXTRA-002", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28A-SYNTHETIC"}
+        ],
+        "shipment_stops": [
+          {"id": "STOP-28A-EXTRA-002", "shipment_id": "SHP-28A-001", "stop_sequence": 3, "stop_role": "EXTRA_PICKUP", "location_id": "LOC-28A-EXTRA-002", "planned_date": "2026-05-17", "actual_date": "2026-05-20", "provenance_ref": "PROV-28A-400NG"}
+        ],
+        "service_performances": [
+          {"id": "SVCPERF-28A-002", "shipment_id": "SHP-28A-001", "service_definition_id": "SVCDEF-28A", "shipment_stop_id": "STOP-28A-EXTRA-002", "performed_at": "2026-05-20T15:00:00Z", "performance_status": "COMPLETED", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-28A-PERFORMANCE-002", "provenance_ref": "PROV-28A-400NG"}
+        ],
+        "service_approval_events": [
+          {"id": "SVCAPP-28A-002", "service_performance_id": "SVCPERF-28A-002", "approval_event_type": "GOVERNMENT_REQUEST", "decision_status": "APPROVED", "occurred_at": "2026-05-14T15:00:00Z", "recorded_at": "2026-05-14T15:05:00Z", "approver_role": "ORIGIN_PPSO", "evidence_link_id": "EVL-28A-APPROVAL-002", "provenance_ref": "PROV-28A-400NG"}
+        ],
+        "evidence_links": [
+          {"id": "EVL-28A-APPROVAL-002", "document_version_id": "DOCV-28A-APPROVAL-001", "target_kind": "SERVICE_APPROVAL_EVENT", "target_id": "SVCAPP-28A-002", "evidence_role": "GOVERNMENT_AUTHORIZATION", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-400NG"},
+          {"id": "EVL-28A-PERFORMANCE-002", "document_version_id": "DOCV-28A-PERFORMANCE-001", "target_kind": "SERVICE_PERFORMANCE", "target_id": "SVCPERF-28A-002", "evidence_role": "COMPLETED_EXTRA_PICKUP", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-400NG"}
+        ]
+      },
+      "expected": {"status": "FINAL", "count": 2, "amount": "397.00", "line_action": "CREATE"}
+    },
+    {
+      "id": "ITEM-28A-SELF-STORAGE-ONLY",
+      "mutations": [
+        {"path": "records.locations.0.location_kind", "value": "SELF_STORAGE"},
+        {"path": "records.service_performances.0.shipment_stop_id", "value": "STOP-28A-ORIGINAL"}
+      ],
+      "remove_records": {
+        "shipment_stops": ["STOP-28A-EXTRA-001", "STOP-28A-DESTINATION"]
+      },
+      "expected": {"status": "FINAL", "count": 0, "amount": "0.00", "line_action": "OMIT", "ineligible_reason": "SELF_STORAGE_ONLY_EXCLUSION"}
+    },
+    {
+      "id": "ITEM-28A-GOVERNMENT-DENIED",
+      "mutations": [{"path": "records.service_approval_events.0.decision_status", "value": "DENIED"}],
+      "expected": {"status": "FINAL", "count": 0, "amount": "0.00", "line_action": "OMIT", "ineligible_reason": "GOVERNMENT_APPROVAL_DENIED"}
+    },
+    {
+      "id": "ITEM-28A-MISSING-APPROVAL",
+      "remove_records": {
+        "service_approval_events": ["SVCAPP-28A-001"],
+        "evidence_links": ["EVL-28A-APPROVAL"]
+      },
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["APPROVAL_EVENT_MISSING:SVCPERF-28A-001"]}
+    },
+    {
+      "id": "ITEM-28A-UNREVIEWED-APPROVAL-EVIDENCE",
+      "mutations": [{"path": "records.evidence_links.0.review_status", "value": "UNREVIEWED"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["APPROVAL_EVIDENCE_MISSING_OR_UNREVIEWED:SVCPERF-28A-001"]}
+    },
+    {
+      "id": "ITEM-28A-UNREVIEWED-DENIAL-EVIDENCE",
+      "mutations": [
+        {"path": "records.service_approval_events.0.decision_status", "value": "DENIED"},
+        {"path": "records.evidence_links.0.review_status", "value": "UNREVIEWED"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["APPROVAL_EVIDENCE_MISSING_OR_UNREVIEWED:SVCPERF-28A-001"]}
+    },
+    {
+      "id": "ITEM-28A-UNREVIEWED-PERFORMANCE-EVIDENCE",
+      "mutations": [{"path": "records.evidence_links.1.review_status", "value": "UNREVIEWED"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["PERFORMANCE_EVIDENCE_MISSING_OR_UNREVIEWED:SVCPERF-28A-001"]}
+    },
+    {
+      "id": "ITEM-28A-UNRESOLVED-PERFORMANCE",
+      "mutations": [{"path": "records.service_performances.0.performance_status", "value": "UNKNOWN"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["PERFORMANCE_STATUS_UNRESOLVED:SVCPERF-28A-001"]}
+    },
+    {
+      "id": "ITEM-28A-WRONG-DECISION",
+      "case_mutations": [{"path": "interpretation_decision_id", "value": "INT-TAMPERED"}],
+      "expected": {"input_error_contains": "interpretation decision mismatch"}
+    },
+    {
+      "id": "ITEM-28A-DUPLICATE-OCCURRENCE",
+      "append_records": {
+        "service_performances": [
+          {"id": "SVCPERF-28A-DUP", "shipment_id": "SHP-28A-001", "service_definition_id": "SVCDEF-28A", "shipment_stop_id": "STOP-28A-EXTRA-001", "performed_at": "2026-05-19T15:01:00Z", "performance_status": "COMPLETED", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-28A-DUP", "provenance_ref": "PROV-28A-400NG"}
+        ]
+      },
+      "expected": {"input_error_contains": "duplicate Item 28A occurrence"}
+    },
+    {
+      "id": "ITEM-28A-DUPLICATE-APPROVAL",
+      "append_records": {
+        "service_approval_events": [
+          {"id": "SVCAPP-28A-DUP", "service_performance_id": "SVCPERF-28A-001", "approval_event_type": "PREAPPROVAL", "decision_status": "APPROVED", "occurred_at": "2026-05-14T14:01:00Z", "recorded_at": "2026-05-14T14:06:00Z", "approver_role": "ORIGIN_PPSO", "evidence_link_id": "EVL-28A-APPROVAL-DUP", "provenance_ref": "PROV-28A-400NG"}
+        ],
+        "evidence_links": [
+          {"id": "EVL-28A-APPROVAL-DUP", "document_version_id": "DOCV-28A-APPROVAL-001", "target_kind": "SERVICE_APPROVAL_EVENT", "target_id": "SVCAPP-28A-DUP", "evidence_role": "GOVERNMENT_AUTHORIZATION", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-400NG"}
+        ]
+      },
+      "expected": {"input_error_contains": "multiple authorization events"}
+    },
+    {
+      "id": "ITEM-28A-DUPLICATE-EVIDENCE-ROLE",
+      "append_records": {
+        "evidence_links": [
+          {"id": "EVL-28A-APPROVAL-DUP", "document_version_id": "DOCV-28A-APPROVAL-001", "target_kind": "SERVICE_APPROVAL_EVENT", "target_id": "SVCAPP-28A-001", "evidence_role": "GOVERNMENT_AUTHORIZATION", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-400NG"}
+        ]
+      },
+      "expected": {"input_error_contains": "duplicate evidence role"}
+    },
+    {
+      "id": "ITEM-28A-NUMERIC-QUANTITY-REJECTED",
+      "mutations": [{"path": "records.service_performances.0.quantity", "value": 1}],
+      "expected": {"input_error_contains": "exact decimal JSON string"}
+    },
+    {
+      "id": "ITEM-28A-WRONG-PERFORMANCE-UNIT",
+      "mutations": [{"path": "records.service_performances.0.quantity_unit", "value": "LB"}],
+      "expected": {"input_error_contains": "quantity_unit must be EA"}
+    },
+    {
+      "id": "ITEM-28A-LATE-APPROVAL",
+      "mutations": [{"path": "records.service_approval_events.0.occurred_at", "value": "2026-05-19T15:00:01Z"}],
+      "expected": {"input_error_contains": "occurred after performance"}
+    },
+    {
+      "id": "ITEM-28A-WRONG-SOURCE-CONTRACT-UNIT",
+      "mutations": [{"path": "records.service_definitions.0.quantity_unit", "value": "DAY"}],
+      "expected": {"input_error_contains": "definition unit must be EA"}
+    }
+  ]
+}

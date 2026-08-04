@@ -293,8 +293,9 @@ assumptions (`DISC-0032–0041`).
 
 | Entity | Required fields | Conditional / repeating fields | Key invariants | Source basis |
 |---|---|---|---|---|
-| `service_performance` | `shipment_id`, `service_definition_id`, `performed_date`, `stop_role`, `performance_status` | `portion_id`, `location_id`, `quantity`, `quantity_unit`, `performing_organization_id`, `remarks` | Performance is distinct from approval and billing; required units explicit | DISC-0010–0013, 0042 |
-| `service_approval_event` | `service_performance_id`, `approval_event_type`, `decision_status`, `occurred_at`, `approver_role` | `authorization_reference`, `reason`, `evidence_link_id` | Request, preapproval, denial, and later authorization are separate events | DISC-0044 |
+| `service_definition` | `service_code`, `service_family`, `quantity_unit`, `rate_date_role` | `interpretation_decision_id` | Controlled billing contract is versioned; a scoped interpretation cannot authorize sibling codes | CLM-0036; INT-0001 |
+| `service_performance` | `shipment_id`, `service_definition_id`, `shipment_stop_id`, `performed_at`, `performance_status` | `portion_id`, `quantity`, `quantity_unit`, `performing_organization_id`, `remarks`, `evidence_link_id` | Performance is distinct from approval and billing; Item 28A requires a completed extra-pickup stop after the original pickup and exact `EA` quantity | DISC-0010–0013, 0042; CLM-0034, CLM-0036 |
+| `service_approval_event` | `service_performance_id`, `approval_event_type`, `decision_status`, `occurred_at`, `approver_role` | `recorded_at`, `authorization_reference`, `reason`, `evidence_link_id` | Request, preapproval, denial, and later authorization are separate events; Item 28A approval precedes performance and retains reviewed Government-authorization evidence | DISC-0044; CLM-0034, CLM-0036 |
 | `service_evidence_annotation` | `service_performance_id`, `annotation_type`, `annotation_text`, `recorded_at` | `customer_attestation_id` | Free text cannot determine eligibility without a rule decision | DISC-0012–0014 |
 
 ## 9. Storage in transit lifecycle
@@ -421,7 +422,7 @@ not published tariff rules or production rating results.
 |---|---|---|
 | `CF-0001` — requested versus actual pickup date | Publishing a rule that selects accessorial/SIT rate tables from the disputed effective-date fact | Store both typed dates, both claims, candidate decisions, and test scenarios |
 | `CF-0002` — transit-time table and 70% SIT formula | Publishing the mileage-tool transit result or derived SIT entitlement as authoritative | Archive workbook structure, compute clearly labeled candidate results, and route to human review |
-| `CF-0003` — 2022 item-code applicability | Treating the 2022 code list as the authoritative 2026 controlled vocabulary | Preserve raw billed code; store provisional mapping and requirements |
+| `CF-0003` — 2022 item-code applicability | Treating the 2022 code list as the authoritative 2026 controlled vocabulary | Preserve raw billed code and provisional mappings; Decision 0003 / `INT-0001` permits only the 2026 Item 28A row contract |
 | `CF-0004` — reweigh 5,000-lb branch input | Publishing fee or containerized-reimbursement tolerance logic with an assumed branch weight | Preserve all typed initial, reweigh, provisional, gross, tare, and net observations; allow non-tolerance workflow design |
 
 No conflict gate prevents storage of observed source or invoice data. It prevents

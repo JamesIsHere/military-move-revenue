@@ -2,143 +2,116 @@
 
 ## Status
 
-Active. The domestic DP3 TSP-to-government post-audit goal remains ratified.
-M1 source closure is externally constrained, M2's logical contract is complete,
-and M3 contains seven published deterministic reference/workflow packages, a
-conflict-aware draft registry, a verified immutable reweigh-observation
-contract, and a reviewed first-monetary-family inventory.
+Active. The ratified scope remains domestic DP3 TSP-to-government read-only
+post-audit. M1 still has external public-source gaps, M2's public-source logical
+contract is complete, M3 has eight published deterministic packages plus six
+conflict-blocked drafts, and M4 has begun with the first monetary shadow-rating
+package.
 
 ## Active milestone
 
-M1 — Establish the source foundation remains active for current PPA and
-source-version gaps. M3 — Implement the source and rule registry is advancing
-from reviewed 400NG/Tender material. M4 monetary shadow rating has not started.
+M1 remains active for current PPA artifacts and disputed source versions. M3
+continues as additional source-complete rules are found. M4 is in progress:
+Item 28A now produces an evidence-bound exact expected charge, but no invoice or
+payment comparison exists yet.
 
 ## Last checkpoint
 
-This cold-resume snapshot adds a source-verified monetary-family inventory to
-the reweigh implementation checkpoint. It selects Item 28A extra pickup as the
-preferred first shadow-rating family but records that `CF-0003` blocks
-publication because the only complete rate-date, unit, location, and approval
-contract is the 12 August 2022 Item Code Listing with no established 2026
-effective or supersession period. No calculation code or monetary output was
-added.
+Published immutable package `2026.item-28a-extra-pickup.1` under Decision 0003 /
+`INT-0001`. It selects the rate version by original requested pickup date,
+counts only completed extra pickups after the first with reviewed Origin-PPSO
+decision and completion evidence, applies the self-storage-only exclusion, and
+calculates `eligible occurrences * 198.50 USD` with exact `Decimal` arithmetic.
+Blocked cases expose no amount or expected-line action. Twenty-four synthetic
+cases and five result-contract tamper probes pass.
 
 ## Completed
 
-- Ratified the domestic DP3 post-audit goal and 25-case historical completion
-  verifier; archived and checksummed nine public source artifacts.
-- Recorded 91 discoveries, the conceptual/logical contract, Decision 0002, and
-  the source-conflict workflow.
-- Added the file-backed physical registry and validator with archive hash checks,
-  provenance, dependencies, evidence requirements, and publication gates.
-- Published and implemented `2026.weight-determination.1`; 14 synthetic initial
-  weight/evidence cases pass.
-- Published and implemented `2026.automatic-reweigh.1`; ten Item 4.8 threshold,
-  blocked-input, and tampering cases pass.
-- Rendered and visually verified the controlling-weight/refund passages on
-  400NG pp. 19 and 22-23 and Tender printed p. 20; checked DTR A-402 section
-  D.7.b for operational evidence.
-- Added ten reviewed claims (`CLM-0023`-`CLM-0032`) for reweigh fee eligibility,
-  lower-weight invoicing, constructive weight, refunds/billing holds,
-  containerized provisional/correction paths, duplicate reweighs, and DPS/ticket
-  evidence.
-- Documented that the Tender's general lower-weight obligation and 400NG's
-  narrower fee/workflow provisions are scoped and additive, not directly
-  conflicting.
-- Registered `CF-0004` for the unstated weight fact that selects the 5,000-lb
-  reweigh-tolerance branch. Two affected tolerance rules remain draft and
-  blocked; the general lower-weight model is not blocked.
-- Modeled two completed reweighs as distinct immutable observations and a late
-  correction as a new version of the same observation. Gross, tare, net, ticket
-  document, evidence, DPS update, record time, provenance, and three aligned
-  supersession histories are verified synthetically.
-- Published and implemented `2026.completed-reweigh-selection.1`; eleven
-  synthetic current-version, corrected-observation, evidence, exact-decimal,
-  tie, malformed-input, and tampering cases pass.
-- Published and implemented `2026.scale-reweigh-lower-reference.1`; eleven
-  synthetic lower/higher/tie, exact-decimal, blocked-upstream, provenance, unit,
-  package, and result-tampering cases pass.
-- Registered reviewed DTR claim `CLM-0033` for constructive-weight eligibility
-  and responsible-PPSO approval, then modeled verified cubic volume, immutable
-  approval evidence, and resolved valid-ticket availability in `SYNTH-LS-006`.
-- Published and implemented `2026.constructive-weight-reference.1`; fifteen
-  exact-calculation, lower/tie, documented-unavailability, blocked-evidence,
-  upstream, provenance, unit, reference, and tampering cases pass.
-- Modeled `CLM-0027` original-tare/new-gross provisional inputs and the later
-  `CLM-0028` new-tare completion as separate immutable ticketed observations in
-  `SYNTH-LS-007`; reimbursement tolerance remains held by `CF-0004`.
-- Published and implemented `2026.containerized-provisional-weight.1`; fifteen
-  exact-subtraction, lower/tie, later-completion isolation, blocked-evidence,
-  readiness, upstream, unit, chronology, provenance, and tampering cases pass.
-- Modeled the post-invoice reweigh refund workflow in `SYNTH-LS-008`: the
-  original approved invoice remains immutable, a separate supplemental refund
-  identity is retained without an amount, and DPS update, PPSO ticket delivery,
-  refund processing, and billing-hold release chronology are verified.
-- Published and implemented `2026.reweigh-refund-workflow.1`; sixteen synthetic
-  refund-required/not-required, hold-ready/not-ready, evidence, chronology,
-  upstream-provenance, reference, and tampering cases pass with no money output.
-- Inventoried six candidate monetary families against current 400NG rules,
-  baseline-rate cells, units, rate-date selection, rounding, evidence, and open
-  conflicts in `docs/monetary-charge-family-inventory.md`.
-- Selected the 198.50 USD-per-occurrence Item 28A extra-pickup fee as the
-  preferred first implementation after source closure; kept it unimplemented
-  because `CF-0003` is material to the complete 2026 billing contract.
+- Ratified `goal.md`, including the 25-authorized-case historical completion
+  verifier and strict sensitive-data boundary.
+- Archived and checksummed ten public artifacts. Registered 34 reviewed claims,
+  32 precise locators, four open conflicts, and one approved scoped
+  interpretation.
+- Completed the conceptual/logical public-source schema and nine synthetic
+  logical scenarios with paired negative probes.
+- Implemented the physical source/rule registry with artifact hash checks,
+  immutable packages, source/locator/claim provenance, dependencies, evidence
+  requirements, conflict publication gates, and interpretation-decision
+  reciprocity.
+- Published seven nonmonetary packages: initial weight, automatic reweigh,
+  completed-reweigh selection, initial-versus-reweigh lower reference,
+  constructive-weight reference, containerized provisional-weight reference,
+  and reweigh-refund workflow.
+- Inventoried six monetary candidates and recorded why the other five remain
+  deferred by `CF-0003`, `CF-0004`, missing discount/order-of-operations facts,
+  or larger service fact models.
+- Archived the official USTRANSCOM DP3 public-library HTML (374,079 bytes,
+  SHA-256 `0474F523B827DBEE09CC676AF3177AB6DC33E6F4DAB9640ADFEAE95BCC2150E5`)
+  and verified line 4697 still links the exact 12 August 2022 Item Code Listing.
+- Recorded Decision 0003 / `INT-0001`, approving only the 2026 Item 28A row
+  contract while preserving `CF-0003` for every other row and broader use.
+- Modeled immutable Item 28A stops, performances, approval events, reviewed
+  evidence links, document versions, and the requested-pickup rate-date fact in
+  synthetic fixture `SYNTH-LS-009`, without money in the logical fixture.
+- Published `RP-DP3-2026-ITEM-28A-1` with source-contract, occurrence-
+  eligibility, and exact expected-charge rules. Results expose inputs, counted
+  performance IDs, approval IDs, reviewed evidence IDs, exact math, all six
+  source claim/version/locator triples, and `INT-0001`.
+- Verified rate-cycle dates before/on/inside/on/after the boundaries; zero, one,
+  and two occurrences; `198.50 * 2 = 397.00`; self-storage-only and denied/not-
+  performed exclusions; missing or unreviewed evidence; duplicate occurrence,
+  approval, and evidence rejection; exact-string quantities; units; chronology;
+  decision scope; and result package/source/rule/amount tampering.
 
 ## Current task
 
-Close `CF-0003` with a current authoritative domestic Item Code Listing, an
-explicit continued-applicability/supersession record, or an approved scoped
-interpretation. Once closed, register and implement the Item 28A extra-pickup
-fee as the first monetary shadow-rating package with occurrence-level evidence
-and exact-decimal tests.
+Commit the complete Decision 0003 source-closure and Item 28A implementation
+checkpoint. Then build the narrowest end-to-end post-audit slice: immutable
+synthetic invoiced and paid Item 28A line versions plus deterministic comparison
+against the published expected-charge result, with unsupported, missing,
+underbilled, overbilled, and correctly billed outcomes.
 
 ## Known blockers
 
-- CF-0004: the governing text does not identify the weight fact selecting the
-  5,000-lb tolerance branch.
+- `CF-0004`: the source does not identify the weight fact selecting the
+  5,000-lb reweigh-tolerance branch.
 - Direct archival requests to PPA.mil and media.defense.gov returned HTTP 403.
-- The mileage/SIT tool effective period, authorized-SIT percentage/rounding, and
-  current domestic item-code supersession chain remain unresolved.
+- Mileage/SIT effective periods, authorized-SIT percentage/rounding, and the
+  complete current domestic item-code supersession chain remain unresolved.
+- `CF-0003` remains open outside the approved 2026 Item 28A row. `INT-0001`
+  cannot authorize Item 28B/28C or another item-code row.
 - Final acceptance requires at least 25 authorized, anonymized historical cases
   with independently approved outcomes.
 
 ## Decisions needed
 
-- Resolve CF-0004 before publishing reweigh-fee or containerized-reimbursement
-  tolerance logic.
-- Resolve CF-0001 before SIT/accessorial rate-date selection.
-- Resolve CF-0002 before the disputed transit/SIT-tool behavior.
-- Resolve CF-0003 before treating the 2022 item-code workbook as authoritative
-  for 2026.
-- Approve Item 28A as the first monetary family only after `CF-0003` closure.
+- Resolve `CF-0004` before publishing reweigh-fee or containerized-
+  reimbursement tolerance logic.
+- Resolve `CF-0001` before SIT/accessorial rate-date selection.
+- Resolve `CF-0002` before disputed transit/SIT-tool behavior.
+- Resolve `CF-0003` before using the 2022 listing broadly.
+- Reopen `INT-0001` if a contrary or superseding Item 28A source is archived.
 
 ## Next three actions
 
-1. Pursue an archivable current domestic item-code artifact or explicit
-   continuation/supersession evidence that can close `CF-0003`.
-2. If source retrieval remains constrained, prepare a scoped interpretation
-   request for Item 28A covering rate-date basis, `EA` unit, location fields,
-   and approval behavior without publishing a rule.
-3. After approval, register and implement the Item 28A package with zero/one/
-   multiple-occurrence, exclusion, authorization, rate-cycle, Decimal, and
-   tampering tests.
+1. Add immutable synthetic invoice-line, payment-allocation, and version-history
+   facts for Item 28A without changing the published rating package.
+2. Implement a deterministic comparison that consumes a provenance-complete
+   final Item 28A result and classifies missing, unsupported, underbilled,
+   overbilled, correctly billed, and payment differences using exact decimals.
+3. Add evidence, duplicate/version, blocked-upstream, amount/unit, and result-
+   tampering tests; keep any ambiguous item-code matching in human review.
 
 ## Verification status
 
-The physical registry now contains 30 archived-source claims, 28 locators, four
-open conflicts, eight packages, and nineteen rules: six disputed drafts and
-thirteen published rules (four initial-weight, one automatic-reweigh, one
-completed-reweigh selection, one scale-reweigh lower-reference, two
-constructive-weight, two containerized-provisional, and two reweigh-refund
-workflow rules). The registry
-validator passes one valid case and seven expected failures. Initial weight (14
-cases), automatic reweigh (10 cases), completed-reweigh selection (11 cases),
-scale-reweigh lower reference (11 cases), constructive-weight reference (15
-cases), containerized provisional weight (15 cases), reweigh refund workflow
-(16 cases), and logical-schema
-validation (eight positive scenarios and eight negative probes) pass. No
-charge-specific billed-weight result, tolerance result, fee, refund amount,
-billing item, expected invoice amount, or SIT result is implemented. Current
-reweigh-observation, reference, containerized, and workflow work is included in
-the current checkpoint.
+The registry contains ten public sources, 34 claims, 32 locators, four open
+conflicts, one approved interpretation, nine packages, and 22 rules. Six rules
+remain disputed drafts; 16 are published (13 prior reference/workflow rules and
+three Item 28A rules). The registry validator passes its valid case and nine
+expected failures. Passing suites: initial weight 14, automatic reweigh 10,
+completed reweigh 11, scale-reweigh lower reference 11, constructive reference
+15, containerized provisional 15, reweigh-refund workflow 16, Item 28A 24 plus
+five tamper probes, and logical schema nine positive plus nine negative probes.
+Python compilation and `git diff --check` pass. No expected-versus-invoiced-
+versus-paid comparison, reconciliation disposition, live invoice submission, or
+historical acceptance report exists yet.
