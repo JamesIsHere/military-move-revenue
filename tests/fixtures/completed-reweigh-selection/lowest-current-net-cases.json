@@ -1,0 +1,144 @@
+{
+  "fixture_set": "SYNTHETIC_LOWEST_CURRENT_COMPLETED_REWEIGH_CASES",
+  "logical_fixture_path": "tests/fixtures/logical-schema/reweigh-observation-history.json",
+  "source_basis": {
+    "claims": ["CLM-0029", "CLM-0032"],
+    "locators": ["LOC-0025", "LOC-0028"],
+    "source_versions": [
+      "SV-DP3-2026-400NG-2025-12-05",
+      "SV-DTR-IV-A402-2026-07-14"
+    ]
+  },
+  "cases": [
+    {
+      "id": "COMPLETED-REWEIGH-VALID-001",
+      "description": "The corrected current version of the second reweigh is lower than the first observation; the superseded 7,950-lb version is retained but not selected.",
+      "mutations": [],
+      "expected": {
+        "status": "FINAL",
+        "selected_net_weight": "7900",
+        "selected_observation_ids": ["WEV-REW-B-002"],
+        "candidate_count": 2
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-VALID-002",
+      "description": "Exact fractional pounds remain decimal strings and are compared without binary floating point.",
+      "mutations": [
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-GROSS", "field": "weight_value", "value": "11900.25"},
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-NET", "field": "weight_value", "value": "7900.25"}
+      ],
+      "expected": {
+        "status": "FINAL",
+        "selected_net_weight": "7900.25",
+        "selected_observation_ids": ["WEV-REW-B-002"],
+        "candidate_count": 2
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-VALID-003",
+      "description": "Equal lowest nets expose both tied observation IDs without inventing a tie-break rule.",
+      "mutations": [
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-GROSS", "field": "weight_value", "value": "12000"},
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-NET", "field": "weight_value", "value": "8000"}
+      ],
+      "expected": {
+        "status": "FINAL",
+        "selected_net_weight": "8000",
+        "selected_observation_ids": ["WEV-REW-A-001", "WEV-REW-B-002"],
+        "candidate_count": 2
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-BLOCKED-001",
+      "description": "A current completed reweigh with pending ticket review blocks selection instead of being silently discarded.",
+      "mutations": [
+        {"op": "set", "collection": "evidence_links", "id": "EVL-REW-B-002", "field": "review_status", "value": "PENDING"}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["CURRENT_REWEIGH_TICKET_EVIDENCE_MISSING_OR_UNREVIEWED"],
+        "blocked_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-BLOCKED-002",
+      "description": "A DPS update missing the net fact cannot support a final selector result.",
+      "mutations": [
+        {"op": "set", "collection": "dps_reweigh_update_events", "id": "DPS-REW-B-002", "field": "recorded_fact_roles", "value": ["GROSS", "TARE", "TICKET_NUMBER", "REWEIGH_DATE"]}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["CURRENT_REWEIGH_DPS_UPDATE_INCOMPLETE"],
+        "blocked_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-BLOCKED-003",
+      "description": "A missing current net observation blocks the selection.",
+      "mutations": [
+        {"op": "remove", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-NET"}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["CURRENT_REWEIGH_MEASUREMENTS_INCOMPLETE"],
+        "blocked_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-BLOCKED-004",
+      "description": "A missing current DPS update blocks the selection.",
+      "mutations": [
+        {"op": "remove", "collection": "dps_reweigh_update_events", "id": "DPS-REW-B-002"}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["CURRENT_REWEIGH_DPS_UPDATE_MISSING_OR_AMBIGUOUS"],
+        "blocked_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-BLOCKED-005",
+      "description": "An incomplete current correction blocks use of the superseded completed version.",
+      "mutations": [
+        {"op": "set", "collection": "weighing_events", "id": "WEV-REW-B-002", "field": "completion_status", "value": "INCOMPLETE"}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["CURRENT_REWEIGH_OBSERVATION_NOT_COMPLETED"],
+        "blocked_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-ERROR-001",
+      "description": "A correction cannot be redirected to supersede a different observation.",
+      "mutations": [
+        {"op": "set", "collection": "weighing_events", "id": "WEV-REW-B-002", "field": "supersedes_id", "value": "WEV-REW-A-001"}
+      ],
+      "expected": {
+        "input_error_contains": "does not directly supersede WEV-REW-B-001"
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-ERROR-002",
+      "description": "A binary numeric net is rejected before selection.",
+      "mutations": [
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-NET", "field": "weight_value", "value": 7900.5}
+      ],
+      "expected": {
+        "input_error_contains": "must be an exact decimal JSON string"
+      }
+    },
+    {
+      "id": "COMPLETED-REWEIGH-ERROR-003",
+      "description": "A result whose immutable package ID is changed is rejected by the contract validator.",
+      "mutations": [],
+      "result_mutations": [
+        {"path": "rule_package_id", "value": "RP-TAMPERED"}
+      ],
+      "expected": {
+        "result_error_contains": "package mismatch"
+      }
+    }
+  ]
+}

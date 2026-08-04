@@ -1,0 +1,73 @@
+{
+  "fixture_id": "SYNTH-LS-007",
+  "scenario_type": "containerized_reweigh_facts",
+  "data_status": "SYNTHETIC",
+  "description": "A containerized shipment preserves the original tare and later new gross as provisional inputs, then records the subsequent new tare as a separate completion event while CF-0004 blocks reimbursement tolerance.",
+  "provenance": [
+    {
+      "id": "PROV-CRW-400NG-PROVISIONAL",
+      "source_id": "SRC-DP3-2026-400NG",
+      "document_version": "published 2025-12-05; effective 2026-05-15 through 2027-05-14",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 4.13(1)-(2), p. 22; LOC-0023",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0027"]
+    },
+    {
+      "id": "PROV-CRW-400NG-COMPLETION",
+      "source_id": "SRC-DP3-2026-400NG",
+      "document_version": "published 2025-12-05; effective 2026-05-15 through 2027-05-14",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 4.13(3)-(5), pp. 22-23; LOC-0024",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_direct_text_disputed_branch_input",
+      "source_claim_refs": ["CLM-0028"],
+      "conflict_refs": ["CF-0004"]
+    }
+  ],
+  "records": {
+    "shipments": [
+      {"id": "SHP-CRW-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"}
+    ],
+    "locations": [
+      {"id": "LOC-CRW-SCALE-001", "location_kind": "CERTIFIED_SCALE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"}
+    ],
+    "documents": [
+      {"id": "DOC-CRW-ORIGINAL-TARE", "document_type": "WEIGHT_TICKET", "data_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "DOC-CRW-NEW-GROSS", "document_type": "WEIGHT_TICKET", "data_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "DOC-CRW-NEW-TARE", "document_type": "WEIGHT_TICKET", "data_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ],
+    "document_versions": [
+      {"id": "DOCV-CRW-ORIGINAL-TARE-001", "document_id": "DOC-CRW-ORIGINAL-TARE", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-CRW-ORIGINAL-TARE", "media_type": "application/json", "storage_uri": "synthetic://containerized-reweigh/original-tare/v1", "received_at": "2026-05-20T12:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "DOCV-CRW-NEW-GROSS-001", "document_id": "DOC-CRW-NEW-GROSS", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-CRW-NEW-GROSS", "media_type": "application/json", "storage_uri": "synthetic://containerized-reweigh/new-gross/v1", "received_at": "2026-06-10T15:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "DOCV-CRW-NEW-TARE-001", "document_id": "DOC-CRW-NEW-TARE", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-CRW-NEW-TARE", "media_type": "application/json", "storage_uri": "synthetic://containerized-reweigh/new-tare/v1", "received_at": "2026-06-12T16:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ],
+    "weighing_events": [
+      {"id": "WEV-CRW-ORIGINAL-001", "shipment_id": "SHP-CRW-001", "observation_key": "SYNTH-CRW-ORIGINAL", "observation_version": 1, "weighing_kind": "INITIAL_SCALE", "completion_status": "COMPLETED", "occurred_at_or_date": "2026-05-20T11:00:00Z", "recorded_at": "2026-05-20T12:00:00Z", "scale_location_id": "LOC-CRW-SCALE-001", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "WEV-CRW-NEW-GROSS-001", "shipment_id": "SHP-CRW-001", "observation_key": "SYNTH-CRW-NEW-GROSS", "observation_version": 1, "weighing_kind": "CONTAINERIZED_REWEIGH_GROSS", "completion_status": "GROSS_ONLY_PROVISIONAL", "occurred_at_or_date": "2026-06-10T14:00:00Z", "recorded_at": "2026-06-10T15:00:00Z", "scale_location_id": "LOC-CRW-SCALE-001", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "WEV-CRW-NEW-TARE-001", "shipment_id": "SHP-CRW-001", "observation_key": "SYNTH-CRW-NEW-TARE", "observation_version": 1, "weighing_kind": "CONTAINERIZED_REWEIGH_TARE", "completion_status": "COMPLETED", "occurred_at_or_date": "2026-06-12T15:00:00Z", "recorded_at": "2026-06-12T16:00:00Z", "scale_location_id": "LOC-CRW-SCALE-001", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ],
+    "weight_tickets": [
+      {"id": "WTK-CRW-ORIGINAL-TARE", "document_version_id": "DOCV-CRW-ORIGINAL-TARE-001", "ticket_kind": "INITIAL_TARE", "issued_date": "2026-05-20", "scale_identifier": "SYNTH-SCALE-ORIGINAL", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "WTK-CRW-NEW-GROSS", "document_version_id": "DOCV-CRW-NEW-GROSS-001", "ticket_kind": "CONTAINERIZED_REWEIGH_GROSS", "issued_date": "2026-06-10", "scale_identifier": "SYNTH-SCALE-NEW-GROSS", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "WTK-CRW-NEW-TARE", "document_version_id": "DOCV-CRW-NEW-TARE-001", "ticket_kind": "CONTAINERIZED_REWEIGH_TARE", "issued_date": "2026-06-12", "scale_identifier": "SYNTH-SCALE-NEW-TARE", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ],
+    "weight_ticket_measurements": [
+      {"id": "WTM-CRW-ORIGINAL-TARE", "weight_ticket_id": "WTK-CRW-ORIGINAL-TARE", "weighing_event_id": "WEV-CRW-ORIGINAL-001", "measurement_role": "ORIGINAL_TARE", "weight_value": "4000", "weight_unit": "lb", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "WTM-CRW-NEW-GROSS", "weight_ticket_id": "WTK-CRW-NEW-GROSS", "weighing_event_id": "WEV-CRW-NEW-GROSS-001", "measurement_role": "NEW_GROSS", "weight_value": "11500", "weight_unit": "lb", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "WTM-CRW-NEW-TARE", "weight_ticket_id": "WTK-CRW-NEW-TARE", "weighing_event_id": "WEV-CRW-NEW-TARE-001", "measurement_role": "NEW_TARE", "weight_value": "4200", "weight_unit": "lb", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ],
+    "evidence_links": [
+      {"id": "EVL-CRW-ORIGINAL-TARE", "document_version_id": "DOCV-CRW-ORIGINAL-TARE-001", "target_kind": "WEIGHT_TICKET_MEASUREMENT", "target_id": "WTM-CRW-ORIGINAL-TARE", "evidence_role": "ORIGINAL_TARE_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "EVL-CRW-NEW-GROSS", "document_version_id": "DOCV-CRW-NEW-GROSS-001", "target_kind": "WEIGHT_TICKET_MEASUREMENT", "target_id": "WTM-CRW-NEW-GROSS", "evidence_role": "NEW_GROSS_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"},
+      {"id": "EVL-CRW-NEW-TARE", "document_version_id": "DOCV-CRW-NEW-TARE-001", "target_kind": "CONTAINERIZED_REWEIGH_COMPLETION_EVENT", "target_id": "CRWC-001", "evidence_role": "NEW_TARE_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ],
+    "containerized_reweigh_cases": [
+      {"id": "CRW-001", "shipment_id": "SHP-CRW-001", "case_key": "SYNTH-CONTAINERIZED-REWEIGH-001", "original_tare_measurement_id": "WTM-CRW-ORIGINAL-TARE", "new_gross_measurement_id": "WTM-CRW-NEW-GROSS", "provisional_readiness_status": "READY_FOR_DETERMINISTIC_RULE", "provisional_result_status": "NOT_YET_EVALUATED", "created_at": "2026-06-10T15:00:00Z", "conflict_hold_ids": ["CF-0004"], "provenance_ref": "PROV-CRW-400NG-PROVISIONAL"}
+    ],
+    "containerized_reweigh_completion_events": [
+      {"id": "CRWC-001", "containerized_reweigh_case_id": "CRW-001", "new_tare_measurement_id": "WTM-CRW-NEW-TARE", "occurred_at": "2026-06-12T15:00:00Z", "recorded_at": "2026-06-12T16:00:00Z", "evidence_link_id": "EVL-CRW-NEW-TARE", "reimbursement_tolerance_status": "BLOCKED_BY_CF_0004", "provenance_ref": "PROV-CRW-400NG-COMPLETION"}
+    ]
+  }
+}

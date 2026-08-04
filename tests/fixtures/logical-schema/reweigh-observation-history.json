@@ -1,0 +1,234 @@
+{
+  "fixture_id": "SYNTH-LS-005",
+  "scenario_type": "reweigh_observation_history",
+  "data_status": "SYNTHETIC",
+  "description": "Two completed reweighs remain distinct while a late correction creates a new immutable version of the second observation, its ticket, and its DPS update.",
+  "provenance": [
+    {
+      "id": "PROV-REW-400NG-001",
+      "source_id": "SRC-DP3-2026-400NG",
+      "document_version": "published 2025-12-05; effective 2026-05-15 through 2027-05-14",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 4 Note 2, p. 23; LOC-0025",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0029"]
+    },
+    {
+      "id": "PROV-REW-DTR-001",
+      "source_id": "SRC-DTR-IV-A402",
+      "document_version": "publication 2026-07-14",
+      "effective_period": "UNSTATED",
+      "locator": "section D.7.b, p. IV-A-402-20; LOC-0028",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0032"]
+    },
+    {
+      "id": "PROV-REW-POLICY-001",
+      "source_id": "INTERNAL-AGENT-OPERATING-POLICY",
+      "document_version": "ratified repository policy 2026-08-03",
+      "effective_period": "PROJECT_LIFETIME",
+      "locator": "Rules and calculations: immutable versions and correction history",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "approved_internal_policy"
+    }
+  ],
+  "records": {
+    "shipments": [
+      {
+        "id": "SHP-REW-001",
+        "program_code": "DP3",
+        "domestic_indicator": true,
+        "shipment_status": "COMPLETED",
+        "provenance_ref": "PROV-REW-400NG-001"
+      }
+    ],
+    "locations": [
+      {
+        "id": "LOC-REW-SCALE-001",
+        "location_kind": "CERTIFIED_SCALE",
+        "country_code": "US",
+        "administrative_area": "ZZ",
+        "sanitization_status": "SYNTHETIC",
+        "provenance_ref": "PROV-REW-DTR-001"
+      }
+    ],
+    "documents": [
+      {
+        "id": "DOC-REW-A",
+        "document_type": "WEIGHT_TICKET",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "DOC-REW-B",
+        "document_type": "WEIGHT_TICKET",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-REW-DTR-001"
+      }
+    ],
+    "document_versions": [
+      {
+        "id": "DOCV-REW-A-001",
+        "document_id": "DOC-REW-A",
+        "version_number": 1,
+        "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-A1",
+        "media_type": "application/json",
+        "storage_uri": "synthetic://reweigh-a/ticket/v1",
+        "received_at": "2026-06-10T15:30:00Z",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "DOCV-REW-B-001",
+        "document_id": "DOC-REW-B",
+        "version_number": 1,
+        "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-B1",
+        "media_type": "application/json",
+        "storage_uri": "synthetic://reweigh-b/ticket/v1",
+        "received_at": "2026-06-11T16:30:00Z",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "DOCV-REW-B-002",
+        "document_id": "DOC-REW-B",
+        "version_number": 2,
+        "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-B2",
+        "media_type": "application/json",
+        "storage_uri": "synthetic://reweigh-b/ticket/v2",
+        "received_at": "2026-06-14T13:00:00Z",
+        "data_status": "SYNTHETIC",
+        "supersedes_id": "DOCV-REW-B-001",
+        "sanitization_method": "SYNTHETIC_GENERATION",
+        "provenance_ref": "PROV-REW-DTR-001"
+      }
+    ],
+    "weighing_events": [
+      {
+        "id": "WEV-REW-A-001",
+        "shipment_id": "SHP-REW-001",
+        "observation_key": "SYNTH-REWEIGH-A",
+        "observation_version": 1,
+        "weighing_kind": "REWEIGH_SCALE",
+        "completion_status": "COMPLETED",
+        "occurred_at_or_date": "2026-06-10T15:00:00Z",
+        "recorded_at": "2026-06-10T15:30:00Z",
+        "scale_location_id": "LOC-REW-SCALE-001",
+        "provenance_ref": "PROV-REW-400NG-001"
+      },
+      {
+        "id": "WEV-REW-B-001",
+        "shipment_id": "SHP-REW-001",
+        "observation_key": "SYNTH-REWEIGH-B",
+        "observation_version": 1,
+        "weighing_kind": "REWEIGH_SCALE",
+        "completion_status": "COMPLETED",
+        "occurred_at_or_date": "2026-06-11T16:00:00Z",
+        "recorded_at": "2026-06-11T16:30:00Z",
+        "scale_location_id": "LOC-REW-SCALE-001",
+        "provenance_ref": "PROV-REW-400NG-001"
+      },
+      {
+        "id": "WEV-REW-B-002",
+        "shipment_id": "SHP-REW-001",
+        "observation_key": "SYNTH-REWEIGH-B",
+        "observation_version": 2,
+        "weighing_kind": "REWEIGH_SCALE",
+        "completion_status": "COMPLETED",
+        "occurred_at_or_date": "2026-06-11T16:00:00Z",
+        "recorded_at": "2026-06-14T13:00:00Z",
+        "scale_location_id": "LOC-REW-SCALE-001",
+        "supersedes_id": "WEV-REW-B-001",
+        "correction_reason": "SYNTHETIC_CORRECTED_GROSS_ENTRY",
+        "provenance_ref": "PROV-REW-POLICY-001"
+      }
+    ],
+    "weight_tickets": [
+      {
+        "id": "WTK-REW-A-001",
+        "document_version_id": "DOCV-REW-A-001",
+        "ticket_kind": "REWEIGH",
+        "issued_date": "2026-06-10",
+        "scale_identifier": "SYNTH-SCALE-A",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "WTK-REW-B-001",
+        "document_version_id": "DOCV-REW-B-001",
+        "ticket_kind": "REWEIGH",
+        "issued_date": "2026-06-11",
+        "scale_identifier": "SYNTH-SCALE-B",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "WTK-REW-B-002",
+        "document_version_id": "DOCV-REW-B-002",
+        "ticket_kind": "REWEIGH_CORRECTION",
+        "issued_date": "2026-06-11",
+        "scale_identifier": "SYNTH-SCALE-B",
+        "provenance_ref": "PROV-REW-DTR-001"
+      }
+    ],
+    "weight_ticket_measurements": [
+      {"id": "WTM-REW-A-GROSS", "weight_ticket_id": "WTK-REW-A-001", "weighing_event_id": "WEV-REW-A-001", "measurement_role": "GROSS", "weight_value": "12000", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-A-TARE", "weight_ticket_id": "WTK-REW-A-001", "weighing_event_id": "WEV-REW-A-001", "measurement_role": "TARE", "weight_value": "4000", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-A-NET", "weight_ticket_id": "WTK-REW-A-001", "weighing_event_id": "WEV-REW-A-001", "measurement_role": "NET", "weight_value": "8000", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-B1-GROSS", "weight_ticket_id": "WTK-REW-B-001", "weighing_event_id": "WEV-REW-B-001", "measurement_role": "GROSS", "weight_value": "11950", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-B1-TARE", "weight_ticket_id": "WTK-REW-B-001", "weighing_event_id": "WEV-REW-B-001", "measurement_role": "TARE", "weight_value": "4000", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-B1-NET", "weight_ticket_id": "WTK-REW-B-001", "weighing_event_id": "WEV-REW-B-001", "measurement_role": "NET", "weight_value": "7950", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-B2-GROSS", "weight_ticket_id": "WTK-REW-B-002", "weighing_event_id": "WEV-REW-B-002", "measurement_role": "GROSS", "weight_value": "11900", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-B2-TARE", "weight_ticket_id": "WTK-REW-B-002", "weighing_event_id": "WEV-REW-B-002", "measurement_role": "TARE", "weight_value": "4000", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "WTM-REW-B2-NET", "weight_ticket_id": "WTK-REW-B-002", "weighing_event_id": "WEV-REW-B-002", "measurement_role": "NET", "weight_value": "7900", "weight_unit": "lb", "provenance_ref": "PROV-REW-DTR-001"}
+    ],
+    "evidence_links": [
+      {"id": "EVL-REW-A-001", "document_version_id": "DOCV-REW-A-001", "target_kind": "WEIGHING_EVENT", "target_id": "WEV-REW-A-001", "evidence_role": "REWEIGH_TICKET_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "EVL-REW-B-001", "document_version_id": "DOCV-REW-B-001", "target_kind": "WEIGHING_EVENT", "target_id": "WEV-REW-B-001", "evidence_role": "REWEIGH_TICKET_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-REW-DTR-001"},
+      {"id": "EVL-REW-B-002", "document_version_id": "DOCV-REW-B-002", "target_kind": "WEIGHING_EVENT", "target_id": "WEV-REW-B-002", "evidence_role": "REWEIGH_TICKET_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-REW-DTR-001"}
+    ],
+    "dps_reweigh_update_events": [
+      {
+        "id": "DPS-REW-A-001",
+        "weighing_event_id": "WEV-REW-A-001",
+        "update_status": "RECORDED",
+        "updated_at": "2026-06-10T17:00:00Z",
+        "recorded_fact_roles": ["GROSS", "TARE", "NET", "TICKET_NUMBER", "REWEIGH_DATE"],
+        "evidence_link_id": "EVL-REW-A-001",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "DPS-REW-B-001",
+        "weighing_event_id": "WEV-REW-B-001",
+        "update_status": "RECORDED",
+        "updated_at": "2026-06-11T18:00:00Z",
+        "recorded_fact_roles": ["GROSS", "TARE", "NET", "TICKET_NUMBER", "REWEIGH_DATE"],
+        "evidence_link_id": "EVL-REW-B-001",
+        "provenance_ref": "PROV-REW-DTR-001"
+      },
+      {
+        "id": "DPS-REW-B-002",
+        "weighing_event_id": "WEV-REW-B-002",
+        "update_status": "RECORDED",
+        "updated_at": "2026-06-14T14:00:00Z",
+        "recorded_fact_roles": ["GROSS", "TARE", "NET", "TICKET_NUMBER", "REWEIGH_DATE"],
+        "evidence_link_id": "EVL-REW-B-002",
+        "supersedes_id": "DPS-REW-B-001",
+        "correction_reason": "SYNTHETIC_CORRECTED_GROSS_ENTRY",
+        "provenance_ref": "PROV-REW-DTR-001"
+      }
+    ],
+    "record_change_events": [
+      {
+        "id": "CHANGE-REW-B-001",
+        "aggregate_kind": "WEIGHING_OBSERVATION",
+        "aggregate_id": "WEV-REW-B-002",
+        "change_kind": "CORRECTION_VERSION_CREATED",
+        "recorded_at": "2026-06-14T13:00:00Z",
+        "actor_id": "ACTOR-SYNTH-AUDITOR",
+        "reason": "SYNTHETIC_CORRECTED_GROSS_ENTRY",
+        "provenance_ref": "PROV-REW-POLICY-001"
+      }
+    ]
+  }
+}

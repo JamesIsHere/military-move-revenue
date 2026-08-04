@@ -41,9 +41,11 @@ Exit criteria:
 ## M3 — Implement the source and rule registry
 
 Status: in progress. The first file-backed physical registry and conflict-gate
-validator were implemented on 2026-08-03. A separate initial-weight reference
-package and a separate Item 4.8 automatic-reweigh requirement package are now
-published and executable; no monetary charge rule is published yet.
+validator were implemented on 2026-08-03. Seven immutable reference/workflow packages are
+now published and executable: initial weight, Item 4.8 automatic reweigh,
+completed-reweigh net selection, initial-versus-reweigh lower selection,
+constructive weight, containerized provisional weight, and post-invoice reweigh
+refund workflow. No monetary charge rule is published yet.
 
 Exit criteria:
 

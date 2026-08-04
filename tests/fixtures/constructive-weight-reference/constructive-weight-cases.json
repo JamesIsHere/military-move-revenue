@@ -1,0 +1,142 @@
+{
+  "fixture_set": "SYNTHETIC_CONSTRUCTIVE_WEIGHT_REFERENCE_CASES",
+  "constructive_facts_fixture_path": "tests/fixtures/logical-schema/constructive-weight-facts.json",
+  "initial_weight_fixture_path": "tests/fixtures/weight-determination/initial-scale-weight-cases.json",
+  "reweigh_history_fixture_path": "tests/fixtures/logical-schema/reweigh-observation-history.json",
+  "source_basis": {
+    "claims": ["CLM-0025", "CLM-0033"],
+    "locators": ["LOC-0021", "LOC-0029"],
+    "source_versions": ["SV-DP3-2026-400NG-2025-12-05", "SV-DTR-IV-A402-2026-07-14"]
+  },
+  "cases": [
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-VALID-001",
+      "description": "Exact constructive weight is lower than the valid ticket reference.",
+      "expected": {"status": "FINAL", "constructive_weight": "7001.75", "valid_ticket_weight": "7900", "selected_weight": "7001.75", "selected_source": "CONSTRUCTIVE_WEIGHT"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-VALID-002",
+      "description": "The valid ticket reference is selected when it is lower than constructive weight.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "shipment_volume_observations", "id": "VOL-CW-001", "field": "volume_value", "value": "1200"}
+      ],
+      "expected": {"status": "FINAL", "constructive_weight": "8400", "valid_ticket_weight": "7900", "selected_weight": "7900", "selected_source": "VALID_TICKET_WEIGHT"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-VALID-003",
+      "description": "Equal valid-ticket and constructive weights are exposed as a tie.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "shipment_volume_observations", "id": "VOL-CW-001", "field": "volume_value", "value": "1000"}
+      ],
+      "initial_weight_mutations": [
+        {"path": "measurements.1.weight", "value": "11000"}
+      ],
+      "expected": {"status": "FINAL", "constructive_weight": "7000", "valid_ticket_weight": "7000", "selected_weight": "7000", "selected_source": "TIE"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-VALID-004",
+      "description": "Documented lost tickets use the approved constructive candidate without inventing a ticket weight.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "constructive_weight_approval_events", "id": "APR-CW-001", "field": "eligibility_reason_code", "value": "WEIGHT_TICKETS_LOST"},
+        {"op": "set", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "valid_ticket_status", "value": "NOT_AVAILABLE_DOCUMENTED"},
+        {"op": "remove_field", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_weight_result_ref"},
+        {"op": "remove_field", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_evidence_link_id"},
+        {"op": "set", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_unavailability_reason", "value": "WEIGHT_TICKETS_LOST"}
+      ],
+      "supply_ticket_result": false,
+      "expected": {"status": "FINAL", "constructive_weight": "7001.75", "selected_weight": "7001.75", "selected_source": "CONSTRUCTIVE_WEIGHT_ONLY_DOCUMENTED_TICKET_UNAVAILABILITY", "valid_ticket_weight_absent": true}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-VALID-005",
+      "description": "Fractional cubic volume is multiplied exactly with no unstated rounding.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "shipment_volume_observations", "id": "VOL-CW-001", "field": "volume_value", "value": "0.125"}
+      ],
+      "expected": {"status": "FINAL", "constructive_weight": "0.875", "valid_ticket_weight": "7900", "selected_weight": "0.875", "selected_source": "CONSTRUCTIVE_WEIGHT"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-BLOCKED-001",
+      "description": "Unreviewed volume evidence blocks calculation and selection.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "evidence_links", "id": "EVL-CW-VOLUME-001", "field": "review_status", "value": "PENDING"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["VOLUME_EVIDENCE_MISSING_OR_UNREVIEWED"]}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-BLOCKED-002",
+      "description": "Denied PPSO approval blocks calculation and selection.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "constructive_weight_approval_events", "id": "APR-CW-001", "field": "decision_status", "value": "DENIED"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["RESPONSIBLE_PPSO_APPROVAL_MISSING"]}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-BLOCKED-003",
+      "description": "An unsupported eligibility reason cannot silently authorize constructive weight.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "constructive_weight_approval_events", "id": "APR-CW-001", "field": "eligibility_reason_code", "value": "UNSTATED_REASON"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["CONSTRUCTIVE_WEIGHT_ELIGIBILITY_NOT_ESTABLISHED"]}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-BLOCKED-004",
+      "description": "A blocked valid-ticket upstream result propagates its blocker.",
+      "initial_weight_mutations": [
+        {"path": "tickets.0.true_copy_available", "value": false}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["VALID_TICKET_RESULT_BLOCKED"], "upstream_blocked_reasons": ["INITIAL_WEIGHT_RESULT_BLOCKED"]}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-ERROR-001",
+      "description": "Binary numeric volume is rejected before calculation.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "shipment_volume_observations", "id": "VOL-CW-001", "field": "volume_value", "value": 1000.25}
+      ],
+      "expected": {"input_error_contains": "must be an exact decimal JSON string"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-ERROR-002",
+      "description": "A non-cubic-foot volume unit is rejected.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "shipment_volume_observations", "id": "VOL-CW-001", "field": "volume_unit", "value": "cu_m"}
+      ],
+      "expected": {"input_error_contains": "verified volume unit must be cu_ft"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-ERROR-003",
+      "description": "Tampered valid-ticket result provenance is rejected.",
+      "valid_ticket_result_mutations": [
+        {"path": "provenance.0.source_claim_id", "value": "CLM-TAMPERED"}
+      ],
+      "expected": {"input_error_contains": "valid_ticket_weight_result provenance mismatch"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-ERROR-004",
+      "description": "The assessment reference must match the supplied upstream result.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_weight_result_ref", "value": "SYNTH-WRONG-RESULT"}
+      ],
+      "expected": {"input_error_contains": "ticket result reference does not match"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-ERROR-005",
+      "description": "Documented ticket unavailability cannot also supply a valid-ticket result.",
+      "constructive_record_mutations": [
+        {"op": "set", "collection": "constructive_weight_approval_events", "id": "APR-CW-001", "field": "eligibility_reason_code", "value": "WEIGHT_TICKETS_LOST"},
+        {"op": "set", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "valid_ticket_status", "value": "NOT_AVAILABLE_DOCUMENTED"},
+        {"op": "remove_field", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_weight_result_ref"},
+        {"op": "remove_field", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_evidence_link_id"},
+        {"op": "set", "collection": "constructive_weight_assessments", "id": "CWA-CW-001", "field": "ticket_unavailability_reason", "value": "WEIGHT_TICKETS_LOST"}
+      ],
+      "expected": {"input_error_contains": "documented ticket unavailability cannot carry a ticket result"}
+    },
+    {
+      "id": "CONSTRUCTIVE-WEIGHT-ERROR-006",
+      "description": "A result whose immutable package ID is changed is rejected by the contract validator.",
+      "result_mutations": [
+        {"path": "rule_package_id", "value": "RP-TAMPERED"}
+      ],
+      "expected": {"result_error_contains": "package mismatch"}
+    }
+  ]
+}

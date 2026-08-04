@@ -671,3 +671,476 @@ automatic-reweigh package, synthetic validators, post-reweigh reconciliation,
 and CF-0004 for a clean-context restart. The cold-resume state points next to
 immutable completed/duplicate reweigh observations and the non-tolerance
 lowest-completed-net selector.
+
+## 2026-08-03 — Immutable reweigh-observation history
+
+### Objective
+
+Model and verify completed, duplicate, and corrected reweigh observations before
+implementing any controlling-weight selector, fee, tolerance, or refund rule.
+
+### Source basis
+
+- 400NG Item 4 Note 2, p. 23 (`CLM-0029`), for retaining multiple reweighs as
+  separate observations.
+- DTR Chapter A-402 section D.7.b, p. IV-A-402-20 (`CLM-0032`), for gross, tare,
+  net, ticket, reweigh-date, and DPS-update evidence.
+- The ratified project policy for append-only correction and supersession.
+
+### Change
+
+- Tightened the logical weight contract with stable observation keys, contiguous
+  versions, completion status, record time, direct supersession, and correction
+  reasons.
+- Added a DPS reweigh-update event whose required fact roles are gross, tare,
+  net, ticket number, and reweigh date.
+- Added `SYNTH-LS-005`, containing two distinct completed reweighs and a late
+  correction to the second. The correction creates new event, ticket-document,
+  measurement, evidence, and DPS-update records while preserving version one.
+- Extended the logical fixture validator to enforce exact decimal net arithmetic,
+  one current version per observation, reviewed ticket evidence, DPS fact
+  coverage, and matching event/ticket/update supersession chains.
+- Added a deliberate missing-net mutation and confirmed that it is rejected.
+
+### Verification
+
+`python scripts/validate_logical_schema_fixtures.py` passed all five positive
+scenarios and all five negative probes. Source/rule registry, initial-weight, and
+automatic-reweigh validators passed. `python -m compileall -q rules scripts` and
+`git diff --check` passed; diff check emitted only line-ending conversion
+warnings.
+
+### Limitation and next
+
+This increment stores observations only. It does not choose the lowest completed
+reweigh, compare that weight with the initial weight, apply CF-0004 tolerances,
+or produce a financial result. Next, implement the reviewed non-tolerance
+lowest-completed-net selector using only current completed observation versions
+with explicit ticket and DPS-update evidence.
+
+## 2026-08-03 — Lowest current completed reweigh selection
+
+### Objective
+
+Publish and implement the conflict-free duplicate-reweigh net selector without
+combining it with initial-weight comparison, tolerances, fees, refunds, billing
+codes, or monetary rating.
+
+### Source basis
+
+- 400NG Item 4 Note 2, p. 23 (`CLM-0029`), requires the lowest net scale
+  reweigh when more than one reweigh exists.
+- DTR Chapter A-402 section D.7.b, p. IV-A-402-20 (`CLM-0032`), requires gross,
+  tare, net, ticket number, and reweigh date in DPS plus ticket evidence.
+- Both claims were previously rendered, visually verified, registered with
+  precise locators, and marked reviewed.
+
+### Change
+
+- Added the immutable published package
+  `2026.completed-reweigh-selection.1` and implemented rule
+  `RULE-LOWEST-CURRENT-COMPLETED-REWEIGH-NET`.
+- Declared five input dependencies and two evidence requirements. The package
+  has no open-conflict dependency and does not use CF-0004's disputed branch
+  fact.
+- Implemented exact-decimal selection across current observation versions only.
+  Superseded versions remain in the input history but cannot be candidates.
+- Required every current observation to be complete and to have exact
+  gross-minus-tare net arithmetic, reviewed determining-ticket evidence, and a
+  complete DPS update. Missing or ambiguous facts block the entire selection.
+- Preserved equal lowest nets by returning all tied observation IDs rather than
+  inventing a source-unsupported tie-break.
+- Added eleven explicitly synthetic cases covering corrected versions,
+  fractional decimals, ties, missing/unreviewed evidence, missing DPS facts,
+  incomplete corrections, malformed supersession, binary numeric input, and
+  result-package tampering.
+
+### Verification
+
+`python scripts/validate_completed_reweigh_selection.py` passed all eleven
+cases. `python scripts/validate_source_rule_registry.py` accepted the new
+published package and continued rejecting all seven expected invalid registry
+mutations. Focused compilation and `git diff --check` passed; diff check emitted
+only line-ending conversion warnings.
+
+### Limitation and next
+
+The result is only the lowest current completed reweigh net. It does not compare
+that result with the initial shipment weight or declare a billed/controlling
+weight, and it makes no tolerance or financial decision. Next, implement the
+separate reviewed lower-of-initial-and-selected-reweigh reference decision while
+keeping CF-0004-dependent behavior blocked.
+
+## 2026-08-03 — Initial-versus-reweigh lower-weight reference
+
+### Objective
+
+Publish and implement the general lower-of-two scale-weight reference while
+keeping charge-specific billing, constructive/containerized paths, tolerances,
+fees, refunds, and money outside the rule.
+
+### Source basis
+
+- Tender of Service Change 1, Weighing Shipments 8.a.(2)(c), printed p. 20
+  (`CLM-0030`), supplies the general lower-of-initial-and-reweigh obligation.
+- The new rule intentionally does not cite 400NG Item 4.11(d)'s narrower
+  within-tolerance statement, so it neither depends on nor bypasses `CF-0004`.
+- The upstream initial and completed-reweigh packages provide their own exact
+  source and evidence histories.
+
+### Change
+
+- Added the immutable published package
+  `2026.scale-reweigh-lower-reference.1` with one implemented exact-decimal
+  quantity-selection rule.
+- Declared two upstream rule-result dependencies and two corresponding evidence
+  requirements. Only provenance-complete results from the published
+  initial-weight and completed-reweigh packages are accepted.
+- Implemented lower initial, lower completed reweigh, and equal-weight `TIE`
+  outcomes. The result exposes both comparison inputs and the selected reweigh
+  observation IDs without declaring a charge-specific billed weight.
+- Blocked upstream results propagate their own reason lists. Unknown packages,
+  altered provenance, invalid units, and result-package tampering are rejected.
+- Added eleven explicitly synthetic cases covering lower/higher/tie outcomes,
+  fractional pounds, single and dual upstream blockers, unit/provenance/package
+  tampering, and downstream result tampering.
+
+### Verification
+
+`python scripts/validate_scale_reweigh_lower_reference.py` passed all eleven
+cases. `python scripts/validate_source_rule_registry.py` accepted the fifth
+package and thirteenth rule while continuing to reject all seven expected
+invalid mutations. Focused compilation and `git diff --check` passed; diff check
+emitted only line-ending conversion warnings.
+
+### Limitation and next
+
+This result is a scale-weight reference, not a universal billed weight. It does
+not cover the constructive-weight or containerized paths, decide which charges
+change, apply tolerances, or calculate a refund or invoice. Next, model the
+constructive-weight facts and evidence required by `CLM-0025` before publishing
+that separate reference path.
+
+## 2026-08-03 — Constructive-weight fact and evidence contract
+
+### Objective
+
+Model and verify the facts that must exist before calculating a general shipment
+constructive weight, without yet publishing the 7-lb-per-cubic-foot rule or
+producing a weight result.
+
+### Source basis
+
+- 400NG Item 4.11(e), p. 22 (`CLM-0025`), states the lesser-of-valid-ticket and
+  PPSO constructive-weight obligation and the 7-lb-per-cubic-foot factor.
+- DTR Chapter A-402 section D.8.c.(1)(a), p. IV-A-402-30, states that scales must
+  be unavailable/impractical or tickets lost and that the responsible PPSO must
+  approve the constructive-weight method.
+- Added reviewed locator `LOC-0029` and direct claim `CLM-0033` for the DTR
+  eligibility and approval conditions. The page was within the previously
+  rendered and visually reviewed A-402 pp. 28-31 set.
+
+### Change
+
+- Added logical contracts for immutable shipment-volume observations,
+  constructive-weight approval events, and readiness assessments.
+- Kept verified cubic volume separate from the source-backed 7-lb factor; the
+  factor remains a future rule constant rather than a shipment fact.
+- Required a supported eligibility reason, responsible-PPSO approval, reviewed
+  volume and approval evidence, and resolved ticket status. A valid ticket needs
+  a published result reference and reviewed ticket evidence; documented lost
+  tickets remain a separate allowed status.
+- Added `SYNTH-LS-006` with a positive exact-decimal volume, synthetic evidence
+  documents, PPSO approval, and valid-ticket input. The scenario explicitly has
+  no calculated article weight, weight determination, or rule decision.
+- Added a negative probe that changes PPSO approval to denial and verifies that
+  the ready assessment is rejected.
+
+### Verification
+
+`python scripts/validate_logical_schema_fixtures.py` passed all six positive
+scenarios and all six negative probes. The physical source/rule registry
+validator accepted `LOC-0029` and `CLM-0033` and continued rejecting all seven
+expected invalid mutations. Focused compilation and `git diff --check` passed;
+diff check emitted only line-ending conversion warnings.
+
+### Limitation and next
+
+No constructive weight has been calculated. Next, publish a separate package
+that consumes this verified fact/evidence contract, calculates exact
+`volume_cu_ft * 7 lb/cu_ft`, and selects the lower valid-ticket or constructive
+reference while preserving documented ticket unavailability.
+
+## 2026-08-03 — Constructive-weight calculation and reference selection
+
+### Objective
+
+Publish the exact general-shipment constructive-weight calculation and select
+the lower valid-ticket or constructive reference without introducing rounding,
+fees, tolerances, refunds, billing codes, or money.
+
+### Source basis
+
+- 400NG Item 4.11(e), p. 22 (`CLM-0025`), supplies the 7-lb-per-cubic-foot
+  factor and lower-of-valid-ticket-and-constructive selection.
+- DTR Chapter A-402 section D.8.c.(1)(a), p. IV-A-402-30 (`CLM-0033`), supplies
+  the eligibility reasons and responsible-PPSO approval gate.
+- Both rules cite both reviewed claims. Neither depends on `CF-0004`.
+
+### Change
+
+- Added published immutable package `2026.constructive-weight-reference.1`
+  containing separate calculation and selection rules.
+- Declared three calculation dependencies, three selection dependencies, and
+  three evidence requirements covering verified volume, PPSO approval, and
+  either a valid published ticket result or documented ticket unavailability.
+- Implemented exact Decimal multiplication with an explicit
+  `NONE_SOURCE_DOES_NOT_SPECIFY_ROUNDING` record. Fractional pounds are retained
+  for later rule packages rather than silently rounded.
+- Compared a provenance-complete scale-ticket reference with constructive weight
+  when available. Equal values produce `TIE`; documented lost tickets select
+  constructive weight and omit the unavailable ticket value entirely.
+- Missing or unreviewed volume/approval evidence, unsupported eligibility,
+  denied approval, and blocked upstream ticket results produce blocked results
+  with no calculation or selection.
+- Added fifteen synthetic cases covering exact decimals, both lower branches,
+  ties, documented lost tickets, evidence and approval blocks, upstream blocks,
+  malformed units/numbers/provenance/references, incompatible inputs, and result
+  tampering.
+
+### Verification
+
+`python scripts/validate_constructive_weight_reference.py` passed all fifteen
+cases. The registry validator accepted the sixth package and two new published
+rules while continuing to reject all seven expected invalid mutations. Focused
+compilation and `git diff --check` passed; diff check emitted only line-ending
+conversion warnings.
+
+### Limitation and next
+
+The output is a weight reference, not a charge-specific billed weight or a
+financial result. It does not cover the containerized provisional/correction
+path or `CF-0004` tolerances. Next, model the immutable containerized original
+tare, new gross, provisional net, and later new-tare observations before
+publishing only the conflict-free provisional calculation.
+
+## 2026-08-03 — Containerized provisional and later-completion fact model
+
+### Objective
+
+Model the immutable facts for the containerized gross-only provisional path and
+later new-tare completion without calculating a provisional net or crossing the
+`CF-0004` reimbursement-tolerance gate.
+
+### Source basis
+
+- 400NG Item 4.13(1)-(2), p. 22 (`CLM-0027`), permits provisional use of new
+  gross and origin/original tare and states `new gross - original tare`.
+- Item 4.13(3)-(5), pp. 22-23 (`CLM-0028`), requires later new-tare completion
+  and describes reimbursement behavior whose 5,000-lb branch input remains
+  disputed under `CF-0004`.
+- Both passages were previously rendered, visually verified, and registered
+  with reviewed claims and precise locators.
+
+### Change
+
+- Added logical contracts for a containerized reweigh case, a linked later
+  completion event, and the future provisional result record.
+- Added `SYNTH-LS-007` with separate original-tare, new-gross, and new-tare
+  weighing events, ticket documents, typed measurements, exact pound units,
+  reviewed evidence, and chronological record times.
+- Kept the later new tare as a completion event rather than overwriting the
+  earlier provisional state.
+- Marked the provisional inputs `READY_FOR_DETERMINISTIC_RULE` with no result yet,
+  while scoping `CF-0004` only to reimbursement tolerance.
+- Added validation for positive provisional inputs, shipment consistency,
+  original/provisional/completion chronology, exact ticket/evidence linkage,
+  absence of premature net calculations, and the conflict hold.
+- Added a negative probe that attempts to mark reimbursement tolerance evaluated
+  and confirmed that validation rejects it.
+
+### Verification
+
+`python scripts/validate_logical_schema_fixtures.py` passed all seven positive
+scenarios and seven negative probes. Focused compilation and `git diff --check`
+passed; diff check emitted only line-ending conversion warnings.
+
+### Limitation and next
+
+No provisional net or lower reference has been calculated. Next, publish a
+separate `CLM-0027` package for exact `new gross - original tare` and lower-of-
+initial/provisional selection, while treating the later new tare as evidence and
+leaving every `CLM-0028` tolerance decision blocked by `CF-0004`.
+
+## 2026-08-03 — Containerized provisional-weight package
+
+### Objective
+
+Publish the conflict-free `CLM-0027` calculation and lower-selection rules
+without evaluating the later `CLM-0028` reimbursement tolerance.
+
+### Source basis
+
+- 400NG Item 4.13(1)-(2), p. 22 (`CLM-0027`, `LOC-0023`), directly states use
+  of new gross and original tare, the provisional subtraction, and use of the
+  lesser weight.
+- Item 4.13(3)-(5) (`CLM-0028`) and `CF-0004` are explicitly excluded because
+  they govern the later new-tare reimbursement path and disputed tolerance
+  branch input.
+
+### Change
+
+- Published immutable package `2026.containerized-provisional-weight.1` with
+  separate exact-calculation and lower-selection rules, both sourced only to
+  reviewed `CLM-0027`.
+- Declared original-tare, new-gross, final-initial-result, and provisional-result
+  dependencies plus reviewed ticket and upstream-result evidence requirements.
+- Implemented exact Decimal subtraction with no source-invented rounding and
+  lower initial/provisional selection with explicit tie handling.
+- Validated the exact upstream initial-weight package, rule set, provenance,
+  status, and units before selection.
+- Blocked missing or unreviewed ticket evidence, non-ready cases, nonpositive
+  provisional inputs, and blocked upstream results without emitting a weight.
+- Added fifteen synthetic cases covering exact fractional subtraction, both
+  lower branches, ties, later-new-tare isolation, evidence/readiness/upstream
+  blocks, unit and chronology errors, provenance, and result tampering.
+
+### Verification
+
+`python scripts/validate_containerized_provisional_weight.py` passed all fifteen
+cases. The physical registry validator accepted seven packages and seventeen
+rules while continuing to reject all seven expected invalid mutations. Focused
+compilation and `git diff --check` passed; diff check emitted only line-ending
+conversion warnings.
+
+### Limitation and next
+
+The output is a provisional weight reference, not a completed reweigh,
+charge-specific billed weight, reimbursement decision, or monetary result. The
+later new-tare facts cannot affect it. Next, model immutable reweigh refund,
+billing-hold, and supplemental-adjustment workflow facts from `CLM-0026`,
+`CLM-0031`, and `CLM-0032` before implementing any financial calculation.
+
+## 2026-08-03 — Reweigh refund and billing-hold workflow fact model
+
+### Objective
+
+Model the post-invoice lower-reweigh workflow as immutable facts and evidence
+without calculating a refund, fee, tolerance, expected charge, or payment.
+
+### Source basis
+
+- 400NG Item 4.12(a)-(c), p. 22 (`CLM-0026`, `LOC-0022`), requires the refund
+  workflow and restricts destination/direct-delivery invoicing until the reweigh,
+  DPS update, tickets, and applicable refund processing are complete.
+- Tender Weighing Shipments 8.a.(2)(d), printed p. 20 (`CLM-0031`, `LOC-0027`),
+  requires a supplemental invoice to refund reduced charges when reweigh occurs
+  after initial invoicing.
+- DTR Chapter A-402 section D.7.b, p. IV-A-402-20 (`CLM-0032`, `LOC-0028`),
+  requires gross/tare/net, ticket number, and date in DPS plus weight-ticket
+  delivery to the ordering PPSO within seven working days.
+
+### Change
+
+- Added logical contracts for a reweigh-refund case, PPSO ticket-delivery event,
+  append-only refund-adjustment events, and append-only billing-hold events.
+- Added `SYNTH-LS-008` with an approved original invoice that remains unchanged,
+  a distinct negative-supplemental invoice identity with no monetary version,
+  an exact completed reweigh, reviewed determining ticket, complete DPS update,
+  and reviewed PPSO delivery evidence.
+- Preserved refund-required, supplemental-submitted, and processed-for-payment
+  states as a chronological predecessor chain rather than a mutable status.
+- Preserved hold placement and release separately and required release to follow
+  the DPS update, ticket delivery, and refund-processed event.
+- Prohibited refund amounts, signed adjustments, tolerance results, reweigh fees,
+  calculations, expected charges, reconciliation matches, payments, and rule
+  decisions in this fact-only scenario.
+- Added a negative probe that moves hold release before refund processing and
+  confirms validation rejects the history.
+
+### Verification
+
+`python scripts/validate_logical_schema_fixtures.py` passed all eight positive
+scenarios and eight negative probes. Focused compilation and `git diff --check`
+passed; diff check emitted only line-ending conversion warnings.
+
+### Limitation and next
+
+The model records workflow facts but does not decide whether a supplemental
+refund is required or whether a hold may release. Next, publish a conflict-free,
+non-monetary workflow package for those decisions using `CLM-0026`, `CLM-0031`,
+and `CLM-0032`; keep all refund amounts and `CF-0004` tolerance logic out.
+
+## 2026-08-03 — Post-invoice reweigh refund workflow package
+
+### Objective
+
+Publish deterministic, non-monetary decisions for supplemental-refund necessity
+and destination/direct-delivery hold-release readiness.
+
+### Source basis
+
+- 400NG Item 4.12(a)-(c), p. 22 (`CLM-0026`, `LOC-0022`), supplies refund scope
+  and hold prerequisites.
+- Tender Weighing Shipments 8.a.(2)(d), printed p. 20 (`CLM-0031`, `LOC-0027`),
+  supplies the post-invoice supplemental-refund requirement.
+- DTR A-402 D.7.b, p. IV-A-402-20 (`CLM-0032`, `LOC-0028`), supplies required
+  DPS facts and PPSO ticket-delivery evidence.
+
+### Change
+
+- Published immutable package `2026.reweigh-refund-workflow.1` with separate
+  supplemental-refund and hold-readiness rules and no conflict dependency.
+- Declared verified lower-weight result, original invoice submission, completed
+  reweigh, DPS update, PPSO ticket delivery, and conditional refund-processing
+  dependencies and evidence requirements.
+- Added an immutable original invoice submission event to `SYNTH-LS-008` so the
+  post-invoice branch uses an explicit submission time rather than a proxy.
+- Implemented exact upstream package/rule/provenance validation and required the
+  selected reweigh observation to match the workflow case.
+- Made refund processing conditional: it blocks hold release only when a lower
+  reweigh occurred after initial invoice submission.
+- Returned known incomplete workflow states as final `release_ready: false`,
+  while missing/unreviewed facts or evidence produce blocked human-review output.
+- Added sixteen cases covering both refund branches, ready/not-ready holds,
+  conditional processing, DPS/ticket/refund evidence, incomplete fact coverage,
+  chronology, upstream blocks, provenance, references, and result tampering.
+
+### Verification
+
+`python scripts/validate_reweigh_refund_workflow.py` passed all sixteen cases.
+The registry validator accepted eight packages and nineteen rules while still
+rejecting all seven expected invalid mutations. Logical-schema validation passed
+all eight scenarios and negative probes; focused compilation and diff checks
+passed with only line-ending warnings.
+
+### Limitation and next
+
+The package emits workflow booleans and reasons only. It does not calculate a
+refund, expected charge, fee, tolerance, billing item, or payment. Next, inspect
+the archived tariff/rate/item-code evidence and select the first monetary charge
+family whose full provenance is complete enough for deterministic shadow rating.
+
+## 2026-08-03 — Reweigh implementation checkpoint
+
+### Outcome
+
+Prepared one cold-resume commit containing the immutable reweigh-observation
+model, completed/lower/constructive/containerized weight packages, post-invoice
+refund workflow model and package, synthetic fixtures, validators, registry
+updates, and documentation accumulated after `de53303`.
+
+### Verification
+
+The checkpoint passes all logical-schema, physical-registry, initial-weight,
+automatic-reweigh, completed-reweigh, scale-lower-reference, constructive-weight,
+containerized-provisional, and reweigh-refund-workflow suites. Python compilation
+and `git diff --check` pass; diff check reports only line-ending conversion
+warnings.
+
+### Resume point
+
+Inspect the archived 400NG, baseline-rate workbook, and item-code evidence to
+select the first conflict-free monetary charge family for shadow rating. Record
+an exact source gap instead of implementing if effective date, rate cell, unit,
+rounding, item-code currency, or evidence provenance is incomplete.

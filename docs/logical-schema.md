@@ -254,17 +254,28 @@ shipment.
 
 | Entity | Required fields | Conditional / repeating fields | Key invariants | Source basis |
 |---|---|---|---|---|
-| `weighing_event` | `shipment_id`, `weighing_kind`, `occurred_at_or_date`, `scale_location_id` | `portion_id`, `vehicle_identifier_sanitized` | Kind distinguishes original, reweigh, gross, tare, net, constructive | DISC-0029–0034 |
+| `weighing_event` | `shipment_id`, `observation_key`, `observation_version`, `weighing_kind`, `completion_status`, `occurred_at_or_date`, `recorded_at`, `scale_location_id` | `portion_id`, `vehicle_identifier_sanitized`, `supersedes_id`, `correction_reason` | A duplicate reweigh has a new observation key; a correction keeps the key and creates the next contiguous version, directly superseding the prior immutable event | DISC-0029–0034; CLM-0029, CLM-0032 |
 | `weight_ticket` | `document_version_id`, `ticket_kind`, `issued_date` | `scale_identifier`, `operator_attestation_id` | Evidence document is immutable; one ticket may evidence multiple typed measurements | DISC-0036–0038 |
-| `weight_ticket_measurement` | `weight_ticket_id`, `weighing_event_id`, `measurement_role`, `weight_value`, `weight_unit` | — | Unit required; exact quantity; role and event compatible | DISC-0029, 0037 |
+| `weight_ticket_measurement` | `weight_ticket_id`, `weighing_event_id`, `measurement_role`, `weight_value`, `weight_unit` | — | A completed scale reweigh version has exactly one gross, tare, and net measurement; unit required; exact `net = gross - tare`; measurements are immutable children of that event version | DISC-0029, 0037; CLM-0032 |
+| `dps_reweigh_update_event` | `weighing_event_id`, `update_status`, `updated_at`, `recorded_fact_roles`, `evidence_link_id` | `supersedes_id`, `correction_reason` | A completed reweigh version has a DPS update recording gross, tare, net, ticket number, and reweigh date; a correction adds a new update linked to the superseding event | CLM-0029, CLM-0032 |
 | `reweigh_request` | `shipment_id`, `request_kind`, `requested_at`, `requestor_role`, `status` | `portion_id`, `authorization_event_id`, `reason` | Request and authorization remain separate | DISC-0030–0033 |
 | `shipment_article_weight` | `shipment_id`, `article_type`, `weight_value`, `weight_unit`, `derivation_method` | `portion_id`, `evidence_link_id` | Method and evidence required when used in controlling weight | DISC-0034–0035 |
+| `shipment_volume_observation` | `shipment_id`, `observation_key`, `observation_version`, `volume_value`, `volume_unit`, `verification_status`, `recorded_at`, `evidence_link_id` | `portion_id`, `supersedes_id`, `correction_reason` | Exact positive cubic volume; corrections append a contiguous version and retain the prior evidence | CLM-0025, CLM-0033 |
+| `constructive_weight_approval_event` | `shipment_id`, `volume_observation_id`, `eligibility_reason_code`, `decision_status`, `approver_role`, `occurred_at`, `recorded_at`, `evidence_link_id` | `supersedes_id`, `correction_reason` | Eligibility reason is scales unavailable, scale use impractical, or tickets lost; a ready constructive path requires responsible-PPSO approval | CLM-0033 |
+| `constructive_weight_assessment` | `shipment_id`, `volume_observation_id`, `approval_event_id`, `valid_ticket_status`, `factor_source_claim_id`, `readiness_status` | `ticket_weight_result_ref`, `ticket_evidence_link_id`, `ticket_unavailability_reason` | `READY_FOR_DETERMINISTIC_RULE` requires verified volume, approved PPSO evidence, and either a provenance-complete valid-ticket result or documented ticket unavailability; the 7-lb factor remains a rule constant, not a shipment fact | CLM-0025, CLM-0033 |
+| `containerized_reweigh_case` | `shipment_id`, `case_key`, `original_tare_measurement_id`, `new_gross_measurement_id`, `provisional_readiness_status`, `provisional_result_status`, `created_at` | `portion_id`, `conflict_hold_ids` | Original tare and new gross are immutable typed ticket measurements; a ready case has no provisional net until the deterministic rule runs; `CF-0004` blocks only the later reimbursement tolerance | CLM-0027, CLM-0028; CF-0004 |
+| `containerized_reweigh_completion_event` | `containerized_reweigh_case_id`, `new_tare_measurement_id`, `occurred_at`, `recorded_at`, `evidence_link_id`, `reimbursement_tolerance_status` | `supersedes_id`, `correction_reason` | Later new tare completes rather than overwrites the provisional history; tolerance status remains `BLOCKED_BY_CF_0004` until an approved branch interpretation exists | CLM-0028; CF-0004 |
+| `containerized_provisional_weight_result` | `containerized_reweigh_case_id`, `new_gross_weight`, `original_tare_weight`, `provisional_net_weight`, `weight_unit`, `rule_decision_id`, `recorded_at` | `supersedes_id` | Exact `new gross - original tare`; append-only and absent until a published rule executes | CLM-0027 |
 | `weight_determination` | `shipment_id`, `rating_context_code`, `method_code`, `determined_weight`, `weight_unit`, `rule_decision_id` | `portion_id`, `supersedes_id` | One current result per rating context/version; exact inputs exposed; immutable correction chain | DISC-0018, 0034, 0039 |
 | `invoice_line_weight_basis` | `invoice_line_version_id`, `basis_role`, `weight_determination_id`, `reported_weight`, `weight_unit` | — | Distinguishes billed, actual, and controlling weights | DISC-0018, 0039 |
 
-Reweigh fees, automatic-reweigh thresholds, billing holds, and refund eligibility
-are rule decisions, not flags edited directly on a shipment. Their outputs cite the
-rule version, exact inputs, evidence, and unresolved assumptions (`DISC-0032–0041`).
+Multiple completed reweighs remain separate observation keys even when later
+selection logic uses only one of them. A late correction is a new version of the
+same observation and retains the earlier measurements, ticket document version,
+and DPS update. Reweigh fees, automatic-reweigh thresholds, billing holds, and
+refund eligibility are rule decisions, not flags edited directly on a shipment.
+Their outputs cite the rule version, exact inputs, evidence, and unresolved
+assumptions (`DISC-0032–0041`).
 
 ## 7. Documents, extracted facts, and evidence
 
@@ -336,6 +347,10 @@ until CF-0002 is resolved and the interpretation is approved.
 | `external_message` | `message_type`, `direction`, `occurred_at`, `correlation_id`, `transport_status` | `business_status`, `reason_code`, `payload_document_version_id` | Transport acknowledgement and downstream business error are distinct types | DISC-0019–0020 |
 | `invoice_line_status_event` | `invoice_line_id`, `status_code`, `effective_at`, `recorded_at` | `reason_code`, `response_deadline`, `external_message_id` | Append-only; preserve event time and receipt time; status vocabulary versioned | DISC-0022–0024 |
 | `invoice_line_review_event` | `invoice_line_id`, `review_event_type`, `recorded_at` | `note`, `response_deadline`, `evidence_review_id` | Deadline has explicit time-zone/date semantics | DISC-0023, 0027 |
+| `reweigh_refund_case` | `shipment_id`, `original_invoice_id`, `completed_reweigh_event_id`, `lower_weight_result_ref`, `trigger_timing_code`, `case_status`, `created_at` | `closed_at` | Links an already-invoiced shipment to the later lower reweigh without changing the original invoice; contains no refund amount | CLM-0026, CLM-0031 |
+| `reweigh_ticket_delivery_event` | `reweigh_refund_case_id`, `ticket_document_version_id`, `recipient_role_codes`, `occurred_at`, `recorded_at`, `timeliness_status`, `evidence_link_id` | — | Append-only proof that determining tickets reached the origin/ordering PPSO; working-day status is observed or produced by a separately versioned calendar rule | CLM-0026, CLM-0032 |
+| `reweigh_refund_adjustment_event` | `reweigh_refund_case_id`, `event_type`, `occurred_at`, `recorded_at` | `supplemental_invoice_id`, `previous_event_id`, `evidence_link_id` | Required, submitted, and processed states form an immutable chain; an amount is prohibited until deterministic financial calculation exists | CLM-0026, CLM-0031 |
+| `reweigh_billing_hold_event` | `reweigh_refund_case_id`, `hold_action`, `target_service_scope`, `reason_code`, `occurred_at`, `recorded_at` | `previous_event_id`, `release_basis_event_ids`, `evidence_link_id` | Destination/direct-delivery hold release follows DPS update, ticket delivery, and refund processing; placing or releasing a hold never rewrites invoice history | CLM-0026, CLM-0032 |
 | `payment` | `payer_organization_id`, `payment_reference`, `payment_date`, `amount`, `currency` | `external_message_id` | Exact money; payment identity unique within payer namespace | Post-audit requirement |
 | `payment_allocation` | `payment_id`, `invoice_line_id`, `allocated_amount`, `currency` | `allocation_reason`, `supersedes_id` | Allocations for a payment balance exactly under declared rounding policy | Post-audit requirement |
 

@@ -1,0 +1,165 @@
+{
+  "fixture_id": "SYNTH-LS-006",
+  "scenario_type": "constructive_weight_facts",
+  "data_status": "SYNTHETIC",
+  "description": "Verified cubic volume, responsible-PPSO approval, and a provenance-complete valid-ticket input make a constructive-weight case ready for a later deterministic rule without calculating weight in this fixture.",
+  "provenance": [
+    {
+      "id": "PROV-CW-400NG-001",
+      "source_id": "SRC-DP3-2026-400NG",
+      "document_version": "published 2025-12-05; effective 2026-05-15 through 2027-05-14",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 4.11(e), p. 22; LOC-0021",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0025"]
+    },
+    {
+      "id": "PROV-CW-DTR-001",
+      "source_id": "SRC-DTR-IV-A402",
+      "document_version": "publication 2026-07-14",
+      "effective_period": "UNSTATED",
+      "locator": "section D.8.c.(1)(a), p. IV-A-402-30; LOC-0029",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0033"]
+    }
+  ],
+  "records": {
+    "shipments": [
+      {
+        "id": "SHP-CW-001",
+        "program_code": "DP3",
+        "domestic_indicator": true,
+        "shipment_status": "COMPLETED",
+        "provenance_ref": "PROV-CW-400NG-001"
+      }
+    ],
+    "documents": [
+      {
+        "id": "DOC-CW-VOLUME",
+        "document_type": "VOLUME_WORKSHEET",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-CW-DTR-001"
+      },
+      {
+        "id": "DOC-CW-APPROVAL",
+        "document_type": "PPSO_APPROVAL_RECORD",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-CW-DTR-001"
+      },
+      {
+        "id": "DOC-CW-TICKET",
+        "document_type": "WEIGHT_TICKET",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-CW-400NG-001"
+      }
+    ],
+    "document_versions": [
+      {
+        "id": "DOCV-CW-VOLUME-001",
+        "document_id": "DOC-CW-VOLUME",
+        "version_number": 1,
+        "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-CW-VOLUME",
+        "media_type": "application/json",
+        "storage_uri": "synthetic://constructive-weight/volume/v1",
+        "received_at": "2026-06-15T13:00:00Z",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-CW-DTR-001"
+      },
+      {
+        "id": "DOCV-CW-APPROVAL-001",
+        "document_id": "DOC-CW-APPROVAL",
+        "version_number": 1,
+        "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-CW-APPROVAL",
+        "media_type": "application/json",
+        "storage_uri": "synthetic://constructive-weight/approval/v1",
+        "received_at": "2026-06-15T15:00:00Z",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-CW-DTR-001"
+      },
+      {
+        "id": "DOCV-CW-TICKET-001",
+        "document_id": "DOC-CW-TICKET",
+        "version_number": 1,
+        "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-CW-TICKET",
+        "media_type": "application/json",
+        "storage_uri": "synthetic://constructive-weight/ticket/v1",
+        "received_at": "2026-06-14T12:00:00Z",
+        "data_status": "SYNTHETIC",
+        "provenance_ref": "PROV-CW-400NG-001"
+      }
+    ],
+    "evidence_links": [
+      {
+        "id": "EVL-CW-VOLUME-001",
+        "document_version_id": "DOCV-CW-VOLUME-001",
+        "target_kind": "SHIPMENT_VOLUME_OBSERVATION",
+        "target_id": "VOL-CW-001",
+        "evidence_role": "VERIFIED_CUBIC_VOLUME",
+        "review_status": "REVIEWED",
+        "provenance_ref": "PROV-CW-DTR-001"
+      },
+      {
+        "id": "EVL-CW-APPROVAL-001",
+        "document_version_id": "DOCV-CW-APPROVAL-001",
+        "target_kind": "CONSTRUCTIVE_WEIGHT_APPROVAL_EVENT",
+        "target_id": "APR-CW-001",
+        "evidence_role": "RESPONSIBLE_PPSO_APPROVAL",
+        "review_status": "REVIEWED",
+        "provenance_ref": "PROV-CW-DTR-001"
+      },
+      {
+        "id": "EVL-CW-TICKET-001",
+        "document_version_id": "DOCV-CW-TICKET-001",
+        "target_kind": "CONSTRUCTIVE_WEIGHT_ASSESSMENT",
+        "target_id": "CWA-CW-001",
+        "evidence_role": "VALID_TICKET_RULE_RESULT_SUPPORT",
+        "review_status": "REVIEWED",
+        "provenance_ref": "PROV-CW-400NG-001"
+      }
+    ],
+    "shipment_volume_observations": [
+      {
+        "id": "VOL-CW-001",
+        "shipment_id": "SHP-CW-001",
+        "observation_key": "SYNTH-CW-VOLUME-001",
+        "observation_version": 1,
+        "volume_value": "1000.25",
+        "volume_unit": "cu_ft",
+        "verification_status": "VERIFIED",
+        "recorded_at": "2026-06-15T13:00:00Z",
+        "evidence_link_id": "EVL-CW-VOLUME-001",
+        "provenance_ref": "PROV-CW-DTR-001"
+      }
+    ],
+    "constructive_weight_approval_events": [
+      {
+        "id": "APR-CW-001",
+        "shipment_id": "SHP-CW-001",
+        "volume_observation_id": "VOL-CW-001",
+        "eligibility_reason_code": "SCALE_USE_IMPRACTICAL",
+        "decision_status": "APPROVED",
+        "approver_role": "RESPONSIBLE_PPSO",
+        "occurred_at": "2026-06-15T14:30:00Z",
+        "recorded_at": "2026-06-15T15:00:00Z",
+        "evidence_link_id": "EVL-CW-APPROVAL-001",
+        "provenance_ref": "PROV-CW-DTR-001"
+      }
+    ],
+    "constructive_weight_assessments": [
+      {
+        "id": "CWA-CW-001",
+        "shipment_id": "SHP-CW-001",
+        "volume_observation_id": "VOL-CW-001",
+        "approval_event_id": "APR-CW-001",
+        "valid_ticket_status": "FINAL_VALID_PUBLISHED_RESULT",
+        "ticket_weight_result_ref": "SYNTH-PUBLISHED-SCALE-WEIGHT-RESULT-001",
+        "ticket_evidence_link_id": "EVL-CW-TICKET-001",
+        "factor_source_claim_id": "CLM-0025",
+        "readiness_status": "READY_FOR_DETERMINISTIC_RULE",
+        "provenance_ref": "PROV-CW-400NG-001"
+      }
+    ]
+  }
+}
