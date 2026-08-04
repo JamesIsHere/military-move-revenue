@@ -1144,3 +1144,46 @@ Inspect the archived 400NG, baseline-rate workbook, and item-code evidence to
 select the first conflict-free monetary charge family for shadow rating. Record
 an exact source gap instead of implementing if effective date, rate cell, unit,
 rounding, item-code currency, or evidence provenance is incomplete.
+
+## 2026-08-03 — First monetary charge-family inventory
+
+### Objective
+
+Select the narrowest source-complete monetary family for initial shadow rating,
+or record the exact publication gate if no family is complete.
+
+### Source basis
+
+- Reviewed 2026 400NG Items 1.2(c), 4, 28, 50, 105, 120, and 130 against the
+  archived PDF/text extraction.
+- Re-read the 2026 Baseline Rates `Additional Rates` candidate cells and the
+  archived 12 August 2022 `DOM_400NG` billing rows and legends.
+- Applied open conflicts `CF-0001` through `CF-0004`, especially the current
+  item-code publication gap in `CF-0003`.
+
+### Change
+
+- Added `docs/monetary-charge-family-inventory.md` with a provenance matrix for
+  Item 28A, reweigh, bulky article, extra labor, crating, and full pack/unpack.
+- Selected Item 28A extra pickup as the preferred first family because its
+  candidate math is a flat 198.50 USD per eligible performed occurrence and its
+  tariff evidence boundary is narrower than the alternatives.
+- Did not implement or register a monetary rule. The only complete source for
+  Item 28A's requested-pickup date basis, `EA` unit, `SC` reference, additional-
+  pickup location, approval screen, and approval flag is the disputed 2022 item
+  listing. `CF-0003` must close first.
+
+### Verification
+
+The archived rate workbook was inspected read-only and confirmed
+`Additional Rates!A13:F13`; the item-code workbook confirmed row 23 and legends
+155-159; the extracted tariff confirmed the Item 28 eligibility text and Items
+1.2(c)/50 effective-date interaction. Existing rule code and registry data were
+not changed.
+
+### Limitation and next
+
+No fee, expected charge, billing line, reconciliation, or payment result is
+implemented. Next, obtain an authoritative current item-code baseline or a
+scoped approval that closes the Item 28A portion of `CF-0003`, then publish the
+package with Decimal and evidence-boundary tests.

@@ -5,8 +5,8 @@
 Active. The domestic DP3 TSP-to-government post-audit goal remains ratified.
 M1 source closure is externally constrained, M2's logical contract is complete,
 and M3 contains seven published deterministic reference/workflow packages, a
-conflict-aware draft registry, and a verified immutable reweigh-observation
-contract.
+conflict-aware draft registry, a verified immutable reweigh-observation
+contract, and a reviewed first-monetary-family inventory.
 
 ## Active milestone
 
@@ -16,12 +16,13 @@ from reviewed 400NG/Tender material. M4 monetary shadow rating has not started.
 
 ## Last checkpoint
 
-This checkpoint supersedes `de53303` as the cold-resume base. It consolidates the
-completed reweigh-observation, lower-reference, constructive-weight,
-containerized-fact, containerized-provisional, and reweigh-refund workflow
-increments: logical-contract changes, `SYNTH-LS-005` through `SYNTH-LS-008`,
-four additional published reference packages plus the workflow package,
-validator coverage, and handoff updates.
+This cold-resume snapshot adds a source-verified monetary-family inventory to
+the reweigh implementation checkpoint. It selects Item 28A extra pickup as the
+preferred first shadow-rating family but records that `CF-0003` blocks
+publication because the only complete rate-date, unit, location, and approval
+contract is the 12 August 2022 Item Code Listing with no established 2026
+effective or supersession period. No calculation code or monetary output was
+added.
 
 ## Completed
 
@@ -77,14 +78,20 @@ validator coverage, and handoff updates.
 - Published and implemented `2026.reweigh-refund-workflow.1`; sixteen synthetic
   refund-required/not-required, hold-ready/not-ready, evidence, chronology,
   upstream-provenance, reference, and tampering cases pass with no money output.
+- Inventoried six candidate monetary families against current 400NG rules,
+  baseline-rate cells, units, rate-date selection, rounding, evidence, and open
+  conflicts in `docs/monetary-charge-family-inventory.md`.
+- Selected the 198.50 USD-per-occurrence Item 28A extra-pickup fee as the
+  preferred first implementation after source closure; kept it unimplemented
+  because `CF-0003` is material to the complete 2026 billing contract.
 
 ## Current task
 
-Select and document the first conflict-free monetary charge family for shadow
-rating from the archived 400NG, baseline-rate workbook, and item-code evidence.
-Prefer the narrowest family with complete effective-date, rate-cell, unit,
-rounding, and evidence provenance; if none is complete, record the exact source
-gap before implementing a calculation.
+Close `CF-0003` with a current authoritative domestic Item Code Listing, an
+explicit continued-applicability/supersession record, or an approved scoped
+interpretation. Once closed, register and implement the Item 28A extra-pickup
+fee as the first monetary shadow-rating package with occurrence-level evidence
+and exact-decimal tests.
 
 ## Known blockers
 
@@ -104,15 +111,18 @@ gap before implementing a calculation.
 - Resolve CF-0002 before the disputed transit/SIT-tool behavior.
 - Resolve CF-0003 before treating the 2022 item-code workbook as authoritative
   for 2026.
-- Later, select the first monetary charge family for shadow rating.
+- Approve Item 28A as the first monetary family only after `CF-0003` closure.
 
 ## Next three actions
 
-1. Inventory candidate monetary charge families against archived tariff rules,
-   rate cells, item codes, conflicts, units, and rounding instructions.
-2. Select one conflict-free family or record why each candidate remains blocked.
-3. Register and implement the selected shadow-rating package, while continuing
-   to pursue archivable current PPA source artifacts.
+1. Pursue an archivable current domestic item-code artifact or explicit
+   continuation/supersession evidence that can close `CF-0003`.
+2. If source retrieval remains constrained, prepare a scoped interpretation
+   request for Item 28A covering rate-date basis, `EA` unit, location fields,
+   and approval behavior without publishing a rule.
+3. After approval, register and implement the Item 28A package with zero/one/
+   multiple-occurrence, exclusion, authorization, rate-cycle, Decimal, and
+   tampering tests.
 
 ## Verification status
 
