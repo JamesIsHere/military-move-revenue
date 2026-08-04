@@ -29,6 +29,9 @@ a database engine.
   package sourced from 400NG Item 4.12, Tender 8.a.(2)(d), and DTR D.7.b.; and
 - a separate published Item 28A extra-pickup monetary package using the scoped
   source contract approved by Decision 0003 / `INT-0001`.
+- an immutable draft Item 28B extra-delivery package authorized by Decision
+  0004 / `INT-0002`, which remains unpublished until implementation and all
+  mandatory tests are complete.
 
 The CSV manifest remains the archival authority for issuer, title, version,
 effective period, retrieval date, byte length, checksum, canonical URL, and

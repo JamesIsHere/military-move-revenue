@@ -18,11 +18,11 @@ multi-family shipment report, or authorized historical case is implemented.
 
 ## Last checkpoint
 
-Drafted proposed Decision 0004 for Item 28B from four archived sources. It
-recommends a narrow actual-pickup-date, row-24, Destination-PPSO, 198.50 USD/EA
-contract through 2027-05-14, while preserving deferral as an alternative. Ten
-mandatory tests and four dossier-tamper probes pass. No interpretation, rule,
-adapter, or money was registered or implemented.
+The owner selected Decision 0004 Alternative A. Registered approved `INT-0002`,
+three reviewed Item 28B claims, three locators, and immutable draft package
+`2026.item-28b-extra-delivery.draft.1` with three rules, seven dependencies, and
+three evidence gates. All Item 28B rules remain not implemented and unpublished;
+`CF-0001` and `CF-0003` remain open broadly.
 
 ## Completed
 
@@ -58,9 +58,11 @@ adapter, or money was registered or implemented.
 
 ## Current task
 
-Await the project owner's explicit Decision 0004 selection:
-`A_APPROVE_NARROW` or `B_DEFER`. Do not register an interpretation or implement
-Item 28B financial code before that selection.
+Implement deterministic Item 28B rating under `INT-0002` with actual-pickup
+date selection, completed additional deliveries before final delivery, reviewed
+Government authorization/completion evidence, exact Decimal multiplication, and
+all ten mandatory boundary/evidence/tamper test classes. Publish only after the
+complete suite passes.
 
 ## Known blockers
 
@@ -84,16 +86,17 @@ Item 28B financial code before that selection.
 
 ## Next three actions
 
-1. Obtain the owner's explicit `A_APPROVE_NARROW` or `B_DEFER` selection.
-2. If approved, register the immutable decision/package and build rating/audit
-   boundary tests; if rejected, target the current domestic item-code baseline.
-3. Preserve `CF-0001` and `CF-0003` broadly under either alternative.
+1. Add a synthetic Item 28B logical fixture and deterministic rating evaluator.
+2. Add boundary, eligibility, authorization-channel, evidence, duplicate,
+   Decimal, and result-tamper tests; publish a new immutable package version.
+3. Add Item 28B invoice/payment reconciliation and a second report adapter only
+   after the rating result contract is published.
 
 ## Verification status
 
-The registry contains ten public sources, 37 claims, 34 locators, four open
-conflicts, one approved interpretation, nine packages, and 22 rules. Six rules
-remain disputed drafts; 16 are published. Passing suites: registry valid plus
+The registry contains ten public sources, 40 claims, 38 locators, four open
+conflicts, two approved interpretations, ten packages, and 25 rules. Nine rules
+remain draft; 16 are published. Passing suites: registry valid plus
 nine expected failures; logical schema ten positive plus ten negative; initial
 weight 14; automatic reweigh 10; completed reweigh 11; scale-reweigh lower 11;
 constructive reference 15; containerized provisional 15; reweigh-refund workflow

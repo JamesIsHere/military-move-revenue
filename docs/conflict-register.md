@@ -8,9 +8,9 @@ remain archived under their manifest source IDs.
 
 | Case | Question | Type | Material effect | Status |
 |---|---|---|---|---|
-| `CF-0001` | Which event date selects 2026 SIT/accessorial rate tables? | Direct/scope conflict | Rate-version selection and money | Open — disputed |
+| `CF-0001` | Which event date selects 2026 SIT/accessorial rate tables? | Direct/scope conflict | Rate-version selection and money | Open broadly; Item 28B-only exception approved by `INT-0002` |
 | `CF-0002` | Which domestic transit table applies for 2026, and may it drive authorized SIT days? | Version/numeric conflict | RDD, transit days, SIT entitlement | Open — narrowed; 70% authority unresolved |
-| `CF-0003` | Is the 12 August 2022 item-code listing still applicable to 2026 shipments? | Publication-location and currency gap | Billing-code and evidence validation | Open broadly; Item 28A-only exception approved by `INT-0001` |
+| `CF-0003` | Is the 12 August 2022 item-code listing still applicable to 2026 shipments? | Publication-location and currency gap | Billing-code and evidence validation | Open broadly; Item 28A/28B-only exceptions approved by `INT-0001`/`INT-0002` |
 | `CF-0004` | Which weight fact selects the 5,000-lb reweigh-tolerance branch? | Material input ambiguity | Reweigh-fee and containerized reimbursement eligibility | Open — disputed input fact |
 
 ## CF-0001 — SIT/accessorial table-selection date
@@ -38,6 +38,8 @@ Code Listing.
 - Preserve original requested pickup and actual pickup as separate facts.
 - Permit provisional schema and test design using `CLM-0001`, clearly marked
   disputed and nonproduction.
+- Exception: Decision 0004 / `INT-0002` approves actual pickup date only for
+  the 2026 Item 28B draft package. It does not resolve another accessorial.
 
 ### Evidence required to close
 
@@ -126,6 +128,9 @@ mechanism only and is not incorporated into a domestic rule.
 - Exception: Decision 0003 / `INT-0001` approves only the Item 28A row for the
   2026 extra-pickup shadow-rating package. It does not approve broad item-code
   validation.
+- Exception: Decision 0004 / `INT-0002` approves only Item 28B row 24 for the
+  2026 extra-delivery draft package. Publication still requires implementation
+  and all mandatory tests.
 
 ### Scoped decision
 
@@ -145,7 +150,7 @@ decision, exclusions, and mandatory tests are recorded in Decision 0003.
   SIT code family.
 
 These remain closure requirements for `CF-0003` as a whole; they do not block
-the approved Item 28A-only implementation.
+the approved narrow Item 28A or Item 28B interpretations.
 
 Affected discoveries: `DISC-0031`, `DISC-0075`, `DISC-0078`, `DISC-0079`,
 `DISC-0086`, `DISC-0087`.

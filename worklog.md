@@ -1484,3 +1484,30 @@ Item-Code rows 23–26.
   has been registered.
 - Stop for the project owner's explicit selection of `A_APPROVE_NARROW` or
   `B_DEFER`.
+
+## 2026-08-04 — Item 28B narrow approval and draft registration
+
+### Outcome
+
+- The project owner explicitly agreed with recommended Alternative A. Recorded
+  accepted Decision 0004 and immutable interpretation `INT-0002` with approval
+  date, reviewer role, rationale, exact scope, exclusions, cited claims,
+  authorized rules, and required regression tests.
+- Registered reviewed Item 28B claims `CLM-0041`–`CLM-0043` and locators
+  `LOC-0036`–`LOC-0038` for current tariff eligibility, exact 198.50 USD-per-
+  occurrence rate, and archived row-24 fields.
+- Registered draft package `2026.item-28b-extra-delivery.draft.1`, three draft
+  rules, eleven source links, seven explicit dependencies, and three evidence
+  requirements. All rules remain `not_implemented` and `draft`.
+- Updated `CF-0001` and `CF-0003` with the narrow Item 28B exception while
+  preserving both conflicts broadly. The original proposed dossier remains
+  unchanged and separately verifiable.
+
+### Verification and next
+
+- Registry validation and all nine expected-invalid mutations pass.
+- The Item 28B dossier validator proves the proposal/acceptance chain, raw
+  sources, `INT-0002`, and the unpublished package gate; four tamper probes pass.
+- Next, implement the Item 28B deterministic rating and all ten mandatory test
+  classes. Only then may the draft rules/package be replaced by a published
+  immutable version.
