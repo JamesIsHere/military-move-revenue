@@ -1,0 +1,208 @@
+{
+  "fixture_set": "SYNTHETIC_METADATA_ONLY_HISTORICAL_CORPUS_MANIFEST",
+  "description": "A metadata-only synthetic two-version manifest contract. It contains no shipment content, grants no authorization, and cannot contribute to the 25-case historical acceptance requirement.",
+  "valid_template": {
+    "schema_version": "historical-corpus-manifest.v1",
+    "policy_version": "2026-08-07.1",
+    "manifest_id": "SYNTHETIC-HISTORICAL-CORPUS-001",
+    "control_mode": "SYNTHETIC_TEMPLATE",
+    "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+    "data_status": "SYNTHETIC_METADATA_ONLY",
+    "contains_case_content": false,
+    "real_data_ingest_authorized": false,
+    "required_historical_case_count": 25,
+    "declared_entry_count": 2,
+    "as_of_at": "2026-08-07T12:00:00Z",
+    "entries": [
+      {
+        "entry_id": "SYNTHETIC-CORPUS-ENTRY-001-V1",
+        "case_reference_id": "SYNTHETIC-OPAQUE-CASE-REFERENCE-001",
+        "entry_version": 1,
+        "supersedes_entry_id": null,
+        "entry_mode": "SYNTHETIC_TEMPLATE",
+        "status": "SYNTHETIC_TEMPLATE_NONCOUNTING",
+        "case_data_status": "SYNTHETIC_METADATA_ONLY",
+        "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+        "contains_case_content": false,
+        "intake_envelope_id": "SYNTHETIC-INTAKE-CONTROL-001",
+        "intake_envelope_sha256": "06821d198e6daa1f0948e09d88ed6acb2243d30e1ecd79a80b7e62bb74356d21",
+        "sanitized_bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expected_label_id": "SYNTHETIC-EXPECTED-LABEL-001",
+        "expected_label_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "acceptance_report_id": null,
+        "acceptance_report_sha256": null,
+        "registered_at": "2026-08-07T10:00:00Z",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical-corpus-manifest fixture 2026-08-07.1",
+            "effective_period": "TEST_ONLY",
+            "locator": "synthetic first manifest-entry version",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "synthetic_contract_test"
+          }
+        ]
+      },
+      {
+        "entry_id": "SYNTHETIC-CORPUS-ENTRY-001-V2",
+        "case_reference_id": "SYNTHETIC-OPAQUE-CASE-REFERENCE-001",
+        "entry_version": 2,
+        "supersedes_entry_id": "SYNTHETIC-CORPUS-ENTRY-001-V1",
+        "entry_mode": "SYNTHETIC_TEMPLATE",
+        "status": "SYNTHETIC_TEMPLATE_NONCOUNTING",
+        "case_data_status": "SYNTHETIC_METADATA_ONLY",
+        "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+        "contains_case_content": false,
+        "intake_envelope_id": "SYNTHETIC-INTAKE-CONTROL-001",
+        "intake_envelope_sha256": "06821d198e6daa1f0948e09d88ed6acb2243d30e1ecd79a80b7e62bb74356d21",
+        "sanitized_bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "expected_label_id": "SYNTHETIC-EXPECTED-LABEL-001",
+        "expected_label_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "acceptance_report_id": null,
+        "acceptance_report_sha256": null,
+        "registered_at": "2026-08-07T11:00:00Z",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical-corpus-manifest fixture 2026-08-07.1",
+            "effective_period": "TEST_ONLY",
+            "locator": "synthetic direct supersession without case content",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "synthetic_contract_test"
+          }
+        ]
+      }
+    ],
+    "provenance": [
+      {
+        "source_id": "HISTORICAL-CORPUS-MANIFEST-POLICY",
+        "document_version": "2026-08-07.1",
+        "effective_period": "TEST_ONLY",
+        "locator": "synthetic manifest linkage and supersession template",
+        "retrieval_date": "2026-08-07",
+        "interpretation_status": "synthetic_contract_test"
+      }
+    ]
+  },
+  "invalid_mutations": [
+    {
+      "id": "CORPUS-MANIFEST-INVALID-001",
+      "description": "declared entry count differs from the entry list",
+      "path": "declared_entry_count",
+      "value": 1,
+      "expected_error_contains": "declared entry count drift"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-002",
+      "description": "case content is declared present",
+      "path": "contains_case_content",
+      "value": true,
+      "expected_error_contains": "must remain metadata-only"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-003",
+      "description": "synthetic manifest contradicts its no-authority boundary",
+      "path": "real_data_ingest_authorized",
+      "value": true,
+      "expected_error_contains": "cannot authorize real-data ingest"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-004",
+      "description": "required historical count is altered",
+      "path": "required_historical_case_count",
+      "value": 24,
+      "expected_error_contains": "required-case count mismatch"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-005",
+      "description": "manifest scope drifts outside domestic DP3 post-audit",
+      "path": "scope_code",
+      "value": "INTERNATIONAL",
+      "expected_error_contains": "manifest scope mismatch"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-006",
+      "description": "entry ID is duplicated",
+      "path": "entries.1.entry_id",
+      "value": "SYNTHETIC-CORPUS-ENTRY-001-V1",
+      "expected_error_contains": "duplicate historical corpus entry_id"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-007",
+      "description": "case/version pair is duplicated",
+      "path": "entries.1.entry_version",
+      "value": 1,
+      "expected_error_contains": "duplicate historical corpus case version"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-008",
+      "description": "manifest version chain skips a version",
+      "path": "entries.1.entry_version",
+      "value": 3,
+      "expected_error_contains": "versions are not contiguous"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-009",
+      "description": "new version does not directly name its predecessor",
+      "path": "entries.1.supersedes_entry_id",
+      "value": "SYNTHETIC-NOT-THE-PREDECESSOR",
+      "expected_error_contains": "does not directly supersede"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-010",
+      "description": "entry scope differs from the governed scope",
+      "path": "entries.1.scope_code",
+      "value": "DPM",
+      "expected_error_contains": "entry scope mismatch"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-011",
+      "description": "entry includes a case-content marker",
+      "path": "entries.1.contains_case_content",
+      "value": true,
+      "expected_error_contains": "entry must remain metadata-only"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-012",
+      "description": "intake-envelope link is missing",
+      "path": "entries.1.intake_envelope_id",
+      "value": "",
+      "expected_error_contains": "intake_envelope_id"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-013",
+      "description": "sanitized-bundle hash is malformed",
+      "path": "entries.1.sanitized_bundle_sha256",
+      "value": "not-a-sha256",
+      "expected_error_contains": "sanitized-bundle hash"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-014",
+      "description": "synthetic entry is promoted to an executed pass",
+      "path": "entries.1.status",
+      "value": "EXECUTED_PASS",
+      "expected_error_contains": "synthetic corpus entry status mismatch"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-015",
+      "description": "entry is registered after the manifest cutoff",
+      "path": "entries.1.registered_at",
+      "value": "2026-08-07T12:00:01Z",
+      "expected_error_contains": "registered after the manifest cutoff"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-016",
+      "description": "entry provenance locator is missing",
+      "path": "entries.1.provenance.0.locator",
+      "value": "",
+      "expected_error_contains": "provenance 0 locator"
+    },
+    {
+      "id": "CORPUS-MANIFEST-INVALID-017",
+      "description": "successor registration predates its predecessor",
+      "path": "entries.1.registered_at",
+      "value": "2026-08-07T09:59:59Z",
+      "expected_error_contains": "registration chronology is invalid"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "fixture_set": "SYNTHETIC_METADATA_ONLY_HISTORICAL_EXPECTED_LABEL_CONTROL",
+  "description": "A metadata-only synthetic expected-label approval envelope. It contains no label projection, outcome, shipment, money, evidence document, or operational authority.",
+  "evaluated_at": "2026-08-07T12:00:00Z",
+  "valid_template": {
+    "schema_version": "historical-expected-label-control.v1",
+    "policy_version": "2026-08-07.1",
+    "control_mode": "SYNTHETIC_TEMPLATE",
+    "envelope_id": "SYNTHETIC-EXPECTED-LABEL-CONTROL-001",
+    "case_reference_id": "SYNTHETIC-OPAQUE-CASE-REFERENCE-001",
+    "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+    "data_status": "SYNTHETIC_METADATA_ONLY",
+    "contains_case_content": false,
+    "contains_outcome_content": false,
+    "label_use_authorized": false,
+    "intake_link": {
+      "envelope_id": "SYNTHETIC-INTAKE-CONTROL-001",
+      "envelope_sha256": "06821d198e6daa1f0948e09d88ed6acb2243d30e1ecd79a80b7e62bb74356d21",
+      "sanitized_bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "label_artifact": {
+      "label_id": "SYNTHETIC-EXPECTED-LABEL-001",
+      "label_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "storage_status": "SYNTHETIC_HASH_PLACEHOLDER_NO_ARTIFACT",
+      "creation_method": "INDEPENDENTLY_AUTHORED_BEFORE_EXECUTION",
+      "authored_at": "2026-08-07T09:30:00Z",
+      "author_role": "SYNTHETIC-EXPECTED-LABEL-AUTHOR-ROLE",
+      "ai_authorship_used": false,
+      "provenance": [
+        {
+          "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+          "document_version": "historical-expected-label-control fixture 2026-08-07.1",
+          "effective_period": "TEST_ONLY",
+          "locator": "synthetic label-artifact metadata with no artifact",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "synthetic_not_outcome_content"
+        }
+      ]
+    },
+    "approval": {
+      "status": "SYNTHETIC_EXAMPLE_NOT_EXPERT_APPROVAL",
+      "approval_basis": "SYNTHETIC_CONTRACT_TEST",
+      "approved_at": "2026-08-07T10:00:00Z",
+      "reviewer_role": "SYNTHETIC_EXPERT_OUTCOME_REVIEWER_ROLE",
+      "independent_from_author": true,
+      "ai_attestation_used": false,
+      "provenance": [
+        {
+          "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+          "document_version": "historical-expected-label-control fixture 2026-08-07.1",
+          "effective_period": "TEST_ONLY",
+          "locator": "synthetic approval-control metadata, not expert approval",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "synthetic_not_approval"
+        }
+      ]
+    },
+    "execution_boundary": {
+      "status": "NOT_STARTED",
+      "first_execution_at": null,
+      "approval_recorded_before_execution": true
+    },
+    "provenance": [
+      {
+        "source_id": "HISTORICAL-EXPECTED-LABEL-CONTROL-POLICY",
+        "document_version": "2026-08-07.1",
+        "effective_period": "TEST_ONLY",
+        "locator": "synthetic metadata-only expected-label control template",
+        "retrieval_date": "2026-08-07",
+        "interpretation_status": "synthetic_contract_test"
+      }
+    ]
+  },
+  "invalid_mutations": [
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-001",
+      "description": "label ID is missing",
+      "path": "label_artifact.label_id",
+      "value": "",
+      "expected_error_contains": "label_id"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-002",
+      "description": "label artifact hash is malformed",
+      "path": "label_artifact.label_sha256",
+      "value": "not-a-sha256",
+      "expected_error_contains": "artifact hash"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-003",
+      "description": "case content is declared present",
+      "path": "contains_case_content",
+      "value": true,
+      "expected_error_contains": "free of case content"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-004",
+      "description": "outcome content is declared present",
+      "path": "contains_outcome_content",
+      "value": true,
+      "expected_error_contains": "free of outcome content"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-005",
+      "description": "synthetic template claims label-use authority",
+      "path": "label_use_authorized",
+      "value": true,
+      "expected_error_contains": "cannot authorize label use"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-006",
+      "description": "template is relabeled operational",
+      "path": "control_mode",
+      "value": "OPERATIONAL",
+      "expected_error_contains": "control modes differ"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-007",
+      "description": "case reference differs from intake",
+      "path": "case_reference_id",
+      "value": "SYNTHETIC-OPAQUE-CASE-REFERENCE-999",
+      "expected_error_contains": "case references differ"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-008",
+      "description": "intake envelope hash is altered",
+      "path": "intake_link.envelope_sha256",
+      "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "expected_error_contains": "intake envelope hash mismatch"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-009",
+      "description": "sanitized-bundle hash differs from intake",
+      "path": "intake_link.sanitized_bundle_sha256",
+      "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "expected_error_contains": "sanitized-bundle hash mismatch"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-010",
+      "description": "AI authors the expected outcome",
+      "path": "label_artifact.ai_authorship_used",
+      "value": true,
+      "expected_error_contains": "AI cannot author"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-011",
+      "description": "author and reviewer are the same role",
+      "path": "label_artifact.author_role",
+      "value": "SYNTHETIC_EXPERT_OUTCOME_REVIEWER_ROLE",
+      "expected_error_contains": "author and reviewer roles must be distinct"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-012",
+      "description": "label author duplicates the authorization verifier",
+      "path": "label_artifact.author_role",
+      "value": "SYNTHETIC_AUTHORIZATION_VERIFIER_ROLE",
+      "expected_error_contains": "distinct from critical intake approvers"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-013",
+      "description": "reviewer differs from the intake outcome reviewer",
+      "path": "approval.reviewer_role",
+      "value": "SYNTHETIC-DIFFERENT-REVIEWER-ROLE",
+      "expected_error_contains": "reviewer differs from linked intake"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-014",
+      "description": "approval is not independent from authorship",
+      "path": "approval.independent_from_author",
+      "value": false,
+      "expected_error_contains": "author and reviewer roles must be distinct"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-015",
+      "description": "AI attests the approval",
+      "path": "approval.ai_attestation_used",
+      "value": true,
+      "expected_error_contains": "AI cannot attest"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-016",
+      "description": "authorship predates the sanitized ingest checkpoint",
+      "path": "label_artifact.authored_at",
+      "value": "2026-08-07T08:59:59Z",
+      "expected_error_contains": "chronology is invalid"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-017",
+      "description": "approval predates authorship",
+      "path": "approval.approved_at",
+      "value": "2026-08-07T09:29:59Z",
+      "expected_error_contains": "chronology is invalid"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-018",
+      "description": "acceptance execution is already started",
+      "path": "execution_boundary.status",
+      "value": "STARTED",
+      "expected_error_contains": "before acceptance execution starts"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-019",
+      "description": "unstarted control carries an execution time",
+      "path": "execution_boundary.first_execution_at",
+      "value": "2026-08-07T10:30:00Z",
+      "expected_error_contains": "cannot carry an execution time"
+    },
+    {
+      "id": "EXPECTED-LABEL-CONTROL-INVALID-020",
+      "description": "approval provenance locator is missing",
+      "path": "approval.provenance.0.locator",
+      "value": "",
+      "expected_error_contains": "provenance 0 locator"
+    }
+  ]
+}

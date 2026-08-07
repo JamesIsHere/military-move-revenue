@@ -103,6 +103,16 @@
       "media_type": "application/pdf",
       "extraction_method": "PDF text extraction with selected rendered-page visual review",
       "interpretation_status": "reviewed"
+    },
+    {
+      "id": "SV-CBCA-1536-RELO-2009-10-01",
+      "source_id": "SRC-CBCA-1536-RELO-2009",
+      "source_kind": "adjudicative_decision",
+      "authoritativeness_class": "adjudicative",
+      "raw_artifact_path": "sources/raw/public-precedents/cbca-1536-relo-2009-10-01.pdf",
+      "media_type": "application/pdf",
+      "extraction_method": "PDF text extraction with complete three-page rendered review and separately checksummed sanitized derivative",
+      "interpretation_status": "reviewed"
     }
   ],
   "publication_observations": [

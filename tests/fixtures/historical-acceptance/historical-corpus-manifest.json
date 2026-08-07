@@ -1,0 +1,32 @@
+{
+  "schema_version": "historical-corpus-manifest.v1",
+  "policy_version": "2026-08-07.1",
+  "manifest_id": "HISTORICAL-CORPUS-EMPTY-001",
+  "control_mode": "EMPTY_AWAITING_AUTHORIZATION",
+  "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+  "data_status": "METADATA_ONLY_NO_CASES",
+  "contains_case_content": false,
+  "real_data_ingest_authorized": false,
+  "required_historical_case_count": 25,
+  "declared_entry_count": 0,
+  "as_of_at": "2026-08-07T12:00:00Z",
+  "entries": [],
+  "provenance": [
+    {
+      "source_id": "GOAL-RATIFIED-2026-08-03",
+      "document_version": "ratified 2026-08-03",
+      "effective_period": "2026-08-03/open",
+      "locator": "Completion verifier; Completion proof; Sensitive-data boundary",
+      "retrieval_date": "2026-08-07",
+      "interpretation_status": "ratified_internal_policy"
+    },
+    {
+      "source_id": "HISTORICAL-CORPUS-MANIFEST-POLICY",
+      "document_version": "2026-08-07.1",
+      "effective_period": "2026-08-07/open",
+      "locator": "Checked-in empty state; no-data onboarding runbook",
+      "retrieval_date": "2026-08-07",
+      "interpretation_status": "approved_internal_implementation_policy"
+    }
+  ]
+}

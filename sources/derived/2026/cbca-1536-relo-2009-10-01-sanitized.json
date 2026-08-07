@@ -1,0 +1,113 @@
+{
+  "schema_version": "public-precedent-sanitized-extract.v1",
+  "extract_id": "EXTRACT-CBCA-1536-RELO-2009",
+  "data_status": "PUBLIC_PRECEDENT_SANITIZED_DERIVED",
+  "use_status": "REFERENCE_ONLY_OUT_OF_SCOPE_CONTEXT",
+  "source": {
+    "source_id": "SRC-CBCA-1536-RELO-2009",
+    "document_version": "CBCA 1536-RELO, published 2009-10-01",
+    "effective_period": "HISTORICAL_CONTEXT_ONLY",
+    "locator": "decision pp. 1-3",
+    "retrieval_date": "2026-08-07",
+    "interpretation_status": "reviewed_context_only_out_of_scope",
+    "raw_artifact_path": "sources/raw/public-precedents/cbca-1536-relo-2009-10-01.pdf",
+    "raw_artifact_sha256": "27d847b1c9200d3740b32a67e1c0598da66904b2d77618f6d20b5b0eddf65071"
+  },
+  "derivation": {
+    "method": "pdftotext layout extraction followed by manual page-by-page review of 144-DPI renders and identifier generalization",
+    "produced_on": "2026-08-07",
+    "reviewed_pages": [
+      "1",
+      "2",
+      "3"
+    ],
+    "sanitization_status": "PASSED",
+    "contains_direct_person_identifiers": false,
+    "removed_categories": [
+      "personal names and honorifics",
+      "precise origin, pickup, and destination locations",
+      "agency and employer identity",
+      "carrier and relocation-agent identities",
+      "bill-of-lading and other shipment identifiers",
+      "signature identity"
+    ]
+  },
+  "scope": {
+    "program": "FEDERAL_CIVILIAN_RELOCATION",
+    "movement_method": "ACTUAL_EXPENSE_GOVERNMENT_BILL_OF_LADING",
+    "dp3_indicator": false,
+    "domestic_indicator": true,
+    "v1_scope_assessment": "OUT_OF_SCOPE_CONTEXT_ONLY",
+    "reason": "The decision concerns a civilian employee relocation under the Federal Travel Regulation, not a DP3 TSP-to-Government 400NG post-audit."
+  },
+  "candidate_facts": {
+    "authorized_weight": {
+      "value": "18000",
+      "unit": "lb",
+      "source_locator": "pp. 1-3"
+    },
+    "actual_certified_weight": {
+      "value": "23160",
+      "unit": "lb",
+      "source_locator": "p. 2"
+    },
+    "excess_weight": {
+      "value": "5160",
+      "unit": "lb",
+      "source_locator": "p. 2"
+    },
+    "excess_weight_charge_assessed": {
+      "value": "5926.66",
+      "unit": "USD",
+      "source_locator": "p. 2"
+    },
+    "original_extra_stop_charge": {
+      "value": "61.14",
+      "unit": "USD",
+      "source_locator": "p. 2"
+    },
+    "supplemental_truck_charge": {
+      "value": "430.07",
+      "unit": "USD",
+      "source_locator": "p. 2"
+    },
+    "previous_payment": {
+      "value": "61.14",
+      "unit": "USD",
+      "source_locator": "p. 2"
+    },
+    "decision_total_debt": {
+      "value": "6356.73",
+      "unit": "USD",
+      "source_locator": "pp. 1-2"
+    }
+  },
+  "decision_findings": [
+    {
+      "finding": "Certified weight tickets and the certified invoice supported the shipment weight used by the agency.",
+      "source_locator": "pp. 2-3",
+      "interpretation_status": "direct_paraphrase"
+    },
+    {
+      "finding": "The claimant did not rebut the invoice evidence that a supplemental truck was dispatched.",
+      "source_locator": "p. 3",
+      "interpretation_status": "direct_paraphrase"
+    },
+    {
+      "finding": "The board upheld the agency's debt calculation and denied the claim.",
+      "source_locator": "p. 3",
+      "interpretation_status": "direct_paraphrase"
+    }
+  ],
+  "candidate_benchmark_uses": [
+    "Evidence-presence tests for certified weights and certified invoices",
+    "Conflicting-fact review paths for shipment weight and supplemental service",
+    "Exact-decimal reconciliation of separately assessed charges and prior payment"
+  ],
+  "limitations": [
+    "This extract is not current DP3 or 400NG authority.",
+    "It is not an executable acceptance case and never counts toward the required 25 historical cases.",
+    "The monetary figures are preserved as adjudicated facts; no current rate or rule is inferred from them.",
+    "The source's stated debt reconciliation should be tested as a labeled historical outcome, not reinterpreted as a current calculation rule."
+  ]
+}

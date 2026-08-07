@@ -62,6 +62,7 @@ cases are preserved in `docs/conflict-register.md`.
 | ID | Source | Class | Primary schema contribution | Status |
 | --- | --- | --- | --- | --- |
 | SRC-CBCA-RATE | Selected CBCA transportation rate decisions | adjudicative | Dispute facts, interpretations, adjustment and recovery patterns | identified |
+| SRC-CBCA-1536-RELO-2009 | [CBCA 1536-RELO](https://www.cbca.gov/files/decisions/2009/DRUMMOND_10-01-09_1536-RELO__EVAN_F._MELTZER_508.pdf) | adjudicative | Certified-weight and supplemental-service evidence patterns; exact assessed-charge outcome | archived; complete three-page visual review; sanitized extract reviewed; out-of-scope context only |
 | SRC-GAO-HHG | Selected GAO household-goods decisions | adjudicative | Historical interpretation and unusual fact patterns | identified |
 | SRC-DP3-TRAINING | USTRANSCOM billing and business-rule training | official-operational | Worked examples and terminology | identified |
 | SRC-DAYCOS-PUBLIC | Public Daycos workflow explanations | contextual | Operational vocabulary and user workflow hypotheses | identified |

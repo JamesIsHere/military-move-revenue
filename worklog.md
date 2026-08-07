@@ -2041,3 +2041,372 @@ review conflicts and emitting no monetary or billing-mapping output.
 - The bounded public-source non-monetary Item 130 synthetic verifier is complete.
   Next progress depends on authoritative source clarification; do not implement
   Item 130 mapping, quantity, money, rules, or audit adapters from this result.
+
+## 2026-08-07 — Historical acceptance pipeline operational
+
+### Outcome
+
+- Added the versioned historical-acceptance policy and deterministic pipeline.
+  An executable case now supplies source-structured rating facts, shared
+  invoice/payment evidence, intake controls, and a separately authored expected
+  projection. The pipeline executes registered rating packages and audit
+  adapters before comparing the result with that fixed projection.
+- Defined three non-interchangeable corpus tiers. Source-structured synthetic
+  cases are executable benchmarks, public precedents are reference-only, and
+  only written-authorized, pre-ingest-sanitized, independently expert-labeled
+  historical cases may count toward the ratified 25.
+- Added one two-family synthetic bundle that executes Items 28A and 28B through
+  exact rating, reconciliation, combined reporting, and expected-outcome
+  comparison. Its exact USD 397.00 result matches, but it remains non-counting.
+- Recorded official GAO page B-199780 as a URL-only public candidate. It remains
+  `PENDING_AUTHORITATIVE_ARCHIVE`; no decision text, real shipment content, or
+  extracted claim was stored or treated as a permanent source.
+- Added recursive sensitive-field rejection, authorization and sanitization
+  gates, independent-label chronology, exact corpus counts, canonical JSON,
+  mismatch paths, and altered-report rejection. The corpus reports
+  `OPERATIONAL` and completion `NOT_READY`, with 25 passing historical cases
+  still required.
+
+### Verification and next
+
+- `python scripts/validate_historical_acceptance_pipeline.py`: two corpus
+  records, 11 request-gate probes, one independent-outcome mismatch probe, and
+  eight report-tamper probes pass.
+- All 20 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, archive an authoritative public decision artifact before extracting a
+  sanitized precedent, then add further source-structured discrepancy and
+  human-review benchmark bundles. No real case may be loaded without written
+  authorization and verified pre-ingest sanitization.
+
+## 2026-08-07 — First public precedent archived and sanitized
+
+### Outcome
+
+- Archived the official three-page `SRC-CBCA-1536-RELO-2009` decision PDF
+  unchanged at 113,298 bytes with SHA-256
+  `27d847b1c9200d3740b32a67e1c0598da66904b2d77618f6d20b5b0eddf65071`.
+  PDF signature, metadata, text extraction, and all three 144-DPI page renders
+  were checked.
+- Added a separately checksummed sanitized JSON extract. It removes personal,
+  location, agency, carrier, shipment-identifier, and signature identity data;
+  preserves exact decimal strings and units for the adjudicated facts; and
+  labels the decision federal-civilian, non-DP3, out-of-scope context only.
+- Registered the immutable raw artifact in the source manifest and physical
+  source registry. The acceptance fixture now records both repository-relative
+  paths, both SHA-256 values, its extraction method, and complete provenance.
+- Closed the archived-public-record projection gap: an archived precedent now
+  retains its artifact lineage in validated report output. The validator checks
+  the PDF signature, raw and derived hashes, manifest join, sanitization label,
+  and non-DP3 scope before execution.
+- The precedent remains `REGISTERED_REFERENCE_ONLY`, is never executed as a
+  current 400NG case, and does not count toward the required 25. Current
+  acceptance counts remain zero passing authorized historical cases and 25
+  remaining.
+- Attempts to archive the previously identified GAO candidate from its official
+  product and asset endpoints returned HTTP 403. No GAO text or search snippet
+  was promoted to the permanent source record; the downloadable CBCA artifact
+  supplies the first operational public-precedent archive instead.
+
+### Verification and next
+
+- `python scripts/validate_historical_acceptance_pipeline.py`: one passing
+  synthetic benchmark, one archived reference-only precedent, 11 request gates,
+  one independent-outcome mismatch probe, and eight report-tamper probes pass.
+- `python scripts/validate_source_rule_registry.py`: all eleven physical source
+  versions match the manifest and all registry cases pass.
+- All 20 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, add separately labeled synthetic discrepancy and human-review bundles.
+  Continue pursuing written authorization and verified pre-ingest sanitization
+  before any real historical case enters the environment.
+
+## 2026-08-07 — Opposing-discrepancy acceptance benchmark
+
+### Outcome
+
+- Added `ACCEPT-SYNTH-28A-28B-002-DISCREPANCY`, a second independently labeled
+  source-structured synthetic benchmark that reuses the registered Item 28A and
+  Item 28B rating and audit adapters.
+- The synthetic invoice deliberately bills Item 28A at USD 250.00 against USD
+  198.50 expected and Item 28B at USD 150.00 against USD 198.50 expected. The
+  report preserves the USD 51.50 overbilling and USD 48.50 underbilling as two
+  open line findings even though the aggregate billing variance nets to only USD
+  3.00. Expected, invoiced, and paid totals are exactly USD 397.00, USD 400.00,
+  and USD 400.00.
+- Added bounded fixture assembly for exact audit-record mutations. Mutation
+  paths must remain under `records`, must be unique, and must provide explicit
+  values; path escape and duplicate-path probes are rejected before execution.
+- Extended the independent-label regression check to alter a discrepancy line's
+  labeled amount. The mismatch is reported at the exact projection path while
+  the deterministic USD 400.00 financial output remains unchanged.
+- Both synthetic benchmarks pass their independently authored labels, require
+  the correct clean/open review behavior, remain acceptance-ineligible, and add
+  zero cases to the required 25.
+
+### Verification and next
+
+- `python scripts/validate_historical_acceptance_pipeline.py`: three corpus
+  records, two assembly gates, 11 request gates, two independent-label mismatch
+  probes, and eight report-tamper probes pass.
+- All 20 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, add one source-structured expected human-review benchmark in which a
+  missing or conflicting evidence condition blocks a charge and suppresses all
+  aggregate monetary totals without erasing decided charge-level results.
+
+## 2026-08-07 — Evidence-blocked human-review acceptance benchmark
+
+### Outcome
+
+- Added `ACCEPT-SYNTH-28A-28B-003-EVIDENCE-BLOCKED`, a third independently
+  labeled source-structured synthetic benchmark. Item 28A remains final and
+  correctly billed at USD 198.50; Item 28B blocks on
+  `INVOICE_LINE_EVIDENCE_MISSING_OR_UNREVIEWED:LINEV-MULTI-28B`.
+- Verified all-or-nothing report behavior. The blocked report preserves the
+  decided Item 28A result and the exact Item 28B blocker, reports one final and
+  one blocked charge, requires human review, and exposes no aggregate currency,
+  amounts, or variances.
+- The first shared-record mutation correctly caused both adapters to distrust
+  the invoice. To express the intended charge-specific review state, versioned
+  the historical-acceptance policy to `2026-08-07.2` and added an explicit
+  provenance-complete charge-scoped audit record projection. Historical source
+  mutation remains prohibited; the bounded mutation mechanism is synthetic
+  fixture assembly only.
+- Added charge-scoped assembly gates for paths outside `records` and duplicate
+  paths, plus a request gate rejecting non-object charge audit records.
+- Added a blocked-label mismatch probe. Changing the independently authored
+  blocked reason produces an exact mismatch path without changing the
+  deterministic blocked result or exposing aggregate money.
+- Added report tamper rejection for injected aggregate money on a blocked
+  report. All three synthetic benchmarks remain acceptance-ineligible and
+  contribute zero cases to the required 25.
+
+### Verification and next
+
+- `python scripts/validate_historical_acceptance_pipeline.py`: four corpus
+  records, four fixture-assembly gates, 12 request gates, three independent-label
+  mismatch probes, and nine report-tamper probes pass.
+- All 20 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Clean, decided-discrepancy, and evidence-blocked acceptance paths are now
+  operational. Next, define and validate the metadata-only authorization and
+  pre-ingest sanitization intake contract needed before any real historical case
+  can enter the environment.
+
+## 2026-08-07 — Metadata-only historical intake control
+
+### Outcome
+
+- Published `HISTORICAL-INTAKE-CONTROL-V1` version `2026-08-07.1` and
+  historical-acceptance policy version `2026-08-07.3`. The exact-field envelope
+  contains control metadata only and cannot carry shipment content.
+- Added deterministic gates for current written-authorization metadata, exact
+  domestic DP3 post-audit scope, independent verification, sanitization method
+  and bundle SHA-256, authorization-before-sanitization and
+  sanitization-before-ingest chronology, raw-source exclusion, hidden-metadata
+  removal, prohibited-category completeness, retention, provenance, and four
+  distinct critical approval roles. AI attestation is prohibited.
+- Added one explicitly non-authorizing `SYNTHETIC_TEMPLATE`. It is labeled
+  synthetic metadata-only, carries no real case or authority, sets real-data
+  ingest authority false, and is rejected by the operational validator.
+- Added 16 metadata-only negative mutations covering missing and stale
+  authorization, contradictory authority, self-attestation, premature ingest,
+  raw-source exposure, hidden metadata, incomplete removed categories,
+  sanitizer self-review, expired retention, AI attestation, case-content
+  presence, template promotion, duplicated critical roles, malformed bundle
+  hash, and incomplete provenance. An additional exact-schema gate rejects an
+  injected case-content field.
+- Integrated the operational envelope into the
+  `AUTHORIZED_SANITIZED_HISTORICAL` tier. The envelope authorization reference
+  must match the intake record and its outcome-reviewer role must match the
+  independent expert label. Synthetic cases are forbidden from carrying the
+  envelope; a historical-tier request without one is rejected.
+- No operational positive envelope or historical case was created. That remains
+  blocked on actual written authorization and an approved sanitization process.
+
+### Verification and next
+
+- `python scripts/validate_historical_intake_control.py`: one non-authorizing
+  template, 16 negative mutations, one operational-promotion gate, and one
+  extra-field gate pass.
+- `python scripts/validate_historical_acceptance_pipeline.py`: four corpus
+  records, four assembly gates, 14 request gates, three label-mismatch probes,
+  and nine report-tamper probes pass.
+- All 21 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, create a no-data onboarding runbook and empty corpus-manifest contract
+  that tells an authorized data owner exactly what approvals, sanitized
+  artifacts, hashes, reviewers, and handoff evidence are required. Do not
+  populate it until separate written authorization exists.
+
+## 2026-08-07 — Empty historical corpus manifest and onboarding contract
+
+### Outcome
+
+- Published `HISTORICAL-CORPUS-MANIFEST-V1` version `2026-08-07.1` and a
+  no-data onboarding runbook. The checked-in manifest is metadata-only, has no
+  entries or ingest authority, and deterministically evaluates to zero passing
+  historical cases with 25 remaining.
+- Added exact-field validation for scope, provenance, canonical entry order,
+  immutable contiguous versions, direct supersession, unique entry and
+  case-version identities, and cross-case reuse of envelope, bundle, label, or
+  report artifacts. Current versions alone contribute to derived counts.
+- Prohibited caller-declared pass counts. Executed operational statuses require
+  an acceptance-report ID and SHA-256; unexecuted and synthetic entries cannot
+  carry that link.
+- Added a visibly synthetic, non-authorizing two-version manifest chain. It
+  links to the validated synthetic intake-envelope ID/hash and sanitized-bundle
+  hash, confirms the intake contract's role-separation and no-AI-attestation
+  controls, and remains non-counting.
+- Added 16 negative mutations and eight structural/linkage gates covering
+  count drift, content and authority contradictions, scope drift, duplicates,
+  skipped or broken supersession, missing links, malformed hashes, promotion,
+  future registration, provenance, caller-supplied passing counts, extra case
+  content, synthetic report links, canonical order, populated empty mode, and
+  cross-case artifact reuse.
+- No operational manifest example, historical case, acceptance report, or real
+  data was created.
+
+### Verification and next
+
+- `python scripts/validate_historical_corpus_manifest.py`: one immutable empty
+  manifest, one non-counting two-version synthetic chain, 16 negative
+  mutations, and eight structural/linkage gates pass.
+- All 22 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, add a deterministic no-data preflight/readiness result that converts
+  the empty manifest and onboarding requirements into explicit external
+  blockers. Do not create an operational envelope or populate the manifest
+  without separate written authorization and an approved sanitization process.
+
+## 2026-08-07 — Deterministic no-data historical readiness preflight
+
+### Outcome
+
+- Published `HISTORICAL-CORPUS-NO-DATA-PREFLIGHT-V1` version `2026-08-07.1`.
+  It accepts only the authoritative `EMPTY_AWAITING_AUTHORIZATION` manifest and
+  cannot authorize ingest, carry case content, register a case, satisfy a
+  control, or create a historical pass.
+- Added a canonical readiness report linked to the manifest ID, policy version,
+  cutoff, and SHA-256. It reports `BLOCKED_EXTERNAL_PREREQUISITES`, zero of 25
+  passing historical cases, 25 remaining, and eight ordered provenance-backed
+  blockers covering authorization, sanitization, independent review, intake,
+  expected labels, case registration, acceptance execution, and the completion
+  deficit.
+- Added presentation-neutral display fields for a future read-only operator
+  surface: title, headline, progress label, primary action, and blocker count.
+  The graphical interface seed is recorded in `plan.md`; no framework or UI was
+  selected and no control logic moved into presentation.
+- Added a read-only CLI that prints the current preflight as formatted JSON.
+- Added 12 tamper probes for schema/policy drift, false readiness or authority,
+  content insertion, fabricated counts, hidden deficit, false blocker
+  satisfaction, contradictory display text, and manifest-hash tampering. Three
+  structural gates reject overrides and missing/reordered blockers; two input
+  gates reject synthetic and content-bearing manifests.
+- No real data, operational intake envelope, operational manifest entry, or
+  historical acceptance execution report was created.
+
+### Verification and next
+
+- `python scripts/validate_historical_corpus_preflight.py`: one canonical
+  blocked report, 12 tamper probes, three structural gates, and two unsafe-input
+  gates pass.
+- `python scripts/show_historical_corpus_preflight.py` prints the deterministic
+  zero-of-25 report for inspection.
+- All 23 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, define a metadata-only independent expected-label approval contract and
+  cross-link it to the intake and manifest controls using non-authorizing
+  synthetic metadata only. Do not create an operational label or outcome
+  without the separately authorized sanitized corpus.
+
+## 2026-08-07 — Metadata-only historical expected-label approval control
+
+### Outcome
+
+- Published `HISTORICAL-EXPECTED-LABEL-CONTROL-V1` version `2026-08-07.1`.
+  Its exact-field envelope contains only control metadata and never embeds the
+  expected projection, outcome, shipment facts, invoice facts, money, evidence
+  documents, or label artifact.
+- Added deterministic validation for the intake-envelope ID and canonical
+  SHA-256, sanitized-bundle SHA-256, opaque case reference, label ID and
+  SHA-256, post-ingest authorship, independent expert approval, pre-execution
+  chronology, provenance, and explicit no-AI-authorship/no-AI-attestation
+  boundaries.
+- Enforced role separation between label author and reviewer, between the author
+  and three critical intake approvers, and between the reviewer and those same
+  intake approvers. The label reviewer must match the outcome-reviewer role
+  reserved by the validated intake envelope.
+- Added one explicitly non-authorizing `SYNTHETIC_TEMPLATE`. It uses a label-
+  hash placeholder with no artifact, contains no case or outcome content, sets
+  label-use authority false, records acceptance execution as not started, and
+  is rejected by the operational gate.
+- Cross-checked the template against the existing synthetic intake and corpus-
+  manifest fixtures: case, intake ID/hash, bundle hash, label ID/hash, and
+  reviewer role all match.
+- Added 20 negative mutations for identity, hashes, content, authority, mode,
+  case linkage, AI use, role separation, chronology, execution state, and
+  provenance. Six additional gates reject embedded projection, money, shipment
+  identifiers, a mismatched intake case, unsafe intake, and intake role
+  conflicts.
+- No operational label, expected-outcome artifact, real case, or historical
+  acceptance execution was created.
+
+### Verification and next
+
+- `python scripts/validate_historical_expected_label_control.py`: one non-
+  authorizing template, 20 negative mutations, one operational-promotion gate,
+  and six content/intake-link gates pass.
+- All 24 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, move the intake/label/manifest cross-check from a test assertion into a
+  reusable deterministic handoff verifier that reports registration readiness.
+  Keep its synthetic result non-authorizing and non-counting.
+
+## 2026-08-07 — Deterministic historical control handoff
+
+### Outcome
+
+- Published `HISTORICAL-CONTROL-HANDOFF-V1` version `2026-08-07.1`. The builder
+  validates the intake envelope, expected-label approval control, and corpus
+  manifest under their own policies, selects the single current entry for the
+  opaque case, and verifies the complete pre-execution chain.
+- Added exact cross-control checks for control mode, case reference, evaluation
+  cutoff, intake-envelope ID/hash, sanitized-bundle hash, label ID/hash,
+  current manifest entry/version/status, label-approval-before-registration,
+  and absence of an acceptance-report link.
+- The canonical synthetic result is
+  `SYNTHETIC_LINKS_VERIFIED_NON_OPERATIONAL`: linkage is verified while
+  operational readiness, execution authority, and count eligibility remain
+  false. Four provenance-backed blockers preserve the synthetic intake, label,
+  manifest, and 25-case boundaries.
+- Added a presentation-neutral read model with linked-control identities and
+  hashes, zero-of-25 progress, headline, primary action, and blocker list, plus
+  a read-only JSON inspection command.
+- Added 12 report-tamper probes, three report-structure gates, nine linked-input
+  gates, and one operational-promotion gate. They reject false readiness,
+  authority, counts, content, removed/reordered blockers, hash drift, label
+  drift, pre-approval registration, cutoff mismatch, empty manifests, unsafe
+  intake, and outcome-bearing controls.
+- Hardened the corpus manifest so successor entry registration times cannot
+  precede predecessor registration. A seventeenth manifest mutation protects
+  that immutable-version chronology independently from the handoff's label-
+  approval chronology.
+- No operational intake, label, manifest entry, handoff, case data, or
+  historical acceptance execution was created.
+
+### Verification and next
+
+- `python scripts/validate_historical_control_handoff.py`: one canonical
+  synthetic report, 12 tamper probes, three report-structure gates, nine
+  linked-input gates, and one operational-promotion gate pass.
+- `python scripts/show_historical_control_handoff.py` prints the deterministic
+  linked-control read model.
+- `python scripts/validate_historical_corpus_manifest.py`: 17 negative
+  mutations and eight structural/linkage gates pass.
+- All 25 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- The safe no-data M6 control chain now reaches a real external boundary.
+  Resume the rank-one M1 source task: seek authoritative resolution of
+  `CF-0004` without promoting search snippets or inaccessible observations.

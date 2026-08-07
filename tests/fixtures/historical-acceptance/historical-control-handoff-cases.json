@@ -1,0 +1,103 @@
+{
+  "fixture_set": "SYNTHETIC_METADATA_ONLY_HISTORICAL_CONTROL_HANDOFF",
+  "description": "Expected readiness values and tamper probes for the synthetic intake, expected-label, and manifest handoff. It contains no case or outcome content and grants no operational authority.",
+  "expected_status": "SYNTHETIC_LINKS_VERIFIED_NON_OPERATIONAL",
+  "expected_blocker_codes": [
+    "SYNTHETIC_INTAKE_NOT_AUTHORIZATION",
+    "SYNTHETIC_LABEL_NOT_EXPERT_APPROVAL",
+    "SYNTHETIC_MANIFEST_NONCOUNTING",
+    "AUTHORIZED_HISTORICAL_CASES_REQUIRED"
+  ],
+  "expected_progress": {
+    "passing_historical_case_count": 0,
+    "required_historical_case_count": 25,
+    "remaining_passing_historical_case_count": 25,
+    "completion_status": "NOT_READY"
+  },
+  "tamper_mutations": [
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-001",
+      "description": "schema is changed",
+      "path": "schema_version",
+      "value": "historical-control-handoff.v2",
+      "expected_error_contains": "$.schema_version"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-002",
+      "description": "synthetic status is promoted to ready",
+      "path": "status",
+      "value": "READY_FOR_ACCEPTANCE_EXECUTION",
+      "expected_error_contains": "$.status"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-003",
+      "description": "operational readiness is fabricated",
+      "path": "operational_handoff_ready",
+      "value": true,
+      "expected_error_contains": "$.operational_handoff_ready"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-004",
+      "description": "execution authority is fabricated",
+      "path": "acceptance_execution_authorized",
+      "value": true,
+      "expected_error_contains": "$.acceptance_execution_authorized"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-005",
+      "description": "synthetic handoff is made count-eligible",
+      "path": "counts_toward_required_25",
+      "value": true,
+      "expected_error_contains": "$.counts_toward_required_25"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-006",
+      "description": "case content is declared present",
+      "path": "contains_case_content",
+      "value": true,
+      "expected_error_contains": "$.contains_case_content"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-007",
+      "description": "outcome content is declared present",
+      "path": "contains_outcome_content",
+      "value": true,
+      "expected_error_contains": "$.contains_outcome_content"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-008",
+      "description": "passing count is fabricated",
+      "path": "progress.passing_historical_case_count",
+      "value": 25,
+      "expected_error_contains": "$.progress.passing_historical_case_count"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-009",
+      "description": "remaining count is hidden",
+      "path": "progress.remaining_passing_historical_case_count",
+      "value": 0,
+      "expected_error_contains": "$.progress.remaining_passing_historical_case_count"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-010",
+      "description": "display progress contradicts the result",
+      "path": "display.progress_label",
+      "value": "25 of 25 passing historical cases",
+      "expected_error_contains": "$.display.progress_label"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-011",
+      "description": "synthetic blocker is falsely satisfied",
+      "path": "blockers.0.status",
+      "value": "SATISFIED",
+      "expected_error_contains": "$.blockers.0.status"
+    },
+    {
+      "id": "CONTROL-HANDOFF-TAMPER-012",
+      "description": "source intake hash is changed",
+      "path": "generated_from.intake_envelope_sha256",
+      "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "expected_error_contains": "$.generated_from.intake_envelope_sha256"
+    }
+  ]
+}

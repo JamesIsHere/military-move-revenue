@@ -123,6 +123,109 @@ rate, money, rule-package, reconciliation, and audit-adapter fields anywhere in
 the fixture records. Six shared mutations protect exact, camel-case, and nested
 rate-date, billing-quantity, and expected-amount aliases.
 
+## Historical acceptance pipeline cases
+
+`historical-acceptance/historical-acceptance-cases.json` assembles the existing
+synthetic Item 28A and Item 28B rating facts with shared invoice/payment history
+and separately authored expected-outcome projections. One clean benchmark
+closes without exception. A second applies six explicit exact-string mutations
+to produce a USD 51.50 Item 28A overbilling and USD 48.50 Item 28B underbilling;
+both line findings remain open even though their aggregate billing variance nets
+to USD 3.00. A third benchmark gives Item 28B an adapter-scoped record view with
+unreviewed line evidence. Item 28A remains final, Item 28B blocks with an exact
+reason, and the report suppresses every aggregate monetary field. The corpus
+also registers one checksummed, sanitized, out-of-scope public precedent as
+reference-only material.
+
+The validator proves that rating, reconciliation, reporting, and independent-
+outcome comparison execute end to end while synthetic and public records remain
+non-counting. It rejects fixture mutations outside audit records, duplicate
+mutation paths at case and charge scope, forged historical status, missing scope
+and intake controls, sensitive-field aliases, malformed charge-scoped records,
+engine-derived or late outcome labels, binary floating-point values, invalid
+archive metadata, and altered reports.
+
+Run:
+
+```powershell
+python scripts/validate_historical_acceptance_pipeline.py
+```
+
+`historical-acceptance/historical-intake-control-cases.json` is a separate
+metadata-only synthetic template for the eventual historical intake gate. It
+contains no shipment content and is explicitly not authorization. Sixteen
+negative mutations cover missing and stale authorization, contradictory or
+self-attested authority, sanitization/ingest chronology, raw-source exposure,
+hidden metadata, removed-category completeness, reviewer independence,
+retention, AI attestation, template promotion, bundle hashing, and provenance.
+The operational validator rejects the otherwise valid synthetic template, and
+the exact envelope schema rejects added case-content fields.
+
+Run:
+
+```powershell
+python scripts/validate_historical_intake_control.py
+```
+
+`historical-acceptance/historical-corpus-manifest.json` is the checked-in
+metadata-only corpus landing zone. It has no entries, no case content, no
+real-data authority, and deterministically evaluates to zero passing historical
+cases with 25 remaining. `historical-corpus-manifest-cases.json` adds a visibly
+synthetic, non-counting two-version chain for entry-link, hash, canonical-order,
+uniqueness, and direct-supersession tests. It links back to the validated
+synthetic intake envelope and its separated approval roles; it is not an
+operational corpus example.
+
+Run:
+
+```powershell
+python scripts/validate_historical_corpus_manifest.py
+```
+
+`historical-acceptance/historical-corpus-preflight-cases.json` fixes the
+expected no-data progress and ordered blocker catalog for the empty manifest.
+Twelve tamper probes reject fabricated readiness, authority, content, passing
+counts, blocker satisfaction, display progress, and manifest hashes. Additional
+gates reject caller overrides, missing/reordered blockers, synthetic manifests,
+and content-bearing manifests.
+
+Run the validator or print the current presentation-neutral report:
+
+```powershell
+python scripts/validate_historical_corpus_preflight.py
+python scripts/show_historical_corpus_preflight.py
+```
+
+`historical-acceptance/historical-expected-label-control-cases.json` is the
+metadata-only synthetic approval contract for the expected-label link. It
+contains no expected projection, outcome, case facts, money, or label artifact.
+The validator links its intake-envelope, sanitized-bundle, case, label, and
+reviewer metadata to the existing synthetic intake and manifest fixtures.
+Twenty negative mutations and six content/linked-intake gates protect hashes,
+chronology, independent roles, no-AI boundaries, execution ordering, provenance,
+and the prohibition on embedded outcome or shipment content.
+
+Run:
+
+```powershell
+python scripts/validate_historical_expected_label_control.py
+```
+
+`historical-acceptance/historical-control-handoff-cases.json` fixes the
+presentation-neutral result expected when the synthetic intake, label control,
+and current manifest entry are validated together. The report verifies all
+links while remaining explicitly non-operational and zero of 25. Twelve tamper
+probes, three report-structure gates, nine linked-input gates, and an operational
+promotion gate protect authority, counts, blockers, hashes, registration
+chronology, cutoff alignment, content exclusion, and current-entry selection.
+
+Run the validator or print the current synthetic handoff read model:
+
+```powershell
+python scripts/validate_historical_control_handoff.py
+python scripts/show_historical_control_handoff.py
+```
+
 ## Source/rule registry cases
 
 `source-rule-registry/registry-cases.json` contains synthetic mutations of the

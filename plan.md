@@ -93,9 +93,40 @@ Exit criteria:
 
 ## M6 — Historical acceptance
 
+Status: in progress. The acceptance pipeline contract is operational for
+clean, opposing-discrepancy, and evidence-blocked source-structured synthetic
+benchmarks, archived public-precedent intake, and a non-authorizing metadata-only
+historical intake-control template. A checked-in metadata-only corpus manifest
+now provides the immutable empty landing state and a validated synthetic-only
+entry/supersession contract.
+It executes registered rating and audit adapters, compares an independently
+authored expected-outcome projection, enforces authorization/sanitization gates,
+derives corpus counts without accepting caller-declared passes, and keeps
+non-historical tiers out of the required 25-case count. No authorized historical
+case is loaded; the manifest evaluates to zero passing cases with 25 remaining.
+A deterministic no-data preflight now exposes that state as eight provenance-
+linked blockers plus presentation-neutral progress and action fields. A
+metadata-only expected-label approval contract now validates the intake, bundle,
+case, label-hash, independent-role, and pre-execution links using a synthetic
+non-authorizing template. A reusable control-handoff verifier now validates that
+envelope, the intake control, and the current manifest entry together and emits
+a presentation-neutral blocked result. No operational expected label or handoff
+exists.
+
 Exit criteria:
 
 - At least 25 authorized sanitized cases are loaded through an approved process.
 - Expert-approved outcomes are independently recorded.
 - The completion verifier in `goal.md` passes or discrepancies are documented.
 - Security, sanitization, and retention controls are reviewed.
+
+## Future interface seed — Operator review surface
+
+Status: deliberately deferred until the acceptance and readiness contracts are
+stable enough to display without duplicating business rules.
+
+The first graphical surface should remain read-only and consume deterministic
+report projections. It should make corpus progress, external blockers, case and
+charge status, expected/invoiced/paid comparisons, evidence gaps, and governing
+source links visible to an audit professional. Framework selection, editing,
+ingest, submission, and money movement are not implied by this seed.

@@ -3,152 +3,151 @@
 ## Status
 
 Active. Scope remains domestic DP3 TSP-to-Government read-only post-audit. M1
-still has external public-source gaps, M2's public-source logical contract is
-complete, M3 has nine published deterministic packages plus six conflict-
-blocked draft rules, M4 has two monetary shadow-rating families, and M5 has two
-charge-family reconciliation adapters inside a deterministic report envelope.
+still has public-source and interpretation gaps; M2's public-source logical
+contract is complete; M3 has nine published deterministic packages plus six
+conflict-blocked draft rules; M4 and M5 support Items 28A and 28B; and M6 has a
+verified no-data control chain from intake through expected-label approval,
+manifest registration, preflight, and cross-control handoff. No authorized
+historical case is loaded.
 
 ## Active milestone
 
-M1 remains active for current PPA artifacts and disputed source versions. A
-send-ready counsel clarification brief targets the three highest-leverage
-billing gaps. M5 has two end-to-end synthetic families: Items 28A and 28B both
-have rating, invoice/payment reconciliation, registered adapters, and combined
-canonical reporting. No authorized historical case is loaded.
+M6 remains active but its next operational step requires external written
+authorization, an approved sanitization process, and authorized cases. M1 source
+clarification is therefore the next productive local track. The readiness
+matrix ranks Item 4 reweigh-fee work first, blocked primarily by `CF-0004` plus
+the broader `CF-0001`/`CF-0003` contracts.
 
 ## Last checkpoint
 
-Closed `GAP-130-TEST-FORBIDDEN-FIELD-ALIASES` with one shared recursive guard
-applied to every Item 130 fixture. Fifty normalized forbidden keys cover billing
-mapping, quantity, rate-date, rate, money, rules, reconciliation, and audit
-outputs. Six exact, camel-case, and nested mutations fail. Coverage-audit version
-3 reports all 18 ratified non-monetary categories covered.
+Published `HISTORICAL-CONTROL-HANDOFF-V1` version `2026-08-07.1`. Its synthetic
+result verifies every intake, bundle, label, manifest, version, hash, role, and
+timestamp link while remaining explicitly non-operational, non-counting, and
+blocked at zero of 25. The manifest now also rejects backward registration
+chronology across immutable entry versions.
 
 ## Completed
 
 - Ratified the domestic DP3 post-audit goal, 25-authorized-case completion
   verifier, and strict sensitive-data boundary.
-- Archived/checksummed ten public artifacts. The registry holds 40 reviewed
-  claims, 37 locators, four open conflicts, and two scoped interpretations.
-- Completed the public-source logical schema and 19 synthetic scenarios with
-  paired or focused negative probes.
+- Archived and checksummed eleven public artifacts. The registry holds 40
+  reviewed claims, 37 locators, four open conflicts, and two scoped
+  interpretations.
+- Completed the public-source logical schema and 19 synthetic scenarios.
 - Published seven reference/workflow packages plus Item 28A and Item 28B
   monetary rating packages with exact Decimal arithmetic and evidence gates.
-- Implemented immutable expected/invoiced/paid reconciliation for both Item 28A
-  and Item 28B, including corrected histories, evidence/completeness gates,
-  exact variances, deterministic findings, and human-review blocks.
-- Preserved separate `INT-0001` and `INT-0002` mapping, package, provenance, and
-  audit-policy contracts while reusing a parameterized occurrence-audit core.
-- Registered distinct Item 28A and Item 28B report adapters and verified exact
-  closed and blocked two-family reports over one shared synthetic history.
-- Corrected the monetary readiness gate after Item 28B publication; the current
-  assessment deterministically rejects stale readiness, blocker, provenance,
-  ranking, and recommendation mutations.
-- Prepared the proposed Item 130 fact/evidence contract and validated it against
-  the archived tariff, all 66 candidate item-code rows, the official-library
-  snapshot, and the still-open `CF-0001`/`CF-0003` gates.
-- Preserved the original Item 130 proposal, recorded the accepted revision
-  request separately, and removed duplicate Item 130 service/approval entities
-  from the revised proposal in favor of canonical entity profiles with explicit
-  append-only status semantics.
-- Ratified revised Alternative A, integrated the five article records and two
-  canonical service profiles into the logical schema, and added `SYNTH-LS-013`
-  with five focused negative probes and no financial outputs.
-- Added `SYNTH-LS-014` for the 130G 48-inch and flat-screen boundaries with
-  exact decimal measurements, reviewed evidence, and five focused probes.
-- Added `SYNTH-LS-015` for both 130I/130J article families, the strict greater-
-  than-100-cubic-foot threshold, and moved-assembled condition, with six focused
-  probes.
-- Added `SYNTH-LS-016` for the 130C–130F boat families, exact measurement
-  methods and boundaries, all three associated-trailer states, HHG/OTO context,
-  and explicit 130E/130F conflict preservation, with nine focused probes.
-- Added `SYNTH-LS-017` for distinct Item 130 exclusions and timely, missing,
-  denied, conflicting, late, and unreviewed Government-preapproval states, with
-  twelve focused probes.
-- Added `SYNTH-LS-018` for zero/one/multiple/unmatched/duplicate handling pairs
-  and three SIT-cause states. It keeps duplicate candidates conflicting,
-  preserves `GAP-130-COMBINED-VS-OD`, and rejects twelve focused mutations.
-- Added `SYNTH-LS-019` for all listed 130A vehicle kinds, both listed 130H piano
-  kinds, and the upright-piano exclusion. It rejects seven focused mutations and
-  adds no service mapping, quantity, rate, money, rule, or audit output.
-- Added a SHA-256-bound, machine-checkable Item 130 coverage audit over the
-  ratified contract, seven fixtures, and three existing validators. It reports
-  16 covered, two partial, zero missing, and rejects six audit-record tampers.
-- Preserved that 16/2 audit unchanged by hash, added a valid positive Item 130
-  correction chain with ten focused probes, and published coverage-audit version
-  2 at 17 covered, one partial, and zero missing.
-- Preserved coverage-audit versions 1 and 2 unchanged by hash, added the shared
-  recursive forbidden-output guard and six alias/nesting probes, and published
-  version 3 at 18 covered, zero partial, and zero missing.
-- Added deterministic explanations, stable findings, source/evidence indexes,
-  exact summary math, canonical JSON, and all-or-nothing report totals.
+- Implemented immutable expected/invoiced/paid reconciliation and registered
+  audit-report adapters for Items 28A and 28B, including closed, discrepancy,
+  and evidence-blocked two-family paths.
+- Completed the ratified non-monetary Item 130 fact model and seven fixture
+  clusters. Coverage audit version 3 reports 18 covered, zero partial, and zero
+  missing while preserving all money and mapping gates.
+- Published historical-acceptance policy version `2026-08-07.3` and three
+  independently labeled synthetic acceptance benchmarks. All execute end to
+  end and remain explicitly non-counting.
+- Archived one official public precedent plus a checksummed sanitized extract;
+  it remains out-of-scope reference material.
+- Published metadata-only historical intake, expected-label approval, corpus-
+  manifest, no-data preflight, and cross-control handoff policies.
+- Added a checked-in empty manifest at zero of 25, a synthetic two-version
+  manifest chain, and immutable direct-supersession plus registration-chronology
+  validation.
+- Added a non-authorizing synthetic intake envelope, expected-label approval
+  envelope with no label artifact, and deterministic handoff report. Every
+  synthetic control remains non-operational and non-counting.
+- Added presentation-neutral readiness and handoff read models plus read-only
+  JSON inspection commands for the future operator interface.
+- Recorded a future read-only graphical surface for progress, blockers, cases,
+  charges, evidence, and source links. Framework selection remains deferred.
 - Drafted `docs/counsel-dp3-billing-clarification-brief.md`, cross-checked it
   against the conflict register and monetary inventory, and did not send it.
 
 ## Current task
 
-Decision 0005 revised Alternative A's bounded public-source non-monetary
-synthetic verifier is complete at 18/18 categories. This does not complete Item
-130 financial work or the overall goal. Four Item 130 source gaps and `CF-0001`/
-`CF-0003` remain open. No Item 130 money, service mapping, quantity, rule package,
-or audit adapter is authorized. The next project dependency is authoritative
-source clarification through the prepared counsel brief.
+The safe no-data M6 control path is complete through pre-execution handoff.
+Further operational M6 work requires written authorization and sanitized case
+artifacts that do not exist. The next verifiable outcome is to resume M1 and
+seek an authoritative artifact or clarification resolving `CF-0004`, the
+unknown fact that selects the 5,000-pound reweigh-tolerance branch. Search
+observations must remain candidates unless the authoritative artifact is
+archived and checksummed.
+
+## Corpus boundary
+
+- `SOURCE_STRUCTURED_SYNTHETIC`: executes end to end; never counts toward 25.
+- `PUBLIC_PRECEDENT`: archived raw source plus sanitized derivative;
+  reference-only and never counts toward 25.
+- `AUTHORIZED_SANITIZED_HISTORICAL`: the only count-eligible tier; requires
+  operational intake, expert label approval, manifest linkage, handoff release,
+  and a matching deterministic acceptance result.
+- Synthetic intake, label, manifest, and handoff controls validate structure
+  only and can never authorize ingest or execution or count toward acceptance.
+- The authoritative empty manifest remains at zero entries and 25 passing cases
+  remaining.
+
+## Interface seed
+
+The future graphical surface should be read-only first and consume deterministic
+report projections rather than recalculate business rules. Current preflight
+and handoff outputs already expose stable titles, headlines, progress, actions,
+blockers, and linked-control summaries. No framework has been selected.
 
 ## Known blockers
 
+- Final acceptance requires at least 25 authorized anonymized historical cases
+  with independently approved outcomes.
+- No written data authorization, approved sanitization method, operational
+  intake, operational label, operational manifest entry, or operational handoff
+  exists.
 - `CF-0004`: the governing source does not identify the weight fact selecting
-  the 5,000-lb reweigh-tolerance branch.
-- Direct archival requests to PPA.mil and media.defense.gov returned HTTP 403.
+  the 5,000-pound reweigh-tolerance branch.
+- Direct archival requests to the GAO candidate, PPA.mil, and
+  media.defense.gov returned HTTP 403; none was promoted from snippets or online
+  observations into an archived source claim.
 - Mileage/SIT effective periods, authorized-SIT percentage/rounding, and the
   complete current domestic item-code supersession chain remain unresolved.
 - `CF-0001` remains open outside the narrow Item 28B actual-pickup decision.
-- `CF-0003` remains open outside approved Item 28A/28B row contracts; neither
-  `INT-0001` nor `INT-0002` authorizes Item 28C or broader code-list use.
+- `CF-0003` remains open outside approved Item 28A/28B row contracts.
 - Decision 0005 records four Item 130 source gaps: missing lawnmower listing
-  rows, narrower 130E listing descriptions, the 130F BOTO boundary, and combined-
-  service tariff quantity versus separate origin/destination rows.
-- Final acceptance requires at least 25 authorized, anonymized historical cases
-  with independently approved outcomes.
+  rows, narrower 130E descriptions, the 130F BOTO boundary, and combined tariff
+  quantity versus separate origin/destination listing rows.
 
 ## Decisions needed
 
+- Written authorization and approved sanitization are required before any real
+  shipment or employer case enters the environment.
 - Resolve `CF-0004` before reweigh-fee or containerized-reimbursement tolerance.
-- Resolve `CF-0001` before any other SIT/accessorial rate-date selection.
+- Resolve `CF-0001` before other SIT/accessorial rate-date selection.
 - Resolve `CF-0002` before disputed transit/SIT-tool behavior.
 - Resolve `CF-0003` before broad 2022 item-code use.
-- Reopen `INT-0001` or `INT-0002` if contrary or superseding evidence appears.
-- Resolve the Item 130 source gaps and approve a separate interpretation and
-  financial contract before mapping services or implementing money.
+- Resolve the Item 130 gaps and approve a separate interpretation and financial
+  contract before mapping services or implementing money.
 
 ## Next three actions
 
-1. When authorized and available, send the counsel brief requesting the current
-   item-code contract, rate-date selector, and reweigh branch fact.
-2. Register any response by authority type without treating customary practice
-   as governing text.
-3. Re-run monetary readiness and select the next family only if its required
-   source, mapping, evidence, and audit gates pass.
+1. Re-open the `CF-0004` source record and existing attempted URLs; search only
+   for authoritative amendments, advisories, publisher clarification, or public
+   decisions that identify the controlling 5,000-pound branch fact.
+2. Archive and checksum any authoritative artifact before extracting a claim;
+   otherwise record the observation and failed archival route without changing
+   the conflict status.
+3. If authoritative resolution remains unavailable, prepare the exact scoped
+   interpretation choice for owner/counsel without publishing reweigh-fee money.
 
 ## Verification status
 
-The registry contains ten public sources, 40 claims, 37 locators, four open
-conflicts, two approved interpretations, ten packages, and 25 rules. Nine
-packages and 19 rules are published; six rules remain draft. Passing suites:
-registry valid plus nine expected failures; logical schema 19 positive plus 12
-paired negative scenarios and 67 focused Item 130 probes; initial weight 14;
-automatic reweigh 10; completed reweigh 11; scale-reweigh lower 11; constructive
-reference 15; containerized provisional 15; reweigh-refund workflow 16; Item 28A
-rating 24 plus five tamper probes; Item 28A audit 27 plus seven; Item 28B rating
-25 plus five; Item 28B audit 23 plus seven; Item 28B dossier four archived
-sources, ten mandatory tests, and four tamper probes; audit report six plus ten
-output-tamper and three request probes; source readiness two implemented
-references, five ranked blocked candidates, 16 provenance records, five
-blockers, and six tamper probes; Item 130 v1 dossier seven entities, 56 fields,
-four source gaps, 18 mandatory tests, and six tamper probes; Item 130 v2 dossier
-five new entities/32 fields, two canonical profiles/19 fields, 11 common fields,
-ratified approval, preserved v1 source contract, and six tamper probes. The Item
-130 mandatory coverage audit version 3 reports 18 covered, zero partial, zero
-missing, immutable version-1/version-2 history, six shared forbidden-output
-probes, and six audit tamper probes. All 19 validator scripts, changed-module
-compilation, and `git diff --check` pass. No real data, external message, live
-submission, money movement, or historical acceptance report exists.
+The registry contains eleven public source versions, 40 claims, 37 locators,
+four open conflicts, two approved interpretations, ten packages, and 25 rules.
+Nine packages and 19 rules are published; six rules remain draft.
+
+The handoff suite verifies one canonical synthetic report, 12 tamper probes,
+three report-structure gates, nine linked-input gates, and one promotion gate.
+The manifest suite verifies one immutable empty manifest, one synthetic two-
+version chain, 17 negative mutations, and eight structural/linkage gates. The
+expected-label suite verifies 20 negative mutations plus six content/intake
+gates; the intake suite verifies 16 negative mutations plus promotion and
+extra-field gates; and the preflight suite verifies 12 tamper probes plus five
+structural/input gates. All 25 repository validator scripts, changed-module
+compilation, and `git diff --check` pass. No real data, operational control,
+external message, live submission, money movement, or historical acceptance
+execution report exists.

@@ -67,6 +67,50 @@ provenance, mapping decision, and adapter contract.
 shipment report may contain both families; any blocked family suppresses all
 aggregate monetary totals without suppressing decided charge-level findings.
 
+`historical_acceptance.py` executes source-structured rating facts through the
+registered audit-report adapters, compares the deterministic projection with a
+separately authored expected-outcome label, and aggregates corpus readiness.
+Each adapter may receive a provenance-complete charge-scoped audit record view;
+otherwise it consumes the case's shared audit records.
+Synthetic benchmarks and public precedents remain visible but cannot increment
+the ratified 25-case counter. Only written-authorized, pre-ingest-sanitized,
+independently expert-labeled historical cases are eligible.
+
+`historical_intake.py` validates the separate metadata-only control envelope
+required by that historical tier. It enforces current written-authorization
+metadata, sanitization-before-ingest chronology, bundle hashing, prohibited-data
+removal, retention, distinct critical roles, provenance, and the no-AI-
+attestation boundary. Its synthetic template is structurally testable but can
+never authorize operational ingest.
+
+`historical_corpus_manifest.py` validates the metadata-only registry that will
+link future authorized cases to those intake envelopes, sanitized-bundle
+hashes, and independently approved expected-label hashes. The checked-in
+manifest is an immutable empty state at zero of 25. Counts are derived from
+current directly superseding entry versions; synthetic templates exercise the
+contract but cannot produce a pass or authorize operational use.
+
+`historical_corpus_preflight.py` converts that checked-in empty state into a
+deterministic, presentation-neutral readiness report. It exposes zero-of-25
+progress, eight provenance-linked external blockers, and one next action. The
+report is non-authorizing, contains no case content, rejects non-empty and
+synthetic manifest modes, and is suitable as a future graphical interface's
+read model without moving control logic into the interface.
+
+`historical_expected_label.py` validates the metadata-only approval envelope
+for a separately stored expected-outcome label. It binds the label ID/hash to a
+validated intake envelope, bundle hash, opaque case reference, pre-execution
+chronology, independent author and expert reviewer roles, provenance, and no-AI
+attestation. The synthetic template contains neither an outcome nor label
+artifact and cannot authorize operational use.
+
+`historical_control_handoff.py` rebuilds a single cross-control readiness result
+from the intake envelope, expected-label control, and current manifest entry. It
+verifies all case, control, bundle, label, entry, hash, and timestamp links and
+keeps structural linkage separate from operational authority. Its synthetic
+result verifies the links but remains blocked, non-counting, and unable to
+authorize acceptance execution.
+
 The file-backed physical source/rule registry is under `rules/registry/`. Its
 seven reference/workflow packages and two monetary packages are published
 separately from the draft, non-executable rules affected by open conflicts.

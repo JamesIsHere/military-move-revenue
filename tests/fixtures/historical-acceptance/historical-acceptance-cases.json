@@ -1,0 +1,441 @@
+{
+  "fixture_set": "SYNTHETIC_HISTORICAL_ACCEPTANCE_PIPELINE_CASES",
+  "description": "Three source-structured synthetic two-family audit benchmarks (clean, opposing line discrepancies, and one evidence-blocked charge) plus one archived public precedent. No real shipment, person, employer, financial-account, or live Government identifier is present.",
+  "corpus_run_id": "ACCEPTANCE-CORPUS-SYNTH-003",
+  "evaluated_at": "2026-08-07T12:00:00Z",
+  "cases": [
+    {
+      "case_id": "ACCEPT-SYNTH-28A-28B-001",
+      "case_kind": "EXECUTABLE_AUDIT_CASE",
+      "corpus_tier": "SOURCE_STRUCTURED_SYNTHETIC",
+      "data_status": "synthetic",
+      "as_of_at": "2026-06-30T23:59:59Z",
+      "scope": {
+        "program_code": "DP3",
+        "domestic_indicator": true,
+        "billing_relationship": "TSP_TO_GOVERNMENT",
+        "review_mode": "READ_ONLY_POST_AUDIT",
+        "shipment_status": "COMPLETED",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical-acceptance-report.v1",
+            "effective_period": "TEST_ONLY",
+            "locator": "ACCEPT-SYNTH-28A-28B-001 scope contract",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "synthetic_test"
+          }
+        ]
+      },
+      "intake_control": {
+        "authorization_status": "NOT_APPLICABLE_SYNTHETIC",
+        "sanitization_status": "SYNTHETIC_NO_REAL_DATA",
+        "sensitive_data_review_status": "PASSED",
+        "prohibited_data_present": false,
+        "reviewed_at": "2026-08-07T09:00:00Z",
+        "reviewer_role": "SYNTHETIC_FIXTURE_REVIEWER",
+        "provenance": [
+          {
+            "source_id": "AGENT-OPERATING-POLICY",
+            "document_version": "workspace AGENTS.md at 2026-08-07",
+            "effective_period": "2026-08-07/open",
+            "locator": "Sensitive data",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "approved_internal_policy"
+          }
+        ]
+      },
+      "component_assembly": {
+        "target_shipment_id": "SHP-MULTI-001",
+        "audit_records_path": "tests/fixtures/audit-report/item-28a-28b-shared-history.json",
+        "charge_components": [
+          {
+            "charge_instance_id": "ITEM-28A",
+            "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28A-V1",
+            "rating_fixture_path": "tests/fixtures/logical-schema/item-28a-extra-pickup-facts.json",
+            "source_shipment_id": "SHP-28A-001",
+            "interpretation_decision_id": "INT-0001"
+          },
+          {
+            "charge_instance_id": "ITEM-28B",
+            "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28B-V1",
+            "rating_fixture_path": "tests/fixtures/logical-schema/item-28b-extra-delivery-facts.json",
+            "source_shipment_id": "SHP-28B-001",
+            "interpretation_decision_id": "INT-0002"
+          }
+        ]
+      },
+      "expected_outcome_label": {
+        "label_id": "EXPECTED-ACCEPT-SYNTH-28A-28B-001",
+        "recorded_at": "2026-08-07T09:30:00Z",
+        "approved_at": "2026-08-07T10:00:00Z",
+        "creation_method": "INDEPENDENTLY_AUTHORED_BEFORE_EXECUTION",
+        "reviewer_role": "SYNTHETIC_EXPECTED_OUTCOME_REVIEWER",
+        "approval_status": "APPROVED_SYNTHETIC_ORACLE",
+        "approval_basis": "INTERNAL_SYNTHETIC_DESIGN",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical acceptance fixture 2026-08-07.1",
+            "effective_period": "TEST_ONLY",
+            "locator": "ACCEPT-SYNTH-28A-28B-001 expected projection",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "independent_synthetic_oracle"
+          }
+        ],
+        "expected_projection": {
+          "report_status": "FINAL",
+          "human_review_required": false,
+          "summary": {
+            "charge_count": 2,
+            "final_charge_count": 2,
+            "blocked_charge_count": 0,
+            "finding_count": 6,
+            "open_finding_count": 0,
+            "totals_status": "FINAL",
+            "currency": "USD",
+            "expected_amount": "397.00",
+            "invoiced_amount": "397.00",
+            "paid_amount": "397.00",
+            "billing_variance": "0.00",
+            "payment_variance": "0.00",
+            "realized_variance": "0.00"
+          },
+          "charges": [
+            {
+              "charge_instance_id": "ITEM-28A",
+              "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28A-V1",
+              "audit_status": "FINAL",
+              "expected_amount": "198.50",
+              "invoiced_amount": "198.50",
+              "paid_amount": "198.50",
+              "expected_quantity": "1",
+              "invoiced_quantity": "1",
+              "billing_finding_code": "CORRECTLY_BILLED",
+              "quantity_finding_code": "QUANTITY_MATCH",
+              "payment_finding_code": "PAID_AS_INVOICED",
+              "finding_status": "CLOSED_NO_EXCEPTION"
+            },
+            {
+              "charge_instance_id": "ITEM-28B",
+              "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28B-V1",
+              "audit_status": "FINAL",
+              "expected_amount": "198.50",
+              "invoiced_amount": "198.50",
+              "paid_amount": "198.50",
+              "expected_quantity": "1",
+              "invoiced_quantity": "1",
+              "billing_finding_code": "CORRECTLY_BILLED",
+              "quantity_finding_code": "QUANTITY_MATCH",
+              "payment_finding_code": "PAID_AS_INVOICED",
+              "finding_status": "CLOSED_NO_EXCEPTION"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "ACCEPT-SYNTH-28A-28B-002-DISCREPANCY",
+      "case_kind": "EXECUTABLE_AUDIT_CASE",
+      "corpus_tier": "SOURCE_STRUCTURED_SYNTHETIC",
+      "data_status": "synthetic",
+      "as_of_at": "2026-06-30T23:59:59Z",
+      "scope": {
+        "program_code": "DP3",
+        "domestic_indicator": true,
+        "billing_relationship": "TSP_TO_GOVERNMENT",
+        "review_mode": "READ_ONLY_POST_AUDIT",
+        "shipment_status": "COMPLETED",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical-acceptance-report.v1",
+            "effective_period": "TEST_ONLY",
+            "locator": "ACCEPT-SYNTH-28A-28B-002-DISCREPANCY scope contract",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "synthetic_test"
+          }
+        ]
+      },
+      "intake_control": {
+        "authorization_status": "NOT_APPLICABLE_SYNTHETIC",
+        "sanitization_status": "SYNTHETIC_NO_REAL_DATA",
+        "sensitive_data_review_status": "PASSED",
+        "prohibited_data_present": false,
+        "reviewed_at": "2026-08-07T09:05:00Z",
+        "reviewer_role": "SYNTHETIC_FIXTURE_REVIEWER",
+        "provenance": [
+          {
+            "source_id": "AGENT-OPERATING-POLICY",
+            "document_version": "workspace AGENTS.md at 2026-08-07",
+            "effective_period": "2026-08-07/open",
+            "locator": "Sensitive data",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "approved_internal_policy"
+          }
+        ]
+      },
+      "component_assembly": {
+        "target_shipment_id": "SHP-MULTI-001",
+        "audit_records_path": "tests/fixtures/audit-report/item-28a-28b-shared-history.json",
+        "audit_mutations": [
+          {
+            "path": "records.invoice_versions.0.claimed_total",
+            "value": "400.00"
+          },
+          {
+            "path": "records.invoice_line_versions.0.claimed_amount",
+            "value": "250.00"
+          },
+          {
+            "path": "records.invoice_line_versions.1.claimed_amount",
+            "value": "150.00"
+          },
+          {
+            "path": "records.payments.0.amount",
+            "value": "400.00"
+          },
+          {
+            "path": "records.payment_allocations.0.allocated_amount",
+            "value": "250.00"
+          },
+          {
+            "path": "records.payment_allocations.1.allocated_amount",
+            "value": "150.00"
+          }
+        ],
+        "charge_components": [
+          {
+            "charge_instance_id": "ITEM-28A",
+            "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28A-V1",
+            "rating_fixture_path": "tests/fixtures/logical-schema/item-28a-extra-pickup-facts.json",
+            "source_shipment_id": "SHP-28A-001",
+            "interpretation_decision_id": "INT-0001"
+          },
+          {
+            "charge_instance_id": "ITEM-28B",
+            "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28B-V1",
+            "rating_fixture_path": "tests/fixtures/logical-schema/item-28b-extra-delivery-facts.json",
+            "source_shipment_id": "SHP-28B-001",
+            "interpretation_decision_id": "INT-0002"
+          }
+        ]
+      },
+      "expected_outcome_label": {
+        "label_id": "EXPECTED-ACCEPT-SYNTH-28A-28B-002-DISCREPANCY",
+        "recorded_at": "2026-08-07T09:35:00Z",
+        "approved_at": "2026-08-07T10:05:00Z",
+        "creation_method": "INDEPENDENTLY_AUTHORED_BEFORE_EXECUTION",
+        "reviewer_role": "SYNTHETIC_EXPECTED_OUTCOME_REVIEWER",
+        "approval_status": "APPROVED_SYNTHETIC_ORACLE",
+        "approval_basis": "INTERNAL_SYNTHETIC_DESIGN",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical acceptance fixture 2026-08-07.2",
+            "effective_period": "TEST_ONLY",
+            "locator": "ACCEPT-SYNTH-28A-28B-002-DISCREPANCY expected projection",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "independent_synthetic_oracle"
+          }
+        ],
+        "expected_projection": {
+          "report_status": "FINAL",
+          "human_review_required": true,
+          "summary": {
+            "charge_count": 2,
+            "final_charge_count": 2,
+            "blocked_charge_count": 0,
+            "finding_count": 6,
+            "open_finding_count": 2,
+            "totals_status": "FINAL",
+            "currency": "USD",
+            "expected_amount": "397.00",
+            "invoiced_amount": "400.00",
+            "paid_amount": "400.00",
+            "billing_variance": "3.00",
+            "payment_variance": "0.00",
+            "realized_variance": "3.00"
+          },
+          "charges": [
+            {
+              "charge_instance_id": "ITEM-28A",
+              "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28A-V1",
+              "audit_status": "FINAL",
+              "expected_amount": "198.50",
+              "invoiced_amount": "250.00",
+              "paid_amount": "250.00",
+              "expected_quantity": "1",
+              "invoiced_quantity": "1",
+              "billing_finding_code": "OVERBILLED",
+              "quantity_finding_code": "QUANTITY_MATCH",
+              "payment_finding_code": "PAID_AS_INVOICED",
+              "finding_status": "OPEN"
+            },
+            {
+              "charge_instance_id": "ITEM-28B",
+              "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28B-V1",
+              "audit_status": "FINAL",
+              "expected_amount": "198.50",
+              "invoiced_amount": "150.00",
+              "paid_amount": "150.00",
+              "expected_quantity": "1",
+              "invoiced_quantity": "1",
+              "billing_finding_code": "UNDERBILLED",
+              "quantity_finding_code": "QUANTITY_MATCH",
+              "payment_finding_code": "PAID_AS_INVOICED",
+              "finding_status": "OPEN"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "ACCEPT-SYNTH-28A-28B-003-EVIDENCE-BLOCKED",
+      "case_kind": "EXECUTABLE_AUDIT_CASE",
+      "corpus_tier": "SOURCE_STRUCTURED_SYNTHETIC",
+      "data_status": "synthetic",
+      "as_of_at": "2026-06-30T23:59:59Z",
+      "scope": {
+        "program_code": "DP3",
+        "domestic_indicator": true,
+        "billing_relationship": "TSP_TO_GOVERNMENT",
+        "review_mode": "READ_ONLY_POST_AUDIT",
+        "shipment_status": "COMPLETED",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical-acceptance-report.v1",
+            "effective_period": "TEST_ONLY",
+            "locator": "ACCEPT-SYNTH-28A-28B-003-EVIDENCE-BLOCKED scope contract",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "synthetic_test"
+          }
+        ]
+      },
+      "intake_control": {
+        "authorization_status": "NOT_APPLICABLE_SYNTHETIC",
+        "sanitization_status": "SYNTHETIC_NO_REAL_DATA",
+        "sensitive_data_review_status": "PASSED",
+        "prohibited_data_present": false,
+        "reviewed_at": "2026-08-07T09:10:00Z",
+        "reviewer_role": "SYNTHETIC_FIXTURE_REVIEWER",
+        "provenance": [
+          {
+            "source_id": "AGENT-OPERATING-POLICY",
+            "document_version": "workspace AGENTS.md at 2026-08-07",
+            "effective_period": "2026-08-07/open",
+            "locator": "Sensitive data",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "approved_internal_policy"
+          }
+        ]
+      },
+      "component_assembly": {
+        "target_shipment_id": "SHP-MULTI-001",
+        "audit_records_path": "tests/fixtures/audit-report/item-28a-28b-shared-history.json",
+        "charge_components": [
+          {
+            "charge_instance_id": "ITEM-28A",
+            "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28A-V1",
+            "rating_fixture_path": "tests/fixtures/logical-schema/item-28a-extra-pickup-facts.json",
+            "source_shipment_id": "SHP-28A-001",
+            "interpretation_decision_id": "INT-0001"
+          },
+          {
+            "charge_instance_id": "ITEM-28B",
+            "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28B-V1",
+            "rating_fixture_path": "tests/fixtures/logical-schema/item-28b-extra-delivery-facts.json",
+            "source_shipment_id": "SHP-28B-001",
+            "interpretation_decision_id": "INT-0002",
+            "audit_mutations": [
+              {
+                "path": "records.evidence_links.2.review_status",
+                "value": "UNREVIEWED"
+              }
+            ]
+          }
+        ]
+      },
+      "expected_outcome_label": {
+        "label_id": "EXPECTED-ACCEPT-SYNTH-28A-28B-003-EVIDENCE-BLOCKED",
+        "recorded_at": "2026-08-07T09:40:00Z",
+        "approved_at": "2026-08-07T10:10:00Z",
+        "creation_method": "INDEPENDENTLY_AUTHORED_BEFORE_EXECUTION",
+        "reviewer_role": "SYNTHETIC_EXPECTED_OUTCOME_REVIEWER",
+        "approval_status": "APPROVED_SYNTHETIC_ORACLE",
+        "approval_basis": "INTERNAL_SYNTHETIC_DESIGN",
+        "provenance": [
+          {
+            "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+            "document_version": "historical acceptance fixture 2026-08-07.3",
+            "effective_period": "TEST_ONLY",
+            "locator": "ACCEPT-SYNTH-28A-28B-003-EVIDENCE-BLOCKED expected projection",
+            "retrieval_date": "2026-08-07",
+            "interpretation_status": "independent_synthetic_oracle"
+          }
+        ],
+        "expected_projection": {
+          "report_status": "BLOCKED",
+          "human_review_required": true,
+          "summary": {
+            "charge_count": 2,
+            "final_charge_count": 1,
+            "blocked_charge_count": 1,
+            "finding_count": 4,
+            "open_finding_count": 1,
+            "totals_status": "BLOCKED"
+          },
+          "charges": [
+            {
+              "charge_instance_id": "ITEM-28A",
+              "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28A-V1",
+              "audit_status": "FINAL",
+              "expected_amount": "198.50",
+              "invoiced_amount": "198.50",
+              "paid_amount": "198.50",
+              "expected_quantity": "1",
+              "invoiced_quantity": "1",
+              "billing_finding_code": "CORRECTLY_BILLED",
+              "quantity_finding_code": "QUANTITY_MATCH",
+              "payment_finding_code": "PAID_AS_INVOICED",
+              "finding_status": "CLOSED_NO_EXCEPTION"
+            },
+            {
+              "charge_instance_id": "ITEM-28B",
+              "adapter_id": "CHARGE-ADAPTER-DP3-ITEM-28B-V1",
+              "audit_status": "BLOCKED",
+              "blocked_reasons": [
+                "INVOICE_LINE_EVIDENCE_MISSING_OR_UNREVIEWED:LINEV-MULTI-28B"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "case_id": "PUBLIC-CBCA-1536-RELO-ARCHIVED",
+      "case_kind": "PUBLIC_PRECEDENT_REFERENCE",
+      "corpus_tier": "PUBLIC_PRECEDENT",
+      "data_status": "public",
+      "archive_status": "ARCHIVED_AUTHORITATIVE",
+      "scope_assessment": "OUT_OF_SCOPE_CONTEXT_ONLY",
+      "sensitive_data_status": "SANITIZED_DERIVED_EXTRACT",
+      "raw_artifact_path": "sources/raw/public-precedents/cbca-1536-relo-2009-10-01.pdf",
+      "raw_artifact_sha256": "27d847b1c9200d3740b32a67e1c0598da66904b2d77618f6d20b5b0eddf65071",
+      "sanitized_extract_path": "sources/derived/2026/cbca-1536-relo-2009-10-01-sanitized.json",
+      "sanitized_extract_sha256": "53505ba3a66038c75811d7c8ad9e7493a7d395d0580b9561d6d0b17e6b73136a",
+      "extraction_method": "pdftotext layout extraction plus page-by-page rendered review and identifier generalization",
+      "source_provenance": [
+        {
+          "source_id": "SRC-CBCA-1536-RELO-2009",
+          "document_version": "CBCA 1536-RELO published 2009-10-01",
+          "effective_period": "HISTORICAL_CONTEXT_ONLY",
+          "locator": "decision pp. 1-3; archived artifact and sanitized extract paths recorded on this case",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "reviewed_context_only_out_of_scope"
+        }
+      ]
+    }
+  ]
+}

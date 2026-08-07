@@ -1,0 +1,236 @@
+{
+  "fixture_set": "SYNTHETIC_METADATA_ONLY_HISTORICAL_INTAKE_CONTROLS",
+  "description": "A metadata-only synthetic contract template and negative control mutations. It is not written authorization, does not attest real sanitization, contains no shipment content, and cannot authorize ingest.",
+  "evaluated_at": "2026-08-07T12:00:00Z",
+  "valid_template": {
+    "schema_version": "historical-intake-control.v1",
+    "policy_version": "2026-08-07.1",
+    "control_mode": "SYNTHETIC_TEMPLATE",
+    "envelope_id": "SYNTHETIC-INTAKE-CONTROL-001",
+    "case_reference_id": "SYNTHETIC-OPAQUE-CASE-REFERENCE-001",
+    "data_status": "SYNTHETIC_METADATA_ONLY",
+    "contains_case_content": false,
+    "real_data_ingest_authorized": false,
+    "authorization": {
+      "status": "SYNTHETIC_EXAMPLE_NOT_AUTHORIZATION",
+      "reference_id": "SYNTHETIC-NOT-AN-AUTHORIZATION",
+      "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+      "valid_from": "2026-08-01",
+      "valid_through": "2026-12-31",
+      "verified_at": "2026-08-05T09:00:00Z",
+      "data_owner_role": "SYNTHETIC_DATA_OWNER_ROLE",
+      "verifier_role": "SYNTHETIC_AUTHORIZATION_VERIFIER_ROLE",
+      "self_attested": false,
+      "provenance": [
+        {
+          "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+          "document_version": "historical-intake-control fixture 2026-08-07.1",
+          "effective_period": "TEST_ONLY",
+          "locator": "synthetic authorization control example",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "synthetic_not_authority"
+        }
+      ]
+    },
+    "sanitization": {
+      "status": "SYNTHETIC_EXAMPLE_NOT_SANITIZATION",
+      "method_id": "SYNTHETIC-SANITIZATION-METHOD",
+      "method_version": "test-only.1",
+      "bundle_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "completed_at": "2026-08-06T09:00:00Z",
+      "reviewed_at": "2026-08-06T12:00:00Z",
+      "sanitizer_role": "SYNTHETIC_SANITIZATION_OPERATOR_ROLE",
+      "reviewer_role": "SYNTHETIC_SANITIZATION_REVIEWER_ROLE",
+      "raw_source_entered_development_environment": false,
+      "hidden_metadata_removed": true,
+      "prohibited_categories_removed": [
+        "addresses",
+        "financial_accounts",
+        "hidden_document_metadata",
+        "live_government_identifiers",
+        "names",
+        "personal_identifiers",
+        "signatures"
+      ],
+      "provenance": [
+        {
+          "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+          "document_version": "historical-intake-control fixture 2026-08-07.1",
+          "effective_period": "TEST_ONLY",
+          "locator": "synthetic sanitization control example",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "synthetic_not_attestation"
+        }
+      ]
+    },
+    "ingest": {
+      "status": "SIMULATED_CHECKPOINT_NO_DATA_INGESTED",
+      "approved_at": "2026-08-07T08:00:00Z",
+      "approved_by_role": "SYNTHETIC_INGEST_APPROVER_ROLE",
+      "ingest_checkpoint_at": "2026-08-07T09:00:00Z",
+      "provenance": [
+        {
+          "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+          "document_version": "historical-intake-control fixture 2026-08-07.1",
+          "effective_period": "TEST_ONLY",
+          "locator": "simulated ingest checkpoint with no attached data",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "synthetic_no_ingest"
+        }
+      ]
+    },
+    "retention": {
+      "status": "SYNTHETIC_EXAMPLE_NOT_RETENTION_APPROVAL",
+      "classification": "SANITIZED_HISTORICAL_ACCEPTANCE",
+      "approved_at": "2026-08-06T13:00:00Z",
+      "approved_by_role": "SYNTHETIC_RECORDS_MANAGER_ROLE",
+      "delete_on": "2027-08-07",
+      "provenance": [
+        {
+          "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+          "document_version": "historical-intake-control fixture 2026-08-07.1",
+          "effective_period": "TEST_ONLY",
+          "locator": "synthetic retention control example",
+          "retrieval_date": "2026-08-07",
+          "interpretation_status": "synthetic_not_approval"
+        }
+      ]
+    },
+    "approval_separation": {
+      "outcome_reviewer_role": "SYNTHETIC_EXPERT_OUTCOME_REVIEWER_ROLE",
+      "roles_distinct": true,
+      "ai_attestation_used": false
+    },
+    "provenance": [
+      {
+        "source_id": "HISTORICAL-INTAKE-CONTROL-POLICY",
+        "document_version": "2026-08-07.1",
+        "effective_period": "TEST_ONLY",
+        "locator": "synthetic template boundary",
+        "retrieval_date": "2026-08-07",
+        "interpretation_status": "synthetic_contract_test"
+      }
+    ]
+  },
+  "invalid_mutations": [
+    {
+      "id": "INTAKE-CONTROL-INVALID-001",
+      "description": "missing authorization reference",
+      "path": "authorization.reference_id",
+      "value": "",
+      "expected_error_contains": "authorization reference_id"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-002",
+      "description": "stale authorization",
+      "path": "authorization.valid_through",
+      "value": "2026-08-06",
+      "expected_error_contains": "authorization is stale"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-003",
+      "description": "synthetic template contradicts its no-authority boundary",
+      "path": "real_data_ingest_authorized",
+      "value": true,
+      "expected_error_contains": "cannot authorize real-data ingest"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-004",
+      "description": "self-attested authorization",
+      "path": "authorization.self_attested",
+      "value": true,
+      "expected_error_contains": "cannot be self-attested"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-005",
+      "description": "ingest approval precedes sanitization review",
+      "path": "ingest.approved_at",
+      "value": "2026-08-06T10:00:00Z",
+      "expected_error_contains": "sanitization and ingest chronology"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-006",
+      "description": "raw source entered development before sanitization",
+      "path": "sanitization.raw_source_entered_development_environment",
+      "value": true,
+      "expected_error_contains": "raw source entered"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-007",
+      "description": "hidden metadata removal not verified",
+      "path": "sanitization.hidden_metadata_removed",
+      "value": false,
+      "expected_error_contains": "hidden metadata removal"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-008",
+      "description": "removed-category declaration omits names",
+      "path": "sanitization.prohibited_categories_removed",
+      "value": [
+        "addresses",
+        "financial_accounts",
+        "hidden_document_metadata",
+        "live_government_identifiers",
+        "personal_identifiers",
+        "signatures"
+      ],
+      "expected_error_contains": "removed-category declaration"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-009",
+      "description": "sanitizer reviews own work",
+      "path": "sanitization.sanitizer_role",
+      "value": "SYNTHETIC_SANITIZATION_REVIEWER_ROLE",
+      "expected_error_contains": "must be distinct"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-010",
+      "description": "retention period expired",
+      "path": "retention.delete_on",
+      "value": "2026-08-06",
+      "expected_error_contains": "retention period has expired"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-011",
+      "description": "AI attests controls",
+      "path": "approval_separation.ai_attestation_used",
+      "value": true,
+      "expected_error_contains": "AI cannot attest"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-012",
+      "description": "case content is declared present",
+      "path": "contains_case_content",
+      "value": true,
+      "expected_error_contains": "must remain metadata-only"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-013",
+      "description": "template is relabeled operational",
+      "path": "control_mode",
+      "value": "OPERATIONAL",
+      "expected_error_contains": "operational intake data_status mismatch"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-014",
+      "description": "outcome reviewer duplicates authorization verifier",
+      "path": "approval_separation.outcome_reviewer_role",
+      "value": "SYNTHETIC_AUTHORIZATION_VERIFIER_ROLE",
+      "expected_error_contains": "critical approval roles are not distinct"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-015",
+      "description": "sanitized bundle hash is malformed",
+      "path": "sanitization.bundle_sha256",
+      "value": "not-a-sha256",
+      "expected_error_contains": "bundle hash is invalid"
+    },
+    {
+      "id": "INTAKE-CONTROL-INVALID-016",
+      "description": "authorization provenance locator is missing",
+      "path": "authorization.provenance.0.locator",
+      "value": "",
+      "expected_error_contains": "provenance 0 locator"
+    }
+  ]
+}
