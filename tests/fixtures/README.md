@@ -21,7 +21,7 @@ Run:
 python scripts/validate_logical_schema_fixtures.py
 ```
 
-The validator checks eighteen positive scenarios and applies deliberately
+The validator checks nineteen positive scenarios and applies deliberately
 invalid mutations as regression checks. These fixtures validate relationships
 and invariants only; they do not assert that a disputed source claim is an
 approved billing rule.
@@ -53,13 +53,17 @@ and reviewed authorization and completion evidence. It intentionally contains
 no monetary result; the published rule package produces that result.
 
 The Item 130 non-monetary scenario exercises the ratified revised fact model
-with a synthetic 250-cc motorcycle, reviewed classification and measurement
-evidence, immutable handling performances, Government preapproval, and a
-non-billable loading/unloading pairing candidate. It intentionally leaves the
-candidate service family and approver role unmapped and contains no billing
-code, service definition, billable quantity, rate, amount, or financial result.
-Five negative probes reject money, premature service mapping, missing evidence,
-in-place supersession, and a changed measurement boundary.
+with a synthetic motorcycle whose reviewed 249-cc specification is corrected by
+a later, direct 250-cc supersession. Both measurement versions retain exact
+decimal values, stable article identity, separate document versions, and
+separate reviewed evidence. The fixture also preserves immutable handling
+performances, Government preapproval, and a non-billable loading/unloading pair.
+It intentionally leaves the candidate service family and approver role unmapped
+and contains no billing code, service definition, billable quantity, rate,
+amount, or financial result. Ten negative probes reject money, premature service
+mapping, missing evidence, in-place supersession, boundary drift, missing or
+self-referential correction linkage, missing reason, chronology drift, and a
+changed stable subject.
 
 The Item 130G television-boundary scenario compares three evidence-backed facts:
 an exact 48-inch non-flat positive candidate, a 47.999-inch non-flat article
@@ -103,6 +107,21 @@ and unknown SIT causes. The tariff-versus-item-code combined-service gap and
 amount, rule, reconciliation, or audit output is produced. Twelve negative
 probes protect cardinality, article identity, chronology, SIT linkage and cause,
 conflict/evidence gates, and the no-money boundary.
+
+The Item 130A/130H vehicle-and-piano scenario preserves separate reviewed
+automobile, truck, van, baby-grand-piano, and grand-piano positive candidates.
+It also records the tariff's express upright-piano exclusion without a 130H
+candidate, proving that a similar article is not auto-classified. Seven negative
+probes reject classification drift, a missing listed candidate, automatic or
+accepted upright classification, missing reviewed evidence, premature service
+mapping, and inserted money.
+
+Every Item 130 scenario also passes through one shared recursive forbidden-
+output guard before its family-specific validator. The guard normalizes key
+casing and separators and rejects billing mapping, billing quantity, rate-date,
+rate, money, rule-package, reconciliation, and audit-adapter fields anywhere in
+the fixture records. Six shared mutations protect exact, camel-case, and nested
+rate-date, billing-quantity, and expected-amount aliases.
 
 ## Source/rule registry cases
 

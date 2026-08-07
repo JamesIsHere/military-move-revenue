@@ -1,0 +1,70 @@
+{
+  "schema_version": "item-130-mandatory-test-coverage-audit.v3",
+  "audit_id": "ITEM-130-MANDATORY-COVERAGE-2026-08-07-3",
+  "audit_date": "2026-08-07",
+  "scope": "RATIFIED_ITEM_130_NON_MONETARY_FACT_MODEL_ONLY",
+  "data_status": "PUBLIC_SOURCE_AND_SYNTHETIC_TEST_ASSESSMENT",
+  "supersedes": {
+    "audit_id": "ITEM-130-MANDATORY-COVERAGE-2026-08-07-2",
+    "path": "docs/decisions/0005-item-130-mandatory-test-coverage-audit-2.json",
+    "sha256": "FCCE6929D05D99EC3BEBF04EFE7F899003549F19F26CE84EC7A2858A8B78A41E"
+  },
+  "history": [
+    {"audit_id": "ITEM-130-MANDATORY-COVERAGE-2026-08-07-1", "path": "docs/decisions/0005-item-130-mandatory-test-coverage-audit.json", "sha256": "F9D1D6CCB65DD79260060AEA8D3B128135F98029725E0442E1485EFF2C291CC4"},
+    {"audit_id": "ITEM-130-MANDATORY-COVERAGE-2026-08-07-2", "path": "docs/decisions/0005-item-130-mandatory-test-coverage-audit-2.json", "sha256": "FCCE6929D05D99EC3BEBF04EFE7F899003549F19F26CE84EC7A2858A8B78A41E"}
+  ],
+  "contract": {
+    "decision_number": "0005",
+    "base_dossier_path": "docs/decisions/0005-item-130-fact-model-dossier.json",
+    "base_dossier_sha256": "68B5A485FF086F02DE466606E5A2FAE55462D40B8AE21020C3AD6F08AF435C4E",
+    "mandatory_category_count": 18
+  },
+  "provenance_catalog": {
+    "P-130-COVERAGE3-CONTRACT": {"source_id": "INTERNAL-DECISION-0005", "document_version": "version 2 ratified 2026-08-04; inherited v1 mandatory-test contract SHA-256 68B5A485FF086F02DE466606E5A2FAE55462D40B8AE21020C3AD6F08AF435C4E", "effective_period": "TEST_ONLY", "locator": "0005-item-130-fact-model-dossier.json mandatory_tests; 0005-item-130-fact-model-dossier-v2.json inherited_sections; ratification record", "retrieval_date": "2026-08-07", "interpretation_status": "ratified_non_monetary_test_contract"},
+    "P-130-COVERAGE3-FIXTURES": {"source_id": "INTERNAL-SYNTHETIC-VALIDATION", "document_version": "SYNTH-LS-013 through SYNTH-LS-019 as hashed in artifact_inventory", "effective_period": "TEST_ONLY", "locator": "tests/fixtures/logical-schema/item-130-*.json", "retrieval_date": "2026-08-07", "interpretation_status": "validated_synthetic_test_evidence"},
+    "P-130-COVERAGE3-VALIDATOR": {"source_id": "INTERNAL-DETERMINISTIC-VALIDATION", "document_version": "logical-schema validator SHA-256 CD7CA6F17697A2C5A96CC62E7BA6130B3A3DF9DDCE0B3C62E2DB799A1B92227F", "effective_period": "TEST_ONLY", "locator": "scripts/validate_logical_schema_fixtures.py validate_item_130_forbidden_outputs and item_130_forbidden_output_negative_probe", "retrieval_date": "2026-08-07", "interpretation_status": "reviewed_executable_assertions"}
+  },
+  "artifact_inventory": [
+    {"path": "docs/decisions/0005-item-130-fact-model-dossier.json", "sha256": "68B5A485FF086F02DE466606E5A2FAE55462D40B8AE21020C3AD6F08AF435C4E"},
+    {"path": "docs/decisions/0005-item-130-fact-model-dossier-v2.json", "sha256": "266A3AE42A3F1525E4D9FCC42195EF206D781A3432F358B7D618CACACB1B0FAB"},
+    {"path": "docs/decisions/0005-item-130-revised-fact-model-approval.md", "sha256": "875F363FA7F7D0910F8D24CA1B1B335C731E16F4B06576AE0259C55842B0B24A"},
+    {"path": "scripts/validate_item_130_fact_model_dossier.py", "sha256": "B8365338E5F61609AE590591239E943832177B9F35327723AF1000ECB3F7041B"},
+    {"path": "scripts/validate_item_130_fact_model_dossier_v2.py", "sha256": "F79BAEDEA8972D32BE2DBF3DEC7575B65EBC08B7654635316D552AFD89546599"},
+    {"path": "scripts/validate_logical_schema_fixtures.py", "sha256": "CD7CA6F17697A2C5A96CC62E7BA6130B3A3DF9DDCE0B3C62E2DB799A1B92227F"},
+    {"path": "tests/fixtures/logical-schema/item-130-boat-boundaries.json", "sha256": "53FF6DFF9BAEAE5BC03CB5D5D06FC735D3A64966FEB7AA5F45FD78E68DBE4E5E"},
+    {"path": "tests/fixtures/logical-schema/item-130-exclusion-approval-boundaries.json", "sha256": "5AB82FCBC9B9873BDA353C0165C57C6DDD56C9DCB02E6ECAE68598991EBCC47B"},
+    {"path": "tests/fixtures/logical-schema/item-130-handling-sit-pairing-boundaries.json", "sha256": "AB1F71114BCCA19A72E621822F17AC0FA2C57D57388BE7020A3BAA1B9DB040BB"},
+    {"path": "tests/fixtures/logical-schema/item-130-non-monetary-facts.json", "sha256": "CE487199B712F18BB2FA93734085768566079B84595726EB2EE89434CB941D82"},
+    {"path": "tests/fixtures/logical-schema/item-130-tv-boundaries.json", "sha256": "8F75925432F7E5BB3D33DAFE24DD524639BFA618DA5AC3F8C3DFD03541D5000B"},
+    {"path": "tests/fixtures/logical-schema/item-130-vehicle-piano-classification-boundaries.json", "sha256": "A8F731B85435D754355840280966815D030708A3845C1B6FDE3C834A8E651D0C"},
+    {"path": "tests/fixtures/logical-schema/item-130-volume-assembly-boundaries.json", "sha256": "546295D972909ACBB6382FA242D948D5114D6C2682D5A772298FEF33FA9547EB"}
+  ],
+  "coverage_inheritance": {
+    "unchanged_ordinals": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+    "updates": [
+      {
+        "ordinal": 18,
+        "category": "no_rate_date_billing_quantity_amount_rule_package_or_audit_adapter_can_be_emitted",
+        "previous_status": "PARTIAL",
+        "current_status": "COVERED",
+        "closed_gap_id": "GAP-130-TEST-FORBIDDEN-FIELD-ALIASES",
+        "guard_scope": "ALL_RECORDS_IN_EVERY_ITEM_130_SCENARIO_RECURSIVELY",
+        "key_normalization": "LOWERCASE_REMOVE_NON_ALPHANUMERIC",
+        "canonical_forbidden_key_count": 50,
+        "focused_probe_fixture_id": "SYNTH-LS-019",
+        "focused_probe_count": 6,
+        "focused_probe_fields": ["rate_date_role", "quantity_for_billing", "rateDateRole", "billingQuantity", "derived_output.rate-date", "financial_output.expectedAmount"],
+        "finding": "A shared recursive guard now rejects normalized billing mapping, quantity, rate-date, rate, money, rule-package, reconciliation, and audit-adapter output keys across every Item 130 fixture; six exact, camel-case, and nested aliases fail.",
+        "provenance_ids": ["P-130-COVERAGE3-CONTRACT", "P-130-COVERAGE3-FIXTURES", "P-130-COVERAGE3-VALIDATOR"]
+      }
+    ]
+  },
+  "effective_coverage_summary": {"covered_count": 18, "partial_count": 0, "missing_count": 0, "overall_status": "COMPLETE_FOR_RATIFIED_NON_MONETARY_SYNTHETIC_CONTRACT"},
+  "remaining_test_gap_ids": [],
+  "unresolved_source_gap_ids": ["GAP-130-LAWNMOWER-ROW", "GAP-130E-SUBTYPE-ROWS", "GAP-130F-BOTO-BOUNDARY", "GAP-130-COMBINED-VS-OD"],
+  "open_conflict_ids": ["CF-0001", "CF-0003"],
+  "financial_authority": "UNCHANGED_PROHIBITED",
+  "completion_boundary": "This completes only the ratified public-source non-monetary synthetic Item 130 test contract. It does not approve a billing mapping, rate-date fact, billable quantity, rate, amount, rule package, audit adapter, or historical-case acceptance.",
+  "next_action": "Preserve the Item 130 source and financial gates. When authoritative clarification is available, register it by authority type and re-run monetary readiness before proposing any Item 130 financial contract.",
+  "unresolved_assumptions": []
+}

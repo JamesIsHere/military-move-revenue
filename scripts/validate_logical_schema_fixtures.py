@@ -42,6 +42,58 @@ FORBIDDEN_KEY_FRAGMENTS = (
     "signature_image",
     "social_security",
 )
+ITEM_130_FORBIDDEN_OUTPUT_KEYS = {
+    "amount",
+    "auditadapter",
+    "auditadapterid",
+    "auditfindings",
+    "billingcontract",
+    "billingeligibility",
+    "billingeligibilitydecisions",
+    "billingitemcode",
+    "billingitemcodetext",
+    "billingitemcodeversionid",
+    "billingitemcontract",
+    "billingitemmappingid",
+    "billingquantity",
+    "billablequantity",
+    "calculationsteps",
+    "chargecalculations",
+    "claimedamount",
+    "currency",
+    "expectedamount",
+    "expectedchargelines",
+    "financialeligibility",
+    "invoicedamount",
+    "invoicelines",
+    "invoicelineversions",
+    "interpretationdecisionid",
+    "paidamount",
+    "paymentallocations",
+    "payments",
+    "quantity",
+    "quantityforbilling",
+    "quantityunit",
+    "rate",
+    "rateamount",
+    "ratedate",
+    "ratedaterole",
+    "ratingrunid",
+    "ratingruns",
+    "rateversion",
+    "rateversiondate",
+    "rateversiondatefact",
+    "rateversionid",
+    "reconciliationid",
+    "reconciliationmatches",
+    "ruledecisions",
+    "ruleid",
+    "rulepackageid",
+    "servicedefinitionid",
+    "servicedefinitions",
+    "standardizedapproverrole",
+    "varianceamount",
+}
 DECIMAL_RE = re.compile(r"^-?(?:0|[1-9]\d*)(?:\.\d+)?$")
 MONEY_FIELDS = {
     "allocated_amount",
@@ -1246,14 +1298,31 @@ def validate_item_130_non_monetary_facts(fixture: dict) -> None:
     require(article.get("associated_trailer_status") == "ABSENT", "motorcycle trailer state mismatch")
     reviewed_evidence(article, "SHIPMENT_ARTICLE", "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW")
 
-    require(len(measurements) == 1, "Item 130 motorcycle needs one displacement measurement")
-    measurement = next(iter(measurements.values()))
-    require(measurement.get("article_id") == article["id"], "measurement article mismatch")
-    require(measurement.get("measurement_kind") == "ENGINE_DISPLACEMENT", "measurement kind mismatch")
-    require(decimal(measurement.get("measurement_value"), "Item 130 displacement") == Decimal("250"), "fixture must exercise exact 250cc boundary")
-    require(measurement.get("measurement_unit") == "cc" and measurement.get("measurement_method") == "DOCUMENTED_SPECIFICATION", "measurement unit/method mismatch")
-    require(measurement.get("review_status") == "ACCEPTED", "measurement is not reviewed")
-    reviewed_evidence(measurement, "ARTICLE_MEASUREMENT_OBSERVATION", "ENGINE_DISPLACEMENT_SPECIFICATION")
+    require(set(measurements) == {"AMO-130B-CC-001", "AMO-130B-CC-002"}, "Item 130 motorcycle needs the original and corrected displacement observations")
+    original_measurement = measurements["AMO-130B-CC-001"]
+    current_measurement = measurements["AMO-130B-CC-002"]
+    for measurement in (original_measurement, current_measurement):
+        require(measurement.get("article_id") == article["id"], "measurement correction changed stable article subject")
+        require(measurement.get("measurement_kind") == "ENGINE_DISPLACEMENT", "measurement correction changed measurement kind")
+        require(measurement.get("measurement_unit") == "cc" and measurement.get("measurement_method") == "DOCUMENTED_SPECIFICATION", "measurement unit/method mismatch")
+        require(measurement.get("review_status") == "ACCEPTED", "measurement is not reviewed")
+        reviewed_evidence(measurement, "ARTICLE_MEASUREMENT_OBSERVATION", "ENGINE_DISPLACEMENT_SPECIFICATION")
+    require(decimal(original_measurement.get("measurement_value"), "original Item 130 displacement") == Decimal("249"), "original measurement must preserve the 249cc value")
+    require(decimal(current_measurement.get("measurement_value"), "current Item 130 displacement") == Decimal("250"), "current correction must exercise the exact 250cc boundary")
+    require("supersedes_id" not in original_measurement and "correction_reason" not in original_measurement, "original measurement cannot be a correction")
+    require(current_measurement.get("supersedes_id") == original_measurement["id"], "current measurement does not directly supersede the original")
+    require(bool(current_measurement.get("correction_reason")), "current measurement correction lacks a reason")
+    require(parse_instant(current_measurement["recorded_at"], current_measurement["id"]) > parse_instant(original_measurement["recorded_at"], original_measurement["id"]), "measurement correction was not recorded later")
+    require(current_measurement.get("observed_at") == original_measurement.get("observed_at"), "measurement correction changed the physical observation time")
+    require(current_measurement.get("evidence_link_id") != original_measurement.get("evidence_link_id"), "measurement correction must retain separate evidence")
+
+    fact_documents = {row["id"]: row for row in records(fixture, "document_versions") if row.get("document_id") == "DOC-130-FACTS"}
+    require(set(fact_documents) == {"DOCV-130-FACTS-001", "DOCV-130-FACTS-002"}, "measurement correction needs two fact-document versions")
+    require(fact_documents["DOCV-130-FACTS-002"].get("supersedes_id") == "DOCV-130-FACTS-001", "corrected fact document does not supersede the original")
+    require(fact_documents["DOCV-130-FACTS-001"].get("version_number") == 1 and fact_documents["DOCV-130-FACTS-002"].get("version_number") == 2, "fact-document version sequence mismatch")
+    require(parse_instant(fact_documents["DOCV-130-FACTS-002"]["received_at"], "DOCV-130-FACTS-002.received_at") > parse_instant(fact_documents["DOCV-130-FACTS-001"]["received_at"], "DOCV-130-FACTS-001.received_at"), "corrected fact document was not received later")
+    require(evidence[current_measurement["evidence_link_id"]].get("document_version_id") == "DOCV-130-FACTS-002", "current measurement evidence does not use the corrected document version")
+    require(evidence[original_measurement["evidence_link_id"]].get("document_version_id") == "DOCV-130-FACTS-001", "original measurement evidence does not use the original document version")
 
     require(len(conditions) == 1, "Item 130 scenario needs one hand-carry condition")
     condition = next(iter(conditions.values()))
@@ -1405,6 +1474,83 @@ def validate_item_130_tv_boundaries(fixture: dict) -> None:
         "human_review_cases",
     ):
         require(not records(fixture, collection), f"Item 130G fact fixture cannot contain {collection}")
+
+
+def validate_item_130_vehicle_piano_classification_boundaries(fixture: dict) -> None:
+    articles = by_id(fixture, "shipment_articles")
+    evidence = by_id(fixture, "evidence_links")
+    expected = {
+        "ART-130A-AUTOMOBILE": ("AUTOMOBILE", "130A", "ACCEPTED", "ITEM-130A-P54"),
+        "ART-130A-TRUCK": ("TRUCK", "130A", "ACCEPTED", "ITEM-130A-P54"),
+        "ART-130A-VAN": ("VAN", "130A", "ACCEPTED", "ITEM-130A-P54"),
+        "ART-130H-BABY-GRAND": ("BABY_GRAND_PIANO", "130H", "ACCEPTED", "ITEM-130H-P55"),
+        "ART-130H-GRAND": ("GRAND_PIANO", "130H", "ACCEPTED", "ITEM-130H-P55"),
+        "ART-130H-UPRIGHT": ("UPRIGHT_PIANO", None, "REJECTED", "ITEM-130H-P55-UPRIGHT-EXCLUSION"),
+    }
+    require(set(articles) == set(expected), "Item 130A/130H scenario needs all listed vehicle and piano facts plus upright exclusion")
+    require(len(evidence) == len(expected), "each Item 130A/130H article needs one exact evidence target")
+
+    provenance = {row["id"]: row for row in fixture.get("provenance", [])}
+    tariff_provenance = provenance.get("PROV-130AH-TARIFF")
+    require(tariff_provenance is not None, "Item 130A/130H fixture lacks tariff provenance")
+    require(tariff_provenance.get("source_id") == "SRC-DP3-2026-400NG", "Item 130A/130H source mismatch")
+    require(tariff_provenance.get("document_version") == "published 2025-12-05", "Item 130A/130H source version mismatch")
+    require(tariff_provenance.get("effective_period") == "2026-05-15/2027-05-14", "Item 130A/130H effective period mismatch")
+    require(tariff_provenance.get("locator") == "Item 130A, p. 54; Item 130H, p. 55", "Item 130A/130H source locator mismatch")
+    require(tariff_provenance.get("retrieval_date") == "2026-08-03", "Item 130A/130H retrieval date mismatch")
+
+    common_fields = {
+        "recorded_at", "recorded_by", "record_source_kind", "source_version_id",
+        "source_locator_id", "interpretation_status", "sensitivity_class",
+        "sanitization_status",
+    }
+    prohibited_fields = {
+        "billing_item_code", "billing_item_code_text", "billable_quantity",
+        "quantity", "quantity_unit", "rate", "rate_version", "amount",
+        "expected_amount", "currency", "rule_package_id", "audit_adapter",
+        "interpretation_decision_id", "service_definition_id",
+    }
+    evidence_by_target: dict[str, list[dict]] = {}
+    for link in evidence.values():
+        if link.get("target_kind") == "SHIPMENT_ARTICLE":
+            evidence_by_target.setdefault(link.get("target_id"), []).append(link)
+
+    for article_id, (article_kind, candidate, status, source_locator_id) in expected.items():
+        article = articles[article_id]
+        require(common_fields.issubset(article), f"{article_id} lacks approved common metadata")
+        parse_instant(article["recorded_at"], f"{article_id}.recorded_at")
+        require(article.get("shipment_id") == "SHP-130AH-001", f"{article_id} shipment mismatch")
+        require(article.get("article_kind_observed") == article_kind, f"{article_id} article kind mismatch")
+        require(article.get("classification_review_status") == status, f"{article_id} classification review mismatch")
+        if candidate is None:
+            require("tariff_classification_candidate" not in article, f"{article_id} must not auto-classify as 130H")
+        else:
+            require(article.get("tariff_classification_candidate") == candidate, f"{article_id} classification candidate mismatch")
+        require(article.get("record_source_kind") == "SYNTHETIC_FIXTURE", f"{article_id} source kind mismatch")
+        require(article.get("source_version_id") == "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", f"{article_id} source version mismatch")
+        require(article.get("source_locator_id") == source_locator_id, f"{article_id} source locator mismatch")
+        require(article.get("interpretation_status") == "HUMAN_REVIEWED_SYNTHETIC", f"{article_id} interpretation status mismatch")
+        require(article.get("sanitization_status") == "SYNTHETIC", f"{article_id} is not synthetic")
+        require(article.get("sensitivity_class") != "PII", f"{article_id} cannot contain PII")
+        require(article.get("provenance_ref") == "PROV-130AH-TARIFF", f"{article_id} tariff provenance mismatch")
+        require(not prohibited_fields.intersection(article), f"{article_id} contains a prohibited financial or mapping field")
+        links = evidence_by_target.get(article_id, [])
+        require(len(links) == 1, f"{article_id} needs one exact evidence target")
+        link = links[0]
+        require(link.get("evidence_role") == "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", f"{article_id} evidence role mismatch")
+        require(link.get("review_status") == "REVIEWED", f"{article_id} evidence is not reviewed")
+
+    for collection in (
+        "article_measurement_observations", "article_condition_observations",
+        "article_service_context_observations", "service_definitions",
+        "service_performances", "service_approval_events",
+        "combined_handling_pair_candidates", "rating_runs", "rule_decisions",
+        "billing_eligibility_decisions", "charge_calculations", "calculation_steps",
+        "expected_charge_lines", "reconciliation_matches", "invoice_lines",
+        "invoice_line_versions", "payments", "payment_allocations", "audit_findings",
+        "human_review_cases",
+    ):
+        require(not records(fixture, collection), f"Item 130A/130H fact fixture cannot contain {collection}")
 
 
 def validate_item_130_volume_assembly_boundaries(fixture: dict) -> None:
@@ -2065,6 +2211,7 @@ VALIDATORS = {
     "item_28b_invoice_payment_history": validate_item_28b_invoice_payment_history,
     "item_130_non_monetary_facts": validate_item_130_non_monetary_facts,
     "item_130_tv_boundaries": validate_item_130_tv_boundaries,
+    "item_130_vehicle_piano_classification_boundaries": validate_item_130_vehicle_piano_classification_boundaries,
     "item_130_volume_assembly_boundaries": validate_item_130_volume_assembly_boundaries,
     "item_130_boat_boundaries": validate_item_130_boat_boundaries,
     "item_130_handling_sit_pairing_boundaries": validate_item_130_handling_sit_pairing_boundaries,
@@ -2077,12 +2224,74 @@ def validate_fixture(fixture: dict) -> None:
     validate_common(fixture)
     scenario_type = fixture.get("scenario_type")
     require(scenario_type in VALIDATORS, f"unknown scenario_type {scenario_type!r}")
+    if str(scenario_type).startswith("item_130_"):
+        validate_item_130_forbidden_outputs(fixture)
     VALIDATORS[scenario_type](fixture)
+
+
+def validate_item_130_forbidden_outputs(fixture: dict) -> None:
+    """Reject unauthorized billing, rating, money, and audit output anywhere in Item 130 records."""
+
+    def walk(value: object, path: str) -> None:
+        if isinstance(value, dict):
+            for key, child in value.items():
+                canonical_key = re.sub(r"[^a-z0-9]", "", str(key).lower())
+                require(
+                    canonical_key not in ITEM_130_FORBIDDEN_OUTPUT_KEYS,
+                    f"Item 130 non-monetary fixture contains forbidden output field {path}.{key}",
+                )
+                walk(child, f"{path}.{key}")
+        elif isinstance(value, list):
+            for index, child in enumerate(value):
+                walk(child, f"{path}[{index}]")
+
+    walk(fixture.get("records", {}), "records")
+
+
+def item_130_forbidden_output_negative_probe(fixture: dict) -> None:
+    require(fixture.get("fixture_id") == "SYNTH-LS-019", "shared Item 130 output probes require SYNTH-LS-019")
+    mutations = [
+        lambda value: value["records"]["shipment_articles"][0].__setitem__("rate_date_role", "ACTUAL_PICKUP"),
+        lambda value: value["records"]["shipment_articles"][0].__setitem__("quantity_for_billing", "1"),
+        lambda value: value["records"]["shipment_articles"][0].__setitem__("rateDateRole", "ACTUAL_PICKUP"),
+        lambda value: value["records"]["shipment_articles"][0].__setitem__("billingQuantity", "1"),
+        lambda value: value["records"]["shipment_articles"][0].__setitem__("derived_output", {"rate-date": "2026-06-12"}),
+        lambda value: value["records"]["evidence_links"][0].__setitem__("financial_output", {"expectedAmount": "297.78"}),
+    ]
+    for mutate in mutations:
+        changed = copy.deepcopy(fixture)
+        mutate(changed)
+        try:
+            validate_fixture(changed)
+        except ValidationError:
+            continue
+        raise ValidationError("shared Item 130 forbidden-output regression probe did not fail")
+    print("PASS Item 130 shared forbidden-output guard six alias/nesting probes rejected")
 
 
 def negative_probe(fixture: dict) -> None:
     broken = copy.deepcopy(fixture)
     scenario_type = broken["scenario_type"]
+    if scenario_type == "item_130_vehicle_piano_classification_boundaries":
+        mutations = [
+            lambda value: value["records"]["shipment_articles"][0].__setitem__("tariff_classification_candidate", "130H"),
+            lambda value: value["records"]["shipment_articles"][4].pop("tariff_classification_candidate"),
+            lambda value: value["records"]["shipment_articles"][5].__setitem__("tariff_classification_candidate", "130H"),
+            lambda value: value["records"]["shipment_articles"][5].__setitem__("classification_review_status", "ACCEPTED"),
+            lambda value: value["records"]["evidence_links"].__setitem__(slice(None), [row for row in value["records"]["evidence_links"] if row["id"] != "EVL-130A-TRUCK"]),
+            lambda value: value["records"]["shipment_articles"][0].__setitem__("service_definition_id", "SVCDEF-130A"),
+            lambda value: value["records"]["shipment_articles"][3].update({"expected_amount": "297.78", "currency": "USD"}),
+        ]
+        for mutate in mutations:
+            changed = copy.deepcopy(fixture)
+            mutate(changed)
+            try:
+                validate_fixture(changed)
+            except ValidationError:
+                continue
+            raise ValidationError("Item 130A/130H negative regression probe did not fail")
+        print("PASS SYNTH-LS-019 Item 130A/130H seven negative probes rejected")
+        return
     if scenario_type == "item_130_handling_sit_pairing_boundaries":
         mutations = [
             lambda value: value["records"]["service_performances"][0].__setitem__("article_id", "ART-130PAIR-ZERO"),
@@ -2196,9 +2405,14 @@ def negative_probe(fixture: dict) -> None:
         mutations = [
             lambda value: value["records"]["combined_handling_pair_candidates"][0].__setitem__("expected_amount", "297.78"),
             lambda value: value["records"]["service_performances"][0].__setitem__("service_definition_id", "SVCDEF-130B"),
-            lambda value: value["records"]["evidence_links"].__setitem__(slice(None), [row for row in value["records"]["evidence_links"] if row["id"] != "EVL-130-MEASUREMENT"]),
+            lambda value: value["records"]["evidence_links"].__setitem__(slice(None), [row for row in value["records"]["evidence_links"] if row["id"] != "EVL-130-MEASUREMENT-CORRECTION"]),
             lambda value: value["records"]["combined_handling_pair_candidates"][0].update({"supersedes_id": "CHPC-130B-001", "correction_reason": "invalid self-reference"}),
-            lambda value: value["records"]["article_measurement_observations"][0].__setitem__("measurement_value", "249"),
+            lambda value: next(row for row in value["records"]["article_measurement_observations"] if row["id"] == "AMO-130B-CC-002").__setitem__("measurement_value", "249"),
+            lambda value: next(row for row in value["records"]["article_measurement_observations"] if row["id"] == "AMO-130B-CC-002").pop("supersedes_id"),
+            lambda value: next(row for row in value["records"]["article_measurement_observations"] if row["id"] == "AMO-130B-CC-002").__setitem__("supersedes_id", "AMO-130B-CC-002"),
+            lambda value: next(row for row in value["records"]["article_measurement_observations"] if row["id"] == "AMO-130B-CC-002").pop("correction_reason"),
+            lambda value: next(row for row in value["records"]["article_measurement_observations"] if row["id"] == "AMO-130B-CC-002").__setitem__("recorded_at", "2026-06-10T12:02:00Z"),
+            lambda value: next(row for row in value["records"]["article_measurement_observations"] if row["id"] == "AMO-130B-CC-002").__setitem__("article_id", "ART-130B-OTHER"),
         ]
         for mutate in mutations:
             changed = copy.deepcopy(fixture)
@@ -2208,7 +2422,7 @@ def negative_probe(fixture: dict) -> None:
             except ValidationError:
                 continue
             raise ValidationError("Item 130 negative regression probe did not fail")
-        print("PASS SYNTH-LS-013 Item 130 five negative probes rejected")
+        print("PASS SYNTH-LS-013 Item 130 ten negative probes rejected")
         return
     if scenario_type == "straight_through":
         broken["records"]["invoice_versions"][0]["claimed_total"] = 125.5
@@ -2254,6 +2468,8 @@ def main() -> int:
             fixture = json.load(handle, parse_float=lambda value: (_ for _ in ()).throw(ValidationError(f"JSON float forbidden in {path.name}: {value}")))
         validate_fixture(fixture)
         negative_probe(fixture)
+        if fixture.get("fixture_id") == "SYNTH-LS-019":
+            item_130_forbidden_output_negative_probe(fixture)
         seen_types.add(fixture["scenario_type"])
         print(f"PASS {fixture['fixture_id']} {fixture['scenario_type']} (positive + negative probe)")
     require(seen_types == set(VALIDATORS), f"fixture set incomplete: expected {sorted(VALIDATORS)}, got {sorted(seen_types)}")

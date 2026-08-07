@@ -1922,3 +1922,122 @@ review conflicts and emitting no monetary or billing-mapping output.
   --check` pass.
 - Next, add the remaining 130A/130H and unlisted-similar-article boundary probes
   under the same reviewed-evidence and no-financial-output gate.
+
+## 2026-08-07 — Item 130A/130H classification boundaries
+
+### Outcome
+
+- Added synthetic fixture `SYNTH-LS-019` after rechecking archived 400NG Item
+  130A on page 54 and Item 130H on page 55. It preserves reviewed automobile,
+  truck, van, baby grand piano, and grand piano facts as direct classification
+  candidates.
+- Recorded an upright piano as the tariff's express 130H exclusion. It remains
+  a reviewed rejected fact with no classification candidate, proving that a
+  similar article is not auto-classified.
+- Every article has one exact reviewed evidence target plus source ID, document
+  version, effective period, page locator, retrieval date, and interpretation
+  status. No service mapping, quantity, rate, money, rule, reconciliation, or
+  audit output was added.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: all 19 scenarios pass;
+  `SYNTH-LS-019` rejects seven focused mutations covering classification drift,
+  a missing positive candidate, upright-piano auto-classification/review drift,
+  missing evidence, premature service mapping, and inserted money.
+- All 18 repository validator scripts, changed-validator compilation, and `git
+  diff --check` pass.
+- Next, audit the completed Item 130 fixtures against all 18 ratified mandatory
+  test categories and identify any remaining non-monetary coverage gap.
+
+## 2026-08-07 — Item 130 mandatory-test coverage audit
+
+### Outcome
+
+- Added audit `ITEM-130-MANDATORY-COVERAGE-2026-08-07-1`, binding the exact 18
+  inherited and ratified Decision 0005 categories, seven Item 130 fixtures, and
+  three existing validator artifacts by SHA-256.
+- Classified 16 categories as `COVERED`, two as `PARTIAL`, and none as missing.
+  Added a human-readable companion table without changing Item 130 financial or
+  mapping authority.
+- Recorded `GAP-130-TEST-POSITIVE-CORRECTION-CHAIN`: exact decimals, units,
+  evidence targets, append-only schema semantics, and malformed self-
+  supersession are tested, but no valid positive Item 130 correction chain is
+  exercised.
+- Recorded `GAP-130-TEST-FORBIDDEN-FIELD-ALIASES`: dossier and registry gates
+  remain intact, but the current fixture validators accept `rate_date_role` and
+  `quantity_for_billing`. The audit validator reproduces both accepted aliases.
+
+### Verification and next
+
+- `python scripts/validate_item_130_coverage_audit.py`: 16 covered, two partial,
+  zero missing, two reproduced gaps, and six audit-record tamper probes pass.
+- All 19 repository validator scripts, changed-module compilation, and `git
+  diff --check` pass.
+- Next, close only the positive correction-chain gap with a valid direct
+  supersession and malformed-correction probes. The forbidden-field alias gap
+  remains a separate subsequent outcome.
+
+## 2026-08-07 — Item 130 positive correction chain
+
+### Outcome
+
+- Closed `GAP-130-TEST-POSITIVE-CORRECTION-CHAIN` by revising `SYNTH-LS-013` to
+  preserve an original reviewed 249-cc motorcycle specification and a later
+  reviewed 250-cc correction.
+- The correction directly supersedes the original observation, retains the same
+  article and physical observation time, records a nonempty reason later in
+  time, and uses a separately superseding document version and separately
+  targeted reviewed evidence. Both values remain exact decimal strings with an
+  explicit `cc` unit.
+- Expanded the focused `SYNTH-LS-013` mutations from five to ten. They reject
+  missing correction evidence, 249-cc current-value drift, missing/self-
+  referential supersession, missing reason, non-later recording, changed stable
+  subject, inserted money, premature mapping, and invalid pair self-
+  supersession.
+- Preserved coverage audit version 1 unchanged by SHA-256 and published version
+  2 as an explicit superseding assessment. Current coverage is 17 covered, one
+  partial, and zero missing; financial authority remains prohibited.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: all 19 scenarios pass;
+  `SYNTH-LS-013` rejects all ten focused mutations.
+- `python scripts/validate_item_130_coverage_audit.py`: version-1 history,
+  version-2 correction closure, the one remaining alias gap, and six tamper
+  probes pass.
+- All 19 repository validator scripts, changed-module compilation, and `git
+  diff --check` pass.
+- Next, close only `GAP-130-TEST-FORBIDDEN-FIELD-ALIASES` with a shared recursive
+  forbidden-output guard and focused rate-date/billing-quantity alias probes.
+
+## 2026-08-07 — Item 130 forbidden-output guard and 18/18 coverage
+
+### Outcome
+
+- Closed `GAP-130-TEST-FORBIDDEN-FIELD-ALIASES` with a shared recursive guard
+  invoked before every Item 130 scenario-specific validator. It scans all nested
+  fixture records and normalizes field names to lowercase alphanumeric form.
+- The guard rejects 50 canonical billing-mapping, quantity, rate-date, rate,
+  money, rule-package, reconciliation, and audit-output keys while leaving
+  reviewed non-monetary candidate facts and unmapped profiles intact.
+- Added six shared mutations covering `rate_date_role`,
+  `quantity_for_billing`, camel-case variants, and nested `rate-date` and
+  `expectedAmount` fields. All six are rejected through the shared guard.
+- Preserved coverage-audit versions 1 and 2 unchanged by SHA-256 and published
+  version 3. All 18 mandatory categories are now covered; no test gap remains.
+  Four Item 130 source gaps and `CF-0001`/`CF-0003` remain open, and financial
+  authority is explicitly unchanged and prohibited.
+
+### Verification and next
+
+- `python scripts/validate_logical_schema_fixtures.py`: all 19 scenarios, 61
+  family-specific Item 130 probes, and six shared forbidden-output probes pass.
+- `python scripts/validate_item_130_coverage_audit.py`: 18 covered, zero partial,
+  zero missing, immutable version-1/version-2 history, six forbidden-output
+  probes, and six audit tamper probes pass.
+- All 19 repository validator scripts, changed-module compilation, and `git
+  diff --check` pass.
+- The bounded public-source non-monetary Item 130 synthetic verifier is complete.
+  Next progress depends on authoritative source clarification; do not implement
+  Item 130 mapping, quantity, money, rules, or audit adapters from this result.
