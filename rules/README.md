@@ -32,6 +32,12 @@ It subtracts the reviewed original tare from the reviewed new gross using exact
 decimal arithmetic, then selects the lower final initial or provisional net.
 Later new-tare reimbursement tolerance remains outside the package.
 
+`reweigh_tolerance.py` implements Decision 0006 / `INT-0003` for 2026 Items 4.5
+and 4.13. Final reviewed initial net selects the 5,000-pound branch. The module
+returns exact-decimal fee-qualification and reimbursement-tolerance booleans,
+propagates upstream/evidence blockers, and emits no rate, billing code, amount,
+invoice, refund allocation, or money result.
+
 `reweigh_refund_workflow.py` consumes a provenance-complete lower scale-weight
 result and immutable workflow facts. It decides whether the post-invoice path
 requires a supplemental refund and whether the destination/direct-delivery hold

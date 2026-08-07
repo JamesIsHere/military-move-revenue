@@ -173,8 +173,8 @@ Schema mappings:
   The rule is Item 4A/4B, but billing uses 226A and a required note.
 - `DISC-0032` → `rule_decision`; explained boolean; one per candidate fee.
   It compares initial and reweigh values against a tolerance band. The weight
-  fact selecting the 5,000-lb tolerance branch is disputed under `CF-0004` and
-  cannot be inferred.
+  fact selecting the 5,000-lb tolerance branch was disputed under `CF-0004`;
+  `INT-0003` approves final reviewed initial net only for the 2026 scope.
 - `DISC-0033` → `rule_decision`; eligibility; conditional.
   The threshold depends on rank/grade category and shipment weight.
 - `DISC-0034` → `weight_method_code`; controlled code; one per result.
@@ -193,7 +193,8 @@ Schema mappings:
   Some delivery charges wait for updated reweigh facts and tickets.
 - `DISC-0041` → `invoice_adjustment_line`; signed correction; zero or more.
   Refunds or later reimbursements may require supplemental treatment. The
-  containerized reimbursement tolerance shares the `CF-0004` branch-input gate.
+  containerized reimbursement tolerance uses the same `INT-0003` selector and
+  retains the `CF-0004` reopening gate.
 
 ## Reviewed discoveries — Tender of Service evidence
 

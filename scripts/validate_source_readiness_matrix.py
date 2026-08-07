@@ -15,7 +15,7 @@ MATRIX_PATH = ROOT / "docs" / "monetary-source-readiness-matrix.json"
 REGISTRY_PATH = ROOT / "rules" / "registry" / "registry.json"
 MANIFEST_PATH = ROOT / "sources" / "source-manifest.csv"
 GATES = ["governing_rule", "numeric_rate", "effective_date_selector", "billing_item_contract", "evidence_contract", "audit_matching_support"]
-ASSESSMENT_ID = "DP3-MONETARY-READINESS-2026-08-04-2"
+ASSESSMENT_ID = "DP3-MONETARY-READINESS-2026-08-07-3"
 
 
 class ValidationError(Exception):
@@ -47,9 +47,9 @@ def registry_ids(registry: dict) -> set[str]:
 def validate(matrix: dict, registry: dict, manifest_ids: set[str]) -> None:
     require(matrix.get("schema_version") == "monetary-source-readiness.v1", "matrix schema version mismatch")
     require(matrix.get("gate_policy_id") == "MONETARY-SOURCE-READINESS-GATE-V1", "gate policy id mismatch")
-    require(matrix.get("gate_policy_version") == "2026-08-04.1", "gate policy version mismatch")
+    require(matrix.get("gate_policy_version") == "2026-08-07.2", "gate policy version mismatch")
     require(matrix.get("assessment_id") == ASSESSMENT_ID, "assessment id mismatch")
-    require(matrix.get("assessment_date") == "2026-08-04", "assessment date mismatch")
+    require(matrix.get("assessment_date") == "2026-08-07", "assessment date mismatch")
     require(matrix.get("required_gates") == GATES, "required gate sequence mismatch")
     require(matrix.get("unresolved_assumptions") == [], "matrix contains unresolved assumptions")
 
@@ -124,6 +124,13 @@ def validate(matrix: dict, registry: dict, manifest_ids: set[str]) -> None:
     selected = matrix.get("recommended_next_candidate_id")
     selected_rows = [value for value in candidates if value["candidate_id"] == selected]
     require(len(selected_rows) == 1 and selected_rows[0]["rank"] == 1 and selected_rows[0]["readiness"] == "BLOCKED", "recommended candidate must be rank-one blocked family")
+    reweigh_rows = [value for value in candidates if value["candidate_id"] == "ITEM-4-REWEIGH-FEE"]
+    require(len(reweigh_rows) == 1, "Item 4 reweigh candidate is missing or duplicated")
+    reweigh = reweigh_rows[0]
+    require(reweigh.get("implementation_status") == "published_tolerance_eligibility_money_deferred", "Item 4 monetary deferral status changed")
+    require(reweigh.get("monetary_work_status") == "DEFERRED_AWAITING_AUTHORITATIVE_INFORMATION", "Item 4 monetary work is not explicitly deferred")
+    require(reweigh.get("deeper_fix_id") == "DF-0001", "Item 4 deeper-fix link changed")
+    require(reweigh.get("current_safe_output") == "FEE_QUALIFIES_ONLY", "Item 4 safe-output boundary changed")
     require(isinstance(matrix.get("recommended_next_action"), str) and matrix["recommended_next_action"], "recommended action is missing")
 
 
@@ -152,6 +159,7 @@ def main() -> int:
             ("missing closure", "blockers.BLK-CF-0003.closure_target", ""),
             ("rank gap", "candidates.3.rank", 9),
             ("wrong recommendation", "recommended_next_candidate_id", "ITEM-130-LIGHT-BULKY"),
+            ("removed Item 4 deferral", "candidates.2.monetary_work_status", "ACTIVE"),
         ]
         for label, path, value in probes:
             tampered = copy.deepcopy(matrix)
@@ -162,7 +170,7 @@ def main() -> int:
                 print(f"PASS readiness tamper rejected: {label}")
                 continue
             raise ValidationError(f"readiness tamper accepted: {label}")
-        print(f"PASS {len(matrix['candidates'])} readiness candidates, {len(matrix['provenance_catalog'])} provenance records, {len(matrix['blockers'])} blockers, and 6 tamper probes")
+        print(f"PASS {len(matrix['candidates'])} readiness candidates, {len(matrix['provenance_catalog'])} provenance records, {len(matrix['blockers'])} blockers, and 7 tamper probes")
         return 0
     except (OSError, json.JSONDecodeError, KeyError, TypeError, ValidationError) as exc:
         print(f"FAIL {exc}", file=sys.stderr)

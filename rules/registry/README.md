@@ -78,8 +78,13 @@ codes, or money.
 The containerized provisional-weight package preserves exact `new gross -
 original tare` arithmetic and selects the lower final initial or provisional
 net. It deliberately ignores later new-tare completion facts and does not apply
-the `CF-0004`-blocked reimbursement tolerance, fees, refunds, billing codes, or
-money.
+the later reimbursement tolerance, fees, refunds, billing codes, or money.
+
+The reweigh-tolerance package implements only the `INT-0003` 2026 eligibility
+scope. Initial net selects the 5,000-pound branch for Item 4.5 and Item 4.13;
+all comparisons use exact decimals and no rounding. `CF-0004` remains linked as
+a reopening gate, while rates, billing codes, discounts, amounts, invoices, and
+money remain excluded.
 
 The reweigh-refund workflow package consumes only a verified lower-weight result
 and immutable invoice/evidence events. It decides supplemental-refund necessity

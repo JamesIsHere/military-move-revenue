@@ -39,7 +39,9 @@ does not execute the 7-lb-per-cubic-foot rule.
 The containerized-reweigh facts scenario preserves original tare, later new
 gross, and still-later new tare as separate ticketed observations. The
 provisional inputs are ready for a deterministic rule, while reimbursement
-tolerance remains explicitly blocked by `CF-0004`.
+tolerance remains explicitly blocked in that preserved pre-`INT-0003` fact-only
+scenario; current eligibility behavior is covered by the dedicated reweigh-
+tolerance validator.
 
 The reweigh-refund workflow scenario preserves an approved original invoice and
 a separate negative-supplemental identity, then records the completed reweigh,

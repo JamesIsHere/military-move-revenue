@@ -2410,3 +2410,159 @@ review conflicts and emitting no monetary or billing-mapping output.
 - The safe no-data M6 control chain now reaches a real external boundary.
   Resume the rank-one M1 source task: seek authoritative resolution of
   `CF-0004` without promoting search snippets or inaccessible observations.
+
+## 2026-08-07 — CF-0004 authoritative-source pass
+
+### Outcome
+
+- Searched official USTRANSCOM tariff/advisory and DTR material plus public
+  CBCA/GAO decisions for an explicit fact selecting the 5,000-pound reweigh-
+  tolerance branch. No retrieved authoritative source named the selector.
+- Archived USTRANSCOM Advisory 23-0004, effective for pickup dates from
+  24 October 2022, at 192,535 bytes and SHA-256
+  `F312A14DB1DCDC645A4E11E22A61922999448B57E1F4D87099134576BAE4BF5B`.
+  Its paragraph 3.4 requires lesser-weight invoicing only after the reweigh
+  falls within tariff tolerance; it does not select the tolerance branch.
+- Archived USTRANSCOM Advisory 22-0097B at 349,158 bytes and SHA-256
+  `CAC3185FD8571DD1BB2225B1D8F7B615343E8E25791666AC7C88DF30AD11EE08`.
+  It records the 2023 business-rule comment/final-publication process and says
+  individual replies would not be sent; it contains no reweigh interpretation.
+- Re-reviewed the archived 2026 400NG List of Changes, p. 8. It records the
+  2022 net-to-tare edit, correction back to net, and later generic reweigh-
+  language adjustment without identifying the branch fact.
+- Registered two source versions, three locators, and three reviewed claims;
+  linked the two material claims to `CF-0004`; and documented unarchived online
+  leads separately without promoting their search extracts.
+- Kept `CF-0004` open. No interpretation was approved and no reweigh-fee or
+  containerized-reimbursement monetary selector was published.
+
+### Verification and next
+
+- Rendered and visually reviewed both pages of Advisory 23-0004, selected
+  identity/process pages of Advisory 22-0097B, and the two relevant 400NG
+  version-history pages; text extraction and PDF metadata checks also passed.
+- Both archived file hashes match their manifest rows.
+- `python scripts/validate_source_rule_registry.py` passes with 13 source
+  versions, 43 claims, 40 locators, four open conflicts, and the existing
+  conflict-publication gates intact.
+- All 25 repository validators, Python compilation, and `git diff --check`
+  pass.
+- Next, prepare a non-approving `CF-0004` interpretation dossier with opposing-
+  side 5,000-pound examples and exact 150-pound/5-percent boundaries. External
+  contact with the USTRANSCOM/PPA Rates Team still requires owner approval.
+
+## 2026-08-07 — CF-0004 proposed interpretation dossier
+
+### Outcome
+
+- Added Decision 0006's non-approving Markdown and machine-readable dossiers.
+  They compare initial net, completed reweigh net, lower net, containerized
+  provisional net, and a hypothetical reviewed accepted weight.
+- Recorded initial net as the provisional lead, not an approved fact. It is
+  stable, precedes both tolerance decisions, and is an explicit Item 4.5
+  operand, but the dossier clearly labels that rationale as interpretation.
+- Added thirteen exact-decimal boundary cases: seven reweigh-fee cases and six
+  containerized-reimbursement cases. They cover opposing selectors, exactly
+  5,000 pounds, strict 150-pound comparisons, strict/inclusive 5-percent
+  comparisons, and the equal-or-higher/no-tare-increase paths.
+- Preserved three owner/counsel alternatives: scoped initial net, scoped lower
+  net, or continued deferral for publisher clarification. `CF-0004` remains
+  open and both affected rules remain unimplemented, draft, and conflict-
+  blocked. No charge, reimbursement, billing code, or money was authorized.
+
+### Verification and next
+
+- `python scripts/validate_cf_0004_reweigh_tolerance_dossier.py` recomputes all
+  candidate results with exact `Decimal`, verifies archived tariff phrases and
+  registry gates, and rejects five dossier/result tamper probes.
+- All 26 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, present Decision 0006 for explicit owner/counsel selection. Only an
+  approval of alternative A or B may authorize an interpretation record and
+  implementation; alternative C keeps the source clarification path open.
+
+## 2026-08-07 — Decision 0006 Alternative A approval and implementation
+
+### Outcome
+
+- Recorded the project owner's explicit approval of
+  `A_APPROVE_INITIAL_NET_SCOPED` as Decision 0006 / `INT-0003` for actual pickup
+  dates 2026-05-15 through 2027-05-14.
+- Resolved `CF-0004` for that scope while retaining it as a reopening gate for
+  later cycles or contrary authority. Initial net selects the at-or-below versus
+  over-5,000-pound branch; exactly 5,000 uses the at-or-below branch.
+- Published immutable package `2026.reweigh-tolerance.1` with the Item 4.5 fee-
+  qualification and Item 4.13 containerized-reimbursement tolerance rules.
+  Both use exact `Decimal` arithmetic, require provenance-complete upstream
+  results and reviewed evidence, and expose no monetary amount.
+- Preserved the proposed dossier unchanged and added a separate accepted
+  decision record with approval provenance, scope, exclusions, mandatory tests,
+  and reopening conditions.
+- Updated the monetary-readiness assessment: Item 4 governing eligibility now
+  passes under `INT-0003`, but fee money remains blocked by `CF-0001` and
+  `CF-0003` rate-date and billing-item contracts.
+- No fee rate, Item 226A currency, discount treatment, reimbursement/refund
+  amount, invoice action, external message, or money movement was authorized.
+
+### Verification and next
+
+- `python scripts/validate_reweigh_tolerance.py` passes thirteen approved
+  dossier boundaries, four effective-date gates, four evidence/upstream blocks,
+  three malformed-input probes, and four result-tamper probes.
+- The preserved-dossier validator verifies the accepted `INT-0003` reciprocal
+  links and published package. The source registry rejects reopening `CF-0004`
+  while its rules remain published.
+- All 27 repository validators, changed-module compilation, and `git diff
+  --check` pass.
+- Next, prepare a narrow Item 4 reweigh-fee rate-date and billing-item dossier
+  under `CF-0001` and `CF-0003`; do not infer current Item 226A or discount
+  behavior.
+
+## 2026-08-07 — Item 4 monetary deeper-fix deferral
+
+### Outcome
+
+- Recorded the project owner's direction to keep the current result at
+  `fee qualifies` and move forward without the unavailable monetary-contract
+  information.
+- Added plan backlog item `DF-0001` as a deliberately deferred long-term fix.
+  It preserves the exact missing authority, source versions and locators,
+  reopening triggers, and completion tests for the rate-date and
+  226A/4A/4B, note, and discount contract.
+- Kept `CF-0001` and `CF-0003` open. The deferral is not an interpretation and
+  does not approve the archived 125.00 USD row for use in a calculation.
+- Updated the structured readiness record so Item 4 remains the rank-one
+  eventual monetary candidate while its monetary work is explicitly deferred
+  under `DF-0001`; `FEE_QUALIFIES_ONLY` is the machine-checked safe boundary.
+- No rule package, amount, invoice line, external request, or source artifact
+  was created or changed.
+
+### Verification and next
+
+- `python scripts/validate_source_readiness_matrix.py` passes seven candidates,
+  16 provenance records, four blockers, and seven tamper probes, including a
+  probe that rejects removal of the Item 4 deferral.
+- `python scripts/validate_reweigh_tolerance.py` still passes all thirteen
+  dossier boundaries and confirms that the published package emits eligibility
+  without money.
+- Next, move to a bounded local source task outside `DF-0001`; the leading
+  candidate is an authoritative-source pass on the four recorded Item 130 gaps.
+
+## 2026-08-07 — Reweigh decision publication wrap-up
+
+### Outcome
+
+- Confirmed one cohesive publication scope containing the authoritative
+  `CF-0004` research, archived advisories, Decision 0006 proposal and approval,
+  published eligibility-only implementation, boundary/tamper validation, and
+  the `DF-0001` monetary deferral.
+- Confirmed the target is existing branch `agent/a402-lifecycle-sit` and open
+  draft PR 1 against `main`; no branch or PR replacement is needed.
+- Preserved the next cold-resume task as the authoritative Item 130 source-gap
+  pass. No real shipment data, external message, live submission, or money
+  movement is part of this publication.
+
+### Verification
+
+- All 27 repository validators, changed-module compilation, and
+  `git diff --check` pass for the publication scope.

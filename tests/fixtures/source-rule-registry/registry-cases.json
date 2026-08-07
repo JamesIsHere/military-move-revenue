@@ -98,16 +98,16 @@
     },
     {
       "id": "REG-INVALID-007",
-      "description": "The disputed 5,000-lb branch input cannot silently publish a reweigh-fee tolerance rule.",
+      "description": "Reopening CF-0004 must immediately block its published tolerance rules.",
       "expected_valid": false,
       "error_contains": "cannot publish through open conflict(s): CF-0004",
       "mutations": [
         {
           "op": "set",
-          "collection": "rules",
-          "id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES",
-          "field": "publication_status",
-          "value": "published"
+          "collection": "conflict_cases",
+          "id": "CF-0004",
+          "field": "status",
+          "value": "open"
         }
       ]
     },

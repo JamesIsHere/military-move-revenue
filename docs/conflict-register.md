@@ -11,7 +11,7 @@ remain archived under their manifest source IDs.
 | `CF-0001` | Which event date selects 2026 SIT/accessorial rate tables? | Direct/scope conflict | Rate-version selection and money | Open broadly; Item 28B-only exception approved by `INT-0002` |
 | `CF-0002` | Which domestic transit table applies for 2026, and may it drive authorized SIT days? | Version/numeric conflict | RDD, transit days, SIT entitlement | Open — narrowed; 70% authority unresolved |
 | `CF-0003` | Is the 12 August 2022 item-code listing still applicable to 2026 shipments? | Publication-location and currency gap | Billing-code and evidence validation | Open broadly; Item 28A/28B-only exceptions approved by `INT-0001`/`INT-0002` |
-| `CF-0004` | Which weight fact selects the 5,000-lb reweigh-tolerance branch? | Material input ambiguity | Reweigh-fee and containerized reimbursement eligibility | Open — disputed input fact |
+| `CF-0004` | Which weight fact selects the 5,000-lb reweigh-tolerance branch? | Material input ambiguity | Reweigh-fee and containerized reimbursement eligibility | Resolved for 2026 scope by `INT-0003`; reopen on contrary or later-cycle authority |
 
 ## CF-0001 — SIT/accessorial table-selection date
 
@@ -163,11 +163,47 @@ Affected discoveries: `DISC-0031`, `DISC-0075`, `DISC-0078`, `DISC-0079`,
 |---|---|---|---|
 | `CLM-0023` | `SRC-DP3-2026-400NG`; publication 2025-12-05; effective 2026-05-15-2027-05-14; Item 4.5(a)-(b), p. 19 | A lower reweigh makes the reweigh fee payable only when the difference is less than 150 lbs for a shipment weighing 5,000 lbs or less, or less than 5 percent of the lower net scale weight for a shipment weighing more than 5,000 lbs. | Reviewed direct text; branch fact disputed |
 | `CLM-0028` | Same source/version/effective period; Item 4.13(3)-(5), pp. 22-23 | The completed containerized reweigh can require reimbursement when the new tare exceeds the original tare and the applicable greater-than-150-lb or at-least-5-percent threshold is crossed. | Reviewed direct text; branch fact disputed |
+| `CLM-0044` | `SRC-DP3-ADV-23-0004`; published 2022-10-13; effective for pickup dates from 2022-10-24; para. 3.4, p. 1; retrieved 2026-08-07 | USTRANSCOM directs the TSP to invoice on the lesser weight if the reweigh first falls within the tariff tolerance. | Reviewed direct text; confirms sequence but does not identify the branch fact |
+| `CLM-0045` | `SRC-DP3-2026-400NG`; publication 2025-12-05; List of Changes, p. 8 | The tariff history records a 2022 change from “net” to “tare,” a correction back to “net,” and a later generic adjustment to reweigh language. | Reviewed direct text; terminology history does not resolve the selector |
 
 Both passages use a shipment-weight boundary without naming the fact that
 selects the branch. Candidate inputs include initial net, reweigh net, lower net,
 the containerized provisional net, or another accepted shipment weight. The
 choice can change a financial eligibility outcome near 5,000 lbs.
+
+A focused authoritative-source pass on 7 August 2026 archived and visually
+reviewed Advisories 23-0004 and 22-0097B, inspected the tariff's own change
+history, and searched official USTRANSCOM, DTR, CBCA, and GAO material. Advisory
+23-0004 is the closest publisher clarification, but its conditional wording
+places lesser-weight invoicing after the tolerance decision. Advisory 22-0097B
+states that the approved final business-rule documents would be published and
+individual comment replies would not be sent. Neither source supplies a worked
+5,000-pound boundary example or names the controlling weight fact. The search
+record is in `docs/reweigh-tolerance-source-research.md`; the source-only pass
+did not resolve `CF-0004`.
+
+Decision 0006's proposed dossier now compares initial net, completed reweigh
+net, lower net, containerized provisional net, and a hypothetical reviewed
+accepted weight across thirteen exact boundary cases. Initial net is the
+provisional lead because it is stable, available before both decisions, and an
+explicit Item 4.5 operand; that rationale is an interpretation, not a direct
+source claim. The preserved proposal did not itself approve the interpretation.
+
+### Scoped decision
+
+On 7 August 2026, the project owner explicitly selected Decision 0006
+Alternative A. `INT-0003` approves final reviewed initial net scale weight as
+the branch selector for domestic 400NG Items 4.5 and 4.13 only for actual pickup
+dates 2026-05-15 through 2027-05-14. Exactly 5,000 pounds uses the at-or-below
+branch. Missing, blocked, conflicting, unreviewed, or constructive-only initial
+net cannot be substituted. The accepted decision is preserved in
+`docs/decisions/0006-cf-0004-initial-net-scoped.md`.
+
+This resolves the conflict for the approved scope and permits publication of
+the two eligibility rules. It does not authorize a fee rate, billing code,
+discount treatment, reimbursement/refund amount, charge allocation, live
+submission, or money movement. `CF-0001` and `CF-0003` remain separate blockers
+to reweigh-fee money.
 
 ### Scope reconciliation
 
@@ -177,22 +213,21 @@ weight invoicing and later refunds; Item 4.5 governs the separate reweigh-fee
 question. The full scope analysis is in
 `docs/reweigh-controlling-weight-reconciliation.md`.
 
-### Interim behavior
+### Current behavior
 
-- Do not publish a reweigh-fee tolerance selector.
-- Do not publish the tolerance-dependent containerized reimbursement selector.
+- Use only the `INT-0003` initial-net selector inside the approved 2026 scope.
+- Publish eligibility booleans only; do not produce unsupported fee or
+  reimbursement amounts.
 - Preserve all candidate weight facts as distinct observations with explicit
   units, timestamps, and ticket provenance.
-- Permit the general lower-weight observation model and non-tolerance workflow
-  design to proceed.
+- Block on missing, unreviewed, conflicting, or provenance-invalid inputs.
 
-### Evidence required to close
+### Reopening conditions
 
-- An applicable amendment, advisory, publisher clarification, or approved scoped
-  interpretation identifying the 5,000-lb branch fact.
-- Boundary tests where candidate branch facts fall on opposite sides of 5,000
-  lbs, including exactly 5,000 lbs.
-- Regression tests for the strict `< 150`, `> 150`, `< 5%`, and `>= 5%`
-  comparisons without silently filling the exact-150 deadband.
+- Reopen for a later rate cycle.
+- Reopen if an applicable amendment, advisory, written publisher clarification,
+  worked example, or contrary adjudicative authority is archived.
+- Retain regression tests for exactly 5,000 pounds and the strict `< 150`,
+  `> 150`, `< 5%`, and `>= 5%` comparisons.
 
 Affected discoveries: `DISC-0032`, `DISC-0039`, `DISC-0041`.

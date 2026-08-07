@@ -1,0 +1,282 @@
+{
+  "schema_version": "interpretation-decision-dossier.v1",
+  "decision_number": "0006",
+  "title": "CF-0004 Reweigh-Tolerance Branch Fact",
+  "status": "PROPOSED_OWNER_OR_COUNSEL_APPROVAL_REQUIRED",
+  "prepared_on": "2026-08-07",
+  "scope": "DOMESTIC_400NG_ITEMS_4_5_AND_4_13_2026_RATE_CYCLE_ONLY",
+  "approval": {
+    "selected_alternative": null,
+    "approved_by": null,
+    "approver_role": null,
+    "approved_on": null,
+    "interpretation_decision_id": null
+  },
+  "conflict_ids": ["CF-0004"],
+  "affected_rule_ids": [
+    "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES",
+    "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE"
+  ],
+  "source_basis": [
+    {
+      "source_id": "SRC-DP3-2026-400NG",
+      "source_version_id": "SV-DP3-2026-400NG-2025-12-05",
+      "document_version": "published 2025-12-05",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 4.5(a)-(b), p. 19; Item 4.13(3)-(5), pp. 22-23; List of Changes, p. 8",
+      "retrieval_date": "2026-08-03",
+      "claim_ids": ["CLM-0023", "CLM-0028", "CLM-0045"],
+      "interpretation_status": "reviewed_direct_text_branch_fact_disputed"
+    },
+    {
+      "source_id": "SRC-DP3-ADV-23-0004",
+      "source_version_id": "SV-DP3-ADV-23-0004-2022-10-13",
+      "document_version": "published 2022-10-13",
+      "effective_period": "pickup_dates_from_2022-10-24",
+      "locator": "paragraphs 1 and 3.4, p. 1",
+      "retrieval_date": "2026-08-07",
+      "claim_ids": ["CLM-0044"],
+      "interpretation_status": "reviewed_direct_text_post_tolerance_sequence_only"
+    }
+  ],
+  "candidate_definitions": [
+    {
+      "id": "INITIAL_NET",
+      "case_field": "initial_net_lb",
+      "fact_type": "final_reviewed_initial_net_scale_weight",
+      "assessment": "PROVISIONAL_LEAD",
+      "reason": "Available before both decisions, explicitly used in Item 4.5, stable across later observations, but not expressly named as branch fact."
+    },
+    {
+      "id": "COMPLETED_REWEIGH_NET",
+      "case_field": "completed_reweigh_net_lb",
+      "fact_type": "final_lowest_current_completed_reweigh_net_scale_weight",
+      "assessment": "PLAUSIBLE_WEAKER",
+      "reason": "Available after complete reweigh but unavailable at the provisional stage and may change with later completed reweighs."
+    },
+    {
+      "id": "LOWER_NET",
+      "case_field": "lower_net_lb",
+      "fact_type": "lower_initial_and_completed_reweigh_net_scale_weight",
+      "assessment": "PLAUSIBLE_WEAKER",
+      "reason": "Named as percentage denominator and billed-weight result, not as branch fact; Advisory 23-0004 applies it after qualification."
+    },
+    {
+      "id": "CONTAINERIZED_PROVISIONAL_NET",
+      "case_field": "containerized_provisional_net_lb",
+      "fact_type": "new_gross_minus_original_tare_provisional_net_weight",
+      "assessment": "REJECT_UNIVERSAL_SELECTOR",
+      "reason": "Exists only in the containerized provisional path and may be stale when later tare reimbursement is decided."
+    },
+    {
+      "id": "REVIEWED_ACCEPTED_WEIGHT",
+      "case_field": "reviewed_accepted_weight_lb",
+      "fact_type": "hypothetical_final_reviewed_controlling_billed_weight",
+      "assessment": "REJECT_UNDEFINED",
+      "reason": "No governing source defines accepted weight for this branch; using it would hide another selector assumption."
+    }
+  ],
+  "proposed_contract": {
+    "selector_candidate_id": "INITIAL_NET",
+    "branch_expression": "AT_OR_BELOW_5000 if initial_net_lb <= 5000 else OVER_5000",
+    "fee_expression": "reweigh_net_lb >= initial_net_lb OR (difference_lb < 150 if branch <= 5000 else difference_lb < lower_net_lb * 0.05)",
+    "reimbursement_expression": "reweigh_tare_lb > original_tare_lb AND (tare_increase_lb > 150 if branch <= 5000 else tare_increase_lb >= lower_tare_lb * 0.05)",
+    "arithmetic": "exact_decimal_no_rounding",
+    "missing_or_unreviewed_selector_behavior": "BLOCK_HUMAN_REVIEW"
+  },
+  "boundary_cases": {
+    "reweigh_fee": [
+      {
+        "id": "FEE-001",
+        "purpose": "candidate facts oppose across 5000 at exact 150 lb difference",
+        "initial_net_lb": "5001",
+        "completed_reweigh_net_lb": "4851",
+        "lower_net_lb": "4851",
+        "containerized_provisional_net_lb": "5000",
+        "reviewed_accepted_weight_lb": "4851",
+        "expected_eligible_candidate_ids": ["INITIAL_NET"]
+      },
+      {
+        "id": "FEE-002",
+        "purpose": "reweigh and lower are exactly 5000 at exact 150 lb difference",
+        "initial_net_lb": "5150",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "expected_eligible_candidate_ids": ["INITIAL_NET", "CONTAINERIZED_PROVISIONAL_NET"]
+      },
+      {
+        "id": "FEE-003",
+        "purpose": "exactly 5000 and one pound below the strict 150 lb ceiling",
+        "initial_net_lb": "5000",
+        "completed_reweigh_net_lb": "4851",
+        "lower_net_lb": "4851",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "4851",
+        "expected_eligible_candidate_ids": ["INITIAL_NET", "COMPLETED_REWEIGH_NET", "LOWER_NET", "CONTAINERIZED_PROVISIONAL_NET", "REVIEWED_ACCEPTED_WEIGHT"]
+      },
+      {
+        "id": "FEE-004",
+        "purpose": "exact 150 lb is excluded by strict less-than",
+        "initial_net_lb": "5000",
+        "completed_reweigh_net_lb": "4850",
+        "lower_net_lb": "4850",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "4850",
+        "expected_eligible_candidate_ids": ["CONTAINERIZED_PROVISIONAL_NET"]
+      },
+      {
+        "id": "FEE-005",
+        "purpose": "exact 5 percent is excluded by strict less-than",
+        "initial_net_lb": "5250",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "expected_eligible_candidate_ids": []
+      },
+      {
+        "id": "FEE-006",
+        "purpose": "one hundredth pound below exact 5 percent",
+        "initial_net_lb": "5249.99",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "expected_eligible_candidate_ids": ["INITIAL_NET", "CONTAINERIZED_PROVISIONAL_NET"]
+      },
+      {
+        "id": "FEE-007",
+        "purpose": "equal reweigh qualifies without applying tolerance",
+        "initial_net_lb": "5000",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "expected_eligible_candidate_ids": ["INITIAL_NET", "COMPLETED_REWEIGH_NET", "LOWER_NET", "CONTAINERIZED_PROVISIONAL_NET", "REVIEWED_ACCEPTED_WEIGHT"]
+      }
+    ],
+    "containerized_reimbursement": [
+      {
+        "id": "REIMB-001",
+        "purpose": "exact 150 lb with initial over 5000 and other candidates exactly 5000",
+        "initial_net_lb": "5001",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5000",
+        "reviewed_accepted_weight_lb": "5000",
+        "original_tare_lb": "2000",
+        "reweigh_tare_lb": "2150",
+        "expected_eligible_candidate_ids": ["INITIAL_NET"]
+      },
+      {
+        "id": "REIMB-002",
+        "purpose": "151 lb exceeds fixed threshold but is below 5 percent of lower tare",
+        "initial_net_lb": "5000",
+        "completed_reweigh_net_lb": "4999",
+        "lower_net_lb": "4999",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "4999",
+        "original_tare_lb": "4000",
+        "reweigh_tare_lb": "4151",
+        "expected_eligible_candidate_ids": ["INITIAL_NET", "COMPLETED_REWEIGH_NET", "LOWER_NET", "REVIEWED_ACCEPTED_WEIGHT"]
+      },
+      {
+        "id": "REIMB-003",
+        "purpose": "exact 5 percent and more than 150 lb",
+        "initial_net_lb": "5001",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "original_tare_lb": "4000",
+        "reweigh_tare_lb": "4200",
+        "expected_eligible_candidate_ids": ["INITIAL_NET", "COMPLETED_REWEIGH_NET", "LOWER_NET", "CONTAINERIZED_PROVISIONAL_NET", "REVIEWED_ACCEPTED_WEIGHT"]
+      },
+      {
+        "id": "REIMB-004",
+        "purpose": "one hundredth pound below 5 percent but more than 150 lb",
+        "initial_net_lb": "5001",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "original_tare_lb": "4000",
+        "reweigh_tare_lb": "4199.99",
+        "expected_eligible_candidate_ids": ["COMPLETED_REWEIGH_NET", "LOWER_NET", "REVIEWED_ACCEPTED_WEIGHT"]
+      },
+      {
+        "id": "REIMB-005",
+        "purpose": "exact 150 lb and below 5 percent",
+        "initial_net_lb": "5000",
+        "completed_reweigh_net_lb": "4999",
+        "lower_net_lb": "4999",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "4999",
+        "original_tare_lb": "4000",
+        "reweigh_tare_lb": "4150",
+        "expected_eligible_candidate_ids": []
+      },
+      {
+        "id": "REIMB-006",
+        "purpose": "new tare is not greater than original tare",
+        "initial_net_lb": "5001",
+        "completed_reweigh_net_lb": "5000",
+        "lower_net_lb": "5000",
+        "containerized_provisional_net_lb": "5001",
+        "reviewed_accepted_weight_lb": "5000",
+        "original_tare_lb": "4000",
+        "reweigh_tare_lb": "4000",
+        "expected_eligible_candidate_ids": []
+      }
+    ]
+  },
+  "alternatives": [
+    {
+      "id": "A_APPROVE_INITIAL_NET_SCOPED",
+      "effect": "Use the final reviewed initial net scale weight for both branch decisions in the stated 2026 scope; reopen on contrary authority.",
+      "recommendation": "PROVISIONAL_RECOMMENDATION"
+    },
+    {
+      "id": "B_APPROVE_LOWER_NET_SCOPED",
+      "effect": "Use the final lower net scale weight despite the source-sequence and result-dependence concerns.",
+      "recommendation": "PLAUSIBLE_WEAKER"
+    },
+    {
+      "id": "C_DEFER_FOR_PUBLISHER",
+      "effect": "Keep both rules blocked pending USTRANSCOM/PPA amendment, written clarification, or worked example.",
+      "recommendation": "CONSERVATIVE_EXTERNAL_SOURCE_ONLY"
+    }
+  ],
+  "mandatory_tests": [
+    "selector_exactly_5000_uses_at_or_below_branch",
+    "candidate_selectors_on_opposite_sides_of_5000",
+    "fee_equal_or_higher_reweigh_qualifies_without_tolerance",
+    "fee_exact_150_is_not_less_than_150",
+    "fee_exact_5_percent_is_not_less_than_5_percent",
+    "fee_just_below_150_and_5_percent",
+    "reimbursement_requires_new_tare_greater_than_original_tare",
+    "reimbursement_exact_150_is_not_more_than_150",
+    "reimbursement_exact_5_percent_is_at_least_5_percent",
+    "reimbursement_just_above_150_and_just_below_5_percent",
+    "exact_decimal_arithmetic_without_rounding",
+    "missing_conflicting_or_unreviewed_initial_net_blocks_decision",
+    "source_conflict_decision_and_result_tamper_rejection"
+  ],
+  "excluded_scope": [
+    "CONSTRUCTIVE_ONLY_WEIGHT_WITHOUT_REVIEWED_INITIAL_NET",
+    "MISSING_OR_CONFLICTING_INITIAL_NET",
+    "ITEM_4_REWEIGH_FEE_RATE",
+    "ITEM_CODE_226A_OR_OTHER_BILLING_CODE_CONTRACT",
+    "DISCOUNT_TREATMENT",
+    "CHARGE_ALLOCATION_OR_REFUND_AMOUNT",
+    "DATES_AFTER_2027_05_14",
+    "LIVE_INVOICE_SUBMISSION",
+    "MONEY_MOVEMENT"
+  ],
+  "implementation_gate": "DO_NOT_REGISTER_AN_INTERPRETATION_IMPLEMENT_OR_PUBLISH_EITHER_AFFECTED_RULE_WITHOUT_EXPLICIT_APPROVAL_OF_A_OR_B",
+  "unresolved_assumptions": [
+    "The governing sources do not expressly identify the tolerance branch weight fact."
+  ]
+}

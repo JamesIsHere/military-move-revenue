@@ -113,6 +113,26 @@
       "media_type": "application/pdf",
       "extraction_method": "PDF text extraction with complete three-page rendered review and separately checksummed sanitized derivative",
       "interpretation_status": "reviewed"
+    },
+    {
+      "id": "SV-DP3-ADV-22-0097B-2022-10-04",
+      "source_id": "SRC-DP3-ADV-22-0097B",
+      "source_kind": "official_comment_process_advisory",
+      "authoritativeness_class": "official-operational",
+      "raw_artifact_path": "sources/raw/2022/ustranscom-pp-advisory-22-0097b-2023-business-rules-crm-comments.pdf",
+      "media_type": "application/pdf",
+      "extraction_method": "PDF text extraction with selected rendered-page visual review",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "SV-DP3-ADV-23-0004-2022-10-13",
+      "source_id": "SRC-DP3-ADV-23-0004",
+      "source_kind": "billing_clarification_advisory",
+      "authoritativeness_class": "governing",
+      "raw_artifact_path": "sources/raw/2022/ustranscom-pp-advisory-23-0004-reweigh-refunds-2022-10-13.pdf",
+      "media_type": "application/pdf",
+      "extraction_method": "PDF text extraction with complete two-page rendered review",
+      "interpretation_status": "reviewed"
     }
   ],
   "publication_observations": [
@@ -184,7 +204,10 @@
     {"id": "LOC-0035", "source_version_id": "SV-DTR-IV-AAA-2026-02-04", "locator_kind": "regulation_paragraph_page", "locator_value": "Appendix A-A, para. 4.a.(1)-(2) and 4.a.(9), printed pp. IV-A-A-8 and IV-A-A-12"},
     {"id": "LOC-0036", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_item_page", "locator_value": "Item 28.2 and 28.3, pp. 35-36"},
     {"id": "LOC-0037", "source_version_id": "SV-DP3-2026-RATES-2026", "locator_kind": "workbook_cells", "locator_value": "Additional Rates!A1 and A13:F13"},
-    {"id": "LOC-0038", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "locator_kind": "workbook_cells", "locator_value": "DOM_400NG!A4:Q4, A24:Q24, B154:L166"}
+    {"id": "LOC-0038", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "locator_kind": "workbook_cells", "locator_value": "DOM_400NG!A4:Q4, A24:Q24, B154:L166"},
+    {"id": "LOC-0039", "source_version_id": "SV-DP3-ADV-23-0004-2022-10-13", "locator_kind": "advisory_paragraph_page", "locator_value": "paras. 1 and 3.4, p. 1"},
+    {"id": "LOC-0040", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_version_history_page", "locator_value": "List of Changes, p. 8; 400NG 2022 Changes 2-4"},
+    {"id": "LOC-0041", "source_version_id": "SV-DP3-ADV-22-0097B-2022-10-04", "locator_kind": "advisory_paragraph_page", "locator_value": "paras. 4, 9, and 10-11, pp. 1 and 5-6"}
   ],
   "source_claims": [
     {
@@ -640,6 +663,39 @@
       "value_type": "controlled_field_set",
       "claim_derivation_kind": "direct_workbook_values_and_legends",
       "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0044",
+      "source_locator_id": "LOC-0039",
+      "subject_kind": "controlling_weight",
+      "subject_key": "reweigh_within_tariff_tolerance",
+      "predicate": "invoice_weight_selection_after_qualification",
+      "claim_value": "when_reweigh_falls_within_tariff_tolerance_invoice_on_lesser_weight",
+      "value_type": "workflow_condition_set",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0045",
+      "source_locator_id": "LOC-0040",
+      "subject_kind": "publication_history",
+      "subject_key": "item_4_reweigh_weight_terminology_2022",
+      "predicate": "records_change_sequence",
+      "claim_value": "change_2_replaced_net_with_tare;change_3_replaced_tare_with_net;change_4_adjusted_reweigh_language",
+      "value_type": "version_change_sequence",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0046",
+      "source_locator_id": "LOC-0041",
+      "subject_kind": "source_publication_process",
+      "subject_key": "2023_dp3_business_rule_comments",
+      "predicate": "publishes_outcome_as",
+      "claim_value": "approved_final_documents_without_individual_comment_replies",
+      "value_type": "publication_process",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
     }
   ],
   "conflict_cases": [
@@ -688,12 +744,14 @@
     {
       "id": "CF-0004",
       "topic": "Weight fact selecting the 5,000-lb reweigh-tolerance branch",
-      "status": "open",
+      "status": "resolved",
       "opened_on": "2026-08-03",
       "material_effect": "reweigh_fee_and_containerized_reimbursement_eligibility",
       "evidence_refs": [
         {"record_kind": "source_claim", "record_id": "CLM-0023", "claim_role": "fee_tolerance_text"},
-        {"record_kind": "source_claim", "record_id": "CLM-0028", "claim_role": "reimbursement_tolerance_text"}
+        {"record_kind": "source_claim", "record_id": "CLM-0028", "claim_role": "reimbursement_tolerance_text"},
+        {"record_kind": "source_claim", "record_id": "CLM-0044", "claim_role": "post_tolerance_lesser_weight_sequence"},
+        {"record_kind": "source_claim", "record_id": "CLM-0045", "claim_role": "terminology_change_history"}
       ],
       "affected_rule_ids": ["RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE"]
     }
@@ -733,6 +791,20 @@
       "cited_claim_ids": ["CLM-0001", "CLM-0002", "CLM-0010", "CLM-0037", "CLM-0041", "CLM-0042", "CLM-0043"],
       "authorized_rule_ids": ["RULE-ITEM-28B-SCOPED-SOURCE-CONTRACT", "RULE-ITEM-28B-ELIGIBLE-OCCURRENCE", "RULE-ITEM-28B-EXPECTED-CHARGE"],
       "required_regression_tests": ["requested and actual dates across both rate-cycle boundaries", "zero one and multiple completed extra deliveries before final delivery", "final delivery and unperformed stops excluded", "both Government authorization channels and Destination PPSO evidence", "duplicate occurrence approval and evidence rejection", "exact Decimal multiplication and contract provenance result tampering"]
+    },
+    {
+      "id": "INT-0003",
+      "conflict_case_id": "CF-0004",
+      "decision_status": "approved",
+      "decided_on": "2026-08-07",
+      "decided_by": "project owner via explicit session approval of Decision 0006 Alternative A",
+      "reviewer_role": "scope and interpretation approver",
+      "effective_scope": "Domestic 400NG Items 4.5 and 4.13 tolerance-branch eligibility only for actual pickup dates 2026-05-15 through 2027-05-14. The final reviewed initial net scale weight selects the at-or-below-5,000-pound versus over-5,000-pound branch; exactly 5,000 pounds uses the at-or-below branch.",
+      "excluded_scope": "Does not authorize a reweigh-fee rate, Item 226A or another billing-code contract, discount treatment, reimbursement/refund/charge-allocation amounts, constructive-only substitution, later cycles, live submission, external communication, or money movement; CF-0001 and CF-0003 remain open.",
+      "rationale": "The tariff does not expressly name the branch fact. Initial net is the narrow approved interpretation because it exists before both decisions, is an explicit Item 4.5 operand, remains stable across later observations, and avoids making branch selection depend on the result being tested. Advisory 23-0004 applies lesser-weight invoicing only after tolerance qualification and therefore does not select the branch.",
+      "cited_claim_ids": ["CLM-0023", "CLM-0028", "CLM-0044", "CLM-0045"],
+      "authorized_rule_ids": ["RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE"],
+      "required_regression_tests": ["selector exactly 5,000 uses at-or-below branch", "candidate selectors on opposing sides of 5,000", "equal or higher reweigh qualifies without tolerance", "fee exact 150 is not less than 150", "fee exact 5 percent is not less than 5 percent", "fee just below 150 and 5 percent", "reimbursement requires new tare greater than original tare", "reimbursement exact 150 is not more than 150", "reimbursement exact 5 percent is at least 5 percent", "reimbursement just above 150 and just below 5 percent", "exact Decimal arithmetic without rounding", "missing conflicting unreviewed or blocked initial net stops the decision", "source decision and result tamper rejection"]
     }
   ],
   "rule_packages": [
@@ -744,6 +816,16 @@
       "effective_from": "2026-05-15",
       "effective_to": "2027-05-14",
       "publication_status": "draft"
+    },
+    {
+      "id": "RP-DP3-2026-REWEIGH-TOLERANCE-1",
+      "package_code": "DP3_REWEIGH_TOLERANCE_ELIGIBILITY",
+      "version": "2026.reweigh-tolerance.1",
+      "scope_code": "DOMESTIC_DP3_TSP_GOV_POST_AUDIT",
+      "effective_from": "2026-05-15",
+      "effective_to": "2027-05-14",
+      "publication_status": "published",
+      "published_on": "2026-08-07"
     },
     {
       "id": "RP-DP3-2026-WEIGHT-1",
@@ -1121,27 +1203,29 @@
     },
     {
       "id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES",
-      "rule_package_id": "RP-DP3-2026-INITIAL-DRAFT",
+      "rule_package_id": "RP-DP3-2026-REWEIGH-TOLERANCE-1",
       "rule_kind": "fee_eligibility_condition",
-      "expression_language": "decision-expression-v0",
-      "expression": "candidate := reweigh_net >= initial_net OR (reweigh_net < initial_net AND applicable_tolerance(branch_weight_fact, initial_net - reweigh_net, lower_net))",
+      "expression_language": "python-decimal-v1",
+      "expression": "qualifies := reweigh_net >= initial_net OR (initial_net <= 5000 AND initial_net - reweigh_net < 150) OR (initial_net > 5000 AND initial_net - reweigh_net < lower_net * 0.05); no rounding",
       "outcome_type": "boolean",
       "effective_date_fact_type": "actual_pickup_date",
-      "implementation_status": "not_implemented",
-      "publication_status": "draft",
-      "blocked_by_conflict_ids": ["CF-0004"]
+      "implementation_status": "implemented",
+      "publication_status": "published",
+      "blocked_by_conflict_ids": ["CF-0004"],
+      "approved_interpretation_decision_ids": ["INT-0003"]
     },
     {
       "id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE",
-      "rule_package_id": "RP-DP3-2026-INITIAL-DRAFT",
+      "rule_package_id": "RP-DP3-2026-REWEIGH-TOLERANCE-1",
       "rule_kind": "reimbursement_eligibility_condition",
-      "expression_language": "decision-expression-v0",
-      "expression": "candidate := new_tare > original_tare AND applicable_tolerance_exceeded(branch_weight_fact, new_tare - original_tare, lower_tare)",
+      "expression_language": "python-decimal-v1",
+      "expression": "required := reweigh_tare > original_tare AND ((initial_net <= 5000 AND reweigh_tare - original_tare > 150) OR (initial_net > 5000 AND reweigh_tare - original_tare >= lower_tare * 0.05)); no rounding",
       "outcome_type": "boolean",
       "effective_date_fact_type": "actual_pickup_date",
-      "implementation_status": "not_implemented",
-      "publication_status": "draft",
-      "blocked_by_conflict_ids": ["CF-0004"]
+      "implementation_status": "implemented",
+      "publication_status": "published",
+      "blocked_by_conflict_ids": ["CF-0004"],
+      "approved_interpretation_decision_ids": ["INT-0003"]
     }
   ],
   "rule_sources": [
@@ -1199,6 +1283,7 @@
     {"rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "source_claim_id": "CLM-0026", "source_role": "billing_hold_prerequisites"},
     {"rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "source_claim_id": "CLM-0032", "source_role": "dps_and_ticket_evidence"},
     {"rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "source_claim_id": "CLM-0023", "source_role": "tolerance_text"},
+    {"rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "source_claim_id": "CLM-0044", "source_role": "post_tolerance_lesser_weight_sequence"},
     {"rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "source_claim_id": "CLM-0028", "source_role": "tolerance_text"}
   ],
   "rule_dependencies": [
@@ -1253,12 +1338,12 @@
     {"id": "DEP-REWEIGH-HOLD-002", "rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "input_fact_type": "completed_dps_reweigh_update", "cardinality": "1", "unit": "event", "default_prohibited_reason": "DPS reweigh completion cannot be assumed."},
     {"id": "DEP-REWEIGH-HOLD-003", "rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "input_fact_type": "reviewed_ppso_ticket_delivery", "cardinality": "1", "unit": "event", "default_prohibited_reason": "PPSO ticket delivery cannot be assumed."},
     {"id": "DEP-REWEIGH-HOLD-004", "rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "input_fact_type": "refund_submission_and_processing_history", "cardinality": "0..1 when refund required", "unit": "event_chain", "default_prohibited_reason": "Refund submission or processing cannot be inferred."},
-    {"id": "DEP-REWEIGH-TOL-001", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "input_fact_type": "initial_net_scale_weight", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "Initial net weight cannot be inferred."},
-    {"id": "DEP-REWEIGH-TOL-002", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "input_fact_type": "reweigh_net_scale_weight", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "Reweigh net weight cannot be inferred."},
-    {"id": "DEP-REWEIGH-TOL-003", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "input_fact_type": "tolerance_branch_weight_fact", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "CF-0004 prohibits choosing the 5,000-lb branch fact."},
+    {"id": "DEP-REWEIGH-TOL-001", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "input_fact_type": "final_initial_vs_completed_reweigh_lower_reference_result", "cardinality": "1", "unit": "rule_result", "default_prohibited_reason": "Initial, completed-reweigh, and lower net facts must come from the published provenance-complete upstream result."},
+    {"id": "DEP-REWEIGH-TOL-002", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "input_fact_type": "actual_pickup_date", "cardinality": "1", "unit": "local_date", "default_prohibited_reason": "The 2026 scoped interpretation cannot be applied without the legally relevant pickup date."},
     {"id": "DEP-REIMBURSE-TOL-001", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "input_fact_type": "original_tare_scale_weight", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "Original tare cannot be inferred."},
     {"id": "DEP-REIMBURSE-TOL-002", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "input_fact_type": "reweigh_tare_scale_weight", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "Reweigh tare cannot be inferred."},
-    {"id": "DEP-REIMBURSE-TOL-003", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "input_fact_type": "tolerance_branch_weight_fact", "cardinality": "1", "unit": "lb", "default_prohibited_reason": "CF-0004 prohibits choosing the 5,000-lb branch fact."}
+    {"id": "DEP-REIMBURSE-TOL-003", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "input_fact_type": "final_initial_net_scale_weight_result", "cardinality": "1", "unit": "rule_result", "default_prohibited_reason": "The approved initial-net selector must come from a published provenance-complete result."},
+    {"id": "DEP-REIMBURSE-TOL-004", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "input_fact_type": "actual_pickup_date", "cardinality": "1", "unit": "local_date", "default_prohibited_reason": "The 2026 scoped interpretation cannot be applied without the legally relevant pickup date."}
   ],
   "evidence_requirements": [
     {"id": "EVID-ITEM-28A-001", "rule_id": "RULE-ITEM-28A-ELIGIBLE-OCCURRENCE", "requirement_code": "REVIEWED_ORIGIN_PPSO_AUTHORIZATION", "target_kind": "service_approval_event", "document_or_fact_type": "government_service_approval", "minimum_count": 1},
@@ -1285,7 +1370,8 @@
     {"id": "EVID-REWEIGH-REFUND-WORKFLOW-003", "rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "requirement_code": "COMPLETE_REVIEWED_DPS_REWEIGH_UPDATE", "target_kind": "dps_reweigh_update_event", "document_or_fact_type": "gross_tare_net_ticket_number_reweigh_date", "minimum_count": 5},
     {"id": "EVID-REWEIGH-REFUND-WORKFLOW-004", "rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "requirement_code": "REVIEWED_PPSO_TICKET_DELIVERY", "target_kind": "reweigh_ticket_delivery_event", "document_or_fact_type": "ppso_ticket_delivery_receipt", "minimum_count": 1},
     {"id": "EVID-REWEIGH-REFUND-WORKFLOW-005", "rule_id": "RULE-REWEIGH-DESTINATION-BILLING-HOLD-RELEASE-READY", "requirement_code": "REFUND_SUBMITTED_AND_PROCESSED_WHEN_REQUIRED", "target_kind": "reweigh_refund_adjustment_event", "document_or_fact_type": "refund_processing_record", "minimum_count": 0},
-    {"id": "EVID-REWEIGH-TOL-001", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "requirement_code": "INITIAL_AND_REWEIGH_TICKETS", "target_kind": "reweigh_decision", "document_or_fact_type": "weight_ticket_true_copy", "minimum_count": 2},
-    {"id": "EVID-REIMBURSE-TOL-001", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "requirement_code": "ORIGINAL_AND_REWEIGH_TARE_TICKETS", "target_kind": "reimbursement_decision", "document_or_fact_type": "weight_ticket_true_copy", "minimum_count": 2}
+    {"id": "EVID-REWEIGH-TOL-001", "rule_id": "RULE-REWEIGH-FEE-TOLERANCE-QUALIFIES", "requirement_code": "FINAL_SCALE_REWEIGH_LOWER_REFERENCE_RESULT", "target_kind": "reweigh_decision", "document_or_fact_type": "published_rule_result_with_reviewed_initial_and_reweigh_tickets", "minimum_count": 1},
+    {"id": "EVID-REIMBURSE-TOL-001", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "requirement_code": "REVIEWED_ORIGINAL_AND_REWEIGH_TARE_TICKETS", "target_kind": "reimbursement_decision", "document_or_fact_type": "weight_ticket_true_copy", "minimum_count": 2},
+    {"id": "EVID-REIMBURSE-TOL-002", "rule_id": "RULE-CONTAINERIZED-REWEIGH-REIMBURSEMENT-TOLERANCE", "requirement_code": "FINAL_INITIAL_WEIGHT_RESULT", "target_kind": "reimbursement_decision", "document_or_fact_type": "published_rule_result", "minimum_count": 1}
   ]
 }
