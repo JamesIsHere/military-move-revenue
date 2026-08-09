@@ -1,0 +1,43 @@
+Derived text extract
+Source ID: SRC-DP3-ADV-26-0030
+Raw artifact: sources/raw/2025/pcs-jtf-advisory-26-0030-2026-transit-times-2025-12-08.pdf
+Document version/publication: 08 December 2025
+Effective period stated for attached tables: from 15 May 2026
+Locator: paragraphs 1-4 and attachment title, page 1
+Retrieved: 2026-08-07
+Method: pdftotext -layout; complete one-page render visually reviewed at 150 DPI
+Interpretation status: reviewed direct text; CF-0002 remains open for the SIT percentage and rounding rule
+
+PCS JTF Personal Property Advisory #26-0030
+
+Date: 08 December 2025
+
+From: Permanent Change of Station Joint Task Force (PCS JTF) Defense Personal Property Management Office
+(DPMO), Scott AFB, IL 62225
+
+To: All Military Service Headquarters Representatives, Worldwide Personal Property Shipping Offices
+(PPSOs), Personal Property Processing Offices (PPPOs), and DoD-Approved Personal Property
+Transportation Service Providers (TSPs)
+
+Subject: 2026 USTC Domestic - International Transit Time Tables
+
+1. New Special Solicitation (SS) Groups Class 1, COS 4 CONUS to/from HMAS Stirling, Western
+Australia (AS26) and COS 8 CONUS to/from HMAS Stirling, Western Australia (AS26) transit times are
+being updated for the 2026 DP3 Tender of Service rate year. No adjustments are being made to other
+codes of service (see new attachment).
+
+2. The updated transit time tables will be posted to the USTRANSCOM DP3 Personal Property
+Website at https://www.ustranscom.mil/dp3/pdfs.cfm under the DP3 Business Rules Regulations
+and Forms tab.
+
+3. Corresponding new SS to Code 4 and Code 8 transit times in the Defense Personal Property System
+(DPS) updated 5 Dec 2025 and will be accomplished for shipments with a desired pickup date on or
+after 15 May 2026. Please send questions and concerns reference this advisory to the Operations Team
+at transcom.scott.tcj9.mbx.pp- ops@mail.mil
+
+4. This message is approved for release by the Chief of Operations, Defense Personal Property
+Management Office, TCJ9-O.
+
+Attachments:
+
+2026-USTC Dom-Int Transit Times tables - Effective 15 May 2026.xlsx

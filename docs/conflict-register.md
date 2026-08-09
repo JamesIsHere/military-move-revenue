@@ -9,7 +9,7 @@ remain archived under their manifest source IDs.
 | Case | Question | Type | Material effect | Status |
 |---|---|---|---|---|
 | `CF-0001` | Which event date selects 2026 SIT/accessorial rate tables? | Direct/scope conflict | Rate-version selection and money | Open broadly; Item 28B-only exception approved by `INT-0002` |
-| `CF-0002` | Which domestic transit table applies for 2026, and may it drive authorized SIT days? | Version/numeric conflict | RDD, transit days, SIT entitlement | Open — narrowed; 70% authority unresolved |
+| `CF-0002` | Which domestic transit table applies for 2026, and may it drive authorized SIT days? | Version/numeric conflict | RDD, transit days, SIT entitlement | Open — transit source/date selector supported; SIT percentage and rounding authority unresolved |
 | `CF-0003` | Is the 12 August 2022 item-code listing still applicable to 2026 shipments? | Publication-location and currency gap | Billing-code and evidence validation | Open broadly; Item 28A/28B-only exceptions approved by `INT-0001`/`INT-0002` |
 | `CF-0004` | Which weight fact selects the 5,000-lb reweigh-tolerance branch? | Material input ambiguity | Reweigh-fee and containerized reimbursement eligibility | Resolved for 2026 scope by `INT-0003`; reopen on contrary or later-cycle authority |
 
@@ -62,36 +62,59 @@ Affected discoveries: `DISC-0080`, `DISC-0085`.
 | `CLM-0005` | `SRC-DP3-MILEAGE-SIT`; `MAIN!G9:H10` and `WORK!G5:I5` | For the tool's stated non-Alaska direct-delivery scope, displayed authorized SIT day is Excel `ROUND(transit_days × 0.7, 0)`. | Reviewed expression; disputed authority |
 | `CLM-0007` | `SRC-DP3-MILEAGE-SIT`; archived XLSX `docProps/core.xml` | The file was last modified `2025-09-26T06:57:51Z` by a named USTRANSCOM J6 contractor; the metadata does not state an effective period. | Reviewed direct metadata |
 | `CLM-0008` | `SRC-DTR-IV-A402`; 14 July 2026 version, Chapter A-402, para. C.1.b.(1), p. IV-A-402-17 | Direct-delivery SIT may be authorized after a percentage of Government transit time, but the DTR says “see solicitation” and does not state the percentage. | Reviewed direct text |
-| `CLM-0009` | `SRC-PPA-RESOURCE-CENTER`; quick links observed 2026-08-03 | The authoritative PPA resource surface currently exposes a same-titled “DPS Mileage Transit Time SIT Tool” without a displayed publication or effective date. | Candidate online observation; raw page capture pending |
+| `OBS-PPA-MILEAGE-SIT-2026-08-03` | `SRC-PPA-RESOURCE-CENTER`; quick links observed 2026-08-03 | The authoritative PPA resource surface exposes a same-titled “DPS Mileage Transit Time SIT Tool” without a displayed publication or effective date. | Candidate page observation; raw page capture pending |
+| `CLM-0056` | `SRC-DP3-ADV-26-0030`; published 2025-12-08; paras. 1–3 and attachment title, p. 1 | Advisory 26-0030 identifies the attached 2026 USTC Domestic-International Transit Time Tables as effective 2026-05-15. | Reviewed direct text and complete one-page render |
+| `CLM-0057` | Same advisory and locator | The governing date fact is desired pickup date, with the 2026 transit-time changes applied to shipments on or after 2026-05-15. | Reviewed direct text |
+| `CLM-0058` | Same advisory and locator | The advisory limits its changes to new HMAS Stirling special-solicitation groups and states that other codes of service are not adjusted. | Reviewed direct text |
+| `CLM-0059` | `SRC-DP3-MILEAGE-SIT`; official artifact URL retrieved 2026-08-07 | The currently served workbook is 2,902,386 bytes with SHA-256 `04E62CC2…3318DE4`, byte-identical to the archived workbook. | Reviewed repeat-retrieval hash comparison |
+| `CLM-0060` | `SRC-DP3-ADV-26-0027`; published 2025-12-04; para. 5, p. 1 | The 2026 rate-filing event covers rates from 2026-05-15 through 2027-05-14. | Reviewed direct text and complete four-page render |
+| `CLM-0061` | Same advisory; paras. 9.1-9.2, p. 3 | The notice identifies the public 2026 business rules and places the separate functionality-focused Rate Filing User Guide inside DPS Workbench. | Reviewed direct text |
+| `CLM-0062` | Same advisory; para. 11, p. 3 | The notice expressly calls the 2026 rate-filing event “this solicitation.” | Reviewed direct text |
+| `CLM-0063` | `SRC-DTR-IV-VJ3`; page dated 2011-11-17; para. C.5.f.(1), p. IV-V.J.3-17 | The historical DTR appendix points the direct-delivery SIT percentage to the International Tender but states no value. | Reviewed historical text; current applicability disputed |
+| `CLM-0064` | `SRC-DP3-2026-400NG`; effective 2026-05-15 through 2027-05-14; Item 29.1-29.6, p. 37 | Current domestic rules make SIT unavailable when the customer is available on FADD, require PPSO instructions/approval, and make approved SIT effective on FADD. | Reviewed direct text |
 
 ### Precedence analysis
 
-For 2026 domestic transit days, `CLM-0003` has an explicit publication and
-effective date and is the provisional lead. The mileage tool is an
-official-operational implementation aid last modified in September 2025, before
-the 2026 transit table was published. Its hidden `TT` values therefore cannot
-supersede the explicit 2026 table. Current PPA publication supports continued
-operational availability of a same-titled tool, but does not supply an effective
-period or establish byte identity with the archived copy. The DTR confirms that
-some solicitation percentage exists, yet does not state 70 percent. This
-resolves provisional 2026 transit-table selection for schema work but does not
-authorize the tool's 70-percent SIT expression.
+Advisory 26-0030 now supplies the missing publication linkage and legally
+relevant selector for the attached 2026 transit tables: desired pickup date on
+or after 15 May 2026. Its statement that the only table changes are specified
+HMAS Stirling groups also supports using the published domestic appendix for
+other domestic codes of service in that effective period. The draft transit
+rule therefore names `desired_pickup_date` rather than `actual_pickup_date`.
+
+The official mileage/SIT URL still serves the exact September 2025 workbook,
+including the conflicting hidden 9-day table and 70-percent Excel expression.
+Byte identity establishes current publication identity, but not authority to
+supersede the later dated transit package.
+
+Advisory 26-0027 now identifies the referenced annual solicitation. It directs
+TSPs to the public 400NG, baseline rates, International Tender, Tender of
+Service, and Claims rules, while placing the separate functionality guide inside
+DPS Rate Filing Workbench. The public solicitation notice and current public
+rules reviewed in this pass state neither 70 percent nor a rounding convention.
+Current 400NG Item 29 supplies domestic FADD, approval, and SIT-entry conditions,
+not the missing threshold. A 2011 DTR appendix instead says “See the
+International Tender”; current IT-26 Item 518 contains SIT conditions but no
+percentage. That makes the public cross-reference chain incomplete or stale;
+it does not authorize importing the workbook formula into a published rule.
+Accordingly, the source/date-selector portion is supported while `CF-0002`
+remains open for the SIT percentage and rounding authority. Neither draft rule
+is published by this research checkpoint.
 
 ### Interim behavior
 
 - Use the 2026 transit workbook for provisional domestic transit schema and
-  synthetic transit tests.
+  synthetic transit tests when desired pickup date is on or after 2026-05-15.
 - Do not use the hidden `TT` table in a published rule package.
 - Do not approve the 70-percent authorized-SIT-day expression until an applicable
   governing source or current version metadata confirms it.
 
 ### Evidence required to close
 
-- A downloadable/checksummable copy of the PPA-linked mileage/SIT tool or a
-  publisher statement identifying its version and effective period.
 - The referenced solicitation provision or other governing text stating the SIT
   percentage and its exact rounding rule.
-- Regression tests comparing applicable transit versions and SIT boundaries.
+- An approved interpretation defining the precise scope of the 2026 transit
+  selector and regression tests at the 2026-05-15 boundary before publication.
 
 Affected discoveries: `DISC-0056`, `DISC-0064`, `DISC-0073`, `DISC-0088`–`DISC-0091`.
 

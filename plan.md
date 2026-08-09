@@ -19,7 +19,25 @@ but no source identified the 5,000-pound reweigh-tolerance branch fact. Decision
 0006's proposed dossier now supplies a verified five-candidate, thirteen-case
 boundary comparison. The project owner approved Alternative A on 2026-08-07;
 `INT-0003` resolves `CF-0004` for the 2026 Item 4.5/4.13 scope and publishes the
-two exact-decimal eligibility rules without authorizing money.
+two exact-decimal eligibility rules without authorizing money. A later focused
+Item 130 pass registered nine precise source claims and found no public authority
+that closes the four Decision 0005 mapping gaps. The 130F pass narrowed that gap
+to an explicit tension between Item 130F, BOTO criteria, and the domestic
+origin/destination listing rows; it did not approve an interpretation.
+A bounded `CF-0002` pass then archived PCS JTF Advisory 26-0030, verified the
+currently served mileage/SIT workbook is byte-identical to the archived copy,
+and corrected the draft 2026 transit selector to `desired_pickup_date` on or
+after 2026-05-15. The transit source/date-selector question is now supported,
+but `CF-0002` remains open because no governing source located in the pass states
+the direct-delivery SIT percentage or rounding rule.
+A solicitation follow-up identified and archived Advisory 26-0027 as the 2026
+DP3 rate-filing solicitation notice. It names the public business-rule package
+and an authenticated DPS Workbench user guide, but neither the notice nor the
+public 400NG, Tender, or current International Tender states the missing
+percentage or rounding rule. Historical DTR Appendix V.J.3 points to the
+International Tender, exposing an incomplete or stale cross-reference rather
+than a publishable rule. `CF-0002` therefore remains open at a narrower access
+boundary.
 
 Exit criteria:
 
@@ -28,6 +46,18 @@ Exit criteria:
   retrieval, and extraction status.
 - Governing and contextual sources are clearly separated.
 - Source precedence and conflict-handling policy are documented.
+
+Item 130 checkpoint, 2026-08-07: the authoritative public search is recorded in
+`docs/item-130-source-research.md` and its machine-readable decision companion.
+All four gaps remain non-monetary. A publisher clarification request was not sent
+and remains an external action requiring owner approval.
+
+CF-0002 checkpoint, 2026-08-07: the local and authoritative public-source pass
+is recorded in `docs/cf-0002-source-research.md` and its machine-readable
+companion. Advisory 26-0030 and the current-workbook hash comparison narrow the
+conflict without publishing either draft rule. Closure still requires the
+solicitation percentage, governing rounding behavior, and an approved scoped
+interpretation with effective-boundary regression tests.
 
 ## M2 — Derive the canonical schema
 

@@ -1,0 +1,158 @@
+{
+  "schema_version": "cf-0002-source-research.v1",
+  "research_id": "CF-0002-SOURCE-PASS-2026-08-07",
+  "conducted_on": "2026-08-07",
+  "status": "COMPLETED_CONFLICT_REMAINS_OPEN",
+  "scope": "DOMESTIC_DP3_2026_TRANSIT_VERSION_AND_DIRECT_DELIVERY_SIT_AUTHORITY_ONLY",
+  "source_basis": [
+    {
+      "provenance_id": "P-CF2-ADV-26-0030",
+      "source_id": "SRC-DP3-ADV-26-0030",
+      "source_version_id": "SV-DP3-ADV-26-0030-2025-12-08",
+      "document_version": "PCS JTF Advisory 26-0030 dated 2025-12-08",
+      "effective_period": "attached tables effective from 2026-05-15; no end date stated",
+      "locator": "paragraphs 1-3 and attachment title, page 1",
+      "retrieval_date": "2026-08-07",
+      "interpretation_status": "reviewed direct text and complete one-page render",
+      "source_claim_ids": ["CLM-0056", "CLM-0057", "CLM-0058"]
+    },
+    {
+      "provenance_id": "P-CF2-TRANSIT-2026",
+      "source_id": "SRC-DP3-2026-TRANSIT",
+      "source_version_id": "SV-DP3-2026-TRANSIT-2025-12-08",
+      "document_version": "2026 USTC Domestic-International Transit Time Tables published 2025-12-08",
+      "effective_period": "from 2026-05-15; no end date stated in manifest",
+      "locator": "Appendix L-Domestic!A1:F33; example A5:E5",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed workbook value",
+      "source_claim_ids": ["CLM-0003"]
+    },
+    {
+      "provenance_id": "P-CF2-MILEAGE-SIT",
+      "source_id": "SRC-DP3-MILEAGE-SIT",
+      "source_version_id": "SV-DP3-MILEAGE-SIT-RETRIEVED-2026-08-03",
+      "document_version": "undated operational workbook modified 2025-09-26T06:57:51Z",
+      "effective_period": "unstated",
+      "locator": "TT!A1:F21; MAIN!G9:H10; WORK!G5:I5; docProps/core.xml; official URL repeat retrieval 2026-08-07",
+      "retrieval_date": "2026-08-03 and byte-identity recheck 2026-08-07",
+      "interpretation_status": "reviewed values and identity; disputed authority",
+      "source_claim_ids": ["CLM-0004", "CLM-0005", "CLM-0007", "CLM-0059"]
+    },
+    {
+      "provenance_id": "P-CF2-DTR-A402",
+      "source_id": "SRC-DTR-IV-A402",
+      "source_version_id": "SV-DTR-IV-A402-2026-07-14",
+      "document_version": "DTR Part IV Chapter A-402 dated 2026-07-14",
+      "effective_period": "current at 2026-08-03 retrieval; no separate effective period stated",
+      "locator": "paragraph C.1.b.(1), page IV-A-402-17",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed direct text",
+      "source_claim_ids": ["CLM-0008"]
+    },
+    {
+      "provenance_id": "P-CF2-ADV-26-0027",
+      "source_id": "SRC-DP3-ADV-26-0027",
+      "source_version_id": "SV-DP3-ADV-26-0027-2025-12-04",
+      "document_version": "PCS JTF Advisory 26-0027 dated 2025-12-04",
+      "effective_period": "filed rates cover 2026-05-15 through 2027-05-14",
+      "locator": "paragraphs 5-11, pages 1-3",
+      "retrieval_date": "2026-08-07",
+      "interpretation_status": "reviewed direct text and complete four-page render",
+      "source_claim_ids": ["CLM-0060", "CLM-0061", "CLM-0062"]
+    },
+    {
+      "provenance_id": "P-CF2-DTR-VJ3",
+      "source_id": "SRC-DTR-IV-VJ3",
+      "source_version_id": "SV-DTR-IV-VJ3-2011-11-17",
+      "document_version": "DTR Part IV Appendix V.J.3 page dated 2011-11-17",
+      "effective_period": "unstated; historical appendix publicly served at retrieval",
+      "locator": "paragraph C.5.f.(1), printed page IV-V.J.3-17",
+      "retrieval_date": "2026-08-07",
+      "interpretation_status": "reviewed historical text; current applicability disputed",
+      "source_claim_ids": ["CLM-0063"]
+    },
+    {
+      "provenance_id": "P-CF2-400NG-2026",
+      "source_id": "SRC-DP3-2026-400NG",
+      "source_version_id": "SV-DP3-2026-400NG-2025-12-05",
+      "document_version": "2026 400NG Final dated 2025-12-05",
+      "effective_period": "2026-05-15 through 2027-05-14",
+      "locator": "Item 29.1-29.6, page 37",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed direct text",
+      "source_claim_ids": ["CLM-0064"]
+    }
+  ],
+  "findings": [
+    {
+      "finding_id": "CF2-TRANSIT-VERSION-SELECTOR",
+      "status": "AUTHORITATIVE_BASIS_IDENTIFIED_RULE_STILL_BLOCKED",
+      "finding": "Advisory 26-0030 links the attached 2026 transit tables to desired pickup date on or after 2026-05-15; the domestic appendix supplies 18 days for the recorded 751-1000 mile and 4000-7999 lb example.",
+      "source_claim_ids": ["CLM-0056", "CLM-0057", "CLM-0058", "CLM-0003"],
+      "prohibited_inference": "Do not publish the draft selector without approved scope and effective-boundary regression cases."
+    },
+    {
+      "finding_id": "CF2-CURRENT-TOOL-IDENTITY",
+      "status": "VERIFIED_BYTE_IDENTICAL_CONFLICT_PERSISTS",
+      "finding": "The official mileage/SIT artifact URL served the exact archived 2,902,386-byte workbook on 2026-08-07, including the conflicting 9-day table and 70-percent formula.",
+      "source_claim_ids": ["CLM-0004", "CLM-0005", "CLM-0059"],
+      "prohibited_inference": "Current publication identity does not establish governing precedence or an effective period."
+    },
+    {
+      "finding_id": "CF2-SIT-PERCENTAGE-AUTHORITY",
+      "status": "OPEN_SOLICITATION_IDENTIFIED_PROVISION_NOT_PUBLICLY_LOCATED",
+      "finding": "Advisory 26-0027 identifies the 2026 rate-filing solicitation and its public rule set, while the only additional guide it names is inside DPS Workbench. The public 2026 400NG, Tender of Service, current International Tender, and the solicitation notice do not state 70 percent. A historical DTR appendix points to the International Tender, but the current International Tender does not contain the provision.",
+      "source_claim_ids": ["CLM-0005", "CLM-0008", "CLM-0060", "CLM-0061", "CLM-0062", "CLM-0063", "CLM-0064"],
+      "prohibited_inference": "Do not convert the workbook's 0.7 operand into an approved entitlement rule."
+    },
+    {
+      "finding_id": "CF2-SIT-ROUNDING-AUTHORITY",
+      "status": "OPEN_GOVERNING_ROUNDING_RULE_NOT_LOCATED",
+      "finding": "The only located rounding behavior is Excel ROUND in the operational workbook; neither the solicitation notice, current public business rules, nor DTR text states a rounding convention.",
+      "source_claim_ids": ["CLM-0005", "CLM-0008", "CLM-0056", "CLM-0061", "CLM-0062", "CLM-0064"],
+      "prohibited_inference": "Do not treat spreadsheet execution semantics as governing legal authority."
+    }
+  ],
+  "rule_checkpoints": [
+    {
+      "rule_id": "RULE-DOMESTIC-TRANSIT-TABLE-2026",
+      "draft_correction": "effective_date_fact_type changed from actual_pickup_date to desired_pickup_date",
+      "publication_status": "draft",
+      "implementation_status": "not_implemented",
+      "blocked_by_conflict_ids": ["CF-0002"]
+    },
+    {
+      "rule_id": "RULE-DIRECT-DELIVERY-SIT-DAY-PERCENT",
+      "draft_correction": null,
+      "publication_status": "draft",
+      "implementation_status": "not_implemented",
+      "blocked_by_conflict_ids": ["CF-0002"]
+    }
+  ],
+  "search_boundary": {
+    "surfaces": [
+      "archived 2026 400NG and Tender extracts",
+      "archived DTR A-402",
+      "USTRANSCOM DP3 public library and advisory results",
+      "PPA public resource-center results"
+      ,"PCS JTF Advisory 26-0027 and indexed 2022-2025 rate-filing notices"
+      ,"official 2021-2025 domestic 400NG Item 29 lineage"
+      ,"current IT-26 Item 518 as out-of-scope cross-reference verification only"
+    ],
+    "negative_result_interpretation": "the annual solicitation is identified, but the percentage and rounding provision was not found in its public notice or public business-rule set; authenticated DPS Workbench materials were not accessed"
+  },
+  "financial_contract": {
+    "status": "PROHIBITED",
+    "rate_version_date_fact": null,
+    "billing_item_contract": null,
+    "quantity_for_billing": null,
+    "rate": null,
+    "expected_amount": null,
+    "audit_adapter": null
+  },
+  "external_action": {
+    "status": "NONE_TAKEN",
+    "contacted_party": null,
+    "request_sent": false
+  }
+}

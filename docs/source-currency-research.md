@@ -40,12 +40,29 @@ override the explicit 2026 table's 18-day result for the tested bracket.
 
 The [PPA Resource Center](https://www.ppa.mil/Industry-Government-Resource-Center/)
 still exposes a same-titled mileage/SIT tool as a quick link. This supports
-continued operational publication as of retrieval, but the page displays no
-version/effective date and the linked copy could not be downloaded for a hash
-comparison.
+continued operational publication as of retrieval. A follow-up direct retrieval
+from the official legacy artifact URL on 2026-08-07 produced 2,902,386 bytes
+with SHA-256
+`04E62CC2EFAF98FC18536EDBF948BAE6FA3956A9A9FEC86DB1A68BAAA3318DE4`.
+That file was byte-identical to the already archived artifact, so no redundant
+raw copy was retained. The page still displays no version or effective date.
 
-Interpretation status: reviewed for embedded metadata; candidate for current
-publication identity; not approved for effective-date or transit selection.
+Interpretation status: reviewed for embedded metadata and current artifact
+identity; not approved as governing authority for effective-date or transit
+selection.
+
+## Finding 1A — Advisory 26-0030 supplies the 2026 transit selector
+
+The archived, checksummed PCS JTF Advisory 26-0030, dated 8 December 2025,
+identifies its attachment as the 2026 USTC Domestic-International Transit Time
+Tables effective 15 May 2026. Paragraph 3 applies the changes to shipments with
+a desired pickup date on or after that date. Paragraph 1 says the changes are
+the listed HMAS Stirling special-solicitation groups and that other codes of
+service are not adjusted.
+
+This is direct governing support for `desired_pickup_date` as the draft 2026
+transit-version selector. It does not supply the direct-delivery SIT percentage
+or rounding convention, and no rule was published.
 
 ## Finding 2 — the 70-percent calculation still lacks governing authority
 
@@ -54,11 +71,32 @@ after a percentage of Government transit time and directs the reader to “see
 solicitation.” It does not state the percentage or rounding rule. The reviewed
 2026 400NG and Household Goods Tender text did not supply the missing 70-percent
 provision. The archived workbook's `ROUND(transit_days * 0.7, 0)` remains an
-implementation expression, not an approved rule.
+implementation expression, not an approved rule. A bounded official-source
+search on 2026-08-07 located no solicitation provision stating 70 percent or
+the Excel rounding behavior. That negative search result is a research boundary,
+not evidence that no such authority exists.
 
 Interpretation status: `CF-0002` remains open. The explicit 2026 transit table is
 the provisional domestic transit source; derived authorized-SIT days remain
 blocked.
+
+### Solicitation follow-up, 2026-08-07
+
+PCS JTF Advisory 26-0027 is the 2026 DP3 Rate Filing Event Notice and expressly
+calls the event “this solicitation.” It covers filed rates from 15 May 2026
+through 14 May 2027. Paragraph 9.1 identifies the public business-rule package;
+paragraph 9.2 says the current TSP Rate Filing User Guide is available inside
+the authenticated DPS Rate Filing Workbench and describes functionality.
+
+The public notice, 2026 400NG Item 29, 2026 Tender of Service, and current IT-26
+Item 518 were searched for the direct-delivery percentage and rounding rule.
+None states either. Official 2021-2025 domestic 400NG Item 29 versions show the
+same FADD/SIT-entry structure without the missing provision. Historical DTR
+Appendix V.J.3, page IV-V.J.3-17, instead says to see the International Tender,
+but the current International Tender contains no matching threshold. The exact
+remaining boundary is therefore an authorized Workbench solicitation artifact
+or an equivalent publisher statement; no authenticated system was accessed and
+no external request was sent.
 
 ## Finding 3 — item-code currency is now a publication-location conflict
 
@@ -89,11 +127,9 @@ baseline requires an advisory/supersession inventory as well as a workbook.
 
 ## Remaining closure evidence
 
-1. Obtain and checksum the PPA-linked mileage/SIT workbook; compare it with
-   `SRC-DP3-MILEAGE-SIT` and obtain a publisher-stated effective period.
-2. Locate the solicitation provision referenced by DTR A-402 that states the
+1. Locate the solicitation provision referenced by DTR A-402 that states the
    applicable SIT percentage and rounding rule.
-3. Obtain a current domestic Item Code Listing, explicit continued-applicability
+2. Obtain a current domestic Item Code Listing, explicit continued-applicability
    statement, or complete domestic advisory/supersession chain.
-4. Archive PPA Advisory 26-0105 and the relevant PPA catalog snapshot when the
+3. Archive PPA Advisory 26-0105 and the relevant PPA catalog snapshot when the
    CDN permits retrieval; until then, keep their claims at candidate status.

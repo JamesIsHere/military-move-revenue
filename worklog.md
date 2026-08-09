@@ -2566,3 +2566,123 @@ review conflicts and emitting no monetary or billing-mapping output.
 
 - All 27 repository validators, changed-module compilation, and
   `git diff --check` pass for the publication scope.
+
+## 2026-08-07 — Item 130 authoritative-source pass
+
+### Outcome
+
+- Re-read archived 2026 400NG Item 130, the Code B/H definitions, Items 300-301,
+  DTR Chapter A-402, all 66 candidate Item 130 workbook rows, and the archived
+  public-library link to the 12 August 2022 Item Code Listing.
+- Searched official USTRANSCOM library, tariff, advisory, historical business-
+  rule, and regulation surfaces for the four Decision 0005 gaps. No superseding
+  listing, crosswalk, advisory, worked example, or accessible TSP OTO User Guide
+  resolved them. Search extracts and unarchived copies were not promoted.
+- Registered nine precise claims and three locators for the tariff classifications,
+  combined-service text, BOTO criteria, and workbook mismatches. The registry now
+  contains 52 claims and 43 locators across the same thirteen archived sources.
+- Published `docs/item-130-source-research.md` and machine-readable research
+  record `docs/decisions/0005-item-130-source-research-2026-08-07.json`.
+- Kept all four gaps open. The 130F result is narrowed to an explicit conflict:
+  Item 130F's at-most-16-foot BOTO wording, Code B/H and Item 301's over-14-foot/
+  dimension and HHG-carrier-agreement criteria, and the listing's dHHG origin/
+  destination rows do not supply a single deterministic selector.
+- No mapping, billable quantity, BOTO/dHHG selection, rate, amount, rule package,
+  external request, or money movement was authorized.
+
+### Verification and next
+
+- `python scripts/validate_item_130_source_research.py` passes three archived
+  source records, ten cited registered claims, four open gaps, direct tariff and
+  workbook assertions, and six tamper probes.
+- All 28 repository validators pass. Changed-script compilation and `git diff
+  --check` pass.
+- Next, obtain owner direction before any targeted Rates Team request. Without
+  that external action, move to a bounded `CF-0002` transit/SIT source pass and
+  leave Item 130 non-monetary.
+
+## 2026-08-07 — CF-0002 transit/SIT local source pass
+
+### Outcome
+
+- Archived and checksummed PCS JTF Advisory 26-0030, published 2025-12-08,
+  including a complete text extraction and one-page rendered visual review.
+- Registered the advisory's attachment identity, 2026-05-15 effective date,
+  desired-pickup-date selector, and limited change scope as `CLM-0056` through
+  `CLM-0058` with page-level provenance.
+- Retrieved the official DPS Mileage Transit Time SIT Tool again on 2026-08-07.
+  Its 2,902,386 bytes and SHA-256 exactly match the archived workbook, so the
+  duplicate download was discarded and the verified identity was registered as
+  `CLM-0059`.
+- Corrected the blocked draft `RULE-DOMESTIC-TRANSIT-TABLE-2026` selector from
+  `actual_pickup_date` to `desired_pickup_date`. The rule remains draft and not
+  implemented.
+- Rechecked the archived DTR, 2026 Tender and tariff material, advisory results,
+  transit workbook, and mileage/SIT formulas. No governing solicitation text
+  stating 70 percent or an exact rounding rule was located.
+- Kept `CF-0002` open. The transit source/date-selector portion is supported;
+  the direct-delivery SIT percentage and rounding authority remain unresolved.
+  No financial result, billing quantity, rule publication, external contact,
+  live submission, or money movement occurred.
+
+### Verification and next
+
+- Added `docs/cf-0002-source-research.md`, its machine-readable companion, and
+  `scripts/validate_cf_0002_source_research.py`.
+- The focused suite verifies four archived sources, nine cited claims, four
+  findings, two blocked rules, the raw workbook conflict, and six tamper probes.
+- All 29 repository validators, changed-script compilation, and
+  `git diff --check` pass.
+- Next closure evidence is the solicitation provision or equivalent governing
+  text for the SIT percentage and rounding rule, followed by an approved scoped
+  interpretation and effective-boundary tests. Until then, preserve both draft
+  publication gates and move to another bounded local M1 source gap if desired.
+
+## 2026-08-07 — CF-0002 governing-solicitation follow-up
+
+### Outcome
+
+- Archived and checksummed PCS JTF Advisory 26-0027, the 2026 DP3 Rate Filing
+  Event Notice, with complete four-page rendered review. Paragraph 11 identifies
+  the event as “this solicitation”; paragraphs 5 and 9 record its rate period,
+  public rule set, and DPS Workbench-only user-guide boundary.
+- Archived historical DTR Appendix V.J.3 and visually reviewed printed page
+  IV-V.J.3-17. It points the direct-delivery SIT percentage to the International
+  Tender but states no value; current IT-26 Item 518 contains no such threshold.
+- Reviewed current and 2021-2025 domestic 400NG Item 29 lineage, current Tender,
+  and the public solicitation package. Those sources provide FADD, approval, and
+  SIT-entry conditions but no 70-percent or rounding provision.
+- Registered two source versions, three locators, and five claims. `CF-0002`
+  remains open: no workbook behavior was promoted, no authenticated system was
+  accessed, and no external request or financial action occurred.
+
+### Verification and next
+
+- Expanded the existing CF-0002 machine record and validator to cover seven
+  archived sources, fourteen claims, four findings, two blocked rules, and six
+  tamper probes.
+- The remaining closure evidence is an authorized DPS Workbench solicitation
+  artifact or equivalent publisher statement fixing both percentage and exact
+  rounding.
+- All 29 repository validators, changed-script compilation, and `git diff
+  --check` pass.
+
+## 2026-08-09 — Item 130 and CF-0002 publication checkpoint
+
+### Outcome
+
+- Confirmed one cohesive publication scope containing the Item 130
+  authoritative-source pass and both `CF-0002` transit/SIT source follow-ups,
+  including archived public artifacts, derived extracts, provenance records,
+  conflict gates, validators, and cold-resume documentation.
+- Preserved `CF-0002`, all four Item 130 mapping gaps, `CF-0001`, `CF-0003`, and
+  `DF-0001` without promoting a workbook observation, financial rule, billing
+  quantity, or monetary result.
+- Confirmed the existing publication target remains branch
+  `agent/a402-lifecycle-sit` and draft PR 1.
+
+### Verification
+
+- All 29 repository `scripts/validate_*.py` suites pass before publication.
+- No authenticated government access, external request, real shipment data,
+  live submission, or money movement occurred.

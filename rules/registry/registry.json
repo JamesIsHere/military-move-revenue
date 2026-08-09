@@ -133,6 +133,36 @@
       "media_type": "application/pdf",
       "extraction_method": "PDF text extraction with complete two-page rendered review",
       "interpretation_status": "reviewed"
+    },
+    {
+      "id": "SV-DP3-ADV-26-0030-2025-12-08",
+      "source_id": "SRC-DP3-ADV-26-0030",
+      "source_kind": "transit_time_publication_advisory",
+      "authoritativeness_class": "governing",
+      "raw_artifact_path": "sources/raw/2025/pcs-jtf-advisory-26-0030-2026-transit-times-2025-12-08.pdf",
+      "media_type": "application/pdf",
+      "extraction_method": "PDF text extraction with complete one-page rendered review",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "SV-DP3-ADV-26-0027-2025-12-04",
+      "source_id": "SRC-DP3-ADV-26-0027",
+      "source_kind": "annual_rate_filing_solicitation_notice",
+      "authoritativeness_class": "governing",
+      "raw_artifact_path": "sources/raw/2025/pcs-jtf-advisory-26-0027-2026-rate-filing-event-2025-12-04.pdf",
+      "media_type": "application/pdf",
+      "extraction_method": "PDF text extraction with complete four-page rendered review",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "SV-DTR-IV-VJ3-2011-11-17",
+      "source_id": "SRC-DTR-IV-VJ3",
+      "source_kind": "regulation_appendix",
+      "authoritativeness_class": "governing",
+      "raw_artifact_path": "sources/raw/2011/dtr-part-iv-appendix-v-j-3-intra-country-move-tsp-shipment-management-2011-11-17.pdf",
+      "media_type": "application/pdf",
+      "extraction_method": "PDF text extraction with cited-page rendered review",
+      "interpretation_status": "disputed"
     }
   ],
   "publication_observations": [
@@ -207,7 +237,15 @@
     {"id": "LOC-0038", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "locator_kind": "workbook_cells", "locator_value": "DOM_400NG!A4:Q4, A24:Q24, B154:L166"},
     {"id": "LOC-0039", "source_version_id": "SV-DP3-ADV-23-0004-2022-10-13", "locator_kind": "advisory_paragraph_page", "locator_value": "paras. 1 and 3.4, p. 1"},
     {"id": "LOC-0040", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_version_history_page", "locator_value": "List of Changes, p. 8; 400NG 2022 Changes 2-4"},
-    {"id": "LOC-0041", "source_version_id": "SV-DP3-ADV-22-0097B-2022-10-04", "locator_kind": "advisory_paragraph_page", "locator_value": "paras. 4, 9, and 10-11, pp. 1 and 5-6"}
+    {"id": "LOC-0041", "source_version_id": "SV-DP3-ADV-22-0097B-2022-10-04", "locator_kind": "advisory_paragraph_page", "locator_value": "paras. 4, 9, and 10-11, pp. 1 and 5-6"},
+    {"id": "LOC-0042", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_item_page", "locator_value": "Item 130 classifications and para. 1.a, pp. 54-55"},
+    {"id": "LOC-0043", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_cross_reference_pages", "locator_value": "Definitions Code B and Code H, pp. 11-12; Item 130.3-130.4, p. 55; Items 300-301, p. 63"},
+    {"id": "LOC-0044", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "locator_kind": "workbook_cells", "locator_value": "DOM_400NG!A53:Q118; specifically rows 53-70, 79-92, and all origin/destination pairs"},
+    {"id": "LOC-0045", "source_version_id": "SV-DP3-ADV-26-0030-2025-12-08", "locator_kind": "advisory_paragraph_page", "locator_value": "paras. 1-3 and attachment title, p. 1"},
+    {"id": "LOC-0046", "source_version_id": "SV-DP3-MILEAGE-SIT-RETRIEVED-2026-08-03", "locator_kind": "official_url_repeat_retrieval", "locator_value": "Official manifest URL retrieved 2026-08-07; 2,902,386 bytes; SHA-256 04E62CC2EFAF98FC18536EDBF948BAE6FA3956A9A9FEC86DB1A68BAAA3318DE4; byte-identical to archived artifact"},
+    {"id": "LOC-0047", "source_version_id": "SV-DP3-ADV-26-0027-2025-12-04", "locator_kind": "advisory_paragraph_pages", "locator_value": "paras. 5-11, pp. 1-3"},
+    {"id": "LOC-0048", "source_version_id": "SV-DTR-IV-VJ3-2011-11-17", "locator_kind": "regulation_paragraph_page", "locator_value": "Appendix V.J.3, para. C.5.f.(1), printed p. IV-V.J.3-17 (PDF p. 17)"},
+    {"id": "LOC-0049", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "locator_kind": "tariff_item_page", "locator_value": "Item 29.1-29.6, p. 37"}
   ],
   "source_claims": [
     {
@@ -696,6 +734,204 @@
       "value_type": "publication_process",
       "claim_derivation_kind": "direct_text",
       "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0047",
+      "source_locator_id": "LOC-0042",
+      "subject_kind": "item_130_classification",
+      "subject_key": "130B_riding_lawnmower_including_stand_on",
+      "predicate": "expressly_includes",
+      "claim_value": "riding_lawnmowers_including_stand_on",
+      "value_type": "controlled_article_set",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0048",
+      "source_locator_id": "LOC-0042",
+      "subject_kind": "item_130_classification",
+      "subject_key": "130E_over_14_ft_with_household_goods",
+      "predicate": "expressly_includes",
+      "claim_value": "boats;dinghies;sculls;skiffs;row_boats_with_or_without_associated_trailer",
+      "value_type": "controlled_article_set",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0049",
+      "source_locator_id": "LOC-0042",
+      "subject_kind": "item_130_classification",
+      "subject_key": "130F_boat_trailer_at_most_16_ft",
+      "predicate": "program_statement",
+      "claim_value": "boat_trailers_are_handled_under_boto_program",
+      "value_type": "program_boundary_text",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0050",
+      "source_locator_id": "LOC-0042",
+      "subject_kind": "item_130_charge_occurrence",
+      "subject_key": "combined_loading_and_unloading_service",
+      "predicate": "applies_once_per",
+      "claim_value": "each_time_combined_loading_and_unloading_service_is_required_including_non_tsp_convenience_sit",
+      "value_type": "occurrence_contract_text",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0051",
+      "source_locator_id": "LOC-0043",
+      "subject_kind": "boto_program_selection",
+      "subject_key": "boat_or_personal_watercraft_with_or_without_trailer",
+      "predicate": "requires_separate_oto_when",
+      "claim_value": "over_14_ft_or_over_6_ft_10_in_wide_or_over_6_ft_5_in_high_and_hhg_tsp_does_not_agree_to_move_with_hhg",
+      "value_type": "condition_set",
+      "claim_derivation_kind": "direct_text_cross_reference",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0052",
+      "source_locator_id": "LOC-0044",
+      "subject_kind": "billing_item_vocabulary",
+      "subject_key": "item_130B_candidate_rows_53_70",
+      "predicate": "omits_description",
+      "claim_value": "riding_lawnmower_including_stand_on",
+      "value_type": "reviewed_workbook_absence",
+      "claim_derivation_kind": "complete_range_inspection",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0053",
+      "source_locator_id": "LOC-0044",
+      "subject_kind": "billing_item_vocabulary",
+      "subject_key": "item_130E_candidate_rows_89_90",
+      "predicate": "describes_only",
+      "claim_value": "bulky_article_boats_over_14_ft",
+      "value_type": "controlled_description_set",
+      "claim_derivation_kind": "direct_workbook_values",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0054",
+      "source_locator_id": "LOC-0044",
+      "subject_kind": "billing_item_vocabulary",
+      "subject_key": "item_130F_candidate_rows_91_92",
+      "predicate": "defines_representations",
+      "claim_value": "domestic_400ng_origin_and_destination_rows_for_boat_trailers_at_most_16_ft",
+      "value_type": "controlled_field_set",
+      "claim_derivation_kind": "direct_workbook_values_and_legends",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0055",
+      "source_locator_id": "LOC-0044",
+      "subject_kind": "billing_item_vocabulary",
+      "subject_key": "item_130_candidate_rows_53_118",
+      "predicate": "pairs_each_listed_description_as",
+      "claim_value": "separate_origin_and_destination_representations",
+      "value_type": "row_pair_structure",
+      "claim_derivation_kind": "complete_range_inspection",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0056",
+      "source_locator_id": "LOC-0045",
+      "subject_kind": "source_publication",
+      "subject_key": "2026_ustc_domestic_international_transit_time_tables",
+      "predicate": "identifies_attachment_and_effective_from",
+      "claim_value": "2026-USTC_Dom-Int_Transit_Times_tables;2026-05-15",
+      "value_type": "publication_identity_and_date",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0057",
+      "source_locator_id": "LOC-0045",
+      "subject_kind": "transit_time_version_selection",
+      "subject_key": "2026_ustc_transit_time_tables",
+      "predicate": "uses_date_fact_and_threshold",
+      "claim_value": "desired_pickup_date_on_or_after_2026-05-15",
+      "value_type": "effective_date_condition",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0058",
+      "source_locator_id": "LOC-0045",
+      "subject_kind": "transit_time_publication_scope",
+      "subject_key": "advisory_26_0030_changes",
+      "predicate": "limits_adjustments_to",
+      "claim_value": "new_HMAS_Stirling_special_solicitation_groups;no_adjustments_to_other_codes_of_service",
+      "value_type": "scope_condition_set",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0059",
+      "source_locator_id": "LOC-0046",
+      "subject_kind": "artifact_currency",
+      "subject_key": "dps_mileage_transit_time_sit_tool",
+      "predicate": "official_url_artifact_identity_on_2026_08_07",
+      "claim_value": "byte_identical_to_SV-DP3-MILEAGE-SIT-RETRIEVED-2026-08-03",
+      "value_type": "sha256_identity",
+      "claim_derivation_kind": "direct_repeat_retrieval_hash_comparison",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0060",
+      "source_locator_id": "LOC-0047",
+      "subject_kind": "annual_rate_filing_solicitation",
+      "subject_key": "2026_dp3_rate_filing_event",
+      "predicate": "covers_period",
+      "claim_value": "2026-05-15_through_2027-05-14",
+      "value_type": "effective_period",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0061",
+      "source_locator_id": "LOC-0047",
+      "subject_kind": "annual_rate_filing_solicitation",
+      "subject_key": "2026_tsp_source_responsibilities",
+      "predicate": "identifies_public_rules_and_access_boundary",
+      "claim_value": "public_400NG_baseline_rates_international_tender_tender_of_service_claims_rules;rate_filing_user_guide_inside_DPS_Workbench_for_functionality",
+      "value_type": "source_set_and_access_location",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0062",
+      "source_locator_id": "LOC-0047",
+      "subject_kind": "annual_rate_filing_solicitation",
+      "subject_key": "advisory_26_0027",
+      "predicate": "self_identifies_as",
+      "claim_value": "this_solicitation",
+      "value_type": "document_role",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
+    },
+    {
+      "id": "CLM-0063",
+      "source_locator_id": "LOC-0048",
+      "subject_kind": "direct_delivery_sit_authority",
+      "subject_key": "historical_dtr_appendix_v_j_3",
+      "predicate": "cross_references_percentage_to",
+      "claim_value": "International_Tender",
+      "value_type": "historical_cross_reference",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "disputed"
+    },
+    {
+      "id": "CLM-0064",
+      "source_locator_id": "LOC-0049",
+      "subject_kind": "domestic_sit_entry_conditions",
+      "subject_key": "2026_400ng_item_29",
+      "predicate": "requires",
+      "claim_value": "customer_available_on_FADD_means_SIT_not_authorized;PPSO_instruction_or_approval;SIT_effective_on_FADD",
+      "value_type": "condition_set",
+      "claim_derivation_kind": "direct_text",
+      "interpretation_status": "reviewed"
     }
   ],
   "conflict_cases": [
@@ -723,7 +959,16 @@
         {"record_kind": "source_claim", "record_id": "CLM-0005", "claim_role": "unsupported_expression"},
         {"record_kind": "source_claim", "record_id": "CLM-0007", "claim_role": "version_marker"},
         {"record_kind": "source_claim", "record_id": "CLM-0008", "claim_role": "governing_cross_reference"},
-        {"record_kind": "publication_observation", "record_id": "OBS-PPA-MILEAGE-SIT-2026-08-03", "claim_role": "candidate_currency_observation"}
+        {"record_kind": "publication_observation", "record_id": "OBS-PPA-MILEAGE-SIT-2026-08-03", "claim_role": "candidate_currency_observation"},
+        {"record_kind": "source_claim", "record_id": "CLM-0056", "claim_role": "publication_identity_and_effective_date"},
+        {"record_kind": "source_claim", "record_id": "CLM-0057", "claim_role": "authoritative_date_selector"},
+        {"record_kind": "source_claim", "record_id": "CLM-0058", "claim_role": "publication_scope"},
+        {"record_kind": "source_claim", "record_id": "CLM-0059", "claim_role": "current_conflicting_tool_identity"},
+        {"record_kind": "source_claim", "record_id": "CLM-0060", "claim_role": "solicitation_effective_period"},
+        {"record_kind": "source_claim", "record_id": "CLM-0061", "claim_role": "solicitation_source_and_access_boundary"},
+        {"record_kind": "source_claim", "record_id": "CLM-0062", "claim_role": "solicitation_identity"},
+        {"record_kind": "source_claim", "record_id": "CLM-0063", "claim_role": "historical_conflicting_cross_reference"},
+        {"record_kind": "source_claim", "record_id": "CLM-0064", "claim_role": "current_domestic_sit_entry_conditions"}
       ],
       "affected_rule_ids": ["RULE-DOMESTIC-TRANSIT-TABLE-2026", "RULE-DIRECT-DELIVERY-SIT-DAY-PERCENT"]
     },
@@ -938,7 +1183,7 @@
       "expression_language": "decision-expression-v0",
       "expression": "candidate_transit_source := SV-DP3-2026-TRANSIT-2025-12-08",
       "outcome_type": "source_version_id",
-      "effective_date_fact_type": "actual_pickup_date",
+      "effective_date_fact_type": "desired_pickup_date",
       "implementation_status": "not_implemented",
       "publication_status": "draft",
       "blocked_by_conflict_ids": ["CF-0002"]
