@@ -1,0 +1,83 @@
+{
+  "fixture_set": "SYNTHETIC_ITEM_4_8_AUTOMATIC_REWEIGH_CASES",
+  "source_basis": {
+    "source_version_id": "SV-DP3-2026-400NG-2025-12-05",
+    "locator": "LOC-0018",
+    "claims": ["CLM-0020", "CLM-0021", "CLM-0022"]
+  },
+  "initial_weight_fixture_path": "tests/fixtures/weight-determination/initial-scale-weight-cases.json",
+  "cases": [
+    {
+      "id": "AUTO-REWEIGH-E1E5-3999",
+      "description": "E-1 through E-5 at 3,999 pounds is below the automatic threshold.",
+      "grade_band": "E1_THRU_E5",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "7999"}],
+      "expected": {"status": "FINAL", "required": false, "threshold": "4000", "initial_weight": "3999"}
+    },
+    {
+      "id": "AUTO-REWEIGH-E1E5-4000",
+      "description": "E-1 through E-5 at exactly 4,000 pounds requires an automatic reweigh.",
+      "grade_band": "E1_THRU_E5",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "8000"}],
+      "expected": {"status": "FINAL", "required": true, "threshold": "4000", "initial_weight": "4000"}
+    },
+    {
+      "id": "AUTO-REWEIGH-E6O10-6999",
+      "description": "E-6 through O-10 at 6,999 pounds is below the automatic threshold.",
+      "grade_band": "E6_THRU_O10",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "10999"}],
+      "expected": {"status": "FINAL", "required": false, "threshold": "7000", "initial_weight": "6999"}
+    },
+    {
+      "id": "AUTO-REWEIGH-E6O10-7000",
+      "description": "E-6 through O-10 at exactly 7,000 pounds requires an automatic reweigh.",
+      "grade_band": "E6_THRU_O10",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "11000"}],
+      "expected": {"status": "FINAL", "required": true, "threshold": "7000", "initial_weight": "7000"}
+    },
+    {
+      "id": "AUTO-REWEIGH-CIV-6999",
+      "description": "A DoW civilian shipment at 6,999 pounds is below the automatic threshold.",
+      "grade_band": "DOW_CIVILIAN",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "10999"}],
+      "expected": {"status": "FINAL", "required": false, "threshold": "7000", "initial_weight": "6999"}
+    },
+    {
+      "id": "AUTO-REWEIGH-CIV-7000",
+      "description": "A DoW civilian shipment at exactly 7,000 pounds requires an automatic reweigh.",
+      "grade_band": "DOW_CIVILIAN",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "11000"}],
+      "expected": {"status": "FINAL", "required": true, "threshold": "7000", "initial_weight": "7000"}
+    },
+    {
+      "id": "AUTO-REWEIGH-UNMAPPED-GRADE",
+      "description": "A grade band not stated in Item 4.8 is routed to review rather than silently mapped.",
+      "grade_band": "W1_THRU_W5_UNMAPPED",
+      "weight_mutations": [{"path": "measurements.1.weight", "value": "11000"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["GRADE_BAND_NOT_COVERED_BY_ITEM_4_8"]}
+    },
+    {
+      "id": "AUTO-REWEIGH-BLOCKED-WEIGHT",
+      "description": "A blocked initial weight cannot drive automatic-reweigh eligibility.",
+      "grade_band": "E1_THRU_E5",
+      "weight_mutations": [{"path": "tickets.0.certified_scale", "value": false}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["INITIAL_WEIGHT_DETERMINATION_BLOCKED"], "upstream_reasons": ["UNCERTIFIED_SCALE"]}
+    },
+    {
+      "id": "AUTO-REWEIGH-TAMPERED-WEIGHT-PACKAGE",
+      "description": "A weight result from an unknown package is rejected as structurally invalid.",
+      "grade_band": "E1_THRU_E5",
+      "weight_mutations": [],
+      "initial_result_mutations": [{"path": "rule_package_id", "value": "UNAPPROVED-WEIGHT-PACKAGE"}],
+      "expected": {"input_error_contains": "initial_weight_result uses an unknown rule package"}
+    },
+    {
+      "id": "AUTO-REWEIGH-GRADE-EVIDENCE-MISMATCH",
+      "description": "The grade-band fact must carry the same synthetic or authorized-sanitized status as the case.",
+      "grade_band": "E1_THRU_E5",
+      "grade_band_fact_status": "authorized_sanitized",
+      "weight_mutations": [],
+      "expected": {"input_error_contains": "grade_band_fact_status must match the case data_status"}
+    }
+  ]
+}

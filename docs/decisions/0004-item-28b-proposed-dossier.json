@@ -1,0 +1,60 @@
+{
+  "schema_version": "interpretation-decision-dossier.v1",
+  "decision_number": "0004",
+  "title": "Item 28B Scoped Date and Item-Code Continuity",
+  "status": "PROPOSED_OWNER_APPROVAL_REQUIRED",
+  "prepared_on": "2026-08-04",
+  "scope": "DOMESTIC_400NG_ITEM_28B_EXTRA_DELIVERY_2026_RATE_CYCLE_ONLY",
+  "approval": {"selected_alternative": null, "approved_by": null, "approved_on": null, "interpretation_decision_id": null},
+  "source_basis": [
+    {"source_id": "SRC-DP3-2026-400NG", "source_version_id": "SV-DP3-2026-400NG-2025-12-05", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 1.2(c), p. 18; Item 28.2-28.3, pp. 35-36", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"},
+    {"source_id": "SRC-DP3-2026-RATES", "source_version_id": "SV-DP3-2026-RATES-2026", "document_version": "2026", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A1; A13:F13", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_conflicting_date_banner"},
+    {"source_id": "SRC-DP3-ITEM-CODES", "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12", "document_version": "published 2022-08-12", "effective_period": "UNSTATED", "locator": "DOM_400NG!A4:Q4; A24:Q24; legends B154:L166", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_values_disputed_currency"},
+    {"source_id": "SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03", "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03", "document_version": "snapshot 2026-08-03", "effective_period": "RETRIEVAL_STATE_ONLY", "locator": "HTML line 4697", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_publication_state"}
+  ],
+  "conflict_ids": ["CF-0001", "CF-0003"],
+  "verified_direct_facts": {
+    "eligibility": "Government-requested additional delivery stop before final delivery that was performed",
+    "authorization_channels": ["PREAPPROVAL", "BILL_OF_LADING_BLOCK_13"],
+    "rate": "198.50",
+    "currency": "USD",
+    "rate_unit": "USD_per_occurrence",
+    "rate_cell": "Additional Rates!E13",
+    "item_code_row": "DOM_400NG!A24:Q24"
+  },
+  "competing_date_claims": [
+    {"claim_id": "CLM-0001", "claim": "Tariff Item 1.2(c) selects actual pickup date for listed SIT/accessorial services.", "role": "provisional_lead"},
+    {"claim_id": "CLM-0002", "claim": "The incorporated rate workbook banner says rates are based on original requested pickup date.", "role": "conflicting_general_banner"},
+    {"claim_id": "ROW-24-DIRECT", "claim": "The disputed-currency Item 28B row carries date-basis code A, meaning actual pickup.", "role": "supporting_disputed_representation"}
+  ],
+  "proposed_contract": {
+    "rate_version_date_fact": "actual_pickup_date",
+    "billing_item_code": "28B",
+    "quantity_unit": "EA",
+    "rate_basing_reference": "SC",
+    "service_location_role": "ADDITIONAL_DELIVERY",
+    "service_location_code": "AE",
+    "approval_screen": "DESTINATION_PPSO",
+    "approval_required": true,
+    "calculation": "eligible_completed_extra_delivery_occurrences * 198.50 USD_per_occurrence"
+  },
+  "alternatives": [
+    {"id": "A_APPROVE_NARROW", "effect": "Approve the proposed contract for Item 28B only through 2027-05-14; keep CF-0001 and CF-0003 open broadly.", "recommendation": "RECOMMENDED"},
+    {"id": "B_DEFER", "effect": "Publish no Item 28B rule until a current item-code baseline/advisory chain and explicit date clarification are archived.", "recommendation": "CONSERVATIVE_EXTERNAL_SOURCE_ONLY"}
+  ],
+  "excluded_scope": ["ITEM_28A", "ITEM_28C_DIVERSION", "TRANSPORTATION_VIA_STOP_OFF", "OTHER_ADDITIONAL_SERVICES", "SIT", "BROAD_2022_ITEM_CODE_VALIDATION", "DATES_AFTER_2027_05_14", "LIVE_INVOICE_SUBMISSION", "MONEY_MOVEMENT"],
+  "mandatory_tests": [
+    "requested_and_actual_pickup_dates_on_same_and_opposite_sides_of_each_rate_cycle_boundary",
+    "zero_one_and_multiple_completed_additional_deliveries_before_final_delivery",
+    "final_delivery_is_not_counted_as_an_extra_delivery",
+    "ordered_but_not_performed_stop_is_not_counted",
+    "missing_conflicting_or_unreviewed_government_authorization_blocks_money",
+    "preapproval_and_bill_of_lading_block_13_authorization_channels",
+    "destination_ppso_role_and_additional_delivery_location_evidence",
+    "duplicate_stop_performance_authorization_and_evidence_rejection",
+    "exact_decimal_occurrence_multiplication",
+    "package_decision_source_rate_and_result_tamper_rejection"
+  ],
+  "implementation_gate": "DO_NOT_REGISTER_INTERPRETATION_OR_IMPLEMENT_FINANCIAL_CODE_WITHOUT_EXPLICIT_OWNER_SELECTION_OF_ALTERNATIVE_A",
+  "unresolved_assumptions": []
+}

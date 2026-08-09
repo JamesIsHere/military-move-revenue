@@ -1,0 +1,214 @@
+{
+  "fixture_set": "SYNTHETIC_ITEM_28A_POST_AUDIT_CASES",
+  "rating_fixture_path": "tests/fixtures/logical-schema/item-28a-extra-pickup-facts.json",
+  "audit_fixture_path": "tests/fixtures/logical-schema/item-28a-invoice-payment-history.json",
+  "audit_policy_id": "AUDIT-DP3-ITEM-28A-RECONCILIATION-V1",
+  "as_of_at": "2026-06-30T23:59:59Z",
+  "data_status": "SYNTHETIC",
+  "cases": [
+    {
+      "id": "AUDIT-28A-CORRECTED-CURRENT-VERSION",
+      "expected": {
+        "status": "FINAL",
+        "billing_code": "CORRECTLY_BILLED",
+        "quantity_code": "QUANTITY_MATCH",
+        "payment_code": "PAID_AS_INVOICED",
+        "finding_status": "CLOSED_NO_EXCEPTION",
+        "expected_amount": "198.50",
+        "invoiced_amount": "198.50",
+        "paid_amount": "198.50",
+        "billing_variance": "0.00",
+        "payment_variance": "0.00",
+        "realized_variance": "0.00",
+        "quantity_variance": "0",
+        "match_status": "EXACT",
+        "current_invoice_version_ids": ["INVV-28A-AUDIT-002"],
+        "current_line_version_ids": ["LINEV-28A-AUDIT-002"]
+      }
+    },
+    {
+      "id": "AUDIT-28A-UNDERBILLED",
+      "audit_mutations": [
+        {"path": "records.invoice_versions.1.claimed_total", "value": "150.00"},
+        {"path": "records.invoice_line_versions.1.claimed_amount", "value": "150.00"},
+        {"path": "records.payments.0.amount", "value": "150.00"},
+        {"path": "records.payment_allocations.0.allocated_amount", "value": "150.00"}
+      ],
+      "expected": {"status": "FINAL", "billing_code": "UNDERBILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "PAID_AS_INVOICED", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "150.00", "paid_amount": "150.00", "billing_variance": "-48.50", "payment_variance": "0.00", "realized_variance": "-48.50", "quantity_variance": "0", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-CORRECTED-PAYMENT-ALLOCATION",
+      "audit_mutations": [{"path": "records.payment_allocations.0.allocated_amount", "value": "150.00"}],
+      "append_records": {
+        "payment_allocations": [
+          {"id": "ALLOC-28A-AUDIT-002", "allocation_key": "SYNTH-ALLOC-28A-LINE-001", "version_number": 2, "payment_id": "PAY-28A-AUDIT-001", "invoice_line_id": "LINE-28A-AUDIT-001", "allocated_amount": "198.50", "currency": "USD", "supersedes_id": "ALLOC-28A-AUDIT-001", "evidence_link_id": "EVL-28A-ALLOCATION-V2", "provenance_ref": "PROV-28A-AUDIT-SYNTHETIC"}
+        ],
+        "evidence_links": [
+          {"id": "EVL-28A-ALLOCATION-V2", "document_version_id": "DOCV-28A-PAYMENT-001", "target_kind": "PAYMENT_ALLOCATION", "target_id": "ALLOC-28A-AUDIT-002", "evidence_role": "PAYMENT_ALLOCATION_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-AUDIT-SYNTHETIC"}
+        ]
+      },
+      "expected": {"status": "FINAL", "billing_code": "CORRECTLY_BILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "PAID_AS_INVOICED", "finding_status": "CLOSED_NO_EXCEPTION", "expected_amount": "198.50", "invoiced_amount": "198.50", "paid_amount": "198.50", "billing_variance": "0.00", "payment_variance": "0.00", "realized_variance": "0.00", "quantity_variance": "0", "match_status": "EXACT", "current_allocation_ids": ["ALLOC-28A-AUDIT-002"]}
+    },
+    {
+      "id": "AUDIT-28A-OVERBILLED",
+      "audit_mutations": [
+        {"path": "records.invoice_versions.1.claimed_total", "value": "250.00"},
+        {"path": "records.invoice_line_versions.1.claimed_amount", "value": "250.00"},
+        {"path": "records.payments.0.amount", "value": "250.00"},
+        {"path": "records.payment_allocations.0.allocated_amount", "value": "250.00"}
+      ],
+      "expected": {"status": "FINAL", "billing_code": "OVERBILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "PAID_AS_INVOICED", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "250.00", "paid_amount": "250.00", "billing_variance": "51.50", "payment_variance": "0.00", "realized_variance": "51.50", "quantity_variance": "0", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-MISSING-EXPECTED-CHARGE",
+      "remove_records": {
+        "invoices": ["INV-28A-AUDIT-001"],
+        "invoice_versions": ["INVV-28A-AUDIT-001", "INVV-28A-AUDIT-002"],
+        "invoice_lines": ["LINE-28A-AUDIT-001"],
+        "invoice_line_versions": ["LINEV-28A-AUDIT-001", "LINEV-28A-AUDIT-002"],
+        "payments": ["PAY-28A-AUDIT-001"],
+        "payment_allocations": ["ALLOC-28A-AUDIT-001"],
+        "evidence_links": ["EVL-28A-INVOICE-V1", "EVL-28A-INVOICE-V2", "EVL-28A-LINE-V1", "EVL-28A-LINE-V2", "EVL-28A-PAYMENT", "EVL-28A-ALLOCATION"]
+      },
+      "expected": {"status": "FINAL", "billing_code": "MISSING_EXPECTED_CHARGE", "quantity_code": "QUANTITY_MISMATCH", "payment_code": "NO_MATCHED_INVOICE_LINE", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "0.00", "paid_amount": "0.00", "billing_variance": "-198.50", "payment_variance": "0.00", "realized_variance": "-198.50", "quantity_variance": "-1", "match_status": "NO_MATCH"}
+    },
+    {
+      "id": "AUDIT-28A-UNSUPPORTED-BILLED-CHARGE",
+      "rating_mutations": [{"path": "records.service_performances.0.performance_status", "value": "NOT_PERFORMED"}],
+      "expected": {"status": "FINAL", "billing_code": "UNSUPPORTED_BILLED_CHARGE", "quantity_code": "QUANTITY_MISMATCH", "payment_code": "PAID_AS_INVOICED", "finding_status": "OPEN", "expected_amount": "0.00", "invoiced_amount": "198.50", "paid_amount": "198.50", "billing_variance": "198.50", "payment_variance": "0.00", "realized_variance": "198.50", "quantity_variance": "1", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-NO-CHARGE-NO-LINE",
+      "rating_mutations": [{"path": "records.service_performances.0.performance_status", "value": "NOT_PERFORMED"}],
+      "remove_records": {
+        "invoices": ["INV-28A-AUDIT-001"],
+        "invoice_versions": ["INVV-28A-AUDIT-001", "INVV-28A-AUDIT-002"],
+        "invoice_lines": ["LINE-28A-AUDIT-001"],
+        "invoice_line_versions": ["LINEV-28A-AUDIT-001", "LINEV-28A-AUDIT-002"],
+        "payments": ["PAY-28A-AUDIT-001"],
+        "payment_allocations": ["ALLOC-28A-AUDIT-001"],
+        "evidence_links": ["EVL-28A-INVOICE-V1", "EVL-28A-INVOICE-V2", "EVL-28A-LINE-V1", "EVL-28A-LINE-V2", "EVL-28A-PAYMENT", "EVL-28A-ALLOCATION"]
+      },
+      "expected": {"status": "FINAL", "billing_code": "NO_CHARGE_EXPECTED_OR_BILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "NO_MATCHED_INVOICE_LINE", "finding_status": "CLOSED_NO_EXCEPTION", "expected_amount": "0.00", "invoiced_amount": "0.00", "paid_amount": "0.00", "billing_variance": "0.00", "payment_variance": "0.00", "realized_variance": "0.00", "quantity_variance": "0", "match_status": "NO_MATCH"}
+    },
+    {
+      "id": "AUDIT-28A-UNPAID",
+      "remove_records": {
+        "payments": ["PAY-28A-AUDIT-001"],
+        "payment_allocations": ["ALLOC-28A-AUDIT-001"],
+        "evidence_links": ["EVL-28A-PAYMENT", "EVL-28A-ALLOCATION"]
+      },
+      "expected": {"status": "FINAL", "billing_code": "CORRECTLY_BILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "UNPAID", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "198.50", "paid_amount": "0.00", "billing_variance": "0.00", "payment_variance": "-198.50", "realized_variance": "-198.50", "quantity_variance": "0", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-PARTIALLY-PAID",
+      "audit_mutations": [
+        {"path": "records.payments.0.amount", "value": "100.00"},
+        {"path": "records.payment_allocations.0.allocated_amount", "value": "100.00"}
+      ],
+      "expected": {"status": "FINAL", "billing_code": "CORRECTLY_BILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "PARTIALLY_PAID", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "198.50", "paid_amount": "100.00", "billing_variance": "0.00", "payment_variance": "-98.50", "realized_variance": "-98.50", "quantity_variance": "0", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-OVERPAID",
+      "audit_mutations": [
+        {"path": "records.payments.0.amount", "value": "250.00"},
+        {"path": "records.payment_allocations.0.allocated_amount", "value": "250.00"}
+      ],
+      "expected": {"status": "FINAL", "billing_code": "CORRECTLY_BILLED", "quantity_code": "QUANTITY_MATCH", "payment_code": "OVERPAID", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "198.50", "paid_amount": "250.00", "billing_variance": "0.00", "payment_variance": "51.50", "realized_variance": "51.50", "quantity_variance": "0", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-QUANTITY-MISMATCH",
+      "audit_mutations": [{"path": "records.invoice_line_versions.1.quantity", "value": "2"}],
+      "expected": {"status": "FINAL", "billing_code": "CORRECTLY_BILLED", "quantity_code": "QUANTITY_MISMATCH", "payment_code": "PAID_AS_INVOICED", "finding_status": "OPEN", "expected_amount": "198.50", "invoiced_amount": "198.50", "paid_amount": "198.50", "billing_variance": "0.00", "payment_variance": "0.00", "realized_variance": "0.00", "quantity_variance": "1", "match_status": "EXACT"}
+    },
+    {
+      "id": "AUDIT-28A-MULTIPLE-CURRENT-LINES",
+      "audit_mutations": [{"path": "records.invoice_versions.1.claimed_total", "value": "397.00"}],
+      "append_records": {
+        "invoice_lines": [{"id": "LINE-28A-AUDIT-002", "invoice_id": "INV-28A-AUDIT-001", "line_identity_within_invoice": "2", "line_kind": "ACCESSORIAL", "external_line_id": "SYNTH-LINE-28A-002", "provenance_ref": "PROV-28A-AUDIT-DTR"}],
+        "invoice_line_versions": [{"id": "LINEV-28A-AUDIT-003", "invoice_line_id": "LINE-28A-AUDIT-002", "invoice_version_id": "INVV-28A-AUDIT-002", "version_number": 1, "billing_item_code_text": "28A", "mapping_status": "ACCEPTED", "interpretation_decision_id": "INT-0001", "claimed_amount": "198.50", "currency": "USD", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-28A-LINE-V3", "provenance_ref": "PROV-28A-AUDIT-DTR"}],
+        "evidence_links": [{"id": "EVL-28A-LINE-V3", "document_version_id": "DOCV-28A-INVOICE-002", "target_kind": "INVOICE_LINE_VERSION", "target_id": "LINEV-28A-AUDIT-003", "evidence_role": "INVOICE_LINE_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-AUDIT-SYNTHETIC"}]
+      },
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["AMBIGUOUS_MULTIPLE_ITEM_28A_LINES"]}
+    },
+    {
+      "id": "AUDIT-28A-AMBIGUOUS-MAPPING",
+      "audit_mutations": [
+        {"path": "records.invoice_line_versions.1.billing_item_code_text", "value": "28 A"},
+        {"path": "records.invoice_line_versions.1.mapping_status", "value": "AMBIGUOUS"},
+        {"path": "records.invoice_line_versions.1.candidate_service_code", "value": "28A"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["AMBIGUOUS_ITEM_28A_MATCH:LINEV-28A-AUDIT-002"]}
+    },
+    {
+      "id": "AUDIT-28A-WRONG-MAPPING-DECISION",
+      "audit_mutations": [{"path": "records.invoice_line_versions.1.interpretation_decision_id", "value": "INT-OUTSIDE-SCOPE"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["UNRESOLVED_ITEM_28A_MAPPING:LINEV-28A-AUDIT-002"]}
+    },
+    {
+      "id": "AUDIT-28A-INVOICE-COMPLETENESS-MISSING",
+      "remove_records": {"audit_data_completeness_assertions": ["COMPLETE-28A-INVOICE"]},
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["DATA_COMPLETENESS_NOT_ESTABLISHED:INVOICE_HISTORY"]}
+    },
+    {
+      "id": "AUDIT-28A-PAYMENT-COMPLETENESS-STALE",
+      "audit_mutations": [{"path": "records.audit_data_completeness_assertions.1.complete_through", "value": "2026-06-29T23:59:59Z"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["DATA_COMPLETENESS_NOT_ESTABLISHED:PAYMENT_HISTORY"]}
+    },
+    {
+      "id": "AUDIT-28A-UNREVIEWED-INVOICE-EVIDENCE",
+      "audit_mutations": [{"path": "records.evidence_links.3.review_status", "value": "UNREVIEWED"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["INVOICE_LINE_EVIDENCE_MISSING_OR_UNREVIEWED:LINEV-28A-AUDIT-002"]}
+    },
+    {
+      "id": "AUDIT-28A-UNREVIEWED-PAYMENT-EVIDENCE",
+      "audit_mutations": [{"path": "records.evidence_links.4.review_status", "value": "UNREVIEWED"}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["PAYMENT_EVIDENCE_MISSING_OR_UNREVIEWED:PAY-28A-AUDIT-001"]}
+    },
+    {
+      "id": "AUDIT-28A-UPSTREAM-BLOCKED",
+      "rating_mutations": [{"path": "records.evidence_links.1.review_status", "value": "UNREVIEWED"}],
+      "expected": {"status": "BLOCKED", "blocked_reason_contains": "UPSTREAM_EXPECTED_CHARGE_BLOCKED:PERFORMANCE_EVIDENCE_MISSING_OR_UNREVIEWED"}
+    },
+    {
+      "id": "AUDIT-28A-NUMERIC-AMOUNT-REJECTED",
+      "audit_mutations": [{"path": "records.invoice_line_versions.1.claimed_amount", "value": 198}],
+      "expected": {"input_error_contains": "exact decimal JSON string"}
+    },
+    {
+      "id": "AUDIT-28A-WRONG-CURRENCY-REJECTED",
+      "audit_mutations": [{"path": "records.invoice_line_versions.1.currency", "value": "EUR"}],
+      "expected": {"input_error_contains": "currency must be USD"}
+    },
+    {
+      "id": "AUDIT-28A-INVOICE-TOTAL-MISMATCH",
+      "audit_mutations": [{"path": "records.invoice_versions.1.claimed_total", "value": "200.00"}],
+      "expected": {"input_error_contains": "total does not equal its line versions"}
+    },
+    {
+      "id": "AUDIT-28A-BROKEN-LINE-SUPERSESSION",
+      "audit_mutations": [{"path": "records.invoice_line_versions.1.supersedes_id", "value": null}],
+      "expected": {"input_error_contains": "does not directly supersede"}
+    },
+    {
+      "id": "AUDIT-28A-UNBALANCED-PAYMENT",
+      "audit_mutations": [{"path": "records.payments.0.amount", "value": "200.00"}],
+      "expected": {"input_error_contains": "current allocations do not balance"}
+    },
+    {
+      "id": "AUDIT-28A-DUPLICATE-LINE-IDENTITY",
+      "append_records": {"invoice_lines": [{"id": "LINE-28A-AUDIT-DUP", "invoice_id": "INV-28A-AUDIT-001", "line_identity_within_invoice": "1", "line_kind": "ACCESSORIAL", "provenance_ref": "PROV-28A-AUDIT-DTR"}]},
+      "expected": {"input_error_contains": "duplicate invoice line identity"}
+    },
+    {
+      "id": "AUDIT-28A-FUTURE-INVOICE-VERSION",
+      "audit_mutations": [{"path": "records.invoice_versions.1.recorded_at", "value": "2026-07-01T00:00:00Z"}],
+      "expected": {"input_error_contains": "later than audit cutoff"}
+    },
+    {
+      "id": "AUDIT-28A-TAMPERED-UPSTREAM-PACKAGE",
+      "expected_result_mutations": [{"path": "rule_package_id", "value": "RP-TAMPERED"}],
+      "expected": {"input_error_contains": "unknown rule package"}
+    }
+  ]
+}

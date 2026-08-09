@@ -1,0 +1,82 @@
+{
+  "fixture_set": "SYNTHETIC_DETERMINISTIC_AUDIT_REPORT_CASES",
+  "data_status": "SYNTHETIC",
+  "audit_suite_path": "tests/fixtures/item-28a-post-audit/item-28a-audit-cases.json",
+  "item_28b_audit_suite_path": "tests/fixtures/item-28b-post-audit/item-28b-audit-cases.json",
+  "shared_history_path": "tests/fixtures/audit-report/item-28a-28b-shared-history.json",
+  "cases": [
+    {
+      "id": "REPORT-28A-CLOSED",
+      "audit_case_id": "AUDIT-28A-CORRECTED-CURRENT-VERSION",
+      "expected": {
+        "status": "FINAL",
+        "human_review_required": false,
+        "totals_status": "FINAL",
+        "open_finding_count": 0,
+        "finding_codes": ["CORRECTLY_BILLED", "QUANTITY_MATCH", "PAID_AS_INVOICED"],
+        "expected_amount": "198.50",
+        "invoiced_amount": "198.50",
+        "paid_amount": "198.50"
+      }
+    },
+    {
+      "id": "REPORT-28A-OPEN-EXCEPTION",
+      "audit_case_id": "AUDIT-28A-OVERBILLED",
+      "expected": {
+        "status": "FINAL",
+        "human_review_required": true,
+        "totals_status": "FINAL",
+        "open_finding_count": 1,
+        "finding_codes": ["OVERBILLED", "QUANTITY_MATCH", "PAID_AS_INVOICED"],
+        "expected_amount": "198.50",
+        "invoiced_amount": "250.00",
+        "paid_amount": "250.00"
+      }
+    },
+    {
+      "id": "REPORT-28A-DATA-BLOCKED",
+      "audit_case_id": "AUDIT-28A-PAYMENT-COMPLETENESS-STALE",
+      "expected": {
+        "status": "BLOCKED",
+        "human_review_required": true,
+        "totals_status": "BLOCKED",
+        "open_finding_count": 1,
+        "finding_codes": ["AUDIT_BLOCKED"],
+        "reason_contains": "DATA_COMPLETENESS_NOT_ESTABLISHED:PAYMENT_HISTORY"
+      }
+    },
+    {
+      "id": "REPORT-28A-UPSTREAM-BLOCKED",
+      "audit_case_id": "AUDIT-28A-UPSTREAM-BLOCKED",
+      "expected": {
+        "status": "BLOCKED",
+        "human_review_required": true,
+        "totals_status": "BLOCKED",
+        "open_finding_count": 1,
+        "finding_codes": ["AUDIT_BLOCKED"],
+        "reason_contains": "UPSTREAM_EXPECTED_CHARGE_BLOCKED"
+      }
+    }
+  ],
+  "combined_cases": [
+    {
+      "id": "REPORT-28A-28B-CLOSED",
+      "expected": {
+        "status": "FINAL", "human_review_required": false, "totals_status": "FINAL", "charge_count": 2,
+        "open_finding_count": 0,
+        "finding_codes": ["CORRECTLY_BILLED", "QUANTITY_MATCH", "PAID_AS_INVOICED", "CORRECTLY_BILLED", "QUANTITY_MATCH", "PAID_AS_INVOICED"],
+        "expected_amount": "397.00", "invoiced_amount": "397.00", "paid_amount": "397.00"
+      }
+    },
+    {
+      "id": "REPORT-28A-28B-ITEM-28B-BLOCKED",
+      "item_28b_audit_mutations": [{"path": "records.audit_data_completeness_assertions.1.complete_through", "value": "2026-06-29T23:59:59Z"}],
+      "expected": {
+        "status": "BLOCKED", "human_review_required": true, "totals_status": "BLOCKED", "charge_count": 2,
+        "open_finding_count": 1,
+        "finding_codes": ["CORRECTLY_BILLED", "QUANTITY_MATCH", "PAID_AS_INVOICED", "AUDIT_BLOCKED"],
+        "reason_contains": "DATA_COMPLETENESS_NOT_ESTABLISHED:PAYMENT_HISTORY"
+      }
+    }
+  ]
+}

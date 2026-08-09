@@ -1,0 +1,57 @@
+{
+  "fixture_id": "SYNTH-LS-004",
+  "scenario_type": "conflict_gated",
+  "data_status": "SYNTHETIC",
+  "description": "Requested and actual pickup dates straddle a rate boundary, so CF-0001 blocks a final amount while the raw billed code remains preserved under CF-0003.",
+  "provenance": [
+    {
+      "id": "PROV-GATE-001",
+      "source_id": "SRC-DP3-2026-400NG + SRC-DP3-2026-RATES",
+      "document_version": "400NG publication 2025-12-05 and 2026 rate workbook",
+      "effective_period": "2026-05-15 through 2027-05-14",
+      "locator": "400NG Item 1.2(c), p.18; rate sheets A1; conflict register CF-0001 and CF-0003",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "disputed_synthetic_test",
+      "discovery_refs": ["DISC-0031", "DISC-0080", "DISC-0085", "DISC-0086", "DISC-0087"]
+    }
+  ],
+  "records": {
+    "shipments": [
+      {"id": "SHP-GATE-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "shipment_date_observations": [
+      {"id": "DATE-GATE-REQ", "shipment_id": "SHP-GATE-001", "date_role": "ORIGINAL_REQUESTED_PICKUP", "local_date": "2026-05-14", "observation_kind": "SYNTHETIC_FACT", "provenance_ref": "PROV-GATE-001"},
+      {"id": "DATE-GATE-ACT", "shipment_id": "SHP-GATE-001", "date_role": "ACTUAL_PICKUP", "local_date": "2026-05-15", "observation_kind": "SYNTHETIC_FACT", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "bills_of_lading": [
+      {"id": "BL-GATE-001", "shipment_id": "SHP-GATE-001", "bl_namespace": "SYNTHETIC", "bl_number": "SYNTH-BL-GATE-001", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "invoices": [
+      {"id": "INV-GATE-001", "bill_of_lading_id": "BL-GATE-001", "invoice_namespace": "SYNTHETIC", "invoice_number": "SYNTH-INV-GATE-001", "issuer_organization_id": "ORG-SYNTH-TSP", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "invoice_versions": [
+      {"id": "INV-V-GATE-001", "invoice_id": "INV-GATE-001", "version_number": 1, "invoice_date": "2026-06-01", "claimed_total": "75.00", "currency": "USD", "recorded_at": "2026-06-01T14:00:00Z", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "invoice_lines": [
+      {"id": "LINE-GATE-001", "invoice_id": "INV-GATE-001", "line_identity_within_invoice": "1", "line_kind": "SIT_ACCESSORIAL", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "invoice_line_versions": [
+      {"id": "LINE-V-GATE-001", "invoice_line_id": "LINE-GATE-001", "invoice_version_id": "INV-V-GATE-001", "version_number": 1, "billing_item_code_text": "185A", "claimed_amount": "75.00", "currency": "USD", "quantity": "1", "quantity_unit": "each", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "rating_runs": [
+      {"id": "RUN-GATE-001", "shipment_id": "SHP-GATE-001", "rule_package_id": "RULEPKG-SYNTH-GATED", "as_of_date": "2026-06-02", "run_status": "BLOCKED", "input_snapshot_hash": "sha256:synthetic-gate-001", "started_at": "2026-06-02T12:00:00Z", "completed_at": "2026-06-02T12:00:01Z", "blocked_reason": "CF-0001", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "rule_decisions": [
+      {"id": "DEC-GATE-001", "rating_run_id": "RUN-GATE-001", "rule_id": "RULE-SIT-RATE-DATE", "decision_code": "RATE_DATE_UNKNOWN", "evaluation_status": "BLOCKED", "blocked_by_conflict_id": "CF-0001", "unresolved_assumption": "Requested and actual pickup select different rate periods.", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "billing_eligibility_decisions": [
+      {"id": "ELIG-GATE-001", "rule_decision_id": "DEC-GATE-001", "target_kind": "INVOICE_LINE", "target_id": "LINE-GATE-001", "hold_reason": "CF-0001 prevents authoritative expected amount; CF-0003 prevents authoritative code validation.", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "audit_findings": [
+      {"id": "FIND-GATE-001", "rating_run_id": "RUN-GATE-001", "finding_code": "UNRATED_CONFLICT", "severity": "REVIEW_REQUIRED", "finding_status": "OPEN", "currency": "USD", "claimed_amount": "75.00", "invoice_line_id": "LINE-GATE-001", "rule_decision_id": "DEC-GATE-001", "evidence_gap": "Current item-code applicability and rate-selection date interpretation are unresolved.", "provenance_ref": "PROV-GATE-001"}
+    ],
+    "human_review_cases": [
+      {"id": "REVIEW-GATE-001", "audit_finding_id": "FIND-GATE-001", "review_reason": "MATERIAL_SOURCE_CONFLICT", "review_status": "OPEN", "opened_at": "2026-06-02T12:00:02Z", "notes": "No expected amount or variance is asserted.", "provenance_ref": "PROV-GATE-001"}
+    ]
+  }
+}

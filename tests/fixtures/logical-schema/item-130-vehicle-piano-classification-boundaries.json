@@ -1,0 +1,38 @@
+{
+  "fixture_id": "SYNTH-LS-019",
+  "scenario_type": "item_130_vehicle_piano_classification_boundaries",
+  "data_status": "SYNTHETIC",
+  "description": "Synthetic Item 130A and 130H classification facts: reviewed automobile, truck, van, baby-grand-piano, and grand-piano positive candidates plus the express upright-piano exclusion; no service mapping, quantity, rate, or money.",
+  "provenance": [
+    {"id": "PROV-130AH-SYNTHETIC", "source_id": "INTERNAL-SYNTHETIC-VALIDATION", "document_version": "Decision 0005 ratified 130A/130H classification fixture v1", "effective_period": "TEST_ONLY", "locator": "SYNTH-LS-019", "retrieval_date": "2026-08-07", "interpretation_status": "synthetic_test"},
+    {"id": "PROV-130AH-TARIFF", "source_id": "SRC-DP3-2026-400NG", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 130A, p. 54; Item 130H, p. 55", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_governing_fact_model_text"},
+    {"id": "PROV-130AH-DESIGN", "source_id": "INTERNAL-DECISION-0005", "document_version": "version 2 ratified 2026-08-04", "effective_period": "TEST_ONLY", "locator": "docs/decisions/0005-item-130-revised-fact-model-approval.md", "retrieval_date": "2026-08-04", "interpretation_status": "ratified_non_monetary_schema_design"}
+  ],
+  "records": {
+    "shipments": [
+      {"id": "SHP-130AH-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-130AH-SYNTHETIC"}
+    ],
+    "documents": [
+      {"id": "DOC-130AH-FACTS", "document_type": "SYNTHETIC_ARTICLE_FACT_RECORD", "data_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-SYNTHETIC"}
+    ],
+    "document_versions": [
+      {"id": "DOCV-130AH-FACTS-001", "document_id": "DOC-130AH-FACTS", "version_number": 1, "content_hash": "SYNTHETIC-NOT-REAL-130AH-FACTS", "media_type": "application/json", "storage_uri": "synthetic://item-130/vehicle-piano-classification-boundaries/v1", "received_at": "2026-06-12T12:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-SYNTHETIC"}
+    ],
+    "shipment_articles": [
+      {"id": "ART-130A-AUTOMOBILE", "shipment_id": "SHP-130AH-001", "article_kind_observed": "AUTOMOBILE", "tariff_classification_candidate": "130A", "source_description": "Synthetic reviewed automobile", "classification_review_status": "ACCEPTED", "recorded_at": "2026-06-12T12:01:00Z", "recorded_by": "SYNTHETIC_VALIDATOR", "record_source_kind": "SYNTHETIC_FIXTURE", "source_version_id": "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", "source_locator_id": "ITEM-130A-P54", "interpretation_status": "HUMAN_REVIEWED_SYNTHETIC", "sensitivity_class": "INTERNAL", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-TARIFF"},
+      {"id": "ART-130A-TRUCK", "shipment_id": "SHP-130AH-001", "article_kind_observed": "TRUCK", "tariff_classification_candidate": "130A", "source_description": "Synthetic reviewed truck", "classification_review_status": "ACCEPTED", "recorded_at": "2026-06-12T12:02:00Z", "recorded_by": "SYNTHETIC_VALIDATOR", "record_source_kind": "SYNTHETIC_FIXTURE", "source_version_id": "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", "source_locator_id": "ITEM-130A-P54", "interpretation_status": "HUMAN_REVIEWED_SYNTHETIC", "sensitivity_class": "INTERNAL", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-TARIFF"},
+      {"id": "ART-130A-VAN", "shipment_id": "SHP-130AH-001", "article_kind_observed": "VAN", "tariff_classification_candidate": "130A", "source_description": "Synthetic reviewed van", "classification_review_status": "ACCEPTED", "recorded_at": "2026-06-12T12:03:00Z", "recorded_by": "SYNTHETIC_VALIDATOR", "record_source_kind": "SYNTHETIC_FIXTURE", "source_version_id": "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", "source_locator_id": "ITEM-130A-P54", "interpretation_status": "HUMAN_REVIEWED_SYNTHETIC", "sensitivity_class": "INTERNAL", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-TARIFF"},
+      {"id": "ART-130H-BABY-GRAND", "shipment_id": "SHP-130AH-001", "article_kind_observed": "BABY_GRAND_PIANO", "tariff_classification_candidate": "130H", "source_description": "Synthetic reviewed baby grand piano", "classification_review_status": "ACCEPTED", "recorded_at": "2026-06-12T12:04:00Z", "recorded_by": "SYNTHETIC_VALIDATOR", "record_source_kind": "SYNTHETIC_FIXTURE", "source_version_id": "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", "source_locator_id": "ITEM-130H-P55", "interpretation_status": "HUMAN_REVIEWED_SYNTHETIC", "sensitivity_class": "INTERNAL", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-TARIFF"},
+      {"id": "ART-130H-GRAND", "shipment_id": "SHP-130AH-001", "article_kind_observed": "GRAND_PIANO", "tariff_classification_candidate": "130H", "source_description": "Synthetic reviewed grand piano", "classification_review_status": "ACCEPTED", "recorded_at": "2026-06-12T12:05:00Z", "recorded_by": "SYNTHETIC_VALIDATOR", "record_source_kind": "SYNTHETIC_FIXTURE", "source_version_id": "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", "source_locator_id": "ITEM-130H-P55", "interpretation_status": "HUMAN_REVIEWED_SYNTHETIC", "sensitivity_class": "INTERNAL", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-TARIFF"},
+      {"id": "ART-130H-UPRIGHT", "shipment_id": "SHP-130AH-001", "article_kind_observed": "UPRIGHT_PIANO", "source_description": "Synthetic reviewed upright piano expressly excluded from 130H", "classification_review_status": "REJECTED", "recorded_at": "2026-06-12T12:06:00Z", "recorded_by": "SYNTHETIC_VALIDATOR", "record_source_kind": "SYNTHETIC_FIXTURE", "source_version_id": "SRC-DP3-2026-400NG-PUBLISHED-2025-12-05", "source_locator_id": "ITEM-130H-P55-UPRIGHT-EXCLUSION", "interpretation_status": "HUMAN_REVIEWED_SYNTHETIC", "sensitivity_class": "INTERNAL", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-130AH-TARIFF"}
+    ],
+    "evidence_links": [
+      {"id": "EVL-130A-AUTOMOBILE", "document_version_id": "DOCV-130AH-FACTS-001", "target_kind": "SHIPMENT_ARTICLE", "target_id": "ART-130A-AUTOMOBILE", "evidence_role": "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", "review_status": "REVIEWED", "provenance_ref": "PROV-130AH-DESIGN"},
+      {"id": "EVL-130A-TRUCK", "document_version_id": "DOCV-130AH-FACTS-001", "target_kind": "SHIPMENT_ARTICLE", "target_id": "ART-130A-TRUCK", "evidence_role": "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", "review_status": "REVIEWED", "provenance_ref": "PROV-130AH-DESIGN"},
+      {"id": "EVL-130A-VAN", "document_version_id": "DOCV-130AH-FACTS-001", "target_kind": "SHIPMENT_ARTICLE", "target_id": "ART-130A-VAN", "evidence_role": "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", "review_status": "REVIEWED", "provenance_ref": "PROV-130AH-DESIGN"},
+      {"id": "EVL-130H-BABY-GRAND", "document_version_id": "DOCV-130AH-FACTS-001", "target_kind": "SHIPMENT_ARTICLE", "target_id": "ART-130H-BABY-GRAND", "evidence_role": "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", "review_status": "REVIEWED", "provenance_ref": "PROV-130AH-DESIGN"},
+      {"id": "EVL-130H-GRAND", "document_version_id": "DOCV-130AH-FACTS-001", "target_kind": "SHIPMENT_ARTICLE", "target_id": "ART-130H-GRAND", "evidence_role": "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", "review_status": "REVIEWED", "provenance_ref": "PROV-130AH-DESIGN"},
+      {"id": "EVL-130H-UPRIGHT", "document_version_id": "DOCV-130AH-FACTS-001", "target_kind": "SHIPMENT_ARTICLE", "target_id": "ART-130H-UPRIGHT", "evidence_role": "ARTICLE_IDENTITY_AND_CLASSIFICATION_REVIEW", "review_status": "REVIEWED", "provenance_ref": "PROV-130AH-DESIGN"}
+    ]
+  }
+}

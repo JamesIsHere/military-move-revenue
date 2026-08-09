@@ -1,0 +1,48 @@
+{
+  "fixture_id": "SYNTH-AUDIT-MULTI-001",
+  "data_status": "SYNTHETIC",
+  "description": "One synthetic domestic DP3 shipment with a shared complete invoice/payment history containing accepted Item 28A and Item 28B lines; no real identifiers or account data.",
+  "provenance": [
+    {"id": "PROV-MULTI-SYNTHETIC", "source_id": "INTERNAL-SYNTHETIC-VALIDATION", "document_version": "audit-report-envelope.v1", "effective_period": "TEST_ONLY", "locator": "two-family adapter and aggregate contract", "retrieval_date": "2026-08-04", "interpretation_status": "synthetic_test"},
+    {"id": "PROV-MULTI-DTR", "source_id": "SRC-DTR-IV-AAA", "document_version": "2026-02-04", "effective_period": "PUBLICATION_STATE_AT_RETRIEVAL", "locator": "Appendix A-A paras. 3.(17)-(22), 4.a.(1)-(2), 4.a.(9), pp. IV-A-A-7, 8, 12; CLM-0038-0040", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed"}
+  ],
+  "records": {
+    "shipments": [{"id": "SHP-MULTI-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-MULTI-SYNTHETIC"}],
+    "bills_of_lading": [{"id": "BL-MULTI-001", "shipment_id": "SHP-MULTI-001", "bl_namespace": "SYNTHETIC", "bl_number": "SYNTH-BL-MULTI-001", "provenance_ref": "PROV-MULTI-DTR"}],
+    "invoices": [{"id": "INV-MULTI-001", "bill_of_lading_id": "BL-MULTI-001", "invoice_namespace": "SYNTHETIC", "invoice_number": "SYNTH-INV-MULTI-001", "issuer_organization_id": "ORG-SYNTH-TSP", "invoice_kind": "ORIGINAL", "provenance_ref": "PROV-MULTI-DTR"}],
+    "invoice_versions": [{"id": "INVV-MULTI-001", "invoice_id": "INV-MULTI-001", "version_number": 1, "invoice_date": "2026-05-23", "claimed_total": "397.00", "currency": "USD", "recorded_at": "2026-05-23T14:00:00Z", "evidence_link_id": "EVL-MULTI-INVOICE", "provenance_ref": "PROV-MULTI-DTR"}],
+    "invoice_lines": [
+      {"id": "LINE-MULTI-28A", "invoice_id": "INV-MULTI-001", "line_identity_within_invoice": "1", "line_kind": "ACCESSORIAL", "external_line_id": "SYNTH-LINE-MULTI-28A", "provenance_ref": "PROV-MULTI-DTR"},
+      {"id": "LINE-MULTI-28B", "invoice_id": "INV-MULTI-001", "line_identity_within_invoice": "2", "line_kind": "ACCESSORIAL", "external_line_id": "SYNTH-LINE-MULTI-28B", "provenance_ref": "PROV-MULTI-DTR"}
+    ],
+    "invoice_line_versions": [
+      {"id": "LINEV-MULTI-28A", "invoice_line_id": "LINE-MULTI-28A", "invoice_version_id": "INVV-MULTI-001", "version_number": 1, "billing_item_code_text": "28A", "mapping_status": "ACCEPTED", "interpretation_decision_id": "INT-0001", "claimed_amount": "198.50", "currency": "USD", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-MULTI-LINE-28A", "provenance_ref": "PROV-MULTI-DTR"},
+      {"id": "LINEV-MULTI-28B", "invoice_line_id": "LINE-MULTI-28B", "invoice_version_id": "INVV-MULTI-001", "version_number": 1, "billing_item_code_text": "28B", "mapping_status": "ACCEPTED", "interpretation_decision_id": "INT-0002", "claimed_amount": "198.50", "currency": "USD", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-MULTI-LINE-28B", "provenance_ref": "PROV-MULTI-DTR"}
+    ],
+    "documents": [
+      {"id": "DOC-MULTI-INVOICE", "document_type": "SYNTHETIC_INVOICE", "data_status": "SYNTHETIC", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "DOC-MULTI-PAYMENT", "document_type": "SYNTHETIC_REMITTANCE", "data_status": "SYNTHETIC", "provenance_ref": "PROV-MULTI-SYNTHETIC"}
+    ],
+    "document_versions": [
+      {"id": "DOCV-MULTI-INVOICE", "document_id": "DOC-MULTI-INVOICE", "version_number": 1, "content_hash": "SYNTHETIC-NOT-REAL-MULTI-INVOICE", "media_type": "application/json", "storage_uri": "synthetic://audit-report/multi/invoice", "received_at": "2026-05-23T14:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "DOCV-MULTI-PAYMENT", "document_id": "DOC-MULTI-PAYMENT", "version_number": 1, "content_hash": "SYNTHETIC-NOT-REAL-MULTI-PAYMENT", "media_type": "application/json", "storage_uri": "synthetic://audit-report/multi/payment", "received_at": "2026-06-01T14:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-MULTI-SYNTHETIC"}
+    ],
+    "evidence_links": [
+      {"id": "EVL-MULTI-INVOICE", "document_version_id": "DOCV-MULTI-INVOICE", "target_kind": "INVOICE_VERSION", "target_id": "INVV-MULTI-001", "evidence_role": "INVOICE_VERSION_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "EVL-MULTI-LINE-28A", "document_version_id": "DOCV-MULTI-INVOICE", "target_kind": "INVOICE_LINE_VERSION", "target_id": "LINEV-MULTI-28A", "evidence_role": "INVOICE_LINE_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "EVL-MULTI-LINE-28B", "document_version_id": "DOCV-MULTI-INVOICE", "target_kind": "INVOICE_LINE_VERSION", "target_id": "LINEV-MULTI-28B", "evidence_role": "INVOICE_LINE_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "EVL-MULTI-PAYMENT", "document_version_id": "DOCV-MULTI-PAYMENT", "target_kind": "PAYMENT", "target_id": "PAY-MULTI-001", "evidence_role": "PAYMENT_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "EVL-MULTI-ALLOC-28A", "document_version_id": "DOCV-MULTI-PAYMENT", "target_kind": "PAYMENT_ALLOCATION", "target_id": "ALLOC-MULTI-28A", "evidence_role": "PAYMENT_ALLOCATION_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "EVL-MULTI-ALLOC-28B", "document_version_id": "DOCV-MULTI-PAYMENT", "target_kind": "PAYMENT_ALLOCATION", "target_id": "ALLOC-MULTI-28B", "evidence_role": "PAYMENT_ALLOCATION_SOURCE", "review_status": "REVIEWED", "provenance_ref": "PROV-MULTI-SYNTHETIC"}
+    ],
+    "payments": [{"id": "PAY-MULTI-001", "payer_organization_id": "ORG-SYNTH-GOVERNMENT", "payment_reference": "SYNTH-PAY-MULTI-001", "payment_date": "2026-06-01", "recorded_at": "2026-06-01T14:00:00Z", "amount": "397.00", "currency": "USD", "evidence_link_id": "EVL-MULTI-PAYMENT", "provenance_ref": "PROV-MULTI-SYNTHETIC"}],
+    "payment_allocations": [
+      {"id": "ALLOC-MULTI-28A", "allocation_key": "SYNTH-ALLOC-MULTI-28A", "version_number": 1, "payment_id": "PAY-MULTI-001", "invoice_line_id": "LINE-MULTI-28A", "allocated_amount": "198.50", "currency": "USD", "evidence_link_id": "EVL-MULTI-ALLOC-28A", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "ALLOC-MULTI-28B", "allocation_key": "SYNTH-ALLOC-MULTI-28B", "version_number": 1, "payment_id": "PAY-MULTI-001", "invoice_line_id": "LINE-MULTI-28B", "allocated_amount": "198.50", "currency": "USD", "evidence_link_id": "EVL-MULTI-ALLOC-28B", "provenance_ref": "PROV-MULTI-SYNTHETIC"}
+    ],
+    "audit_data_completeness_assertions": [
+      {"id": "COMPLETE-MULTI-INVOICE", "shipment_id": "SHP-MULTI-001", "fact_scope": "INVOICE_HISTORY", "assertion_status": "COMPLETE", "review_status": "REVIEWED", "complete_through": "2026-06-30T23:59:59Z", "provenance_ref": "PROV-MULTI-SYNTHETIC"},
+      {"id": "COMPLETE-MULTI-PAYMENT", "shipment_id": "SHP-MULTI-001", "fact_scope": "PAYMENT_HISTORY", "assertion_status": "COMPLETE", "review_status": "REVIEWED", "complete_through": "2026-06-30T23:59:59Z", "provenance_ref": "PROV-MULTI-SYNTHETIC"}
+    ]
+  }
+}

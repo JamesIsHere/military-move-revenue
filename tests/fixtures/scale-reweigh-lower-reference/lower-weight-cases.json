@@ -1,0 +1,173 @@
+{
+  "fixture_set": "SYNTHETIC_SCALE_REWEIGH_LOWER_REFERENCE_CASES",
+  "initial_weight_fixture_path": "tests/fixtures/weight-determination/initial-scale-weight-cases.json",
+  "reweigh_history_fixture_path": "tests/fixtures/logical-schema/reweigh-observation-history.json",
+  "source_basis": {
+    "claims": ["CLM-0030"],
+    "locators": ["LOC-0026"],
+    "source_versions": ["SV-DP3-2026-TOS-C1-2026-02-18"]
+  },
+  "cases": [
+    {
+      "id": "SCALE-REWEIGH-LOWER-VALID-001",
+      "description": "The selected completed reweigh is lower than the final initial scale weight.",
+      "initial_weight_mutations": [],
+      "reweigh_record_mutations": [],
+      "expected": {
+        "status": "FINAL",
+        "lower_weight": "7900",
+        "initial_net_weight": "8000",
+        "completed_reweigh_net_weight": "7900",
+        "selected_source": "COMPLETED_REWEIGH",
+        "selected_reweigh_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-VALID-002",
+      "description": "The final initial scale weight remains the lower reference when the completed reweigh is higher.",
+      "initial_weight_mutations": [
+        {"path": "measurements.1.weight", "value": "11800"}
+      ],
+      "reweigh_record_mutations": [],
+      "expected": {
+        "status": "FINAL",
+        "lower_weight": "7800",
+        "initial_net_weight": "7800",
+        "completed_reweigh_net_weight": "7900",
+        "selected_source": "INITIAL_SCALE_WEIGHT",
+        "selected_reweigh_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-VALID-003",
+      "description": "Equal initial and completed-reweigh weights are exposed as a tie without an invented source preference.",
+      "initial_weight_mutations": [
+        {"path": "measurements.1.weight", "value": "11900"}
+      ],
+      "reweigh_record_mutations": [],
+      "expected": {
+        "status": "FINAL",
+        "lower_weight": "7900",
+        "initial_net_weight": "7900",
+        "completed_reweigh_net_weight": "7900",
+        "selected_source": "TIE",
+        "selected_reweigh_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-VALID-004",
+      "description": "Fractional pounds are compared using exact decimal strings across both upstream packages.",
+      "initial_weight_mutations": [
+        {"path": "measurements.1.weight", "value": "11900.50"}
+      ],
+      "reweigh_record_mutations": [
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-GROSS", "field": "weight_value", "value": "11900.25"},
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-REW-B2-NET", "field": "weight_value", "value": "7900.25"}
+      ],
+      "expected": {
+        "status": "FINAL",
+        "lower_weight": "7900.25",
+        "initial_net_weight": "7900.5",
+        "completed_reweigh_net_weight": "7900.25",
+        "selected_source": "COMPLETED_REWEIGH",
+        "selected_reweigh_observation_ids": ["WEV-REW-B-002"]
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-BLOCKED-001",
+      "description": "A blocked initial-weight result blocks the downstream reference decision.",
+      "initial_weight_mutations": [
+        {"path": "tickets.0.true_copy_available", "value": false}
+      ],
+      "reweigh_record_mutations": [],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["INITIAL_WEIGHT_RESULT_BLOCKED"],
+        "upstream_blocked_reasons": {
+          "initial_weight_result": ["MISSING_TRUE_TICKET_COPY"]
+        }
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-BLOCKED-002",
+      "description": "A blocked completed-reweigh selection blocks the downstream reference decision.",
+      "initial_weight_mutations": [],
+      "reweigh_record_mutations": [
+        {"op": "set", "collection": "evidence_links", "id": "EVL-REW-B-002", "field": "review_status", "value": "PENDING"}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["COMPLETED_REWEIGH_SELECTION_BLOCKED"],
+        "upstream_blocked_reasons": {
+          "completed_reweigh_result": ["CURRENT_REWEIGH_TICKET_EVIDENCE_MISSING_OR_UNREVIEWED"]
+        }
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-BLOCKED-003",
+      "description": "Both upstream blockers remain visible and ordered when neither input is final.",
+      "initial_weight_mutations": [
+        {"path": "tickets.0.true_copy_available", "value": false}
+      ],
+      "reweigh_record_mutations": [
+        {"op": "set", "collection": "dps_reweigh_update_events", "id": "DPS-REW-B-002", "field": "recorded_fact_roles", "value": ["GROSS", "TARE", "TICKET_NUMBER", "REWEIGH_DATE"]}
+      ],
+      "expected": {
+        "status": "BLOCKED",
+        "blocked_reasons": ["INITIAL_WEIGHT_RESULT_BLOCKED", "COMPLETED_REWEIGH_SELECTION_BLOCKED"],
+        "upstream_blocked_reasons": {
+          "initial_weight_result": ["MISSING_TRUE_TICKET_COPY"],
+          "completed_reweigh_result": ["CURRENT_REWEIGH_DPS_UPDATE_INCOMPLETE"]
+        }
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-ERROR-001",
+      "description": "A tampered initial-weight unit is rejected before comparison.",
+      "initial_weight_mutations": [],
+      "reweigh_record_mutations": [],
+      "initial_result_mutations": [
+        {"path": "calculation.result_unit", "value": "kg"}
+      ],
+      "expected": {
+        "input_error_contains": "initial_weight_result unit must be lb"
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-ERROR-002",
+      "description": "Tampered completed-reweigh provenance is rejected.",
+      "initial_weight_mutations": [],
+      "reweigh_record_mutations": [],
+      "reweigh_result_mutations": [
+        {"path": "provenance.0.source_claim_id", "value": "CLM-TAMPERED"}
+      ],
+      "expected": {
+        "input_error_contains": "completed_reweigh_result provenance mismatch"
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-ERROR-003",
+      "description": "An upstream result from an unknown package is rejected.",
+      "initial_weight_mutations": [],
+      "reweigh_record_mutations": [],
+      "reweigh_result_mutations": [
+        {"path": "rule_package_id", "value": "RP-TAMPERED"}
+      ],
+      "expected": {
+        "input_error_contains": "completed_reweigh_result uses an unknown rule package"
+      }
+    },
+    {
+      "id": "SCALE-REWEIGH-LOWER-ERROR-004",
+      "description": "A result whose own immutable package ID is changed is rejected by the contract validator.",
+      "initial_weight_mutations": [],
+      "reweigh_record_mutations": [],
+      "combined_result_mutations": [
+        {"path": "rule_package_id", "value": "RP-TAMPERED"}
+      ],
+      "expected": {
+        "result_error_contains": "package mismatch"
+      }
+    }
+  ]
+}

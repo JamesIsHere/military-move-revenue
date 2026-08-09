@@ -1,0 +1,106 @@
+{
+  "fixture_set": "SYNTHETIC_NO_DATA_HISTORICAL_CORPUS_PREFLIGHT",
+  "description": "Expected metadata-only readiness values and tamper probes for the authoritative empty manifest. No case content or authorization is present.",
+  "expected_blocker_codes": [
+    "WRITTEN_AUTHORIZATION_REQUIRED",
+    "APPROVED_SANITIZATION_METHOD_REQUIRED",
+    "INDEPENDENT_SANITIZATION_REVIEW_REQUIRED",
+    "OPERATIONAL_INTAKE_ENVELOPE_REQUIRED",
+    "INDEPENDENT_EXPECTED_LABEL_REQUIRED",
+    "AUTHORIZED_SANITIZED_CASE_ENTRY_REQUIRED",
+    "ACCEPTANCE_EXECUTION_REPORT_REQUIRED",
+    "PASSING_HISTORICAL_CASE_DEFICIT"
+  ],
+  "expected_progress": {
+    "passing_historical_case_count": 0,
+    "required_historical_case_count": 25,
+    "remaining_passing_historical_case_count": 25,
+    "completion_status": "NOT_READY"
+  },
+  "tamper_mutations": [
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-001",
+      "description": "schema is changed",
+      "path": "schema_version",
+      "value": "historical-corpus-preflight.v2",
+      "expected_error_contains": "$.schema_version"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-002",
+      "description": "policy version is changed",
+      "path": "policy.version",
+      "value": "2099-01-01.1",
+      "expected_error_contains": "$.policy.version"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-003",
+      "description": "blocked status is promoted to ready",
+      "path": "status",
+      "value": "READY",
+      "expected_error_contains": "$.status"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-004",
+      "description": "report is changed to authorize ingest",
+      "path": "authorizes_ingest",
+      "value": true,
+      "expected_error_contains": "$.authorizes_ingest"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-005",
+      "description": "report is changed to contain case content",
+      "path": "contains_case_content",
+      "value": true,
+      "expected_error_contains": "$.contains_case_content"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-006",
+      "description": "passing count is fabricated",
+      "path": "progress.passing_historical_case_count",
+      "value": 25,
+      "expected_error_contains": "$.progress.passing_historical_case_count"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-007",
+      "description": "remaining count is hidden",
+      "path": "progress.remaining_passing_historical_case_count",
+      "value": 0,
+      "expected_error_contains": "$.progress.remaining_passing_historical_case_count"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-008",
+      "description": "completion is fabricated",
+      "path": "progress.completion_status",
+      "value": "READY",
+      "expected_error_contains": "$.progress.completion_status"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-009",
+      "description": "display progress contradicts deterministic progress",
+      "path": "display.progress_label",
+      "value": "25 of 25 passing historical cases",
+      "expected_error_contains": "$.display.progress_label"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-010",
+      "description": "missing authorization is falsely satisfied",
+      "path": "blockers.0.status",
+      "value": "SATISFIED",
+      "expected_error_contains": "$.blockers.0.status"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-011",
+      "description": "case-deficit blocker is changed",
+      "path": "blockers.7.description",
+      "value": "No additional cases are required.",
+      "expected_error_contains": "$.blockers.7.description"
+    },
+    {
+      "id": "CORPUS-PREFLIGHT-TAMPER-012",
+      "description": "source manifest hash is changed",
+      "path": "generated_from.manifest_sha256",
+      "value": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "expected_error_contains": "$.generated_from.manifest_sha256"
+    }
+  ]
+}

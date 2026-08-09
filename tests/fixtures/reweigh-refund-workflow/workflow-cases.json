@@ -1,0 +1,135 @@
+{
+  "fixture_set": "SYNTHETIC_REWEIGH_REFUND_WORKFLOW_CASES",
+  "workflow_fixture_path": "tests/fixtures/logical-schema/reweigh-refund-workflow.json",
+  "initial_weight_fixture_path": "tests/fixtures/weight-determination/initial-scale-weight-cases.json",
+  "source_basis": {
+    "claims": ["CLM-0026", "CLM-0031", "CLM-0032"],
+    "locators": ["LOC-0022", "LOC-0027", "LOC-0028"],
+    "excluded_conflicts": ["CF-0004"]
+  },
+  "cases": [
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-VALID-001",
+      "description": "A lower reweigh after initial invoice submission requires a supplemental refund and all completed prerequisites permit hold release.",
+      "expected": {"status": "FINAL", "refund_required": true, "refund_reason": "LOWER_REWEIGH_AFTER_INITIAL_INVOICE_SUBMISSION", "release_ready": true}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-VALID-002",
+      "description": "A required refund that is not yet processed keeps the hold in place.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "reweigh_refund_adjustment_events", "id": "RRA-RFW-003", "field": "event_type", "value": "REFUND_PROCESSING_PENDING"}
+      ],
+      "expected": {"status": "FINAL", "refund_required": true, "refund_reason": "LOWER_REWEIGH_AFTER_INITIAL_INVOICE_SUBMISSION", "release_ready": false, "unmet_prerequisites": ["REFUND_NOT_PROCESSED_FOR_PAYMENT"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-VALID-003",
+      "description": "An equal reweigh does not require a supplemental refund, so refund processing is not a release prerequisite.",
+      "upstream_record_mutations": [
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-RFW-GROSS", "field": "weight_value", "value": "12200"},
+        {"op": "set", "collection": "weight_ticket_measurements", "id": "WTM-RFW-NET", "field": "weight_value", "value": "8000"}
+      ],
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "reweigh_refund_adjustment_events", "id": "RRA-RFW-003", "field": "event_type", "value": "REFUND_PROCESSING_PENDING"}
+      ],
+      "expected": {"status": "FINAL", "refund_required": false, "refund_reason": "REWEIGH_DID_NOT_REDUCE_WEIGHT", "release_ready": true}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-VALID-004",
+      "description": "A lower reweigh before initial invoice submission does not use the post-invoice supplemental path.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "invoice_submissions", "id": "INV-SUB-RFW-ORIGINAL-001", "field": "submitted_at", "value": "2026-06-09T14:05:00Z"}
+      ],
+      "expected": {"status": "FINAL", "refund_required": false, "refund_reason": "REWEIGH_NOT_AFTER_INITIAL_INVOICE_SUBMISSION", "release_ready": true}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-VALID-005",
+      "description": "A known pending DPS update keeps the hold in place without inventing missing facts.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "dps_reweigh_update_events", "id": "DPS-RFW-001", "field": "update_status", "value": "PENDING"}
+      ],
+      "expected": {"status": "FINAL", "refund_required": true, "refund_reason": "LOWER_REWEIGH_AFTER_INITIAL_INVOICE_SUBMISSION", "release_ready": false, "unmet_prerequisites": ["DPS_REWEIGH_UPDATE_NOT_RECORDED"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-VALID-006",
+      "description": "A reviewed ticket delivery outside the required timeliness status keeps the hold in place.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "reweigh_ticket_delivery_events", "id": "RTD-RFW-001", "field": "timeliness_status", "value": "LATE"}
+      ],
+      "expected": {"status": "FINAL", "refund_required": true, "refund_reason": "LOWER_REWEIGH_AFTER_INITIAL_INVOICE_SUBMISSION", "release_ready": false, "unmet_prerequisites": ["PPSO_TICKET_DELIVERY_TIMELINESS_NOT_SATISFIED"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-BLOCKED-001",
+      "description": "A blocked upstream lower-weight result blocks both workflow decisions.",
+      "initial_weight_mutations": [{"path": "tickets.0.true_copy_available", "value": false}],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["LOWER_WEIGHT_RESULT_BLOCKED"], "upstream_blocked_reasons": ["INITIAL_WEIGHT_RESULT_BLOCKED"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-BLOCKED-002",
+      "description": "Unreviewed DPS update evidence blocks hold readiness.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "evidence_links", "id": "EVL-RFW-DPS-UPDATE", "field": "review_status", "value": "PENDING"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["DPS_UPDATE_EVIDENCE_MISSING_OR_UNREVIEWED"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-BLOCKED-003",
+      "description": "Unreviewed PPSO ticket-delivery evidence blocks hold readiness.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "evidence_links", "id": "EVL-RFW-TICKET-DELIVERY", "field": "review_status", "value": "PENDING"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["PPSO_TICKET_DELIVERY_EVIDENCE_MISSING_OR_UNREVIEWED"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-BLOCKED-004",
+      "description": "Incomplete DPS fact coverage blocks hold readiness.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "dps_reweigh_update_events", "id": "DPS-RFW-001", "field": "recorded_fact_roles", "value": ["GROSS", "TARE", "NET", "REWEIGH_DATE"]}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["DPS_UPDATE_FACT_COVERAGE_INCOMPLETE"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-BLOCKED-005",
+      "description": "Unreviewed refund-processing evidence blocks release when a refund is required.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "evidence_links", "id": "EVL-RFW-REFUND-PROCESSED", "field": "review_status", "value": "PENDING"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["REFUND_PROCESSING_EVIDENCE_MISSING_OR_UNREVIEWED"]}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-ERROR-001",
+      "description": "Tampered upstream lower-weight provenance is rejected.",
+      "lower_result_mutations": [{"path": "provenance.0.source_claim_id", "value": "CLM-TAMPERED"}],
+      "expected": {"input_error_contains": "lower_weight_result provenance mismatch"}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-ERROR-002",
+      "description": "The workflow result reference must match the supplied upstream result.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "reweigh_refund_cases", "id": "RRC-RFW-001", "field": "lower_weight_result_ref", "value": "SYNTH-WRONG-RESULT"}
+      ],
+      "expected": {"input_error_contains": "lower-weight result reference does not match"}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-ERROR-003",
+      "description": "A DPS update dated before the reweigh is rejected.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "dps_reweigh_update_events", "id": "DPS-RFW-001", "field": "occurred_at", "value": "2026-06-07T12:00:00Z"}
+      ],
+      "expected": {"input_error_contains": "DPS update predates the reweigh"}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-ERROR-004",
+      "description": "Refund processing dated before submission is rejected.",
+      "workflow_record_mutations": [
+        {"op": "set", "collection": "reweigh_refund_adjustment_events", "id": "RRA-RFW-003", "field": "occurred_at", "value": "2026-06-09T10:00:00Z"}
+      ],
+      "expected": {"input_error_contains": "refund processed before submission"}
+    },
+    {
+      "id": "REWEIGH-REFUND-WORKFLOW-ERROR-005",
+      "description": "A tampered immutable workflow package ID is rejected by the result contract.",
+      "result_mutations": [{"path": "rule_package_id", "value": "RP-TAMPERED"}],
+      "expected": {"result_error_contains": "package mismatch"}
+    }
+  ]
+}

@@ -1,0 +1,293 @@
+{
+  "schema_version": "non-monetary-fact-model-dossier.v1",
+  "decision_number": "0005",
+  "title": "Item 130 Light and Bulky Article Non-Monetary Fact Model",
+  "status": "PROPOSED_OWNER_REVIEW_REQUIRED",
+  "prepared_on": "2026-08-04",
+  "preparation_authorization": "Project owner agreed that preparing the non-monetary Item 130 fact-model decision package makes sense; no field-level or financial interpretation approval was inferred.",
+  "scope": "DOMESTIC_400NG_ITEM_130_FACT_AND_EVIDENCE_MODEL_ONLY",
+  "approval": {
+    "selected_alternative": null,
+    "approved_by": null,
+    "approved_on": null,
+    "interpretation_decision_id": null
+  },
+  "source_basis": [
+    {
+      "provenance_id": "P-130-TARIFF",
+      "source_id": "SRC-DP3-2026-400NG",
+      "source_version_id": "SV-DP3-2026-400NG-2025-12-05",
+      "document_version": "published 2025-12-05",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 130, pp. 54-55",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_governing_fact_model_text"
+    },
+    {
+      "provenance_id": "P-130-ITEM-CODES",
+      "source_id": "SRC-DP3-ITEM-CODES",
+      "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12",
+      "document_version": "published 2022-08-12",
+      "effective_period": "UNSTATED",
+      "locator": "DOM_400NG!A53:Q118; legends A151:L166",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_candidate_values_disputed_currency"
+    },
+    {
+      "provenance_id": "P-130-LIBRARY",
+      "source_id": "SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03",
+      "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03",
+      "document_version": "snapshot 2026-08-03",
+      "effective_period": "RETRIEVAL_STATE_ONLY",
+      "locator": "HTML line 4697",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_publication_state_not_currency"
+    }
+  ],
+  "internal_basis": [
+    {
+      "provenance_id": "P-130-GOAL",
+      "document_id": "GOAL-DOMESTIC-DP3-POST-AUDIT-V1",
+      "document_version": "ratified 2026-08-03",
+      "effective_period": "2026-08-03/until deliberately re-ratified",
+      "locator": "goal.md, Quality bar and Decision defaults",
+      "retrieval_date": "2026-08-04",
+      "interpretation_status": "approved_internal_product_contract"
+    },
+    {
+      "provenance_id": "P-130-LOGICAL-SCHEMA",
+      "document_id": "DP3-LOGICAL-SCHEMA-PUBLIC-SOURCE-CONTRACT",
+      "document_version": "2026-08-04 working version",
+      "effective_period": "2026-08-03/until superseded",
+      "locator": "docs/logical-schema.md sections 1.2-1.3, 7, and 8",
+      "retrieval_date": "2026-08-04",
+      "interpretation_status": "approved_internal_schema_contract"
+    },
+    {
+      "provenance_id": "P-130-READINESS",
+      "document_id": "DP3-MONETARY-READINESS-2026-08-04-2",
+      "document_version": "2026-08-04.2",
+      "effective_period": "2026-08-04/until superseded",
+      "locator": "docs/monetary-source-readiness-matrix.json candidate ITEM-130-LIGHT-BULKY",
+      "retrieval_date": "2026-08-04",
+      "interpretation_status": "approved_internal_source_assessment"
+    }
+  ],
+  "conflict_ids": ["CF-0001", "CF-0003"],
+  "financial_contract": {
+    "status": "PROHIBITED",
+    "rate_version_date_fact": null,
+    "billing_item_contract": null,
+    "quantity_for_billing": null,
+    "rate": null,
+    "expected_amount": null,
+    "audit_adapter": null,
+    "reason": "CF-0001 and CF-0003 remain open for Item 130; this dossier authorizes fact collection and review design only."
+  },
+  "tariff_classifications": [
+    {"code": "130A", "article_kinds": ["AUTOMOBILE", "TRUCK", "VAN"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130B", "article_kinds": ["GO_CART", "MOTORCYCLE_AT_LEAST_250_CC", "RIDING_GOLF_CART", "SMALL_RECREATIONAL_VEHICLE", "SNOWMOBILE", "THREE_OR_FOUR_WHEELER", "RIDING_LAWNMOWER_INCLUDING_STAND_ON"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130C", "article_kinds": ["CANOE", "JET_SKI", "KAYAK", "WINDSURFER"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130D", "article_kinds": ["BOAT_AT_MOST_14_FT", "DINGHY", "ROW_BOAT", "SCULL", "SKIFF"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130E", "article_kinds": ["BOAT_OVER_14_FT_WITH_HHG", "DINGHY_OVER_14_FT_WITH_HHG", "SCULL_OVER_14_FT_WITH_HHG", "SKIFF_OVER_14_FT_WITH_HHG", "ROW_BOAT_OVER_14_FT_WITH_HHG"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130F", "article_kinds": ["BOAT_TRAILER_AT_MOST_16_FT_BOTO_REFERENCE"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130G", "article_kinds": ["NON_FLAT_SCREEN_BIG_SCREEN_TV_AT_LEAST_48_IN"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130H", "article_kinds": ["BABY_GRAND_PIANO", "GRAND_PIANO"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130I", "article_kinds": ["ANIMAL_HOUSE_OR_KENNEL_OVER_100_CU_FT", "PLAYHOUSE_OVER_100_CU_FT", "TOOL_SHED_OVER_100_CU_FT", "UTILITY_SHED_OVER_100_CU_FT"], "provenance_ids": ["P-130-TARIFF"]},
+    {"code": "130J", "article_kinds": ["BATHTUB_OVER_100_CU_FT", "HOT_TUB_OVER_100_CU_FT", "JACUZZI_OVER_100_CU_FT", "SPA_OVER_100_CU_FT", "WHIRLPOOL_BATH_OVER_100_CU_FT"], "provenance_ids": ["P-130-TARIFF"]}
+  ],
+  "proposed_entities": [
+    {
+      "entity": "shipment_article",
+      "purpose": "Preserve the observed article separately from its reviewed tariff-classification candidate.",
+      "fields": [
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "shipment_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing shipment relationship", "interpretation_status": "internal_design"},
+        {"field": "article_kind_observed", "logical_type": "CODE", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed inventory or service record identifying the article", "interpretation_status": "candidate_until_reviewed"},
+        {"field": "tariff_classification_candidate", "logical_type": "CODE<130A..130J>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed article identity and every conditional classification fact", "interpretation_status": "human_review_required"},
+        {"field": "associated_trailer_status", "logical_type": "CODE<PRESENT,ABSENT,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed inventory, measurement, or service evidence", "interpretation_status": "direct_fact"},
+        {"field": "source_description", "logical_type": "STRING", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "verbatim sanitized source description with locator", "interpretation_status": "observed_not_controlling"},
+        {"field": "classification_review_status", "logical_type": "CODE<PENDING,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "append-only human review record", "interpretation_status": "internal_review_gate"}
+      ]
+    },
+    {
+      "entity": "article_measurement_observation",
+      "purpose": "Preserve exact physical or manufacturer measurements without silently deriving eligibility.",
+      "fields": [
+        {"field": "measurement_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "measurement_kind", "logical_type": "CODE<LENGTH,WIDTH,HEIGHT,VOLUME,SCREEN_SIZE,ENGINE_DISPLACEMENT>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "measurement evidence identifies the measured property", "interpretation_status": "direct_fact"},
+        {"field": "measurement_value", "logical_type": "DECIMAL_STRING", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-TARIFF"], "evidence_requirement": "reviewed exact measurement; binary floating point prohibited", "interpretation_status": "direct_fact"},
+        {"field": "measurement_unit", "logical_type": "CODE<in,ft,cu_ft,cc>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "unit appears with or is unambiguously attached to the measurement", "interpretation_status": "direct_fact"},
+        {"field": "measurement_method", "logical_type": "CODE<PHYSICAL_CENTER_LINE,MANUFACTURER_LENGTH_OVERALL,MANUFACTURER_CENTER_LINE,PHYSICAL_DIMENSIONS,DOCUMENTED_SPECIFICATION>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed measurement or manufacturer specification", "interpretation_status": "direct_fact"},
+        {"field": "observed_at", "logical_type": "TIMESTAMP", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "source observation timestamp when available", "interpretation_status": "internal_design"},
+        {"field": "review_status", "logical_type": "CODE<PENDING,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "append-only human review record", "interpretation_status": "internal_review_gate"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this measurement", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "article_condition_observation",
+      "purpose": "Record conditional exclusions and article state independently from classification.",
+      "fields": [
+        {"field": "condition_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "assembled_status", "logical_type": "CODE<ASSEMBLED,DISASSEMBLED,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed handling or inventory evidence for 130I/130J", "interpretation_status": "direct_fact"},
+        {"field": "flat_screen_status", "logical_type": "CODE<FLAT_SCREEN,NOT_FLAT_SCREEN,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed article specification for 130G", "interpretation_status": "direct_fact"},
+        {"field": "one_person_hand_carry_status", "logical_type": "CODE<CAPABLE,NOT_CAPABLE,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed handling evidence", "interpretation_status": "human_review_required"},
+        {"field": "standard_carton_transportable_status", "logical_type": "CODE<CAPABLE,NOT_CAPABLE,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed handling or packing evidence", "interpretation_status": "human_review_required"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets each asserted condition", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "article_service_context",
+      "purpose": "Preserve service-mode and exclusion facts without using disputed billing fields.",
+      "fields": [
+        {"field": "service_context_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "shipment_service_code_text", "logical_type": "STRING", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed shipment award or bill of lading evidence", "interpretation_status": "observed_boundary_value"},
+        {"field": "crating_approval_status", "logical_type": "CODE<APPROVED,DENIED,NOT_REQUESTED,UNKNOWN>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed Government crating decision", "interpretation_status": "direct_fact"},
+        {"field": "crating_performed_status", "logical_type": "CODE<PERFORMED,NOT_PERFORMED,UNKNOWN>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed crating performance evidence", "interpretation_status": "direct_fact"},
+        {"field": "boto_program_status", "logical_type": "CODE<BOTO,NOT_BOTO,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed program and shipment evidence for 130F", "interpretation_status": "human_review_required"},
+        {"field": "hhg_co_move_agreement_status", "logical_type": "CODE<AGREED,NOT_AGREED,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed TSP agreement for an over-14-foot boat moved with HHG", "interpretation_status": "human_review_required"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this service context", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "article_handling_event",
+      "purpose": "Represent loading, unloading, shuttle transload, and related performed handling as immutable events.",
+      "fields": [
+        {"field": "handling_event_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "event_type", "logical_type": "CODE<LOADING,UNLOADING,SHUTTLE_TRANSLOAD,HANDLING_AND_BLOCKING>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed service-performance evidence", "interpretation_status": "direct_fact"},
+        {"field": "performed_at", "logical_type": "TIMESTAMP", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed performance chronology", "interpretation_status": "direct_fact"},
+        {"field": "location_role", "logical_type": "CODE<ORIGIN,DESTINATION,SIT_FACILITY,OTHER>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed stop or facility relationship", "interpretation_status": "direct_fact"},
+        {"field": "performance_status", "logical_type": "CODE<COMPLETED,NOT_COMPLETED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed service-performance evidence", "interpretation_status": "internal_review_gate"},
+        {"field": "shipment_stop_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing shipment-stop relationship when applicable", "interpretation_status": "internal_design"},
+        {"field": "sit_episode_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing SIT relationship when handling occurs through SIT", "interpretation_status": "direct_fact"},
+        {"field": "tsp_convenience_status", "logical_type": "CODE<TSP_CONVENIENCE,NOT_TSP_CONVENIENCE,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed SIT cause or authorization evidence", "interpretation_status": "human_review_required"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this event", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "combined_handling_occurrence_candidate",
+      "purpose": "Preserve a proposed loading/unloading pairing for later human review without deciding billable quantity.",
+      "fields": [
+        {"field": "pairing_candidate_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "loading_event_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed completed loading event", "interpretation_status": "candidate_pairing"},
+        {"field": "unloading_event_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed completed unloading event", "interpretation_status": "candidate_pairing"},
+        {"field": "pairing_status", "logical_type": "CODE<PROPOSED,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "human review of chronology, article identity, custody, and service purpose", "interpretation_status": "human_review_required"},
+        {"field": "pairing_basis", "logical_type": "STRING", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "deterministic explanation references both events and any SIT episode", "interpretation_status": "internal_explanation_contract"},
+        {"field": "sit_episode_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing SIT relationship when applicable", "interpretation_status": "direct_fact"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence supports the proposed pairing", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "item_130_preapproval_event",
+      "purpose": "Preserve the Government preapproval decision separately from article classification and performance.",
+      "fields": [
+        {"field": "approval_event_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "internal stable identity", "interpretation_status": "internal_design"},
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "decision_status", "logical_type": "CODE<APPROVED,DENIED,PENDING,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed Government preapproval record", "interpretation_status": "direct_fact"},
+        {"field": "approver_role_observed", "logical_type": "STRING", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-ITEM-CODES"], "evidence_requirement": "preserve raw Government role; 2022 origin/destination screen values remain candidate only", "interpretation_status": "candidate_disputed_contract"},
+        {"field": "occurred_at", "logical_type": "TIMESTAMP", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "approval chronology must precede the approved service", "interpretation_status": "internal_chronology_gate"},
+        {"field": "authorization_reference", "logical_type": "STRING", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "sanitized external reference when available", "interpretation_status": "observed_not_controlling"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed Government preapproval evidence targets this event", "interpretation_status": "internal_evidence_contract"}
+      ]
+    }
+  ],
+  "candidate_item_code_observation": {
+    "source_provenance_id": "P-130-ITEM-CODES",
+    "row_range": "DOM_400NG!A53:Q118",
+    "canonical_row_count": 66,
+    "canonical_rows_sha256": "7B124908184726EE6EC38C139CD9FE1C629AC8EE111A1A06632677523A8D6AD5",
+    "observed_common_values": {
+      "date_basis_code": "A",
+      "quantity_unit": "EA",
+      "service_point_code": "77",
+      "approval_required": "Yes",
+      "location_roles": ["O", "D"],
+      "approval_screens": ["Origin PPSO", "Destin PPSO"]
+    },
+    "use_status": "CANDIDATE_FOR_FUTURE_MAPPING_ONLY_NOT_AN_APPROVED_2026_BILLING_CONTRACT"
+  },
+  "source_mismatches": [
+    {
+      "id": "GAP-130-LAWNMOWER-ROW",
+      "tariff_claim": "130B expressly includes riding lawnmowers, including stand-on models.",
+      "item_code_observation": "Rows 53-118 contain no lawnmower description.",
+      "status": "OPEN_DO_NOT_INFER_MAPPING",
+      "provenance_ids": ["P-130-TARIFF", "P-130-ITEM-CODES"]
+    },
+    {
+      "id": "GAP-130E-SUBTYPE-ROWS",
+      "tariff_claim": "130E includes over-14-foot boats, dinghies, sculls, skiffs, and row boats when shipped with HHG.",
+      "item_code_observation": "Rows 89-90 describe only boats over 14 feet.",
+      "status": "OPEN_DO_NOT_INFER_MAPPING",
+      "provenance_ids": ["P-130-TARIFF", "P-130-ITEM-CODES"]
+    },
+    {
+      "id": "GAP-130F-BOTO-BOUNDARY",
+      "tariff_claim": "130F names boat trailers at most 16 feet and states boat trailers are handled under the BOTO program.",
+      "item_code_observation": "Rows 91-92 present 130F as dHHG origin/destination candidate rows.",
+      "status": "OPEN_PROGRAM_BOUNDARY_REVIEW",
+      "provenance_ids": ["P-130-TARIFF", "P-130-ITEM-CODES"]
+    },
+    {
+      "id": "GAP-130-COMBINED-VS-OD",
+      "tariff_claim": "One charge applies for each time combined loading and unloading service is required.",
+      "item_code_observation": "Rows 53-118 present separate origin and destination representations for each described article.",
+      "status": "OPEN_DO_NOT_DERIVE_QUANTITY_OR_MATCHING",
+      "provenance_ids": ["P-130-TARIFF", "P-130-ITEM-CODES"]
+    }
+  ],
+  "decision_alternatives": [
+    {
+      "id": "A_APPROVE_FACT_MODEL_ONLY",
+      "effect": "Approve the proposed entities, provenance, evidence targets, and boundary-test contract for synthetic non-monetary development; keep all financial fields prohibited and all conflicts/gaps open.",
+      "recommendation": "RECOMMENDED"
+    },
+    {
+      "id": "B_REVISE_FACT_MODEL",
+      "effect": "Revise entity boundaries or evidence/cardinality requirements before adding logical-schema fixtures.",
+      "recommendation": "AVAILABLE"
+    }
+  ],
+  "mandatory_tests": [
+    "each_tariff_classification_130A_through_130J_has_a_direct_positive_candidate",
+    "unlisted_similar_size_or_characteristic_article_never_auto_classifies",
+    "motorcycle_engine_displacement_249cc_and_250cc_boundary",
+    "big_screen_tv_48_inch_boundary_and_flat_screen_exclusion",
+    "130I_and_130J_100_cubic_foot_boundary_and_assembled_state",
+    "boat_14_foot_boundary_fraction_disregard_and_manufacturer_measurement_methods",
+    "boat_width_height_hhg_co_move_and_separate_OTO_context_are_preserved",
+    "associated_trailer_present_absent_and_unknown_states",
+    "missing_denied_conflicting_late_or_unreviewed_government_preapproval_blocks_decision",
+    "approved_for_crating_performed_crating_and_Code_2_exclusions_remain_distinct",
+    "one_person_hand_carry_or_standard_carton_exclusion_with_canoe_kayak_dinghy_exception",
+    "TSP_shuttle_transload_exclusion",
+    "combined_loading_and_unloading_pairing_zero_one_multiple_unmatched_and_duplicate_events",
+    "SIT_pairing_with_TSP_convenience_not_TSP_convenience_and_unknown_cause",
+    "riding_lawnmower_and_130E_subtype_listing_gaps_force_mapping_review",
+    "130F_BOTO_program_boundary_forces_scope_review",
+    "exact_decimal_measurements_units_evidence_targets_and_immutable_corrections",
+    "no_rate_date_billing_quantity_amount_rule_package_or_audit_adapter_can_be_emitted"
+  ],
+  "excluded_scope": [
+    "FINANCIAL_ELIGIBILITY_DECISION",
+    "RATE_VERSION_SELECTION",
+    "BILLING_ITEM_MAPPING",
+    "BILLABLE_QUANTITY",
+    "EXPECTED_AMOUNT",
+    "INVOICE_OR_PAYMENT_RECONCILIATION",
+    "RULE_OR_RATE_PACKAGE_PUBLICATION",
+    "ITEM_130_AUDIT_ADAPTER",
+    "BOTO_IMPLEMENTATION",
+    "OTO_NEGOTIATION",
+    "LIVE_INVOICE_SUBMISSION",
+    "MONEY_MOVEMENT",
+    "REAL_SHIPMENT_DATA"
+  ],
+  "implementation_gate": "DO_NOT_REGISTER_AN_ITEM_130_INTERPRETATION_RULE_RATE_PACKAGE_EXPECTED_AMOUNT_OR_AUDIT_ADAPTER_FROM_THIS_DOSSIER",
+  "unresolved_assumptions": []
+}

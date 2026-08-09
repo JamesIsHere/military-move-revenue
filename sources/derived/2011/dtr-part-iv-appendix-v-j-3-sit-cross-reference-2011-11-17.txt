@@ -1,0 +1,18 @@
+Selected text extract
+Source ID: SRC-DTR-IV-VJ3
+Raw artifact: sources/raw/2011/dtr-part-iv-appendix-v-j-3-intra-country-move-tsp-shipment-management-2011-11-17.pdf
+Document version: Defense Transportation Regulation Part IV Appendix V.J.3, page dated 17 November 2011
+Effective period: unstated; historical appendix remains publicly served at retrieval
+Locator: paragraph C.5.f.(1), printed page IV-V.J.3-17 (PDF page 17)
+Retrieved: 2026-08-07
+Method: pdftotext; cited PDF page rendered at 140 DPI and visually reviewed
+Interpretation status: reviewed direct historical text; target cross-reference is disputed for current domestic use
+
+Rules for Placing Shipments in SIT:
+
+(1) Direct Delivery Address at Destination: For shipments with a direct delivery address at
+destination (as indicated on the Bill of Lading) the TSP is not authorized to place a
+shipment into SIT prior to a percentage (See the International Tender) of the
+Government Transit Time (some exceptions may apply - e.g., member becomes
+unavailable or unable to accept delivery). Subject to PPSO approval, the TSP may use
+any DOD-approved SIT facility.

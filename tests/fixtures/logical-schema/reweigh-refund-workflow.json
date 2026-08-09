@@ -1,0 +1,125 @@
+{
+  "fixture_id": "SYNTH-LS-008",
+  "scenario_type": "reweigh_refund_workflow",
+  "data_status": "SYNTHETIC",
+  "description": "An approved original invoice remains immutable after a lower completed reweigh; DPS update, PPSO ticket delivery, negative supplemental refund events, and the destination/direct-delivery billing hold are preserved without calculating a refund amount.",
+  "provenance": [
+    {
+      "id": "PROV-RFW-SYNTHETIC-INVOICE",
+      "source_id": "INTERNAL-SYNTHETIC-VALIDATION",
+      "document_version": "docs/logical-schema.md draft 2026-08-03",
+      "effective_period": "TEST_ONLY",
+      "locator": "section 10.1 invoice identity and immutable versions",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "synthetic_test"
+    },
+    {
+      "id": "PROV-RFW-400NG-REFUND",
+      "source_id": "SRC-DP3-2026-400NG",
+      "document_version": "published 2025-12-05; effective 2026-05-15 through 2027-05-14",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 4.12(a)-(c), p. 22; LOC-0022",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0026"]
+    },
+    {
+      "id": "PROV-RFW-TENDER-SUPPLEMENTAL",
+      "source_id": "SRC-DP3-2026-TOS-C1",
+      "document_version": "Change 1 published 2026-02-18; effective 2026-05-15 through 2027-05-14",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Weighing Shipments 8.a.(2)(d), printed p. 20; LOC-0027",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0031"]
+    },
+    {
+      "id": "PROV-RFW-DTR-EVIDENCE",
+      "source_id": "SRC-DTR-IV-A402",
+      "document_version": "publication 2026-07-14",
+      "effective_period": "UNSTATED_IN_SOURCE",
+      "locator": "Chapter A-402 section D.7.b, p. IV-A-402-20; LOC-0028",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed",
+      "source_claim_refs": ["CLM-0032"]
+    }
+  ],
+  "records": {
+    "shipments": [
+      {"id": "SHP-RFW-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "bills_of_lading": [
+      {"id": "BL-RFW-001", "shipment_id": "SHP-RFW-001", "bl_namespace": "SYNTHETIC", "bl_number": "SYNTH-BL-RFW-001", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "invoices": [
+      {"id": "INV-RFW-ORIGINAL", "bill_of_lading_id": "BL-RFW-001", "invoice_namespace": "SYNTHETIC", "invoice_number": "SYNTH-INV-RFW-ORIGINAL", "issuer_organization_id": "ORG-SYNTH-TSP", "invoice_kind": "ORIGINAL", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"},
+      {"id": "INV-RFW-SUPPLEMENTAL", "bill_of_lading_id": "BL-RFW-001", "invoice_namespace": "SYNTHETIC", "invoice_number": "SYNTH-INV-RFW-SUPPLEMENTAL", "issuer_organization_id": "ORG-SYNTH-TSP", "invoice_kind": "NEGATIVE_SUPPLEMENTAL_REFUND", "parent_invoice_id": "INV-RFW-ORIGINAL", "provenance_ref": "PROV-RFW-TENDER-SUPPLEMENTAL"}
+    ],
+    "invoice_versions": [
+      {"id": "INV-V-RFW-ORIGINAL-001", "invoice_id": "INV-RFW-ORIGINAL", "version_number": 1, "invoice_date": "2026-06-01", "claimed_total": "1000.00", "currency": "USD", "recorded_at": "2026-06-01T14:00:00Z", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "invoice_lines": [
+      {"id": "LINE-RFW-ORIGINAL-001", "invoice_id": "INV-RFW-ORIGINAL", "line_identity_within_invoice": "1", "line_kind": "TRANSPORTATION", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "invoice_line_versions": [
+      {"id": "LINE-V-RFW-ORIGINAL-001", "invoice_line_id": "LINE-RFW-ORIGINAL-001", "invoice_version_id": "INV-V-RFW-ORIGINAL-001", "version_number": 1, "billing_item_code_text": "SYNTH-OBSERVED-CODE", "claimed_amount": "1000.00", "currency": "USD", "quantity": "8000", "quantity_unit": "lb", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "invoice_line_status_events": [
+      {"id": "LINE-STATUS-RFW-APPROVED", "invoice_line_id": "LINE-RFW-ORIGINAL-001", "status_code": "APPROVED", "effective_at": "2026-06-05T15:00:00Z", "recorded_at": "2026-06-05T15:05:00Z", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "invoice_submissions": [
+      {"id": "INV-SUB-RFW-ORIGINAL-001", "invoice_version_id": "INV-V-RFW-ORIGINAL-001", "attempt_number": 1, "channel": "SYNTHETIC_TPPS", "submitted_at": "2026-06-01T14:05:00Z", "provenance_ref": "PROV-RFW-SYNTHETIC-INVOICE"}
+    ],
+    "documents": [
+      {"id": "DOC-RFW-REWEIGH-TICKET", "document_type": "WEIGHT_TICKET", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "DOC-RFW-DPS-UPDATE", "document_type": "DPS_REWEIGH_UPDATE_RECORD", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "DOC-RFW-TICKET-DELIVERY", "document_type": "PPSO_TICKET_DELIVERY_RECEIPT", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "DOC-RFW-REFUND-PROCESSING", "document_type": "REFUND_PROCESSING_RECORD", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-400NG-REFUND"}
+    ],
+    "document_versions": [
+      {"id": "DOCV-RFW-REWEIGH-TICKET-001", "document_id": "DOC-RFW-REWEIGH-TICKET", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-RFW-TICKET", "media_type": "application/json", "storage_uri": "synthetic://reweigh-refund/ticket/v1", "received_at": "2026-06-08T11:00:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "DOCV-RFW-DPS-UPDATE-001", "document_id": "DOC-RFW-DPS-UPDATE", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-RFW-DPS", "media_type": "application/json", "storage_uri": "synthetic://reweigh-refund/dps-update/v1", "received_at": "2026-06-08T12:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "DOCV-RFW-TICKET-DELIVERY-001", "document_id": "DOC-RFW-TICKET-DELIVERY", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-RFW-DELIVERY", "media_type": "application/json", "storage_uri": "synthetic://reweigh-refund/ticket-delivery/v1", "received_at": "2026-06-09T14:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "DOCV-RFW-REFUND-PROCESSING-001", "document_id": "DOC-RFW-REFUND-PROCESSING", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-RFW-PROCESSING", "media_type": "application/json", "storage_uri": "synthetic://reweigh-refund/processing/v1", "received_at": "2026-06-12T10:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-400NG-REFUND"}
+    ],
+    "locations": [
+      {"id": "LOC-RFW-SCALE-001", "location_kind": "CERTIFIED_SCALE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"}
+    ],
+    "weighing_events": [
+      {"id": "WEV-RFW-REWEIGH-001", "shipment_id": "SHP-RFW-001", "observation_key": "SYNTH-RFW-REWEIGH", "observation_version": 1, "weighing_kind": "REWEIGH_SCALE", "completion_status": "COMPLETED", "occurred_at_or_date": "2026-06-08T10:00:00Z", "recorded_at": "2026-06-08T11:00:00Z", "scale_location_id": "LOC-RFW-SCALE-001", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"}
+    ],
+    "weight_tickets": [
+      {"id": "WTK-RFW-REWEIGH-001", "document_version_id": "DOCV-RFW-REWEIGH-TICKET-001", "ticket_kind": "REWEIGH", "issued_date": "2026-06-08", "scale_identifier": "SYNTH-SCALE-RFW", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"}
+    ],
+    "weight_ticket_measurements": [
+      {"id": "WTM-RFW-GROSS", "weight_ticket_id": "WTK-RFW-REWEIGH-001", "weighing_event_id": "WEV-RFW-REWEIGH-001", "measurement_role": "GROSS", "weight_value": "12000", "weight_unit": "lb", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "WTM-RFW-TARE", "weight_ticket_id": "WTK-RFW-REWEIGH-001", "weighing_event_id": "WEV-RFW-REWEIGH-001", "measurement_role": "TARE", "weight_value": "4200", "weight_unit": "lb", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "WTM-RFW-NET", "weight_ticket_id": "WTK-RFW-REWEIGH-001", "weighing_event_id": "WEV-RFW-REWEIGH-001", "measurement_role": "NET", "weight_value": "7800", "weight_unit": "lb", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"}
+    ],
+    "evidence_links": [
+      {"id": "EVL-RFW-TICKET", "document_version_id": "DOCV-RFW-REWEIGH-TICKET-001", "target_kind": "WEIGHING_EVENT", "target_id": "WEV-RFW-REWEIGH-001", "evidence_role": "REWEIGH_TICKET_TRUE_COPY", "review_status": "REVIEWED", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "EVL-RFW-DPS-UPDATE", "document_version_id": "DOCV-RFW-DPS-UPDATE-001", "target_kind": "WEIGHING_EVENT", "target_id": "WEV-RFW-REWEIGH-001", "evidence_role": "DPS_REWEIGH_UPDATE", "review_status": "REVIEWED", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "EVL-RFW-TICKET-DELIVERY", "document_version_id": "DOCV-RFW-TICKET-DELIVERY-001", "target_kind": "REWEIGH_TICKET_DELIVERY_EVENT", "target_id": "RTD-RFW-001", "evidence_role": "PPSO_DELIVERY_RECEIPT", "review_status": "REVIEWED", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"},
+      {"id": "EVL-RFW-REFUND-PROCESSED", "document_version_id": "DOCV-RFW-REFUND-PROCESSING-001", "target_kind": "REWEIGH_REFUND_ADJUSTMENT_EVENT", "target_id": "RRA-RFW-003", "evidence_role": "REFUND_PROCESSED_FOR_PAYMENT", "review_status": "REVIEWED", "provenance_ref": "PROV-RFW-400NG-REFUND"},
+      {"id": "EVL-RFW-HOLD-RELEASE", "document_version_id": "DOCV-RFW-REFUND-PROCESSING-001", "target_kind": "REWEIGH_BILLING_HOLD_EVENT", "target_id": "RBH-RFW-002", "evidence_role": "HOLD_RELEASE_SUPPORT", "review_status": "REVIEWED", "provenance_ref": "PROV-RFW-400NG-REFUND"}
+    ],
+    "dps_reweigh_update_events": [
+      {"id": "DPS-RFW-001", "weighing_event_id": "WEV-RFW-REWEIGH-001", "update_version": 1, "update_status": "RECORDED", "recorded_fact_roles": ["GROSS", "TARE", "NET", "TICKET_NUMBER", "REWEIGH_DATE"], "occurred_at": "2026-06-08T12:00:00Z", "recorded_at": "2026-06-08T12:05:00Z", "evidence_link_id": "EVL-RFW-DPS-UPDATE", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"}
+    ],
+    "reweigh_refund_cases": [
+      {"id": "RRC-RFW-001", "shipment_id": "SHP-RFW-001", "original_invoice_id": "INV-RFW-ORIGINAL", "completed_reweigh_event_id": "WEV-RFW-REWEIGH-001", "lower_weight_result_ref": "SYNTH-PUBLISHED-LOWER-WEIGHT-RESULT-RFW-001", "trigger_timing_code": "REWEIGH_AFTER_INITIAL_INVOICE_APPROVAL", "case_status": "REFUND_PROCESSED_HOLD_RELEASED", "created_at": "2026-06-08T12:00:00Z", "closed_at": "2026-06-12T12:00:00Z", "provenance_ref": "PROV-RFW-TENDER-SUPPLEMENTAL"}
+    ],
+    "reweigh_ticket_delivery_events": [
+      {"id": "RTD-RFW-001", "reweigh_refund_case_id": "RRC-RFW-001", "ticket_document_version_id": "DOCV-RFW-REWEIGH-TICKET-001", "recipient_role_codes": ["ORIGIN_PPSO", "ORDERING_PPSO"], "occurred_at": "2026-06-09T14:00:00Z", "recorded_at": "2026-06-09T14:05:00Z", "timeliness_status": "WITHIN_SEVEN_WORKING_DAYS_REVIEWED", "evidence_link_id": "EVL-RFW-TICKET-DELIVERY", "provenance_ref": "PROV-RFW-DTR-EVIDENCE"}
+    ],
+    "reweigh_refund_adjustment_events": [
+      {"id": "RRA-RFW-001", "reweigh_refund_case_id": "RRC-RFW-001", "event_type": "REFUND_REQUIRED", "occurred_at": "2026-06-08T11:30:00Z", "recorded_at": "2026-06-08T12:00:00Z", "provenance_ref": "PROV-RFW-400NG-REFUND"},
+      {"id": "RRA-RFW-002", "reweigh_refund_case_id": "RRC-RFW-001", "event_type": "NEGATIVE_SUPPLEMENTAL_SUBMITTED", "supplemental_invoice_id": "INV-RFW-SUPPLEMENTAL", "previous_event_id": "RRA-RFW-001", "occurred_at": "2026-06-10T15:00:00Z", "recorded_at": "2026-06-10T15:05:00Z", "provenance_ref": "PROV-RFW-TENDER-SUPPLEMENTAL"},
+      {"id": "RRA-RFW-003", "reweigh_refund_case_id": "RRC-RFW-001", "event_type": "REFUND_PROCESSED_FOR_PAYMENT", "supplemental_invoice_id": "INV-RFW-SUPPLEMENTAL", "previous_event_id": "RRA-RFW-002", "occurred_at": "2026-06-12T10:00:00Z", "recorded_at": "2026-06-12T10:05:00Z", "evidence_link_id": "EVL-RFW-REFUND-PROCESSED", "provenance_ref": "PROV-RFW-400NG-REFUND"}
+    ],
+    "reweigh_billing_hold_events": [
+      {"id": "RBH-RFW-001", "reweigh_refund_case_id": "RRC-RFW-001", "hold_action": "PLACED", "target_service_scope": "DESTINATION_AND_DIRECT_DELIVERY", "reason_code": "AWAITING_REWEIGH_UPDATE_TICKETS_AND_REFUND_PROCESSING", "occurred_at": "2026-06-08T11:00:00Z", "recorded_at": "2026-06-08T11:05:00Z", "provenance_ref": "PROV-RFW-400NG-REFUND"},
+      {"id": "RBH-RFW-002", "reweigh_refund_case_id": "RRC-RFW-001", "hold_action": "RELEASED", "target_service_scope": "DESTINATION_AND_DIRECT_DELIVERY", "reason_code": "ALL_REWEIGH_REFUND_PREREQUISITES_SATISFIED", "previous_event_id": "RBH-RFW-001", "release_basis_event_ids": ["DPS-RFW-001", "RTD-RFW-001", "RRA-RFW-003"], "occurred_at": "2026-06-12T12:00:00Z", "recorded_at": "2026-06-12T12:05:00Z", "evidence_link_id": "EVL-RFW-HOLD-RELEASE", "provenance_ref": "PROV-RFW-400NG-REFUND"}
+    ]
+  }
+}

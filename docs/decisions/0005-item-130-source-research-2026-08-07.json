@@ -1,0 +1,109 @@
+{
+  "schema_version": "item-130-source-research.v1",
+  "research_id": "ITEM-130-SOURCE-PASS-2026-08-07",
+  "decision_number": "0005",
+  "conducted_on": "2026-08-07",
+  "status": "COMPLETED_NO_GAP_CLOSED",
+  "scope": "DOMESTIC_400NG_ITEM_130_FOUR_RECORDED_SOURCE_GAPS_ONLY",
+  "source_basis": [
+    {
+      "provenance_id": "P-130R-TARIFF",
+      "source_id": "SRC-DP3-2026-400NG",
+      "source_version_id": "SV-DP3-2026-400NG-2025-12-05",
+      "document_version": "published 2025-12-05",
+      "effective_period": "2026-05-15/2027-05-14",
+      "locator": "Item 130, pp. 54-55; Definitions Code B and Code H, pp. 11-12; Items 300-301, p. 63",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_governing_text_with_unresolved_internal_tension",
+      "source_claim_ids": ["CLM-0047", "CLM-0048", "CLM-0049", "CLM-0050", "CLM-0051"]
+    },
+    {
+      "provenance_id": "P-130R-ITEM-CODES",
+      "source_id": "SRC-DP3-ITEM-CODES",
+      "source_version_id": "SV-DP3-ITEM-CODES-2022-08-12",
+      "document_version": "published 2022-08-12",
+      "effective_period": "UNSTATED",
+      "locator": "DOM_400NG!A53:Q118; focused rows 53-70 and 79-92; legends A151:L166",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_values_disputed_currency_and_mapping",
+      "source_claim_ids": ["CLM-0052", "CLM-0053", "CLM-0054", "CLM-0055"]
+    },
+    {
+      "provenance_id": "P-130R-LIBRARY",
+      "source_id": "SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03",
+      "source_version_id": "SV-DP3-LIBRARY-SNAPSHOT-2026-08-03",
+      "document_version": "archived 2026-08-03",
+      "effective_period": "PUBLICATION_STATE_OBSERVED_2026-08-03",
+      "locator": "line 4697; Household Goods link titled Item Code Listing (12 Aug 2022).zip",
+      "retrieval_date": "2026-08-03",
+      "interpretation_status": "reviewed_publication_state_not_general_currency_approval",
+      "source_claim_ids": ["CLM-0037"]
+    }
+  ],
+  "research_routes": [
+    {
+      "route_id": "R-130R-OFFICIAL-LIBRARY",
+      "authority_scope": "USTRANSCOM DP3 public library and 2021-2026 business-rule folders",
+      "queries": ["Item Code Listing", "Item 130", "130B", "130E", "130F", "BOTO", "TSP OTO User Guide"],
+      "result": "The official public library still exposed the archived 12 August 2022 listing. Exact-phrase searches located tariff copies and historical tariffs but no superseding listing, advisory, worked example, or accessible TSP OTO User Guide that reconciled the four gaps.",
+      "artifact_handling": "Search extracts and unarchived online copies were locator aids only and were not promoted into source claims."
+    },
+    {
+      "route_id": "R-130R-REGULATION",
+      "authority_scope": "Current DTR Part IV Chapter A-402",
+      "queries": ["BOTO", "boat", "boat trailer", "bulky", "130F"],
+      "result": "The DTR treats BOTO as a distinct shipment/program context and supplies bill-of-lading handling, but it does not reconcile Item 130F with the domestic item-code rows or define Item 130 billable quantity.",
+      "artifact_handling": "The already archived DTR was inspected; no new claim was necessary for the four gap determinations."
+    }
+  ],
+  "findings": [
+    {
+      "gap_id": "GAP-130-LAWNMOWER-ROW",
+      "status": "OPEN_NO_MAPPING_AUTHORITY",
+      "finding": "The governing tariff expressly includes riding lawnmowers, including stand-on models, under 130B. Complete inspection of candidate rows 53-70 finds no lawnmower description, and no authoritative superseding row or crosswalk was located.",
+      "source_claim_ids": ["CLM-0047", "CLM-0052", "CLM-0037"],
+      "prohibited_inference": "Do not map a lawnmower to another 130B row by similarity or emit a billing code."
+    },
+    {
+      "gap_id": "GAP-130E-SUBTYPE-ROWS",
+      "status": "OPEN_NO_SUBTYPE_CROSSWALK",
+      "finding": "The tariff expressly names boats, dinghies, sculls, skiffs, and row boats over 14 feet when shipped with household goods. Candidate rows 89-90 describe only boats over 14 feet. No authority states that the row description is an umbrella for the other named subtypes.",
+      "source_claim_ids": ["CLM-0048", "CLM-0053", "CLM-0037"],
+      "prohibited_inference": "Do not collapse all named 130E watercraft into the generic boat row without approval."
+    },
+    {
+      "gap_id": "GAP-130F-BOTO-BOUNDARY",
+      "status": "OPEN_CONFLICT_NARROWED",
+      "finding": "Item 130F labels boat trailers at most 16 feet and says boat trailers are handled under BOTO, while the tariff definitions and Item 301 select BOTO for over-14-foot or over-dimension boat units when the HHG TSP does not agree to move them with household goods. Candidate rows 91-92 simultaneously present 130F as domestic 400NG origin and destination representations. Public authority did not reconcile these statements.",
+      "source_claim_ids": ["CLM-0049", "CLM-0051", "CLM-0054"],
+      "prohibited_inference": "Do not select BOTO, dHHG Item 130F, or a financial treatment from trailer length alone."
+    },
+    {
+      "gap_id": "GAP-130-COMBINED-VS-OD",
+      "status": "OPEN_NO_QUANTITY_OR_ROW_SELECTION_CONTRACT",
+      "finding": "The tariff states one charge for each required combined loading-and-unloading service. The candidate listing supplies separate origin and destination representations for every Item 130 description. No authority explains whether those rows are approval-routing representations, alternative entry points, or independently billable occurrences.",
+      "source_claim_ids": ["CLM-0050", "CLM-0055"],
+      "prohibited_inference": "Do not derive billable quantity, pair selection, or two charges from the row structure."
+    }
+  ],
+  "financial_contract": {
+    "status": "PROHIBITED",
+    "rate_version_date_fact": null,
+    "billing_item_contract": null,
+    "quantity_for_billing": null,
+    "rate": null,
+    "expected_amount": null,
+    "audit_adapter": null
+  },
+  "external_action": {
+    "rates_team_request_status": "NOT_SENT_APPROVAL_REQUIRED",
+    "required_clarification": [
+      "Current authoritative Item 130 item-code listing or explicit continuation statement",
+      "130B row for riding lawnmowers including stand-on models",
+      "130E mapping for dinghies, sculls, skiffs, and row boats over 14 feet moved with HHG",
+      "130F relationship between dHHG rows and BOTO selection criteria",
+      "Meaning of origin/destination rows relative to one combined loading-and-unloading charge"
+    ]
+  },
+  "next_safe_action": "Keep all four gaps open and non-monetary. Seek publisher clarification only with owner approval; otherwise preserve candidate facts and human review without mapping or quantity output."
+}

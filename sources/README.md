@@ -9,3 +9,7 @@ status.
 Do not place real shipment files here. Authorized sanitized historical fixtures
 will use a separately controlled intake process and directory.
 
+An unchanged public adjudicative artifact may retain identifiers that appear in
+the official publication, but only in the raw archive and archival metadata.
+Fixture-facing derivatives must remove those identifiers, carry their own hash,
+and link back to the raw artifact checksum.

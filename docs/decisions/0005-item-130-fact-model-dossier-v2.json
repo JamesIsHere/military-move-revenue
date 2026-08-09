@@ -1,0 +1,193 @@
+{
+  "schema_version": "non-monetary-fact-model-dossier.v2",
+  "decision_number": "0005",
+  "dossier_version": "2",
+  "title": "Item 130 Light and Bulky Article Non-Monetary Fact Model — Revised Architecture",
+  "status": "REVISED_PROPOSAL_OWNER_REVIEW_REQUIRED",
+  "prepared_on": "2026-08-04",
+  "revision_basis": {
+    "selected_prior_alternative": "B_REVISE_FACT_MODEL",
+    "decision_record": "docs/decisions/0005-item-130-fact-model-revision-decision.md",
+    "decided_on": "2026-08-04",
+    "decided_by": "project owner through explicit session agreement",
+    "interpretation_decision_id": null
+  },
+  "base_contract": {
+    "path": "docs/decisions/0005-item-130-fact-model-dossier.json",
+    "schema_version": "non-monetary-fact-model-dossier.v1",
+    "sha256": "68B5A485FF086F02DE466606E5A2FAE55462D40B8AE21020C3AD6F08AF435C4E",
+    "inherited_unchanged_sections": [
+      "source_basis",
+      "internal_basis",
+      "conflict_ids",
+      "financial_contract",
+      "tariff_classifications",
+      "candidate_item_code_observation",
+      "source_mismatches",
+      "mandatory_tests",
+      "excluded_scope",
+      "implementation_gate",
+      "unresolved_assumptions"
+    ]
+  },
+  "approval": {
+    "selected_alternative": null,
+    "approved_by": null,
+    "approved_on": null,
+    "interpretation_decision_id": null
+  },
+  "scope": "DOMESTIC_400NG_ITEM_130_FACT_AND_EVIDENCE_MODEL_ONLY",
+  "architecture_rule": "Five article-domain entities are new. Item 130 handling and preapproval reuse profiled canonical service entities. Logical profiles do not create duplicate physical sources of truth.",
+  "common_record_contract": {
+    "applies_to": "EVERY_NEW_ENTITY_AND_EXISTING_ENTITY_PROFILE",
+    "fields": [
+      {"field": "id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "validation": "immutable entity namespace"},
+      {"field": "recorded_at", "logical_type": "TIMESTAMP", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "validation": "append-only record timestamp"},
+      {"field": "recorded_by", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "validation": "actor or deterministic service identity"},
+      {"field": "record_source_kind", "logical_type": "CODE", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "validation": "controlled source-kind value"},
+      {"field": "source_version_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "validation": "registered source version or approved internal policy"},
+      {"field": "source_locator_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "validation": "locator belongs to source version"},
+      {"field": "interpretation_status", "logical_type": "CODE", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "validation": "controlled review or interpretation state"},
+      {"field": "sensitivity_class", "logical_type": "CODE", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "validation": "synthetic fixtures use no PII"},
+      {"field": "sanitization_status", "logical_type": "CODE", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "validation": "SYNTHETIC for proposed fixtures"},
+      {"field": "supersedes_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "validation": "direct prior version only"},
+      {"field": "correction_reason", "logical_type": "STRING", "cardinality": "0..1 conditional", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "validation": "required when supersedes_id is present"}
+    ],
+    "status_change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+    "current_status_semantics": "DERIVED_FROM_LATEST_VALID_SUPERSESSION_CHAIN"
+  },
+  "new_entities": [
+    {
+      "entity": "shipment_article",
+      "purpose": "Preserve an observed physical article and its reviewed tariff-classification candidate.",
+      "change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+      "fields": [
+        {"field": "shipment_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing shipment relationship", "interpretation_status": "internal_design"},
+        {"field": "article_kind_observed", "logical_type": "CODE", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed inventory or service record", "interpretation_status": "candidate_until_reviewed"},
+        {"field": "tariff_classification_candidate", "logical_type": "CODE<130A..130J>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed identity and all conditional facts", "interpretation_status": "human_review_required"},
+        {"field": "associated_trailer_status", "logical_type": "CODE<PRESENT,ABSENT,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed inventory, measurement, or service evidence", "interpretation_status": "direct_fact"},
+        {"field": "source_description", "logical_type": "STRING", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "verbatim sanitized description and locator", "interpretation_status": "observed_not_controlling"},
+        {"field": "classification_review_status", "logical_type": "CODE<PENDING,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed classification evidence; any status change supersedes this record", "interpretation_status": "internal_review_gate"}
+      ]
+    },
+    {
+      "entity": "article_measurement_observation",
+      "purpose": "Preserve an exact measured or manufacturer value without silently deriving eligibility.",
+      "change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+      "fields": [
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "measurement_kind", "logical_type": "CODE<LENGTH,WIDTH,HEIGHT,VOLUME,SCREEN_SIZE,ENGINE_DISPLACEMENT>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "evidence identifies measured property", "interpretation_status": "direct_fact"},
+        {"field": "measurement_value", "logical_type": "DECIMAL_STRING", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-TARIFF"], "evidence_requirement": "reviewed exact measurement; binary floating point prohibited", "interpretation_status": "direct_fact"},
+        {"field": "measurement_unit", "logical_type": "CODE<in,ft,cu_ft,cc>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "explicit unit", "interpretation_status": "direct_fact"},
+        {"field": "measurement_method", "logical_type": "CODE<PHYSICAL_CENTER_LINE,MANUFACTURER_LENGTH_OVERALL,MANUFACTURER_CENTER_LINE,PHYSICAL_DIMENSIONS,DOCUMENTED_SPECIFICATION>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed measurement or manufacturer specification", "interpretation_status": "direct_fact"},
+        {"field": "observed_at", "logical_type": "TIMESTAMP", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "observation timestamp when available", "interpretation_status": "internal_design"},
+        {"field": "review_status", "logical_type": "CODE<PENDING,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence; any status change supersedes this record", "interpretation_status": "internal_review_gate"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this observation", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "article_condition_observation",
+      "purpose": "Record an article condition or exclusion fact as an immutable observation.",
+      "change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+      "fields": [
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "condition_kind", "logical_type": "CODE<ASSEMBLED,FLAT_SCREEN,ONE_PERSON_HAND_CARRY,STANDARD_CARTON_TRANSPORTABLE>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "condition-specific evidence", "interpretation_status": "direct_fact"},
+        {"field": "condition_value", "logical_type": "CODE<YES,NO,UNKNOWN,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-GOAL"], "evidence_requirement": "reviewed condition evidence", "interpretation_status": "human_review_required"},
+        {"field": "observed_at", "logical_type": "TIMESTAMP", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "observation timestamp when available", "interpretation_status": "internal_design"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this condition", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "article_service_context_observation",
+      "purpose": "Record one service-mode or exclusion-context fact without creating a billing outcome.",
+      "change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+      "fields": [
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "context_kind", "logical_type": "CODE<SHIPMENT_SERVICE_CODE,CRATING_APPROVAL,CRATING_PERFORMANCE,BOTO_PROGRAM,HHG_CO_MOVE_AGREEMENT>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "context-specific source evidence", "interpretation_status": "direct_fact"},
+        {"field": "context_value_text", "logical_type": "STRING", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "preserve raw value before controlled mapping", "interpretation_status": "observed_boundary_value"},
+        {"field": "context_review_status", "logical_type": "CODE<PENDING,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed context evidence; any status change supersedes this record", "interpretation_status": "internal_review_gate"},
+        {"field": "observed_at", "logical_type": "TIMESTAMP", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "observation or decision timestamp when available", "interpretation_status": "internal_design"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this context observation", "interpretation_status": "internal_evidence_contract"}
+      ]
+    },
+    {
+      "entity": "combined_handling_pair_candidate",
+      "purpose": "Propose a loading/unloading service-performance pairing for review without deriving billable quantity.",
+      "change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+      "fields": [
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_design"},
+        {"field": "loading_service_performance_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "completed profiled loading performance", "interpretation_status": "candidate_pairing"},
+        {"field": "unloading_service_performance_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "completed profiled unloading performance", "interpretation_status": "candidate_pairing"},
+        {"field": "pairing_status", "logical_type": "CODE<PROPOSED,ACCEPTED,REJECTED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "review chronology, article identity, custody, and service purpose; any status change supersedes this record", "interpretation_status": "human_review_required"},
+        {"field": "pairing_basis", "logical_type": "STRING", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "deterministic explanation references both performances and any SIT episode", "interpretation_status": "internal_explanation_contract"},
+        {"field": "sit_episode_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing SIT relationship when applicable", "interpretation_status": "direct_fact"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence supports the pairing candidate", "interpretation_status": "internal_evidence_contract"}
+      ]
+    }
+  ],
+  "existing_entity_profiles": [
+    {
+      "profile_id": "ITEM_130_ARTICLE_HANDLING_SERVICE_PERFORMANCE_PROFILE",
+      "reuses_entity": "service_performance",
+      "purpose": "Represent planned or completed loading, unloading, shuttle transload, and handling/blocking without a duplicate Item 130 handling table.",
+      "change_semantics": "SUPERSEDE_RECORD_NO_IN_PLACE_UPDATE",
+      "schema_delta": "For an unmapped non-monetary observation, service_definition_id is null only when candidate_service_family is present and mapping_status is UNMAPPED or CONFLICTING. This exception requires revised Alternative A approval before logical-schema fixtures.",
+      "fields": [
+        {"field": "article_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "exact article relationship", "interpretation_status": "internal_profile"},
+        {"field": "candidate_service_family", "logical_type": "CODE<ITEM_130_ARTICLE_HANDLING>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "tariff-context observation only", "interpretation_status": "candidate_unmapped"},
+        {"field": "observed_handling_kind", "logical_type": "CODE<LOADING,UNLOADING,SHUTTLE_TRANSLOAD,HANDLING_AND_BLOCKING>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed performance evidence", "interpretation_status": "direct_fact"},
+        {"field": "mapping_status", "logical_type": "CODE<UNMAPPED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-GOAL", "P-130-READINESS"], "evidence_requirement": "CF-0001 and CF-0003 prevent approved mapping", "interpretation_status": "blocked_mapping"},
+        {"field": "service_definition_id", "logical_type": "ID", "cardinality": "0..1 prohibited while unmapped", "provenance_ids": ["P-130-LOGICAL-SCHEMA", "P-130-READINESS"], "evidence_requirement": "separate future approved mapping decision", "interpretation_status": "prohibited_in_this_dossier"},
+        {"field": "performed_at", "logical_type": "TIMESTAMP", "cardinality": "0..1 for planned; 1 for completed", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed performance chronology", "interpretation_status": "direct_fact"},
+        {"field": "performance_status", "logical_type": "CODE<PLANNED,COMPLETED,NOT_COMPLETED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed performance evidence", "interpretation_status": "internal_review_gate"},
+        {"field": "shipment_stop_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing stop relationship when applicable", "interpretation_status": "internal_profile"},
+        {"field": "sit_episode_id", "logical_type": "ID", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "existing SIT relationship when applicable", "interpretation_status": "direct_fact"},
+        {"field": "tsp_convenience_status", "logical_type": "CODE<TSP_CONVENIENCE,NOT_TSP_CONVENIENCE,UNKNOWN>", "cardinality": "0..1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed SIT cause evidence", "interpretation_status": "human_review_required"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed evidence targets this performance", "interpretation_status": "internal_evidence_contract"}
+      ],
+      "prohibited_fields": ["quantity", "quantity_unit", "billing_item_code", "rate_version", "expected_amount"]
+    },
+    {
+      "profile_id": "ITEM_130_GOVERNMENT_PREAPPROVAL_PROFILE",
+      "reuses_entity": "service_approval_event",
+      "purpose": "Represent Item 130 Government preapproval without a duplicate Item 130 approval table.",
+      "change_semantics": "APPEND_NEW_EVENT_NO_IN_PLACE_UPDATE",
+      "schema_delta": "Preserve the raw approver role text and mapping status because the 2022 origin/destination approval-screen contract is not approved for Item 130.",
+      "fields": [
+        {"field": "service_performance_id", "logical_type": "ID", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "stable planned or observed profiled performance", "interpretation_status": "internal_profile"},
+        {"field": "approval_event_type", "logical_type": "CODE<PREAPPROVAL>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "Government preapproval record", "interpretation_status": "direct_fact"},
+        {"field": "decision_status", "logical_type": "CODE<APPROVED,DENIED,PENDING,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-TARIFF"], "evidence_requirement": "reviewed Government decision", "interpretation_status": "direct_fact"},
+        {"field": "occurred_at", "logical_type": "TIMESTAMP", "cardinality": "1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "approval chronology precedes approved performance", "interpretation_status": "internal_chronology_gate"},
+        {"field": "approver_role_text", "logical_type": "STRING", "cardinality": "1", "provenance_ids": ["P-130-TARIFF", "P-130-ITEM-CODES"], "evidence_requirement": "preserve raw Government role", "interpretation_status": "candidate_disputed_contract"},
+        {"field": "approver_role_mapping_status", "logical_type": "CODE<UNMAPPED,CONFLICTING>", "cardinality": "1", "provenance_ids": ["P-130-READINESS"], "evidence_requirement": "no standardized Item 130 approver role until separate decision", "interpretation_status": "blocked_mapping"},
+        {"field": "authorization_reference", "logical_type": "STRING", "cardinality": "0..1", "provenance_ids": ["P-130-LOGICAL-SCHEMA"], "evidence_requirement": "sanitized reference when available", "interpretation_status": "observed_not_controlling"},
+        {"field": "evidence_link_id", "logical_type": "ID", "cardinality": "1..*", "provenance_ids": ["P-130-TARIFF", "P-130-LOGICAL-SCHEMA"], "evidence_requirement": "reviewed Government preapproval evidence", "interpretation_status": "internal_evidence_contract"}
+      ],
+      "prohibited_fields": ["standardized_approver_role", "billing_item_code", "financial_eligibility", "expected_amount"]
+    }
+  ],
+  "revised_decision_alternatives": [
+    {
+      "id": "A_APPROVE_REVISED_FACT_MODEL_ONLY",
+      "effect": "Approve five new article-domain logical records, two canonical service-entity profiles, common append-only metadata, inherited source/evidence/test contracts, and synthetic non-monetary fixture development.",
+      "recommendation": "RECOMMENDED"
+    },
+    {
+      "id": "B_REVISE_AGAIN",
+      "effect": "Request another architecture, field, cardinality, provenance, or append-only-semantics revision before canonical schema or fixtures change.",
+      "recommendation": "AVAILABLE"
+    }
+  ],
+  "financial_and_mapping_gate": {
+    "status": "PROHIBITED",
+    "rate_version_date_fact": null,
+    "billing_item_contract": null,
+    "billable_quantity": null,
+    "rate": null,
+    "expected_amount": null,
+    "audit_adapter": null,
+    "interpretation_decision_id": null
+  },
+  "next_allowed_if_alternative_a_is_approved": "Amend the public-source logical schema with these entity/profile contracts, then add synthetic Item 130 fact fixtures and negative probes only.",
+  "unresolved_assumptions": []
+}

@@ -1,0 +1,43 @@
+{
+  "fixture_id": "SYNTH-LS-011",
+  "scenario_type": "item_28b_extra_delivery_facts",
+  "data_status": "SYNTHETIC",
+  "description": "Synthetic Government-authorized completed extra delivery before final delivery with reviewed evidence; no real shipment or person data.",
+  "provenance": [
+    {"id": "PROV-28B-SYNTHETIC", "source_id": "INTERNAL-SYNTHETIC-VALIDATION", "document_version": "docs/logical-schema.md draft 2026-08-03", "effective_period": "TEST_ONLY", "locator": "service performance and approval contract", "retrieval_date": "2026-08-04", "interpretation_status": "synthetic_test"},
+    {"id": "PROV-28B-400NG", "source_id": "SRC-DP3-2026-400NG", "document_version": "published 2025-12-05", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 1.2(c), p. 18; Item 28.2-28.3, pp. 35-36; LOC-0036", "retrieval_date": "2026-08-03", "interpretation_status": "approved_by_INT-0002", "source_claim_refs": ["CLM-0001", "CLM-0041"]},
+    {"id": "PROV-28B-ITEM-CODE", "source_id": "SRC-DP3-ITEM-CODES", "document_version": "published 2022-08-12", "effective_period": "APPROVED_2026_ITEM_28B_SCOPE_ONLY", "locator": "DOM_400NG!A24:Q24; LOC-0038", "retrieval_date": "2026-08-03", "interpretation_status": "approved_by_INT-0002", "source_claim_refs": ["CLM-0043"], "interpretation_decision_ref": "INT-0002"}
+  ],
+  "records": {
+    "shipments": [{"id": "SHP-28B-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-28B-SYNTHETIC"}],
+    "shipment_date_observations": [
+      {"id": "SDO-28B-REQUESTED", "shipment_id": "SHP-28B-001", "date_role": "ORIGINAL_REQUESTED_PICKUP", "local_date": "2026-05-14", "observation_kind": "OFFER_ACCEPTANCE_FACT", "provenance_ref": "PROV-28B-SYNTHETIC"},
+      {"id": "SDO-28B-ACTUAL", "shipment_id": "SHP-28B-001", "date_role": "ACTUAL_PICKUP", "local_date": "2026-05-15", "observation_kind": "PERFORMANCE_FACT", "provenance_ref": "PROV-28B-400NG"}
+    ],
+    "locations": [
+      {"id": "LOC-28B-ORIGIN", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28B-SYNTHETIC"},
+      {"id": "LOC-28B-EXTRA", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28B-SYNTHETIC"},
+      {"id": "LOC-28B-FINAL", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28B-SYNTHETIC"}
+    ],
+    "shipment_stops": [
+      {"id": "STOP-28B-ORIGIN", "shipment_id": "SHP-28B-001", "stop_sequence": 1, "stop_role": "ORIGINAL_PICKUP", "location_id": "LOC-28B-ORIGIN", "actual_date": "2026-05-15", "provenance_ref": "PROV-28B-SYNTHETIC"},
+      {"id": "STOP-28B-EXTRA-001", "shipment_id": "SHP-28B-001", "stop_sequence": 2, "stop_role": "EXTRA_DELIVERY", "location_id": "LOC-28B-EXTRA", "actual_date": "2026-05-20", "provenance_ref": "PROV-28B-400NG"},
+      {"id": "STOP-28B-FINAL", "shipment_id": "SHP-28B-001", "stop_sequence": 3, "stop_role": "FINAL_DELIVERY", "location_id": "LOC-28B-FINAL", "actual_date": "2026-05-21", "provenance_ref": "PROV-28B-SYNTHETIC"}
+    ],
+    "service_definitions": [{"id": "SVCDEF-28B", "service_code": "28B", "service_family": "EXTRA_DELIVERY_STOP_OFF", "quantity_unit": "EA", "rate_date_role": "ACTUAL_PICKUP", "interpretation_decision_id": "INT-0002", "provenance_ref": "PROV-28B-ITEM-CODE"}],
+    "documents": [
+      {"id": "DOC-28B-APPROVAL", "document_type": "GOVERNMENT_SERVICE_APPROVAL", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28B-400NG"},
+      {"id": "DOC-28B-PERFORMANCE", "document_type": "SERVICE_COMPLETION_RECORD", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28B-400NG"}
+    ],
+    "document_versions": [
+      {"id": "DOCV-28B-APPROVAL-001", "document_id": "DOC-28B-APPROVAL", "version_number": 1, "content_hash": "SYNTHETIC-NOT-REAL-28B-APPROVAL", "media_type": "application/json", "storage_uri": "synthetic://item-28b/approval/v1", "received_at": "2026-05-19T14:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28B-400NG"},
+      {"id": "DOCV-28B-PERFORMANCE-001", "document_id": "DOC-28B-PERFORMANCE", "version_number": 1, "content_hash": "SYNTHETIC-NOT-REAL-28B-PERFORMANCE", "media_type": "application/json", "storage_uri": "synthetic://item-28b/performance/v1", "received_at": "2026-05-20T16:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28B-400NG"}
+    ],
+    "service_performances": [{"id": "SVCPERF-28B-001", "shipment_id": "SHP-28B-001", "service_definition_id": "SVCDEF-28B", "shipment_stop_id": "STOP-28B-EXTRA-001", "performed_at": "2026-05-20T15:00:00Z", "performance_status": "COMPLETED", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-28B-PERFORMANCE", "provenance_ref": "PROV-28B-400NG"}],
+    "service_approval_events": [{"id": "SVCAPP-28B-001", "service_performance_id": "SVCPERF-28B-001", "approval_event_type": "PREAPPROVAL", "decision_status": "APPROVED", "occurred_at": "2026-05-19T14:00:00Z", "recorded_at": "2026-05-19T14:05:00Z", "approver_role": "DESTINATION_PPSO", "evidence_link_id": "EVL-28B-APPROVAL", "provenance_ref": "PROV-28B-400NG"}],
+    "evidence_links": [
+      {"id": "EVL-28B-APPROVAL", "document_version_id": "DOCV-28B-APPROVAL-001", "target_kind": "SERVICE_APPROVAL_EVENT", "target_id": "SVCAPP-28B-001", "evidence_role": "GOVERNMENT_AUTHORIZATION", "review_status": "REVIEWED", "provenance_ref": "PROV-28B-400NG"},
+      {"id": "EVL-28B-PERFORMANCE", "document_version_id": "DOCV-28B-PERFORMANCE-001", "target_kind": "SERVICE_PERFORMANCE", "target_id": "SVCPERF-28B-001", "evidence_role": "COMPLETED_EXTRA_DELIVERY", "review_status": "REVIEWED", "provenance_ref": "PROV-28B-400NG"}
+    ]
+  }
+}

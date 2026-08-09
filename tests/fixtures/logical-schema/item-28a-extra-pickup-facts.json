@@ -1,0 +1,53 @@
+{
+  "fixture_id": "SYNTH-LS-009",
+  "scenario_type": "item_28a_extra_pickup_facts",
+  "data_status": "SYNTHETIC",
+  "description": "A Government-approved, completed extra pickup is preserved as an immutable stop, service-performance event, approval event, and two reviewed evidence links without calculating money.",
+  "provenance": [
+    {"id": "PROV-28A-SYNTHETIC", "source_id": "INTERNAL-SYNTHETIC-VALIDATION", "document_version": "docs/logical-schema.md draft 2026-08-03", "effective_period": "TEST_ONLY", "locator": "section 8 service performance and approval", "retrieval_date": "2026-08-03", "interpretation_status": "synthetic_test"},
+    {"id": "PROV-28A-400NG", "source_id": "SRC-DP3-2026-400NG", "document_version": "published 2025-12-05; effective 2026-05-15 through 2027-05-14", "effective_period": "2026-05-15/2027-05-14", "locator": "Item 1.2(c), p. 18; Item 28.1 and 28.3, pp. 35-36; LOC-0010 and LOC-0030", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed", "source_claim_refs": ["CLM-0001", "CLM-0010", "CLM-0034"]},
+    {"id": "PROV-28A-RATES", "source_id": "SRC-DP3-2026-RATES", "document_version": "version 2026; effective 2026-05-15 through 2027-05-14", "effective_period": "2026-05-15/2027-05-14", "locator": "Additional Rates!A1 and A13:F13; LOC-0031", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed_for_item_28a_int_0001", "source_claim_refs": ["CLM-0035"]},
+    {"id": "PROV-28A-ITEM-CODE", "source_id": "SRC-DP3-ITEM-CODES", "document_version": "published 2022-08-12; effective and supersession periods unstated", "effective_period": "APPROVED_2026_ITEM_28A_SCOPE_ONLY", "locator": "DOM_400NG!A4:Q4, A23:Q23, B154:L166; LOC-0032", "retrieval_date": "2026-08-03", "interpretation_status": "approved_by_INT-0001", "source_claim_refs": ["CLM-0036"], "interpretation_decision_ref": "INT-0001"},
+    {"id": "PROV-28A-LIBRARY", "source_id": "SRC-DP3-LIBRARY-SNAPSHOT-2026-08-03", "document_version": "snapshot 2026-08-03", "effective_period": "PUBLICATION_STATE_AT_RETRIEVAL", "locator": "HTML line 4697; LOC-0033", "retrieval_date": "2026-08-03", "interpretation_status": "reviewed", "source_claim_refs": ["CLM-0037"]}
+  ],
+  "records": {
+    "shipments": [
+      {"id": "SHP-28A-001", "program_code": "DP3", "domestic_indicator": true, "shipment_status": "COMPLETED", "provenance_ref": "PROV-28A-SYNTHETIC"}
+    ],
+    "shipment_date_observations": [
+      {"id": "SDO-28A-REQUESTED", "shipment_id": "SHP-28A-001", "date_role": "ORIGINAL_REQUESTED_PICKUP", "local_date": "2026-05-15", "observation_kind": "OFFER_ACCEPTANCE_FACT", "provenance_ref": "PROV-28A-400NG"},
+      {"id": "SDO-28A-ACTUAL", "shipment_id": "SHP-28A-001", "date_role": "ACTUAL_PICKUP", "local_date": "2026-05-18", "observation_kind": "PERFORMANCE_FACT", "provenance_ref": "PROV-28A-SYNTHETIC"}
+    ],
+    "locations": [
+      {"id": "LOC-28A-ORIGINAL", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28A-SYNTHETIC"},
+      {"id": "LOC-28A-EXTRA", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28A-SYNTHETIC"},
+      {"id": "LOC-28A-DESTINATION", "location_kind": "RESIDENCE", "country_code": "US", "administrative_area": "ZZ", "sanitization_status": "SYNTHETIC", "provenance_ref": "PROV-28A-SYNTHETIC"}
+    ],
+    "shipment_stops": [
+      {"id": "STOP-28A-ORIGINAL", "shipment_id": "SHP-28A-001", "stop_sequence": 1, "stop_role": "ORIGINAL_PICKUP", "location_id": "LOC-28A-ORIGINAL", "planned_date": "2026-05-15", "actual_date": "2026-05-18", "provenance_ref": "PROV-28A-SYNTHETIC"},
+      {"id": "STOP-28A-EXTRA-001", "shipment_id": "SHP-28A-001", "stop_sequence": 2, "stop_role": "EXTRA_PICKUP", "location_id": "LOC-28A-EXTRA", "planned_date": "2026-05-16", "actual_date": "2026-05-19", "provenance_ref": "PROV-28A-400NG"},
+      {"id": "STOP-28A-DESTINATION", "shipment_id": "SHP-28A-001", "stop_sequence": 3, "stop_role": "FINAL_DELIVERY", "location_id": "LOC-28A-DESTINATION", "planned_date": "2026-05-20", "actual_date": "2026-05-21", "provenance_ref": "PROV-28A-SYNTHETIC"}
+    ],
+    "service_definitions": [
+      {"id": "SVCDEF-28A", "service_code": "28A", "service_family": "EXTRA_PICKUP_STOP_OFF", "quantity_unit": "EA", "rate_date_role": "ORIGINAL_REQUESTED_PICKUP", "interpretation_decision_id": "INT-0001", "provenance_ref": "PROV-28A-ITEM-CODE"}
+    ],
+    "documents": [
+      {"id": "DOC-28A-APPROVAL", "document_type": "GOVERNMENT_SERVICE_APPROVAL", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28A-400NG"},
+      {"id": "DOC-28A-PERFORMANCE", "document_type": "SERVICE_COMPLETION_RECORD", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28A-400NG"}
+    ],
+    "document_versions": [
+      {"id": "DOCV-28A-APPROVAL-001", "document_id": "DOC-28A-APPROVAL", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-28A-APPROVAL", "media_type": "application/json", "storage_uri": "synthetic://item-28a/approval/v1", "received_at": "2026-05-14T14:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28A-400NG"},
+      {"id": "DOCV-28A-PERFORMANCE-001", "document_id": "DOC-28A-PERFORMANCE", "version_number": 1, "content_hash": "SYNTHETIC-NOT-A-REAL-HASH-28A-PERFORMANCE", "media_type": "application/json", "storage_uri": "synthetic://item-28a/performance/v1", "received_at": "2026-05-19T16:05:00Z", "data_status": "SYNTHETIC", "provenance_ref": "PROV-28A-400NG"}
+    ],
+    "service_performances": [
+      {"id": "SVCPERF-28A-001", "shipment_id": "SHP-28A-001", "service_definition_id": "SVCDEF-28A", "shipment_stop_id": "STOP-28A-EXTRA-001", "performed_at": "2026-05-19T15:00:00Z", "performance_status": "COMPLETED", "quantity": "1", "quantity_unit": "EA", "evidence_link_id": "EVL-28A-PERFORMANCE", "provenance_ref": "PROV-28A-400NG"}
+    ],
+    "service_approval_events": [
+      {"id": "SVCAPP-28A-001", "service_performance_id": "SVCPERF-28A-001", "approval_event_type": "PREAPPROVAL", "decision_status": "APPROVED", "occurred_at": "2026-05-14T14:00:00Z", "recorded_at": "2026-05-14T14:05:00Z", "approver_role": "ORIGIN_PPSO", "evidence_link_id": "EVL-28A-APPROVAL", "provenance_ref": "PROV-28A-400NG"}
+    ],
+    "evidence_links": [
+      {"id": "EVL-28A-APPROVAL", "document_version_id": "DOCV-28A-APPROVAL-001", "target_kind": "SERVICE_APPROVAL_EVENT", "target_id": "SVCAPP-28A-001", "evidence_role": "GOVERNMENT_AUTHORIZATION", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-400NG"},
+      {"id": "EVL-28A-PERFORMANCE", "document_version_id": "DOCV-28A-PERFORMANCE-001", "target_kind": "SERVICE_PERFORMANCE", "target_id": "SVCPERF-28A-001", "evidence_role": "COMPLETED_EXTRA_PICKUP", "review_status": "REVIEWED", "provenance_ref": "PROV-28A-400NG"}
+    ]
+  }
+}

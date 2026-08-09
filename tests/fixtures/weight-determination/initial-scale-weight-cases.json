@@ -1,0 +1,206 @@
+{
+  "fixture_set": "SYNTHETIC_INITIAL_SCALE_WEIGHT_CASES",
+  "source_basis": {
+    "source_version_id": "SV-DP3-2026-400NG-2025-12-05",
+    "locators": ["LOC-0011", "LOC-0012", "LOC-0013", "LOC-0014", "LOC-0015", "LOC-0016", "LOC-0017"],
+    "claims": ["CLM-0013", "CLM-0014", "CLM-0015", "CLM-0016", "CLM-0017", "CLM-0018", "CLM-0019"]
+  },
+  "base_case": {
+    "case_id": "SYNTH-WEIGHT-BASE",
+    "data_status": "synthetic",
+    "weighing_context": "initial",
+    "shipment_facts": {
+      "containerized_at_no_additional_cost": false,
+      "same_vehicle_or_container": true,
+      "equipment_consistent": true,
+      "vehicle_unoccupied": true,
+      "fuel_condition": "NO_FUEL_ADDED_BETWEEN_WEIGHINGS"
+    },
+    "measurements": [
+      {"kind": "tare", "sequence": 1, "weight": "4000", "unit": "lb", "ticket_id": "SYNTH-TICKET-TARE"},
+      {"kind": "gross", "sequence": 2, "weight": "12000", "unit": "lb", "ticket_id": "SYNTH-TICKET-GROSS"}
+    ],
+    "tickets": [
+      {
+        "id": "SYNTH-TICKET-TARE",
+        "scale_id": "SYNTH-SCALE-001",
+        "scale_type": "vehicle",
+        "certified_scale": true,
+        "true_copy_available": true,
+        "entry_kinds": ["tare"],
+        "required_field_presence": {
+          "weighmaster_signature": true,
+          "scale_name_and_location": true,
+          "weighing_date": true,
+          "weight_entry_labels": true,
+          "vehicle_or_container_identifier": true,
+          "shipper_identity_reference": true,
+          "shipment_or_bl_reference": true
+        }
+      },
+      {
+        "id": "SYNTH-TICKET-GROSS",
+        "scale_id": "SYNTH-SCALE-002",
+        "scale_type": "vehicle",
+        "certified_scale": true,
+        "true_copy_available": true,
+        "entry_kinds": ["gross"],
+        "required_field_presence": {
+          "weighmaster_signature": true,
+          "scale_name_and_location": true,
+          "weighing_date": true,
+          "weight_entry_labels": true,
+          "vehicle_or_container_identifier": true,
+          "shipper_identity_reference": true,
+          "shipment_or_bl_reference": true
+        }
+      }
+    ]
+  },
+  "cases": [
+    {
+      "id": "WEIGHT-VALID-001",
+      "description": "Tare-first vehicle weighings use separate complete tickets and exact pounds.",
+      "mutations": [],
+      "expected": {"status": "FINAL", "net_weight": "8000"}
+    },
+    {
+      "id": "WEIGHT-VALID-002",
+      "description": "Gross-first vehicle weighings are valid when fuel tanks are full at both weighings.",
+      "mutations": [
+        {"path": "measurements.0.sequence", "value": 2},
+        {"path": "measurements.1.sequence", "value": 1},
+        {"path": "shipment_facts.fuel_condition", "value": "FULL_AT_BOTH_WEIGHINGS"}
+      ],
+      "expected": {"status": "FINAL", "net_weight": "8000"}
+    },
+    {
+      "id": "WEIGHT-VALID-003",
+      "description": "A non-containerized shipment at exactly 1,000 pounds may use certified platform scales.",
+      "mutations": [
+        {"path": "measurements.0.weight", "value": "100"},
+        {"path": "measurements.1.weight", "value": "1100"},
+        {"path": "tickets.0.scale_type", "value": "platform"},
+        {"path": "tickets.1.scale_type", "value": "platform"}
+      ],
+      "expected": {"status": "FINAL", "net_weight": "1000"}
+    },
+    {
+      "id": "WEIGHT-INVALID-001",
+      "description": "A non-containerized 1,001-pound shipment cannot use the platform/warehouse exception.",
+      "mutations": [
+        {"path": "measurements.0.weight", "value": "100"},
+        {"path": "measurements.1.weight", "value": "1101"},
+        {"path": "tickets.0.scale_type", "value": "warehouse"},
+        {"path": "tickets.1.scale_type", "value": "warehouse"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["PLATFORM_OR_WAREHOUSE_SCALE_WEIGHT_EXCEEDS_1000_LB"]}
+    },
+    {
+      "id": "WEIGHT-VALID-004",
+      "description": "A qualifying containerized shipment may exceed 1,000 pounds on certified platform scales.",
+      "mutations": [
+        {"path": "shipment_facts.containerized_at_no_additional_cost", "value": true},
+        {"path": "tickets.0.scale_type", "value": "platform"},
+        {"path": "tickets.1.scale_type", "value": "platform"}
+      ],
+      "expected": {"status": "FINAL", "net_weight": "8000"}
+    },
+    {
+      "id": "WEIGHT-VALID-005",
+      "description": "One complete ticket may record both initial entries when both measurements use that scale.",
+      "mutations": [
+        {"path": "measurements.0.ticket_id", "value": "SYNTH-TICKET-COMBINED"},
+        {"path": "measurements.1.ticket_id", "value": "SYNTH-TICKET-COMBINED"},
+        {
+          "path": "tickets",
+          "value": [
+            {
+              "id": "SYNTH-TICKET-COMBINED",
+              "scale_id": "SYNTH-SCALE-COMBINED",
+              "scale_type": "vehicle",
+              "certified_scale": true,
+              "true_copy_available": true,
+              "entry_kinds": ["tare", "gross"],
+              "required_field_presence": {
+                "weighmaster_signature": true,
+                "scale_name_and_location": true,
+                "weighing_date": true,
+                "weight_entry_labels": true,
+                "vehicle_or_container_identifier": true,
+                "shipper_identity_reference": true,
+                "shipment_or_bl_reference": true
+              }
+            }
+          ]
+        }
+      ],
+      "expected": {"status": "FINAL", "net_weight": "8000", "ticket_count": 1}
+    },
+    {
+      "id": "WEIGHT-INVALID-002",
+      "description": "A ticket lacking the weighmaster signature cannot support a final determination.",
+      "mutations": [
+        {"path": "tickets.0.required_field_presence.weighmaster_signature", "value": false}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["MISSING_TICKET_FIELD_WEIGHMASTER_SIGNATURE"]}
+    },
+    {
+      "id": "WEIGHT-INVALID-003",
+      "description": "The no-fuel-added alternative is not sufficient when gross is weighed first.",
+      "mutations": [
+        {"path": "measurements.0.sequence", "value": 2},
+        {"path": "measurements.1.sequence", "value": 1}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["FUEL_CONDITION_NOT_COMPLIANT"]}
+    },
+    {
+      "id": "WEIGHT-INVALID-004",
+      "description": "An uncertified determining scale cannot support a final shipment weight.",
+      "mutations": [
+        {"path": "tickets.1.certified_scale", "value": false}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["UNCERTIFIED_SCALE"]}
+    },
+    {
+      "id": "WEIGHT-INVALID-005",
+      "description": "Every determining ticket must have a true copy available for weight-dependent billing support.",
+      "mutations": [
+        {"path": "tickets.1.true_copy_available", "value": false}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["MISSING_TRUE_TICKET_COPY"]}
+    },
+    {
+      "id": "WEIGHT-INVALID-006",
+      "description": "Gross and tare measurements cannot be combined when vehicle or container continuity is unproved.",
+      "mutations": [
+        {"path": "shipment_facts.same_vehicle_or_container", "value": false}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["VEHICLE_OR_CONTAINER_CONTINUITY_UNPROVED"]}
+    },
+    {
+      "id": "WEIGHT-INVALID-007",
+      "description": "Gross weight must exceed tare weight for a positive initial net scale weight.",
+      "mutations": [
+        {"path": "measurements.1.weight", "value": "4000"}
+      ],
+      "expected": {"status": "BLOCKED", "blocked_reasons": ["NONPOSITIVE_NET_WEIGHT"]}
+    },
+    {
+      "id": "WEIGHT-ERROR-001",
+      "description": "Binary numeric input is rejected before calculation.",
+      "mutations": [
+        {"path": "measurements.1.weight", "value": 12000.5}
+      ],
+      "expected": {"input_error_contains": "must be an exact decimal JSON string"}
+    },
+    {
+      "id": "WEIGHT-ERROR-002",
+      "description": "A weight without the explicit pound unit is rejected.",
+      "mutations": [
+        {"path": "measurements.1.unit", "value": "kg"}
+      ],
+      "expected": {"input_error_contains": "gross measurement unit must be lb"}
+    }
+  ]
+}

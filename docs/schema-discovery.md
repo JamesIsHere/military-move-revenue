@@ -172,7 +172,9 @@ Schema mappings:
 - `DISC-0031` → `service_definition` plus `billing_item_code`; conditional.
   The rule is Item 4A/4B, but billing uses 226A and a required note.
 - `DISC-0032` → `rule_decision`; explained boolean; one per candidate fee.
-  It compares initial and reweigh values against a tolerance band.
+  It compares initial and reweigh values against a tolerance band. The weight
+  fact selecting the 5,000-lb tolerance branch was disputed under `CF-0004`;
+  `INT-0003` approves final reviewed initial net only for the 2026 scope.
 - `DISC-0033` → `rule_decision`; eligibility; conditional.
   The threshold depends on rank/grade category and shipment weight.
 - `DISC-0034` → `weight_method_code`; controlled code; one per result.
@@ -190,7 +192,9 @@ Schema mappings:
 - `DISC-0040` → `billing_eligibility_decision`; workflow decision; conditional.
   Some delivery charges wait for updated reweigh facts and tickets.
 - `DISC-0041` → `invoice_adjustment_line`; signed correction; zero or more.
-  Refunds or later reimbursements may require supplemental treatment.
+  Refunds or later reimbursements may require supplemental treatment. The
+  containerized reimbursement tolerance uses the same `INT-0003` selector and
+  retains the `CF-0004` reopening gate.
 
 ## Reviewed discoveries — Tender of Service evidence
 
@@ -250,6 +254,264 @@ Schema mappings:
 - `DISC-0055` → `funding_reference`; sensitive structured reference; one or more.
   Preserve raw and typed components; exclude live values from fixtures.
 
+## Reviewed discoveries — DTR Chapter A-402, shipment lifecycle and SIT
+
+All findings in this section use `SRC-DTR-IV-A402`, publication/version 14 July
+2026, effective period not stated, retrieved 2026-08-03. The cited pages were
+checked against the archived PDF and rendered page images. Interpretation status
+is reviewed unless a note identifies a remaining question.
+
+| ID        | Source             | Concept                                  |
+|-----------|--------------------|------------------------------------------|
+| DISC-0056 | C.3.h, pp. 7–8     | Shipment-date chronology and RDD         |
+| DISC-0057 | C.7, pp. 9–10      | Pre-move survey observations             |
+| DISC-0058 | D.2, p. 15         | Shipment arrival observation             |
+| DISC-0059 | D.3, pp. 15–16    | Delivery request, schedule, and event     |
+| DISC-0060 | D.4, p. 16         | Partial-delivery portion                 |
+| DISC-0061 | C.9; D.5(a), pp. 10–17 | SIT episode and rating locality    |
+| DISC-0062 | C.9; D.5; F.5, pp. 10–19, 28–29 | SIT authorization workflow |
+| DISC-0063 | D.5(a)(2–3), p. 17 | SIT control identifier and register      |
+| DISC-0064 | C.9(b); D.5(a)(3), pp. 10, 17–18 | SIT period dates and expiration |
+| DISC-0065 | D.5(a)(3); F.6, pp. 18, 29 | SIT extension request and decision |
+| DISC-0066 | C.9(c), p. 11      | Origin-SIT release and entitlement balance |
+| DISC-0067 | D.5(b)(2), p. 18  | Destination-SIT effective date           |
+| DISC-0068 | D.5(b)(4); F.5(a)(6), pp. 18, 29 | Split-shipment SIT        |
+| DISC-0069 | D.5(c); F.7, pp. 19, 29–30 | SIT conversion and liability end |
+| DISC-0070 | F.8(c), pp. 30–31 | Weight-entry operational prerequisites  |
+| DISC-0071 | D.1–3; F.8(d), pp. 15–16, 31 | Status and record-change history |
+
+Schema mappings:
+
+- `DISC-0056` → `shipment_date_commitment` plus `rule_decision`; typed local-date
+  observations; repeating by role and source. Preserve counseling desired dates,
+  booking preferred dates, pre-move agreed dates, calculated RDD, and actual
+  pickup/delivery dates instead of overwriting one value. The basic RDD rule is
+  pickup date plus transit time, subject to an agreed earlier DDD and scheduling
+  exceptions.
+- `DISC-0057` → `pre_move_survey` plus extracted observations; event/document;
+  one or more attempts and one completed survey per applicable shipment. Record
+  method, estimated weight, agreed pack/pickup dates, delivery-date information,
+  special handling needs, completion timing, and customer-unavailability reason.
+- `DISC-0058` → `shipment_arrival_event`; event; one or more when a shipment is
+  split. Record arrival date, whole/split indicator, observed shipment weight,
+  requested/actual delivery dates, and attempted-delivery date as separately
+  typed facts.
+- `DISC-0059` → `delivery_request`, `delivery_schedule_event`, and
+  `delivery_event`; repeating events. Preserve requester, communication channel,
+  requested date/address, TSP-confirmed schedule, schedule changes, actual date,
+  and entry timestamp. Addresses and customer contact data require sanitization.
+- `DISC-0060` → `shipment_portion` plus `partial_delivery_event`; zero or more.
+  Link requested inventory item identifiers, delivery address, requested and
+  actual dates, weight removed, weight remaining in SIT, and the residual stored
+  portion without treating the entire shipment as delivered.
+- `DISC-0061` → `sit_episode`; zero or more per shipment or shipment portion.
+  Record origin/destination/intermediate scope, reason, approved facility,
+  storage location, and the destination city/installation used for charges.
+  A servicing-PPSO exception to the BL Block 18 locality must be preserved as an
+  authorization, not as an unexplained replacement value.
+- `DISC-0062` → `sit_authorization_event`; request/decision history; one or more
+  per episode. Store requester, PPSO decision, status, reason, decision time, and
+  notification references. Every placement in SIT requires approval through
+  DPS; approval generates the control identifier.
+- `DISC-0063` → `sit_control_identifier`; namespaced structured identifier; one
+  per approved episode or split portion. Preserve the raw nine-digit string
+  and parsed two-digit year, three-digit Julian day, and four-digit daily
+  sequence. Do not infer a full century without contextual evidence.
+- `DISC-0064` → `sit_date_event`; typed local dates; repeating by role. Roles
+  include placed/ordered in, ordered out, release, expiration, and entitlement
+  end. Store the stated expiration separately from calculated or extended dates.
+- `DISC-0065` → `sit_extension_request` plus `sit_extension_decision`; zero or
+  more. Link the DD Form 1857 evidence, request date, PPSO approval/denial,
+  projected termination date, new expiration date, and notification events.
+- `DISC-0066` → `sit_release_event` plus `sit_entitlement_balance_decision`;
+  conditional. Origin release requires the SF 1200, a new RDD, and inclusive-day
+  math: days used equals release date minus placed-in-storage date plus one; the
+  destination balance equals authorized days minus used days.
+- `DISC-0067` → `sit_authorization_effective_date`; explained rule outcome;
+  conditional. For the cited no-direct-delivery scenario, approved destination
+  SIT begins on the offer-for-delivery date rather than arrival date unless both
+  occur on the same day.
+- `DISC-0068` → `shipment_portion` plus portion-level `sit_episode`; one or more
+  for split shipments. Each stored portion requires its own control identifier
+  and weight-ticket evidence. Minimum-weight and employee partial-delivery rules
+  remain subject to reconciliation with 400NG and entitlement sources.
+- `DISC-0069` → `sit_conversion_event`; zero or one Government-to-customer
+  conversion per episode. Preserve the customer-contact prerequisite, notice,
+  non-retroactive effective time, payer-responsibility change, TSP-liability end,
+  warehouse final-destination role, and remaining Government-paid delivery-out
+  entitlement.
+- `DISC-0070` → `operational_eligibility_decision`; explained system gate;
+  conditional. DPS weight entry gates invoicing, in-transit updates, arrival,
+  destination-SIT requests, and delivery scheduling. Keep this operational gate
+  distinct from legal charge eligibility.
+- `DISC-0071` → `shipment_status_event` plus `record_change_event`; repeating
+  event histories. Store status code, en-route location note, ETA, RDD, delivery
+  date, DTS entry/receipt dates, actor, and recorded time. Weight entry triggers
+  the DPS `IT` status and actual delivery triggers `Delivered Complete`; neither
+  should erase preceding states or observations.
+
+## Reviewed discoveries — 400NG SIT eligibility and rating
+
+All findings in this section use `SRC-DP3-2026-400NG`, publication/version 5
+December 2025, effective 15 May 2026 through 14 May 2027, retrieved 2026-08-03.
+The cited pages were checked against the archived PDF and rendered page images.
+Interpretation status is reviewed unless a note identifies a conflict.
+
+| ID        | Source                         | Concept                                  |
+|-----------|--------------------------------|------------------------------------------|
+| DISC-0072 | Item 17.2–5, p. 27; Item 185.2, p. 57 | SIT rating locality and billing trigger |
+| DISC-0073 | Item 17.3, p. 27               | Aggregate authorized SIT period          |
+| DISC-0074 | Item 17.7, p. 27; Item 185.3, p. 57 | SIT accrual interval and cessation |
+| DISC-0075 | Item 17.9, p. 28; Item 210.2(c), p. 59 | Split and partial-delivery weight basis |
+| DISC-0076 | Item 17.12–13, p. 29            | SIT custody and partial-withdrawal evidence |
+| DISC-0077 | Item 17-1.2–4, pp. 30–31       | Attempted-delivery eligibility evidence  |
+| DISC-0078 | Item 185, p. 57; Appendix A, pp. 83–84 | SIT storage calculation             |
+| DISC-0079 | Item 210.1–2, pp. 58–59; Appendix A, p. 84 | SIT pickup/delivery calculation |
+| DISC-0080 | Item 1.2(b–c), p. 18; Item 17.2(b), p. 27; Item 210.2(e), p. 59 | SIT effective-date selection |
+| DISC-0081 | Item 17-2.2–8, pp. 31–32       | Post-conversion payer and delivery-out rating |
+
+Schema mappings:
+
+- `DISC-0072` → `sit_rating_context` plus `billing_eligibility_decision`;
+  explained selection; one per candidate SIT charge. Preserve the requested
+  pickup/delivery address and ZIP3 from BL Block 19 or 18 as accepted by the TSP,
+  the origin/destination SIT role, actual warehouse location, and billing-trigger
+  event. The rating locality is the accepted BL address, not the SIT facility.
+- `DISC-0073` → `sit_entitlement_period` plus authorization history; quantity in
+  calendar days; one current explained decision with prior versions preserved.
+  One or more SIT episodes share a 90-day aggregate ceiling unless an authorized
+  Government representative grants additional storage. External entitlement
+  sources may further constrain the authorized amount and remain to be reconciled.
+- `DISC-0074` → `sit_charge_interval`; inclusive local-date interval; one or more
+  per episode. Item 185 counts both the placed-in and removed-from days. If TSP
+  commitments delay removal, accrual stops no later than the fifth Government
+  business day after the requested delivery date, or on the earlier removal day.
+  Preserve requested delivery, placed-in, removed-from, and calculated cessation
+  dates plus the Government-business-day calendar version used.
+- `DISC-0075` → `sit_weight_basis_decision`; explained quantity; one per storage
+  or pickup/delivery charge. Overflow portions stored on different dates are
+  rated separately, but the 1,000-lb storage minimum applies to their combined
+  stored weight and later charges use combined weight. A portion delivered out
+  of SIT uses actual net weight without a minimum; below 1,000 lbs it is billed
+  temporarily as Item 226A with detailed notes. Portion and remainder weights
+  must therefore remain distinct observations.
+- `DISC-0076` → `sit_custody_record`, `partial_delivery_request`, and evidence
+  links; repeating. Preserve the BL-linked inventory, origin/destination,
+  article condition at receipt/release, charge/payment dates, storage movement
+  dates, ordered inventory item numbers, labor approval, actual withdrawn
+  weight, and continuing stored weight. These records support both custody and
+  charge eligibility.
+- `DISC-0077` → `attempted_delivery_event` plus `billing_eligibility_decision`;
+  conditional event and evidence bundle. Required facts include PPSO scheduling
+  or confirmation of customer fault, timely DPS scheduled-delivery entry,
+  contact with PPSO while at the residence, requested preapproval, and the
+  one-hour free-wait interval. An attempted-delivery charge is not inferred from
+  a failed delivery event alone.
+- `DISC-0078` → `rate_table`, `rate_cell`, and `charge_calculation`; money per
+  hundredweight and day. Item 185A equals first-day rate × cwt × inverse SIT
+  discount; Item 185B equals additional-day rate × cwt × additional days ×
+  inverse SIT discount. The Appendix A page 84 subheading says `185E` while the
+  governing item and calculation text say `185B`; preserve both claims as a
+  source-label conflict and require interpretation approval before implementation.
+- `DISC-0079` → `sit_pickup_delivery_band` plus `charge_calculation`; distance in
+  miles and exact money. Up to 30 miles uses 210A. Over 30 through 50 miles adds
+  210A and 210B but invoices only the combined total as 210B. Over 50 miles uses
+  linehaul computation under 210C, or 210F for Alaska. Record the BL-address
+  anchor, actual residence, mileage source/version, service-area schedule,
+  portion weight, dSIT, approvals, and billed item code. Delivery over 100 miles,
+  specified amended-order cases, and overtime codes have additional approvals.
+- `DISC-0080` → `rule_effective_date_decision`; explained date selection; one per
+  rate family. The accepted shipment's original requested pickup date selects
+  the TSP SIT discount and the over-50-mile transportation rates/discounts;
+  actual pickup date selects the applicable SIT and accessorial tables. Preserve
+  both dates and the reason each was selected.
+- `DISC-0081` → `sit_conversion_event`, `payer_responsibility_period`,
+  `delivery_out_authorization`, and `invoice_adjustment_line`; conditional.
+  Government SIT liability ends at midnight on the notified termination day and
+  Government pays through that day. Later delivery-out may remain Government
+  funded after customer storage balances are paid; it uses current 400NG charges
+  less 25 percent based on delivery date, with Item 210C linehaul treatment when
+  applicable. Required refunds use Item 226A and a detailed explanation.
+
+## Workbook discoveries — rate, item-code, transit, and mileage structures
+
+These findings were extracted on 2026-08-03 with the user-authorized openpyxl
+3.1.5 read-only fallback. Raw hashes were verified against the manifest; ZIP
+members were read in memory; formulas were captured but not recalculated. The
+structured extract and exact member hashes are in
+`sources/derived/2026/workbook-structure.json`. Interpretation status varies by
+source as noted below.
+
+| ID        | Source and locator | Concept |
+|-----------|--------------------|---------|
+| DISC-0082 | `SRC-DP3-2026-RATES`, 2026, effective 2026-05-15–2027-05-14, `Base Point City!A1:E786` | BPC, ZIP3, and service-area assignment |
+| DISC-0083 | `SRC-DP3-2026-RATES`, `Geographical Schedule!A1:H229` | Service-area rate profile |
+| DISC-0084 | `SRC-DP3-2026-RATES`, `Linehaul!B2:CU91`, `Additional Rates!A2:F71`, `Accessorials!C2:CU101` | Rate matrix dimensions and cells |
+| DISC-0085 | `SRC-DP3-2026-RATES`, rate-sheet row 1; `SRC-DP3-2026-400NG`, Item 1.2(c), p. 18 | Rate-table effective-date conflict |
+| DISC-0086 | `SRC-DP3-ITEM-CODES`, version 2022-08-12, effective period unresolved, `DOM_400NG!A4:Q149`, legends `A151:L166` | Domestic billing-item-code vocabulary |
+| DISC-0087 | `SRC-DP3-ITEM-CODES`, `DOM_400NG!A123:Q144` | SIT billing-code requirements |
+| DISC-0088 | `SRC-DP3-2026-TRANSIT`, publication 2025-12-08, effective 2026-05-15, `Appendix L-Domestic!A1:F33` | Domestic transit-time matrix |
+| DISC-0089 | `SRC-DP3-MILEAGE-SIT`, version/effective period unstated, `MAIN!C2:H13`, `WORK!A1:I5`, `TREF!A1:C909`, `EREF!A2:B5`, sheets `A:D` | Mileage lookup structure |
+| DISC-0090 | `SRC-DP3-MILEAGE-SIT`, `MAIN!G9:H10`, `WORK!G5:I5`, `TT!A1:F21` | Provisional authorized-SIT-day derivation |
+| DISC-0091 | `SRC-DP3-MILEAGE-SIT`, `TT!A5:E5`; `SRC-DP3-2026-TRANSIT`, `Appendix L-Domestic!A5:E5` | Transit-table version conflict |
+
+Schema mappings:
+
+- `DISC-0082` → `postal_prefix_assignment`; versioned reference relationship;
+  one or more ZIP3 values per BPC and service area. Store ZIP3, BPC, state,
+  county, service-area identifier, source version, and effective interval.
+  Two-digit source values require left-zero padding and must remain identifiers.
+  Interpretation status: reviewed.
+- `DISC-0083` → `service_area_rate_profile`; one row per source-version/service
+  area. Dimensions include service-area identifier/name, service schedule, SIT
+  pickup/delivery schedule, and source version. Measures include linehaul factor,
+  Item 135A/B per cwt, Item 185A per cwt, and Item 185B per cwt/day. Store rates
+  as exact decimals with explicit units. Interpretation status: reviewed.
+- `DISC-0084` → `rate_table`, `rate_dimension`, `rate_band`, and `rate_cell`;
+  immutable by source version. Preserve inclusive lower/upper weight in pounds,
+  lower/upper distance in miles when applicable, item code, schedule, amount,
+  unit, and cell locator. Items 210A/210D are weight-by-schedule matrices while
+  210B/210E are schedule scalars. Interpretation status: reviewed.
+- `DISC-0085` → two `source_claim` records plus an unresolved
+  `interpretation_case`. The workbook labels all rate sheets “Based on Original
+  Requested Pickup Date,” while the tariff expressly selects actual-pickup-date
+  tables for SIT and listed accessorial services. Do not approve a date-selection
+  rule from either label without resolving scope and precedence. Interpretation
+  status: disputed.
+- `DISC-0086` → `billing_item_code_version` and versioned controlled-value
+  relationships. Preserve requested/actual date-basis code, service code, fuel
+  treatment, discount family, location role, description, primary/secondary
+  units, rate-basing references, required location pairs and N101 codes, L713
+  requirement, notes, approval screen, and approval flag. Interpretation status:
+  candidate because supersession and continuing applicability are unresolved.
+- `DISC-0087` → SIT-specific `billing_item_requirement` records. Item 185A uses
+  billed weight and requires the DPS SIT control number in N9; Item 185B uses
+  days and billed weight; Items 210A–210F require miles, location pairs, and
+  measurement/billed-weight observations; Item 226A requires performed-service
+  text. Origin and destination rows are separate code applications, not duplicate
+  records. Interpretation status: candidate pending a current item-code version.
+- `DISC-0088` → `transit_time_table`, two `rate_band`-like dimensions, and a day
+  measure. Select by inclusive mileage band and shipment-weight band; retain the
+  Alaska 5-day/16-day adjustment rules as separate conditions. Units are miles,
+  pounds, and calendar days. Interpretation status: reviewed for domestic use.
+- `DISC-0089` → `mileage_reference_version`, `postal_prefix_assignment`, and
+  `distance_lookup`. Inputs are origin/destination ZIP3; TREF selects table codes
+  and a compressed matrix; the selected matrix returns miles. Same-BPC results
+  require DTOD rather than a workbook mileage. Record raw ZIP3, mapped codes,
+  lookup branch, result, and cell provenance. Interpretation status: candidate
+  because the tool version/effective period is unstated.
+- `DISC-0090` → `sit_entitlement_balance_decision`; provisional formula outcome.
+  For the tool's stated non-Alaska direct-delivery scope, mileage is rounded up
+  to a 250-mile bracket, weight selects one of five bands, transit days come from
+  hidden `TT`, and displayed authorized SIT day equals Excel
+  `ROUND(transit_days × 0.7, 0)`. This expression is not approved for financial
+  or entitlement execution while its inputs conflict with the current table.
+- `DISC-0091` → conflicting versioned `source_claim` records. At 873 miles and
+  6,000 lbs, the mileage tool's bracket cell gives 9 transit days while the 2026
+  domestic table gives 18. The tool lacks an effective date, so it must not be
+  treated as the current transit authority or used to derive SIT entitlement
+  until reviewed. Interpretation status: disputed.
+
 ## Candidate domain areas
 
 The current sources suggest, but do not yet ratify, these entity families:
@@ -278,3 +540,18 @@ The current sources suggest, but do not yet ratify, these entity families:
 - Which location representation controls mileage and rate lookup?
 - What exact EDI element constraints must be preserved at integration boundaries?
 - Which facts are recorded as stated, observed, approved, billed, or paid values?
+- Which entitlement and tariff rules set the initial authorized SIT duration for
+  each in-scope domestic shipment, and which date legally begins each charge?
+- How must delivery offers and unsuccessful customer-contact attempts be
+  evidenced before destination SIT is billable?
+- How do 400NG minimum-weight rules apply to each portion of a split shipment,
+  especially where Chapter A-402 distinguishes employees from other customers?
+- Does the Appendix A `185E` label on page 84 merely contain a typographical
+  error, given that Item 185 and the adjacent formula identify `185B`?
+- Does the baseline workbook's original-requested-pickup-date banner apply to
+  SIT/accessorial tabs despite the explicit actual-pickup-date exception in
+  400NG Item 1.2(c)?
+- What publication/effective date governs the mileage/transit/SIT tool, and why
+  does its hidden domestic transit table differ from the 2026 transit workbook?
+- Has the 12 August 2022 domestic item-code listing been superseded, or is its
+  controlled vocabulary still authoritative for 2026 shipments?
